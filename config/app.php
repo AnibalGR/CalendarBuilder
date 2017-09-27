@@ -167,7 +167,7 @@ return [
         /*
          * Proveedor manejador HTML
          */
-        Collective\Html\HtmlServiceProvider::class,
+        //Collective\Html\HtmlServiceProvider::class,
 
         /*
          * Package Service Providers...

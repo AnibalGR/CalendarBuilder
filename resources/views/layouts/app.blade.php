@@ -16,24 +16,18 @@
         <!-- Styles -->
         <link href="{{ asset('css/app.css') }}" rel="stylesheet">
         <link href="{{ asset('css/bootstrap.css') }}" rel="stylesheet">
-        <link href="{{ asset('css/fullcalendar.min.css') }}" rel="stylesheet">
-        <link href="{{ asset('css/fullcalendar.print.min.css') }}" rel="stylesheet" media="print">
-        <link rel="stylesheet" href="{{ asset('css/bootstrap.vertical-tabs.css') }}">
+<!--        <link href="{{ asset('css/jquery-ui.css') }}" rel="stylesheet" >-->
+        <link href="{{ asset('css/bootstrap.vertical-tabs.css') }}" rel="stylesheet" >
+        
         <style>
             .dragThis {
-                width: 8em;
-                height: 8em;
+                width: 150px;
+                height: 150px;
                 padding: 0.5em;
                 border: 3px solid #ccc;
-                border-radius: 0 1em 1em 1em;
                 background-color: transparent;
                 z-index: 10;
                 position: absolute;
-            }
-            #calendar {
-                max-width: 900px;
-                max-height: 50%;
-                margin: 0 auto;
             }
         </style>
     </head>
@@ -96,9 +90,6 @@
                     </div>
                 </div>
             </nav>
-            <div id="contenedor">
-            
-        </div>
             @yield('content')
         </div>
 
@@ -110,7 +101,7 @@
             function init() {
                 // We configure the button whose create a new text object
                 $("#addButton").click(function () {
-                    $("#contenedor").append('<div class="dragThis ui-widget-content"><input type="text" placeholder="Write some text here"><ul><li id="posX"></li><li id="posY"></li></ul></div>');
+                    $("#contenedor").append('<div class="dragThis ui-widget-content" id="resizable"><input type="text" placeholder="Write some text here"><ul><li id="posX"></li><li id="posY"></li></ul></div>');
                     $('.dragThis').draggable({
                         revert:'invalid',
                         drag: function(){
@@ -122,115 +113,9 @@
                         }
                     });
                 });
-                
-                // We configure the calendar so it can get items dropped
-                $( "#calendar" ).droppable({
-                    classes: {
-                        "ui-droppable-active": "ui-state-active",
-                        "ui-droppable-hover": "ui-state-hover"
-                    },
-                    drop: function( event, ui ) {
-                        $( this )
-                        .addClass( "ui-state-highlight" )
-                        .find( "p" )
-                        .html( "Dropped!" );
-                    }
-                });
             }
         </script>
-        <script src="{{ asset('js/moment.min.js') }}"></script>
-        <script src="{{ asset('js/fullcalendar.min.js') }}"></script>
-
 <!--    <script src="{{ asset('js/app.js') }}"></script>-->
         <script src="{{ asset('js/bootstrap.min.js') }}"></script>
-        <script>
-
-                                               $(document).ready(function() {
-
-                                               $('#calendar').fullCalendar({
-                                               header: {
-                                               left: 'prev,next today',
-                                                       center: 'title',
-                                                       right: 'month,agendaWeek,agendaDay'
-                                               },
-                                                       defaultDate: '{{ Carbon::today()->toDateString() }}',
-                                                       navLinks: true, // can click day/week names to navigate views
-                                                       selectable: true,
-                                                       selectHelper: true,
-                                                       select: function(start, end) {
-                                                       var title = prompt('Event Title:');
-                                                       var eventData;
-                                                       if (title) {
-                                                       eventData = {
-                                                       title: title,
-                                                               start: start,
-                                                               end: end
-                                                       };
-                                                       $('#calendar').fullCalendar('renderEvent', eventData, true); // stick? = true
-                                                       }
-                                                       $('#calendar').fullCalendar('unselect');
-                                                       },
-                                                       editable: true,
-                                                       eventLimit: true, // allow "more" link when too many events
-                                                       events: [
-                                                       {
-                                                       title: 'All Day Event',
-                                                               start: '2017-09-01'
-                                                       },
-                                                       {
-                                                       title: 'Long Event',
-                                                               start: '2017-09-07',
-                                                               end: '2017-09-10'
-                                                       },
-                                                       {
-                                                       id: 999,
-                                                               title: 'Repeating Event',
-                                                               start: '2017-09-09T16:00:00'
-                                                       },
-                                                       {
-                                                       id: 999,
-                                                               title: 'Repeating Event',
-                                                               start: '2017-09-16T16:00:00'
-                                                       },
-                                                       {
-                                                       title: 'Conference',
-                                                               start: '2017-09-11',
-                                                               end: '2017-09-13'
-                                                       },
-                                                       {
-                                                       title: 'Meeting',
-                                                               start: '2017-09-12T10:30:00',
-                                                               end: '2017-09-12T12:30:00'
-                                                       },
-                                                       {
-                                                       title: 'Lunch',
-                                                               start: '2017-09-12T12:00:00'
-                                                       },
-                                                       {
-                                                       title: 'Meeting',
-                                                               start: '2017-09-12T14:30:00'
-                                                       },
-                                                       {
-                                                       title: 'Happy Hour',
-                                                               start: '2017-09-12T17:30:00'
-                                                       },
-                                                       {
-                                                       title: 'Dinner',
-                                                               start: '2017-09-12T20:00:00'
-                                                       },
-                                                       {
-                                                       title: 'Birthday Party',
-                                                               start: '2017-09-13T07:00:00'
-                                                       },
-                                                       {
-                                                       title: 'Click for Google',
-                                                               url: 'http://google.com/',
-                                                               start: '2017-09-28'
-                                                       }
-                                                       ]
-                                               });
-                                               });
-
-        </script>
     </body>
 </html>

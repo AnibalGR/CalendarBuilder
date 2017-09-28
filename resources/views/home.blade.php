@@ -23,6 +23,8 @@
                         <div class="tab-content">
                             <div class="tab-pane active" id="home">Choose Layout</div>
                             <div class="tab-pane" id="profile"><button id="addButton" type="button" class="btn btn-primary">Add Text</button></div>
+                            <div id="contenedor">
+                            </div>
                             <div class="tab-pane" id="messages">Some images</div>
                             <div class="tab-pane" id="settings">Some videos</div>
                         </div>

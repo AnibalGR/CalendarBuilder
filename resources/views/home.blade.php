@@ -27,7 +27,7 @@
             </div>
             </div>
             <div class="col-md-8">
-            <div class="panel panel-default">
+            <div class="panel panel-default ui-widget-header" id="droppable">
                 <div class="panel-heading center-block">Calendar</div>
                 <div id='calendar'></div>
             </div>

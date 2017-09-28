@@ -105,45 +105,37 @@
         <script src="{{ asset('js/jquery-3.2.1.min.js') }}"></script>
         <script src="{{ asset('js/jquery-ui.min.js') }}"></script>
         <script type="text/javascript">
-            
-                                               $(init);
-                                               function init() {
-                                               $('.dragThis').draggable(
-                                               {
-                                               drag: function(){
-                                               var offset = $(this).offset();
-                                               var xPos = offset.left;
-                                               var yPos = offset.top;
-                                               $('#posX').text('x: ' + xPos);
-                                               $('#posY').text('y: ' + yPos);
-                                               }
-                                               });
-                                               $("#addButton").click(function () {
-                                               
-                                                
-                                               $("#contenedor").append('<div class="dragThis"><input type="text" placeholder="Write some text here"><ul><li id="posX"></li><li id="posY"></li></ul></div>');
-                                               $('.dragThis').draggable({
-                                               drag: function(){
-                                               var offset = $(this).offset();
-                                               var xPos = offset.left;
-                                               var yPos = offset.top;
-                                               $('#posX').text('x: ' + xPos);
-                                               $('#posY').text('y: ' + yPos);
-                                               }
-                                               });
-                                               });
-                                               $('.dragThis').draggable(
-                                               {
-                                               drag: function(){
-                                               var offset = $(this).offset();
-                                               var xPos = offset.left;
-                                               var yPos = offset.top;
-                                               $('#posX').text('x: ' + xPos);
-                                               $('#posY').text('y: ' + yPos);
-                                               }
-                                               });
-                                               }
-
+            $(init);
+            function init() {
+                // We configure the button whose create a new text object
+                $("#addButton").click(function () {
+                    $("#contenedor").append('<div class="dragThis ui-widget-content"><input type="text" placeholder="Write some text here"><ul><li id="posX"></li><li id="posY"></li></ul></div>');
+                    $('.dragThis').draggable({
+                        revert:'invalid',
+                        drag: function(){
+                            var offset = $(this).offset();
+                            var xPos = offset.left;
+                            var yPos = offset.top;
+                            $('#posX').text('x: ' + xPos);
+                            $('#posY').text('y: ' + yPos);
+                        }
+                    });
+                });
+                
+                // We configure the calendar so it can get items dropped
+                $( "#calendar" ).droppable({
+                    classes: {
+                        "ui-droppable-active": "ui-state-active",
+                        "ui-droppable-hover": "ui-state-hover"
+                    },
+                    drop: function( event, ui ) {
+                        $( this )
+                        .addClass( "ui-state-highlight" )
+                        .find( "p" )
+                        .html( "Dropped!" );
+                    }
+                });
+            }
         </script>
         <script src="{{ asset('js/moment.min.js') }}"></script>
         <script src="{{ asset('js/fullcalendar.min.js') }}"></script>

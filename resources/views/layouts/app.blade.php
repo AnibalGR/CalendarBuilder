@@ -18,6 +18,7 @@
         <link href="{{ asset('css/bootstrap.css') }}" rel="stylesheet">
         <link href="{{ asset('css/fullcalendar.min.css') }}" rel="stylesheet">
         <link href="{{ asset('css/fullcalendar.print.min.css') }}" rel="stylesheet" media="print">
+        <link rel="stylesheet" href="{{ asset('css/bootstrap.vertical-tabs.css') }}">
         <style>
             .dragThis {
                 width: 8em;
@@ -70,7 +71,7 @@
                             <li><a href="{{ route('register') }}">Register</a></li>
                             @else
                             <li><button type="button" class="btn btn-primary">Save</button></li>
-                            <li><button id="addButton" type="button" class="btn btn-primary">Add Text</button></li>
+                            
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
                                     {{ Auth::user()->name }} <span class="caret"></span>

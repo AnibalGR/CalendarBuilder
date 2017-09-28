@@ -7,22 +7,26 @@
             <div class="col-md-4">
             <div class="panel panel-default">
                 <div class="panel-heading">Tools</div>
-                <button type="button" class="btn btn-default" aria-label="Left Align">
-  <span class="glyphicon glyphicon-align-left" aria-hidden="true"></span>
-</button>
-
-<button type="button" class="btn btn-default btn-lg">
-  <span class="glyphicon glyphicon-star" aria-hidden="true"></span> Star
-</button>
-
                 <div class="panel-body">
-                    @if (session('status'))
-                        <div class="alert alert-success">
-                            {{ session('status') }}
-                        </div>
-                    @endif
+                    <div class="col-xs-4"> <!-- required for floating -->
+                        <!-- Nav tabs -->
+                        <ul class="nav nav-tabs tabs-left">
+                            <li class="active"><a href="#home" data-toggle="tab">Layout</a></li>
+                            <li><a href="#profile" data-toggle="tab">Text</a></li>
+                            <li><a href="#messages" data-toggle="tab">Image</a></li>
+                            <li><a href="#settings" data-toggle="tab">Video</a></li>
+                        </ul>
+                    </div>
 
-                    You are logged in!
+                    <div class="col-xs-8">
+                        <!-- Tab panes -->
+                        <div class="tab-content">
+                            <div class="tab-pane active" id="home">Choose Layout</div>
+                            <div class="tab-pane" id="profile"><button id="addButton" type="button" class="btn btn-primary">Add Text</button></div>
+                            <div class="tab-pane" id="messages">Some images</div>
+                            <div class="tab-pane" id="settings">Some videos</div>
+                        </div>
+                    </div>
                 </div>
             </div>
             </div>

@@ -69,21 +69,6 @@
                             <li><a href="{{ route('login') }}">Login</a></li>
                             <li><a href="{{ route('register') }}">Register</a></li>
                             @else
-                            <li>
-                                <div class="dropdown">
-                                    <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Dropdown Example
-                                        <span class="caret"></span></button>
-                                    <ul class="dropdown-menu">
-                                        <li><a href="#">January</a></li>
-                                        <li><a href="#">February</a></li>
-                                        <li><a href="">March</a></li>
-                                        <li><a href="#">April</a></li>
-                                        <li><a href="#">May</a></li>
-                                        <li><a href="#">June</a></li>
-                                        <li><a href="#">July</a></li>
-
-                                    </ul>
-                                </div></li>
                             <li><button type="button" class="btn btn-primary">Save</button></li>
                             <li><button id="addButton" type="button" class="btn btn-primary">Add Text</button></li>
                             <li class="dropdown">
@@ -111,13 +96,7 @@
                 </div>
             </nav>
             <div id="contenedor">
-            <div class="dragThis">
-                <input type="text" placeholder="Write some text here">
-                <ul>
-                    <li id="posX"></li>
-                    <li id="posY"></li>
-                </ul>
-            </div>
+            
         </div>
             @yield('content')
         </div>
@@ -140,7 +119,9 @@
                                                }
                                                });
                                                $("#addButton").click(function () {
-                                               $("#contenedor").append('<div class="dragThis"><input type="text" placeholder="Write some text here"><ul><li id="posX"' .  ></li><li id="posY"></li></ul></div>');
+                                               
+                                                
+                                               $("#contenedor").append('<div class="dragThis"><input type="text" placeholder="Write some text here"><ul><li id="posX"></li><li id="posY"></li></ul></div>');
                                                $('.dragThis').draggable({
                                                drag: function(){
                                                var offset = $(this).offset();

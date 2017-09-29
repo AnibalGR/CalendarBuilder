@@ -225,8 +225,8 @@
 
                 reader.readAsDataURL(this.files[0]);
             }
-            $(".resis").resizable();
-            $('.upload-image-preview').resizable();
+            $(".resis").resizable().css('position', 'absolute');
+            $('.upload-image-preview').resizable().css('position', 'absolute');
         });
         
         initThemeChooser({

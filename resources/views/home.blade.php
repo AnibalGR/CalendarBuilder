@@ -14,7 +14,7 @@
     <div class="row">
         <div class="col-md-12">
             <div class="col-md-4">
-                <div class="panel panel-default" >
+                <div class="panel panel-default">
                     <div class="panel-heading">Tools</div>
                     <div class="panel-body panel-left">
                         <div class="col-xs-2"> <!-- required for floating -->
@@ -134,7 +134,8 @@
 <script>
     $(document).ready(function() {
         
-        
+        $("#toolsP").css('height',$("#calendarPanel").height());
+        $("#toolsP").css('border','solid');
         
         // Restablecemos los layouts
         $("#topLayout").hide();
@@ -196,7 +197,7 @@
         $("#showBottomLayout").click(function(){
         cleanLayout();
         $("#bottomLayout").css('visibility','visible');
-        $("#bottomLayout").css('height','200px');
+        $("#bottomLayout").css('height','100px');
         $("#bottomLayout").css('width','100%');
         $("#bottomLayout").css('border-color','black');
         $("#bottomLayout").css('border-style','solid');

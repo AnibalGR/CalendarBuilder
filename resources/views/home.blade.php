@@ -89,11 +89,11 @@
             </div>
             <div class="col-md-8">
                 <div class="panel panel-default">
-                    <div class="panel-heading">Calendar
+                    <div class="panel-heading">
                         
                         <div id='top'>
-
-		<div class='left'>
+                            <div class='left'>Calendar</div>
+		<div class='right'>
 
 			<div id='theme-system-selector' class='selector'>
 				Theme System:

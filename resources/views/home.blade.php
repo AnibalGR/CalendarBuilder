@@ -168,19 +168,14 @@
 
 		<div class='clear'></div>
 	</div></div>
-<<<<<<< HEAD
+
                     <div class="panel-body" id="calendarCont" style="height:auto">
-=======
-<<<<<<< HEAD
                     <div class="panel-body bg-right">
                         
 
 
-=======
                     <div class="panel-body" id="calendarCont" style="overflow: auto">
->>>>>>> 0af0851fa3f2ae54a1b081b8d0aac96c228f05d2
                         <p id="topLayout" style="visibility: hidden;  width: 0px; height: 0px;">Put your image here!</p>
->>>>>>> 068bd45d7d7b4517026653ca29625b5354244286
 	<div id='calendar'></div>
                         <p id="bottomLayout" style="visibility: hidden;  width: 0px; height: 0px;">Put your image here!</p>
                     </div>

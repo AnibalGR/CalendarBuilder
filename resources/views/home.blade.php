@@ -193,6 +193,9 @@
 <script>
     $(document).ready(function() {
         
+        $("#topLayout").hide();
+        $("#bottomLayout").hide();
+        
         // Function to show the top Layout
         $("#showTopLayout").click(function(){
         $("#topLayout").css('visibility','visible');

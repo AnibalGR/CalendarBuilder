@@ -40,7 +40,7 @@
 	}
         
         .d { z-index: 2}
-        #contenedor { z-index: 3; position: absolute}
+        #contenedor { z-index: 3; position: absolute; float: right; margin: 25px 0px 0px 5px;}
 	.left { float: left }
 	.right { float: right }
 	.clear { clear: both }
@@ -80,6 +80,14 @@
         .sb-content{
                 color: #ffffff;
         }
+        @media screen and (max-width: 991px){
+            .col-md-4{
+                padding-right: 15px;
+            }
+            .col-md-8{
+                padding-left: 15px;
+            }
+        }
 </style>
 @endsection
 
@@ -92,7 +100,6 @@
                 <div class="panel panel-default">
                     <div class="panel-heading">Tools</div>
                     <div class="panel-body panel-left">
-                        <div id="contenedor"></div>
                         <div class="col-xs-2"> <!-- required for floating -->
                             <!-- Nav tabs -->
                             <ul class="nav nav-tabs tabs-left" id="left-menu">
@@ -110,6 +117,7 @@
                                 <div class="tab-pane" id="profile"><button id="addButton" type="button" class="btn btn-primary">Add Text</button><div id="contenedor"></div></div>
                                 <div class="tab-pane" id="messages"><button id="addImage" type="button" class="btn btn-danger">Upload Image</button></div>
                                 <div class="tab-pane" id="settings">Some videos</div>
+                                <div id="contenedor"></div>
                             </div>
                         </div>
                     </div>

@@ -244,7 +244,7 @@
         
         // Function to show the left Layout
         $("#showLeftLayout").click(function(){
-        $("#topLayout").css('visibility','visible');
+        $("#leftLayout").css('visibility','visible');
         $("#topLayout").css('height','200px');
         $("#topLayout").css('width','100%');
         $("#topLayout").css('border-color','black');

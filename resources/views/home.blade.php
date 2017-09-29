@@ -138,7 +138,7 @@
 
 		<div class='clear'></div>
 	</div></div>
-                    <div class="panel-body" id="calendarCont" style="overflow: auto">
+                    <div class="panel-body" id="calendarCont" style="height:auto">
                         <p id="topLayout" style="visibility: hidden;  width: 0px; height: 0px;">Put your image here!</p>
 	<div id='calendar'></div>
                         <p id="bottomLayout" style="visibility: hidden;  width: 0px; height: 0px;">Put your image here!</p>

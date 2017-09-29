@@ -225,8 +225,8 @@
 
                 reader.readAsDataURL(this.files[0]);
             }
-            $(".resis").resizable().css('position', 'absolute');
-            $('.upload-image-preview').resizable().css('position', 'absolute');
+            $(".resis").resizable().css('position', 'absolute').css('z-index', '2');
+            $('.upload-image-preview').resizable().css('position', 'absolute').css('z-index', '2');
         });
         
         initThemeChooser({
@@ -259,7 +259,7 @@
             $(init);
             function init() {
                 
-                $("#imagePrev").draggable();
+                $("#imagePrev").draggable({ revert:'invalid' });
                 $(".resis").resizable();
                 
                 

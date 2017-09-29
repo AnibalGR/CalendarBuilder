@@ -40,7 +40,7 @@
 	}
         
         .d { z-index: 2}
-        #contenedor { z-index: 3; position: absolute; float: right; margin: 25px 0px 0px 5px;}
+        #contenedor { z-index: 3; position: absolute; float: right; margin: 140px 0px 0px 80px;}
 	.left { float: left }
 	.right { float: right }
 	.clear { clear: both }

@@ -10,6 +10,7 @@
 
 
 @section('content')
+<div class="upload-image-preview" id="imagePrev"></div>
 <div class="container-fluid">
     <div class="row">
         <div class="col-md-12">
@@ -53,7 +54,6 @@
                                 <div class="tab-pane" id="settings">Some videos</div>
                                 
                             </div>
-                            <div class="upload-image-preview" id="imagePrev"></div>
                         </div>
                     </div>
                 </div>
@@ -144,10 +144,10 @@
         
         
         // Restablecemos los layouts
-        $("#topLayout").hide();
-        $("#bottomLayout").hide();
-        $("#leftLayout").hide();
-        $("#rightLayout").hide();
+        $("#topLayout").hide().droppable();
+        $("#bottomLayout").hide().droppable();
+        $("#leftLayout").hide().droppable();
+        $("#rightLayout").hide().droppable();
         $('#calendar').droppable();
         
         // Function to show the top Layout
@@ -218,13 +218,15 @@
                 var reader = new FileReader();
 
                 reader.onload = function (e) {
-                    var img = $('<img>').attr('src', e.target.result);
+                    var img = $('<img class="resis">').attr('src', e.target.result);
                     $('.upload-image-preview').append(img);
                     
                 };
 
                 reader.readAsDataURL(this.files[0]);
             }
+            $(".resis").resizable();
+            $('.upload-image-preview').resizable();
         });
         
         initThemeChooser({
@@ -258,7 +260,7 @@
             function init() {
                 
                 $("#imagePrev").draggable();
-                
+                $(".resis").resizable();
                 
                 
                 // We configure the button whose create a new text object

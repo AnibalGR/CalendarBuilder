@@ -87,3 +87,9 @@
                 padding-left: 15px;
             }
         }
+/*******Nav Bar******/
+.navbar-default{
+    border: none;
+    height: 90px;
+    background-color: #26b8ea;
+}

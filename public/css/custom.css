@@ -116,10 +116,10 @@
   width: 150px;
   height: 150px;
   position: absolute;
-  z-index: 2;
+  z-index: -2;
 }
 
 .resis {
     position: absolute;
-    z-index: 2;
+    z-index: -2;
 }

@@ -76,7 +76,7 @@
                         <div class="col-xs-8">
                             <!-- Tab panes -->
                             <div class="tab-content">
-                                <div class="tab-pane active" id="home">Choose Layout</div>
+                                <div class="tab-pane active" id="home"><button id="restLayout" type="button" class="btn btn-primary">Top layout</button><button id="noneLayout" type="button" class="btn btn-success">None layout</button></div>
                                 <div class="tab-pane" id="profile"><button id="addButton" type="button" class="btn btn-primary">Add Text</button><div id="contenedor"></div></div>
                                 <div class="tab-pane" id="messages"><button id="addImage" type="button" class="btn btn-danger">Upload Image</button></div>
                                 <div class="tab-pane" id="settings">Some videos</div>
@@ -138,10 +138,8 @@
 
 		<div class='clear'></div>
 	</div></div>
-                    <div class="panel-body">
-                        
-
-
+                    <div class="panel-body" id="calendarCont">
+                        <p id="este" style="visibility: hidden; over-flow: hidden; width: 0px; height: 0px;">Put your image here!</p>
 	<div id='calendar'></div>
                         
                     </div>
@@ -157,14 +155,28 @@
 <script src="{{ asset('js/fullcalendar.min.js') }}"></script>
 <script src="{{ asset('js/theme-chooser.js') }}"></script>
 <script>
-
-        $(document).ready(function() {
-
-                initThemeChooser({
-
-                        init: function(themeSystem) {
-                                $('#calendar').fullCalendar({
-                                        themeSystem: themeSystem,
+    $(document).ready(function() {
+        $("#restLayout").click(function(){
+        $("#este").css('visibility','visible');
+        $("#este").css('height','200px');
+        $("#este").css('width','100%');
+        $("#este").css('border-color','black');
+        $("#este").css('border-style','solid');
+        $("#este").resizable({
+            containment: "#calendarCont",
+            animate: true,
+            handles: 's',
+            ghost: true
+        });
+        $("#este").show();
+        });
+        $("#noneLayout").click(function(){
+        $("#este").hide();
+        });
+        initThemeChooser({
+            init: function(themeSystem) {
+                $('#calendar').fullCalendar({
+                                     themeSystem: themeSystem,
                                         height: 'auto',
                                         header: {
                                                 left: 'prev,next',

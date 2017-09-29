@@ -165,6 +165,7 @@
                         init: function(themeSystem) {
                                 $('#calendar').fullCalendar({
                                         themeSystem: themeSystem,
+                                        height: 'auto',
                                         header: {
                                                 left: 'prev,next',
                                                 center: 'title',
@@ -199,7 +200,8 @@
                         
                     }).dblclick(function() {
                     $(this).draggable({ disabled: true, revert:'invalid' });
-});
+                    });
+                    $(".d").resizable({animate: true});
 //                    $('.dragThis').draggable({
 //                        revert:'invalid'
 ////                        drag: function(){

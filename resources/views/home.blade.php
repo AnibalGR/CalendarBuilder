@@ -24,8 +24,8 @@
 	}
 
 	#top {
-		background: #eee;
-		border-bottom: 1px solid #ddd;
+		/*background: #eee;
+		border-bottom: 1px solid #ddd;*/
 		padding: 0 10px;
 		line-height: 40px;
 		font-size: 12px;

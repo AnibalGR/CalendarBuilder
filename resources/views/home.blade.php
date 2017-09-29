@@ -259,7 +259,7 @@
             $(init);
             function init() {
                 
-                $("#imagePrev").draggable();
+                $("#imagePrev").draggable({ revert:'invalid' });
                 $(".resis").resizable();
                 
                 

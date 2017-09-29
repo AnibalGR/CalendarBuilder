@@ -17,6 +17,7 @@
         <link href="{{ asset('css/app.css') }}" rel="stylesheet">
         <link href="{{ asset('css/bootstrap.css') }}" rel="stylesheet">
         <link href="{{ asset('css/jquery-ui.css') }}" rel="stylesheet" >
+        <link href="{{ asset('css/custom.css') }}" rel="stylesheet" >
         @yield('styles')
         
     </head>
@@ -36,7 +37,7 @@
 
                         <!-- Branding Image -->
                         <a class="navbar-brand" href="{{ url('/') }}">
-                            {{ config('app.name', 'Laravel') }}
+                            <img src="{{ asset('img/calendar-builder.png') }}" class="img-responsive">
                         </a>
                     </div>
 

@@ -76,7 +76,7 @@
                         <div class="col-xs-8">
                             <!-- Tab panes -->
                             <div class="tab-content">
-                                <div class="tab-pane active" id="home"><button id="restLayout" type="button" class="btn btn-primary">Top layout</button><button id="noneLayout" type="button" class="btn btn-success">None layout</button></div>
+                                <div class="tab-pane active" id="home"><button id="showTopLayout" type="button" class="btn btn-primary">Top layout</button><button id="showBottomLayout" type="button" class="btn btn-success">Bottom layout</button><button id="noneLayout" type="button" class="btn btn-success">None layout</button></div>
                                 <div class="tab-pane" id="profile"><button id="addButton" type="button" class="btn btn-primary">Add Text</button><div id="contenedor"></div></div>
                                 <div class="tab-pane" id="messages"><button id="addImage" type="button" class="btn btn-danger">Upload Image</button></div>
                                 <div class="tab-pane" id="settings">Some videos</div>
@@ -138,10 +138,10 @@
 
 		<div class='clear'></div>
 	</div></div>
-                    <div class="panel-body" id="calendarCont">
-                        <p id="este" style="visibility: hidden; over-flow: hidden; width: 0px; height: 0px;">Put your image here!</p>
+                    <div class="panel-body" id="calendarCont" style="overflow: auto">
+                        <p id="topLayout" style="visibility: hidden;  width: 0px; height: 0px;">Put your image here!</p>
 	<div id='calendar'></div>
-                        
+                        <p id="bottomLayout" style="visibility: hidden;  width: 0px; height: 0px;">Put your image here!</p>
                     </div>
                 </div>
             </div>
@@ -156,22 +156,45 @@
 <script src="{{ asset('js/theme-chooser.js') }}"></script>
 <script>
     $(document).ready(function() {
-        $("#restLayout").click(function(){
-        $("#este").css('visibility','visible');
-        $("#este").css('height','200px');
-        $("#este").css('width','100%');
-        $("#este").css('border-color','black');
-        $("#este").css('border-style','solid');
-        $("#este").resizable({
+        
+        // Function to show the top Layout
+        $("#showTopLayout").click(function(){
+        $("#topLayout").css('visibility','visible');
+        $("#topLayout").css('height','200px');
+        $("#topLayout").css('width','100%');
+        $("#topLayout").css('border-color','black');
+        $("#topLayout").css('border-style','solid');
+        $("#topLayout").resizable({
             containment: "#calendarCont",
             animate: true,
             handles: 's',
             ghost: true
         });
-        $("#este").show();
+        $("#topLayout").show();
         });
+        
+        // Function to show the bottom Layout
+        $("#showBottomLayout").click(function(){
+        $("#bottomLayout").css('visibility','visible');
+        $("#bottomLayout").css('height','200px');
+        $("#bottomLayout").css('width','100%');
+        $("#bottomLayout").css('border-color','black');
+        $("#bottomLayout").css('border-style','solid');
+        $("#bottomLayout").css('padding-top','5px');
+        $("#bottomLayout").resizable({
+            containment: "#calendarCont",
+            animate: true,
+            //handles: 'n',
+            ghost: true
+        });
+        $("#bottomLayout").show();
+        });
+        
+        
+        
         $("#noneLayout").click(function(){
-        $("#este").hide();
+        $("#topLayout").hide();
+        $("#bottomLayout").hide();
         });
         initThemeChooser({
             init: function(themeSystem) {
@@ -188,7 +211,6 @@
                                         navLinks: true, // can click day/week names to navigate views
                                         editable: true,
                                         eventLimit: true // allow "more" link when too many events
-                                        
                                 });
                         },
 

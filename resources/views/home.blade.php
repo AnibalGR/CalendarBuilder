@@ -38,7 +38,9 @@
 	#top select {
 		font: inherit; /* mock what Boostrap does, don't compete  */
 	}
-
+        
+        .d { z-index: 2}
+        #contenedor { z-index: 3; position: absolute}
 	.left { float: left }
 	.right { float: right }
 	.clear { clear: both }
@@ -60,6 +62,7 @@
                 <div class="panel panel-default">
                     <div class="panel-heading">Tools</div>
                     <div class="panel-body">
+                        <div id="contenedor"></div>
                         <div class="col-xs-4"> <!-- required for floating -->
                             <!-- Nav tabs -->
                             <ul class="nav nav-tabs tabs-left">
@@ -74,10 +77,8 @@
                             <!-- Tab panes -->
                             <div class="tab-content">
                                 <div class="tab-pane active" id="home">Choose Layout</div>
-                                <div class="tab-pane" id="profile"><button id="addButton" type="button" class="btn btn-primary">Add Text</button></div>
-                                <div id="contenedor">
-                                </div>
-                                <div class="tab-pane" id="messages">Some images</div>
+                                <div class="tab-pane" id="profile"><button id="addButton" type="button" class="btn btn-primary">Add Text</button><div id="contenedor"></div></div>
+                                <div class="tab-pane" id="messages"><button id="addImage" type="button" class="btn btn-danger">Upload Image</button></div>
                                 <div class="tab-pane" id="settings">Some videos</div>
                             </div>
                         </div>
@@ -165,9 +166,9 @@
                                 $('#calendar').fullCalendar({
                                         themeSystem: themeSystem,
                                         header: {
-                                                left: 'prev,next today',
+                                                left: 'prev,next',
                                                 center: 'title',
-                                                right: 'month,agendaWeek,agendaDay,listMonth'
+                                                right: null
                                         },
                                         defaultDate: '2017-09-12',
                                         weekNumbers: false,
@@ -192,17 +193,24 @@
             function init() {
                 // We configure the button whose create a new text object
                 $("#addButton").click(function () {
-                    $("#contenedor").append('<div class="dragThis" id="resizable"><input type="text" placeholder="Write some text here"><ul><li id="posX"></li><li id="posY"></li></ul></div>');
-                    $('.dragThis').draggable({
-                        revert:'invalid',
-                        drag: function(){
-                            var offset = $(this).offset();
-                            var xPos = offset.left;
-                            var yPos = offset.top;
-                            $('#posX').text('x: ' + xPos);
-                            $('#posY').text('y: ' + yPos);
-                        }
-                    });
+                    $('#contenedor').append('<div contenteditable="true" class="d"><span>Double click here</span></div>');
+                    $(".d").draggable().click(function() {
+                        $(this).draggable( {disabled: false, revert:'invalid'});
+                        
+                    }).dblclick(function() {
+                    $(this).draggable({ disabled: true, revert:'invalid' });
+});
+//                    $('.dragThis').draggable({
+//                        revert:'invalid'
+////                        drag: function(){
+////                            var offset = $(this).offset();
+////                            var xPos = offset.left;
+////                            var yPos = offset.top;
+////                            $('#posX').text('x: ' + xPos);
+////                            $('#posY').text('y: ' + yPos);
+////                        }
+//                    });
+                    //$("#resizable").resizable();
                 });
             }
 </script>

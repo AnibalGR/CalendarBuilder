@@ -131,7 +131,7 @@
                             <!-- Tab panes -->
                             <div class="tab-content">
                                 <div id="contenedor"></div>
-                                <div class="tab-pane active" id="home"><button id="showTopLayout" type="button" class="btn btn-primary">Top layout</button><button id="showBottomLayout" type="button" class="btn btn-success">Bottom layout</button><button id="noneLayout" type="button" class="btn btn-success">None layout</button></div>
+                                <div class="tab-pane active" id="home"><button id="showTopLayout" type="button" class="btn btn-primary">Top layout</button><button id="showBottomLayout" type="button" class="btn btn-success">Bottom layout</button><button id="noneLayout" type="button" class="btn btn-success">None layout</button><button id="showLeftLayout" type="button" class="btn btn-success">Left layout</button></div>
                                 <div class="tab-pane" id="profile"><button id="addButton" type="button" class="btn btn-primary">Add Text</button></div>
                                 <div class="tab-pane" id="messages"><button id="addImage" type="button" class="btn btn-danger">Upload Image</button></div>
                                 <div class="tab-pane" id="settings">Some videos</div>
@@ -202,7 +202,8 @@
 
                     <div class="panel-body" id="calendarCont" style="overflow: auto">
                         <p id="topLayout" style="visibility: hidden;  width: 0px; height: 0px;">Put your image here!</p>
-	<div id='calendar'></div>
+                        <p id="leftLayout" style="visibility: hidden;  width: 0px; height: 0px; float: left">Aquí va la izquierda!</p>
+                        <div id='calendar' style="max-width: 75%; float: right"></div>
                         <p id="bottomLayout" style="visibility: hidden;  width: 0px; height: 0px;">Put your image here!</p>
                     </div>
                 </div>
@@ -236,9 +237,21 @@
         $("#topLayout").css('border-style','solid');
         $("#topLayout").resizable({
             containment: "#calendarCont",
-            animate: true,
-            handles: 's',
-            ghost: true
+            handles: 's'
+        });
+        $("#topLayout").show();
+        });
+        
+        // Function to show the left Layout
+        $("#showLeftLayout").click(function(){
+        $("#topLayout").css('visibility','visible');
+        $("#topLayout").css('height','200px');
+        $("#topLayout").css('width','100%');
+        $("#topLayout").css('border-color','black');
+        $("#topLayout").css('border-style','solid');
+        $("#topLayout").resizable({
+            containment: "#calendarCont",
+            handles: 's'
         });
         $("#topLayout").show();
         });

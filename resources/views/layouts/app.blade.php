@@ -16,20 +16,9 @@
         <!-- Styles -->
         <link href="{{ asset('css/app.css') }}" rel="stylesheet">
         <link href="{{ asset('css/bootstrap.css') }}" rel="stylesheet">
-<!--        <link href="{{ asset('css/jquery-ui.css') }}" rel="stylesheet" >-->
-        <link href="{{ asset('css/bootstrap.vertical-tabs.css') }}" rel="stylesheet" >
+        <link href="{{ asset('css/jquery-ui.css') }}" rel="stylesheet" >
+        @yield('styles')
         
-        <style>
-            .dragThis {
-                width: 150px;
-                height: 150px;
-                padding: 0.5em;
-                border: 3px solid #ccc;
-                background-color: transparent;
-                z-index: 10;
-                position: absolute;
-            }
-        </style>
     </head>
     <body>
         <div id="app">
@@ -96,26 +85,9 @@
         <!-- Scripts -->
         <script src="{{ asset('js/jquery-3.2.1.min.js') }}"></script>
         <script src="{{ asset('js/jquery-ui.min.js') }}"></script>
-        <script type="text/javascript">
-            $(init);
-            function init() {
-                // We configure the button whose create a new text object
-                $("#addButton").click(function () {
-                    $("#contenedor").append('<div class="dragThis ui-widget-content" id="resizable"><input type="text" placeholder="Write some text here"><ul><li id="posX"></li><li id="posY"></li></ul></div>');
-                    $('.dragThis').draggable({
-                        revert:'invalid',
-                        drag: function(){
-                            var offset = $(this).offset();
-                            var xPos = offset.left;
-                            var yPos = offset.top;
-                            $('#posX').text('x: ' + xPos);
-                            $('#posY').text('y: ' + yPos);
-                        }
-                    });
-                });
-            }
-        </script>
-<!--    <script src="{{ asset('js/app.js') }}"></script>-->
+<!--        <script src="{{ asset('js/app.js') }}"></script>-->
         <script src="{{ asset('js/bootstrap.min.js') }}"></script>
+        @yield('scripts')
+                
     </body>
 </html>

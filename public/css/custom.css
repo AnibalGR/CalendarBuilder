@@ -32,7 +32,7 @@
                 font: inherit; /* mock what Boostrap does, don't compete  */
         }
         
-        .d { z-index: 2}
+        .d { z-index: 2; position: absolute;}
         #contenedor { z-index: 3; position: absolute; float: right; margin: 140px 0px 0px 80px;}
         .left { float: left }
         .right { float: right }
@@ -96,6 +96,7 @@
         .top-logo{
                 margin-top: -10px;
         }
+<<<<<<< HEAD
 
 /*******Mobile Menu********/
         .navbar-toggle{
@@ -105,3 +106,22 @@
         .navbar-toggle .icon-bar{
                 background-color: #ffffff !important;
         }
+=======
+        
+        .upload-image-preview img{
+    width: 100%;
+    height:  100%;
+}
+
+.upload-image-preview {
+  width: 150px;
+  height: 150px;
+  position: absolute;
+  z-index: 2;
+}
+
+.resis {
+    position: absolute;
+    z-index: 2;
+}
+>>>>>>> 5080139c1ceed64a44bbf9a12aae31fa5d898e7a

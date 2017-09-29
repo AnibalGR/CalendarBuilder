@@ -49,7 +49,37 @@
 		max-width: 900px;
 		padding: 0 10px;
 	}
-
+/*********************Custom CSS****************************/
+        .col-xs-2{
+                padding-right: 0px;
+                padding-left: 0px;
+        }
+        .col-md-4{
+                padding-right: 0px;
+        }
+        .col-md-8{
+                padding-left: 0px;
+        }
+        .panel-left{
+                background-color: #5e5e5e;
+                height: 100%;
+                padding: 0px 0px !important;
+        }
+        .bg-right{
+                background-color: #e5e5e5;
+        }
+        #left-menu li a{
+                color:#ffffff;
+                background-color: #444444;
+                border: none !important;
+                border-radius: 0px 0px 0px 0px !important;
+        }
+        .nav-tabs > li.active > a, .nav-tabs > li.active > a:hover, .nav-tabs > li.active > a:focus{
+                background-color: #5e5e5e !important;
+        }
+        .sb-content{
+                color: #ffffff;
+        }
 </style>
 @endsection
 
@@ -61,11 +91,11 @@
             <div class="col-md-4">
                 <div class="panel panel-default">
                     <div class="panel-heading">Tools</div>
-                    <div class="panel-body">
+                    <div class="panel-body panel-left">
                         <div id="contenedor"></div>
-                        <div class="col-xs-4"> <!-- required for floating -->
+                        <div class="col-xs-2"> <!-- required for floating -->
                             <!-- Nav tabs -->
-                            <ul class="nav nav-tabs tabs-left">
+                            <ul class="nav nav-tabs tabs-left" id="left-menu">
                                 <li class="active"><a href="#home" data-toggle="tab">Layout</a></li>
                                 <li><a href="#profile" data-toggle="tab">Text</a></li>
                                 <li><a href="#messages" data-toggle="tab">Image</a></li>
@@ -73,7 +103,7 @@
                             </ul>
                         </div>
 
-                        <div class="col-xs-8">
+                        <div class="col-xs-10 sb-content">
                             <!-- Tab panes -->
                             <div class="tab-content">
                                 <div class="tab-pane active" id="home"><button id="showTopLayout" type="button" class="btn btn-primary">Top layout</button><button id="showBottomLayout" type="button" class="btn btn-success">Bottom layout</button><button id="noneLayout" type="button" class="btn btn-success">None layout</button></div>
@@ -138,8 +168,19 @@
 
 		<div class='clear'></div>
 	</div></div>
+<<<<<<< HEAD
                     <div class="panel-body" id="calendarCont" style="height:auto">
+=======
+<<<<<<< HEAD
+                    <div class="panel-body bg-right">
+                        
+
+
+=======
+                    <div class="panel-body" id="calendarCont" style="overflow: auto">
+>>>>>>> 0af0851fa3f2ae54a1b081b8d0aac96c228f05d2
                         <p id="topLayout" style="visibility: hidden;  width: 0px; height: 0px;">Put your image here!</p>
+>>>>>>> 068bd45d7d7b4517026653ca29625b5354244286
 	<div id='calendar'></div>
                         <p id="bottomLayout" style="visibility: hidden;  width: 0px; height: 0px;">Put your image here!</p>
                     </div>

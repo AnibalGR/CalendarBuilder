@@ -1,4 +1,5 @@
 /****Draggable text*****/
+
            .dragThis {
                 width: 150px;
                 height: 150px;
@@ -7,6 +8,7 @@
                 background-color: transparent;
                 z-index: 10;
                 position: absolute;
+           }
          
 /*******Default Calendar*********/
         #top,
@@ -39,7 +41,7 @@
         #calendar {
                 max-width: 900px;
                 padding: 0 10px;
-        }   }
+        }   
 
 /*******Custom Calendar View********/
         .col-xs-2{

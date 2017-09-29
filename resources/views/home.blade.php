@@ -43,7 +43,7 @@
                             <!-- Tab panes -->
                             <div class="tab-content">
                                 <div id="contenedor"></div>
-                                <div class="tab-pane active" id="home"><button id="showTopLayout" type="button" class="btn btn-primary">Top layout</button><button id="showBottomLayout" type="button" class="btn btn-success">Bottom layout</button><button id="noneLayout" type="button" class="btn btn-success">None layout</button></div>
+                                <div class="tab-pane active" id="home"><button id="showTopLayout" type="button" class="btn btn-primary">Top layout</button><button id="showBottomLayout" type="button" class="btn btn-success">Bottom layout</button><button id="noneLayout" type="button" class="btn btn-warning">None layout</button><button id="showLeftLayout" type="button" class="btn btn-success">Left layout</button></div>
                                 <div class="tab-pane" id="profile"><button id="addButton" type="button" class="btn btn-primary">Add Text</button></div>
                                 <div class="tab-pane" id="messages"><button id="addImage" type="button" class="btn btn-danger">Upload Image</button></div>
                                 <div class="tab-pane" id="settings">Some videos</div>
@@ -108,13 +108,14 @@
 	</div></div>
 
                     <div class="panel-body" id="calendarPanel" style="height:auto">
-                    <div class="panel-body bg-right">
+                        <div class="panel-body bg-right" >
                         
 
 
                     <div class="panel-body" id="calendarCont" style="overflow: auto">
                         <p id="topLayout" style="visibility: hidden;  width: 0px; height: 0px;">Put your image here!</p>
-	<div id='calendar'></div>
+                        <p id="leftLayout" style="visibility: hidden;  width: 0px; height: 0px; float: left">Aquí va la izquierda!</p>
+                        <div id='calendar'></div>
                         <p id="bottomLayout" style="visibility: hidden;  width: 0px; height: 0px;">Put your image here!</p>
                     </div>
                 </div>
@@ -137,6 +138,7 @@
         // Restablecemos los layouts
         $("#topLayout").hide();
         $("#bottomLayout").hide();
+        $("#leftLayout").hide();
         $('#calendar').droppable();
         
         // Function to show the top Layout
@@ -148,11 +150,25 @@
         $("#topLayout").css('border-style','solid');
         $("#topLayout").resizable({
             containment: "#calendarCont",
-            animate: true,
-            handles: 's',
-            ghost: true
+            handles: 's'
         });
         $("#topLayout").show();
+        });
+        
+        // Function to show the left Layout
+        $("#showLeftLayout").click(function(){
+        $("#leftLayout").css('visibility','visible');
+        $("#leftLayout").css('height',$("#calendarCont").height());
+        $("#leftLayout").css('width','25%');
+        $("#leftLayout").css('border-color','black');
+        $("#leftLayout").css('border-style','solid');
+        $("#calendar").css('max-width','75%');
+        $("#calendar").css('float','right');
+        $("#leftLayout").resizable({
+            containment: "#calendarCont",
+            handles: 'e'
+        });
+        $("#leftLayout").show();
         });
         
         // Function to show the bottom Layout
@@ -177,6 +193,9 @@
         $("#noneLayout").click(function(){
         $("#topLayout").hide();
         $("#bottomLayout").hide();
+        $("#leftLayout").hide();
+        $("#calendar").css('max-width','100%');
+        $("#calendar").css('float','none');
         });
         initThemeChooser({
             init: function(themeSystem) {

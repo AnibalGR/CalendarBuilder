@@ -96,7 +96,7 @@
         .top-logo{
                 margin-top: -10px;
         }
-<<<<<<< HEAD
+
 
 /*******Mobile Menu********/
         .navbar-toggle{
@@ -106,7 +106,6 @@
         .navbar-toggle .icon-bar{
                 background-color: #ffffff !important;
         }
-=======
         
         .upload-image-preview img{
     width: 100%;
@@ -124,4 +123,3 @@
     position: absolute;
     z-index: 2;
 }
->>>>>>> 5080139c1ceed64a44bbf9a12aae31fa5d898e7a

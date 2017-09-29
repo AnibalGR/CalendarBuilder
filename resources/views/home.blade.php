@@ -97,7 +97,7 @@
     <div class="row">
         <div class="col-md-12">
             <div class="col-md-4">
-                <div class="panel panel-default">
+                <div class="panel panel-default" >
                     <div class="panel-heading">Tools</div>
                     <div class="panel-body panel-left">
                         <div class="col-xs-2"> <!-- required for floating -->
@@ -123,7 +123,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-8">
+            <div class="col-md-8" id="calendarPanel">
                 <div class="panel panel-default">
                     <div class="panel-heading">
                         
@@ -177,7 +177,7 @@
 		<div class='clear'></div>
 	</div></div>
 
-                    <div class="panel-body" id="calendarCont" style="height:auto">
+                    <div class="panel-body" id="calendarPanel" style="height:auto">
                     <div class="panel-body bg-right">
                         
 
@@ -192,6 +192,7 @@
         </div>
     </div>
 </div>
+    </div></div>
 @endsection
 
 @section('scripts')
@@ -201,8 +202,12 @@
 <script>
     $(document).ready(function() {
         
+        
+        
+        // Restablecemos los layouts
         $("#topLayout").hide();
         $("#bottomLayout").hide();
+        $('#calendar').droppable();
         
         // Function to show the top Layout
         $("#showTopLayout").click(function(){
@@ -266,9 +271,8 @@
                         }
 
                 });
-                $('#calendar').droppable();
         });
-
+        
 </script>
 <script type="text/javascript">
             $(init);
@@ -276,6 +280,7 @@
                 // We configure the button whose create a new text object
                 $("#addButton").click(function () {
                     $('#contenedor').append('<div contenteditable="true" class="d"><span>Double click here</span></div>');
+                    
                     $(".d").draggable().click(function() {
                         $(this).draggable( {disabled: false, revert:'invalid'});
                         

@@ -37,7 +37,7 @@
 
                         <!-- Branding Image -->
                         <a class="navbar-brand" href="{{ url('/') }}">
-                            <img src="{{ asset('img/calendar-builder.png') }}" class="img-responsive">
+                            <img src="{{ asset('img/calendar-builder.png') }}" class="img-responsive top-logo">
                         </a>
                     </div>
 

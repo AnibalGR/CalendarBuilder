@@ -10,13 +10,14 @@
 
 
 @section('content')
+<div class="upload-image-preview" id="imagePrev"></div>
 <div class="container-fluid">
     <div class="row">
         <div class="col-md-12">
-            <div class="col-md-4">
-                <div class="panel panel-default">
+            <div class="col-md-4" >
+                <div class="panel panel-default" >
                     <div class="panel-heading">Tools</div>
-                    <div class="panel-body panel-left">
+                    <div class="panel-body panel-left" >
                         <div class="col-xs-2"> <!-- required for floating -->
                             <!-- Nav tabs -->
                             <ul class="nav nav-tabs tabs-left" id="left-menu">
@@ -45,9 +46,13 @@
                                 <div id="contenedor"></div>
                                 <div class="tab-pane active" id="home"><button id="showTopLayout" type="button" class="btn btn-primary">Top layout</button><button id="showBottomLayout" type="button" class="btn btn-success">Bottom layout</button><button id="noneLayout" type="button" class="btn btn-danger">None layout</button><button id="showLeftLayout" type="button" class="btn btn-success">Left layout</button><button id="showRightLayout" type="button" class="btn btn-success">Right layout</button></div>
                                 <div class="tab-pane" id="profile"><button id="addButton" type="button" class="btn btn-primary">Add Text</button></div>
-                                <div class="tab-pane" id="messages"><button id="addImage" type="button" class="btn btn-danger">Upload Image</button></div>
+                                <div class="tab-pane" id="messages">
+                                    <div class="upload-image">
+                                        <input type="file" name="file" value="Upload Image" />
+                                    </div>
+                                </div>
                                 <div class="tab-pane" id="settings">Some videos</div>
-                                <div id="contenedor"></div>
+                                
                             </div>
                         </div>
                     </div>
@@ -137,11 +142,12 @@
         $("#toolsP").css('height',$("#calendarPanel").height());
         $("#toolsP").css('border','solid');
         
+        
         // Restablecemos los layouts
-        $("#topLayout").hide();
-        $("#bottomLayout").hide();
-        $("#leftLayout").hide();
-        $("#rightLayout").hide();
+        $("#topLayout").hide().droppable();
+        $("#bottomLayout").hide().droppable();
+        $("#leftLayout").hide().droppable();
+        $("#rightLayout").hide().droppable();
         $('#calendar').droppable();
         
         // Function to show the top Layout
@@ -152,10 +158,6 @@
         $("#topLayout").css('width','100%');
         $("#topLayout").css('border-color','black');
         $("#topLayout").css('border-style','solid');
-        $("#topLayout").resizable({
-            containment: "#calendarCont",
-            handles: 's'
-        });
         $("#topLayout").show();
         });
         
@@ -169,10 +171,6 @@
         $("#leftLayout").css('border-style','solid');
         $("#calendar").css('max-width','75%');
         $("#calendar").css('float','right');
-        $("#leftLayout").resizable({
-            containment: "#calendarCont",
-            handles: 'e'
-        });
         $("#leftLayout").show();
         });
         
@@ -186,10 +184,6 @@
         $("#rightLayout").css('border-style','solid');
         $("#calendar").css('max-width','75%');
         $("#calendar").css('float','left');
-        $("#rightLayout").resizable({
-            containment: "#calendarCont",
-            handles: 'w'
-        });
         $("#rightLayout").show();
         });
         
@@ -202,12 +196,6 @@
         $("#bottomLayout").css('border-color','black');
         $("#bottomLayout").css('border-style','solid');
         $("#bottomLayout").css('padding-top','5px');
-        $("#bottomLayout").resizable({
-            containment: "#calendarCont",
-            animate: true,
-            //handles: 'n',
-            ghost: true
-        });
         $("#bottomLayout").show();
         });
         
@@ -222,6 +210,23 @@
         
         $("#noneLayout").click(function(){
             cleanLayout();
+        });
+        
+        // Función para subir imágenes
+        $("input[name=file]").change(function () {
+            if (this.files && this.files[0]) {
+                var reader = new FileReader();
+
+                reader.onload = function (e) {
+                    var img = $('<img class="resis">').attr('src', e.target.result);
+                    $('.upload-image-preview').append(img);
+                    
+                };
+
+                reader.readAsDataURL(this.files[0]);
+            }
+            $(".resis").resizable().css('position', 'absolute');
+            $('.upload-image-preview').resizable().css('position', 'absolute');
         });
         
         initThemeChooser({
@@ -253,6 +258,11 @@
 <script type="text/javascript">
             $(init);
             function init() {
+                
+                $("#imagePrev").draggable();
+                $(".resis").resizable();
+                
+                
                 // We configure the button whose create a new text object
                 $("#addButton").click(function () {
                     $('#contenedor').append('<div contenteditable="true" class="d"><span>Double click here</span></div>');

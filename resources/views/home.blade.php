@@ -113,8 +113,9 @@
                         <div class="col-xs-10 sb-content">
                             <!-- Tab panes -->
                             <div class="tab-content">
+                                <div id="contenedor"></div>
                                 <div class="tab-pane active" id="home"><button id="showTopLayout" type="button" class="btn btn-primary">Top layout</button><button id="showBottomLayout" type="button" class="btn btn-success">Bottom layout</button><button id="noneLayout" type="button" class="btn btn-success">None layout</button></div>
-                                <div class="tab-pane" id="profile"><button id="addButton" type="button" class="btn btn-primary">Add Text</button><div id="contenedor"></div></div>
+                                <div class="tab-pane" id="profile"><button id="addButton" type="button" class="btn btn-primary">Add Text</button></div>
                                 <div class="tab-pane" id="messages"><button id="addImage" type="button" class="btn btn-danger">Upload Image</button></div>
                                 <div class="tab-pane" id="settings">Some videos</div>
                                 <div id="contenedor"></div>

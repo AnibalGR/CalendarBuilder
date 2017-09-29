@@ -73,6 +73,11 @@
                 background-color: #444444;
                 border: none !important;
                 border-radius: 0px 0px 0px 0px !important;
+                text-align: center;
+        }
+        .sb-icons{
+                width:100%; 
+                text-align: center;   
         }
         .nav-tabs > li.active > a, .nav-tabs > li.active > a:hover, .nav-tabs > li.active > a:focus{
                 background-color: #5e5e5e !important;
@@ -103,10 +108,22 @@
                         <div class="col-xs-2"> <!-- required for floating -->
                             <!-- Nav tabs -->
                             <ul class="nav nav-tabs tabs-left" id="left-menu">
-                                <li class="active"><a href="#home" data-toggle="tab">Layout</a></li>
-                                <li><a href="#profile" data-toggle="tab">Text</a></li>
-                                <li><a href="#messages" data-toggle="tab">Image</a></li>
-                                <li><a href="#settings" data-toggle="tab">Video</a></li>
+                                <li class="active"><a href="#home" data-toggle="tab">
+                                        <span class="glyphicon glyphicon-th sb-icons" aria-hidden="true"></span>
+                                    Layout</a>
+                                </li>
+                                <li><a href="#profile" data-toggle="tab">
+                                        <span class="glyphicon glyphicon-text-width sb-icons" aria-hidden="true"></span>
+                                    Text</a>
+                                </li>
+                                <li><a href="#messages" data-toggle="tab">
+                                        <span class="glyphicon glyphicon-picture sb-icons" aria-hidden="true"></span>
+                                     Image</a>
+                                </li>
+                                <li><a href="#settings" data-toggle="tab">
+                                        <span class="glyphicon glyphicon-film sb-icons" aria-hidden="true"></span>
+                                        Video</a>
+                                </li>
                             </ul>
                         </div>
 

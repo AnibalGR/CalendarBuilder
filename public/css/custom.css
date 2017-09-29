@@ -96,3 +96,12 @@
         .top-logo{
                 margin-top: -10px;
         }
+
+/*******Mobile Menu********/
+        .navbar-toggle{
+                margin-top: 49px;
+                border-color: #fffff !important;
+        }
+        .navbar-toggle .icon-bar{
+                background-color: #ffffff !important;
+        }

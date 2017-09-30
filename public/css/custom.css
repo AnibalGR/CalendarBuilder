@@ -28,7 +28,15 @@
     width: 40%;
     height: 3px;
     background-color: white;
-    align-self: center;
+    margin: 0 auto;
+}
+
+#splashScreen h2{
+    font-family: CircularStd;
+    color: white;
+    font-size: 250%;
+    margin-top: 30px;
+    padding: 0;
 }
 
 #splashScreen p{
@@ -38,14 +46,6 @@
     font-size: 450%;
     margin-top: 45px;
     width: auto;
-    border: solid;
-}
-
-#splashScreen h2{
-    font-family: CircularStd;
-    color: white;
-    font-size: 250%;
-    margin-top: 30px;
 }
 
 .noPadding{

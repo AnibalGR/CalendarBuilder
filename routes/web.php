@@ -15,6 +15,11 @@ Route::get('/', function () {
     return view('welcome2');
 });
 
+// Ruta para probar la subscripcion
+Route::get('/subscribe', 'Subscribe\SubscribeController@showPaymentForm');
+Route::post('/subscribe', 'Subscribe\SubscribeController@index');
+
+
 // Ruta para desarrollar pruebas
 Route::get('/pruebas', 'HomeController@showHomePage')->name('pruebas');
     

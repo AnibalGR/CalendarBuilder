@@ -33,7 +33,11 @@ class HomeController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function showHomePage()
-    {
-        return view('pruebas');
+    {   
+        $actualUser = Auth::user();
+        if($actualUser->status == 1){
+            return view('pruebas');
+        }
+        return view('welcome');
     }
 }

@@ -18,6 +18,7 @@ class CreateCalendarPagesTable extends Migration
             $table->integer('calendar_id')->unsigned();
             $table->integer('month')->unsigned();
             $table->integer('year')->unsigned();
+            $table->string('theme');
             $table->text('content');
             $table->timestamps();
             

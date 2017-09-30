@@ -29,7 +29,7 @@
 
                     <!-- Branding Image -->
                     <a class="navbar-brand" href="{{ url('/') }}">
-                        <img src="{{ asset('img/calendar-builder.png') }}" class="img-responsive top-logo">
+                        <img src="{{ asset('img/calendar-builder-2.png') }}" class="img-responsive top-logo">
                     </a>
                 </div>
                 <div class="collapse navbar-collapse" id="app-navbar-collapse">
@@ -47,7 +47,7 @@
                             <li id="LoginButton"><a href="{{ route('login') }}" >Login</a></li>
                             <li id="RegisterButton"><a href="{{ route('register') }}">Register</a></li>
                             @else
-                            <li><button type="button" class="btn btn-primary">Save</button></li>
+                            <li id="RegisterButton"><a href="{{ route('register') }}">My Calendars</a></li>
                             
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
@@ -75,8 +75,13 @@
         </nav>
         <div class="container-fluid">
             <div class="row">
-                <img id="background" src="{{ asset('img/backgroundHomePage.jpg') }}">
-                <h1 id="splashScreen">This is centered text.</h1>
+                <img class="img-responsive" id="background" src="{{ asset('img/backgroundHomePage.jpg') }}" >
+                <div class="row" id='splashScreen'>
+                    <h1>Appealing Digital Display</h1>
+                    <h2>Keep patients and visitors informed and up-to-date <br>
+                        on upcoming events and activities in your facility
+                    </h2>
+                </div>
             </div>
         </div>
             

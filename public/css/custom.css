@@ -7,19 +7,39 @@
 /****Main page background*****/
 #background {
     width: 100%;
-    height: 50%;
+    height: 60%;
     margin-top: -20px;
-    position: relative;
+    position: fixed;
 }
 
 #splashScreen {
     position: absolute;
     text-align: center;
-    bottom: 0;
+    bottom: 1;
     left: 0;
     right: 0;
-    color: black;
-    z-index: 1;
+    z-index: 2;
+}
+
+#splashScreen h1{
+    font-family: CircularStd;
+    font-weight: bold;
+    color: white;
+    text-decoration: underline;
+    font-size: 450%;
+    margin-top: 45px;
+}
+
+#splashScreen h2{
+    font-family: CircularStd;
+    color: white;
+    font-size: 250%;
+    margin-top: 30px;
+}
+
+.noPadding{
+    padding: 0 !important;
+    margin: 0 !important;
 }
 
 /****Draggable text*****/
@@ -115,10 +135,13 @@
         .navbar-default{
             border: none;
             height: 90px;
-            background-color: #26b8ea;
+            background-color: white;
         }
         .top-logo{
                 margin-top: -10px;
+                display: block;
+                max-width: 100%;
+                height: auto;
         }
 
         .navbar-right{
@@ -131,33 +154,33 @@
         }
         
         #RegisterButton a, #LoginButton a{
-            color: white;
-            border: 2px solid white;
+            color: #26b8ea;
+            border: 2px solid #26b8ea;
             border-radius: 15px;
             padding-top: 5px;
             padding-bottom: 5px;
             margin-top: 10px;
             margin-left: 5px;
             margin-right: 5px;
-            background-color: #26b8ea;
+            background-color: white;
         }
         
         #RegisterButton a:hover, #LoginButton a:hover{
-            color: #26b8ea;
-            border: 2px solid #26b8ea;
-            background-color: white;
+            color: white;
+            border: 2px solid white;
+            background-color: #26b8ea;
         }
 
 /*******Mobile Menu********/
         .navbar-toggle{
                 margin-top: 49px;
-                border-color: #fffff !important;
+                border-color: #26b8ea !important;
         }
         .navbar-toggle .icon-bar{
-                background-color: #ffffff !important;
+                background-color: #26b8ea !important;
         }
         .navbar-default .navbar-nav li a{
-                color:#ffffff;
+                color:#26b8ea;
         }
         .navbar-default .navbar-nav .open .dropdown-menu li a{
                 color:#000;
@@ -167,7 +190,7 @@
                         background-color: rgba(158, 158, 158, 0.9);
                 }
                 .navbar-default .navbar-nav .open .dropdown-menu li a{
-                color:#ffffff;
+                color:#26b8ea;
                 }
         }       
         .upload-image-preview img{

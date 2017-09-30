@@ -37,7 +37,7 @@
 
                         <!-- Branding Image -->
                         <a class="navbar-brand" href="{{ url('/') }}">
-                            <img src="{{ asset('img/calendar-builder.png') }}" class="img-responsive top-logo">
+                            <img src="{{ asset('img/calendar-builder-2.png') }}" class="img-responsive top-logo">
                         </a>
                     </div>
 
@@ -54,7 +54,6 @@
                             <li><a href="{{ route('login') }}">Login</a></li>
                             <li><a href="{{ route('register') }}">Register</a></li>
                             @else
-                            <li><button type="button" class="btn btn-primary">Save</button></li>
                             
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">

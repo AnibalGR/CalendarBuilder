@@ -15,10 +15,9 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/erick', function () {
-    return 'Hola mundo';
-});
-
+// Ruta para desarrollar pruebas
+Route::get('/pruebas', 'HomeController@showHomePage')->name('pruebas');
+    
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');

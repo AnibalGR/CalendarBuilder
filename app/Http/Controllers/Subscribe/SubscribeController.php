@@ -4,19 +4,25 @@ namespace App\Http\Controllers\Subscribe;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 use App\User;
 
 class SubscribeController extends Controller {
 
     //
-
-    public function index() {
-        $user = User::find(1);
+    
+    public function index(){
+        
+    }
+    
+    public function orderPost(Request $request) {
+        
+        $user = User::find(Auth::id());
         $input = $request->all();
         $token = $input['stripeToken'];
 
         try {
-            $user->subscription($input['plane'])->create($token, [
+            $user->newSubscription('main',$input['plane'])->create($token, [
                 'email' => $user->email
             ]);
             return back()->with('success', 'Subscription is completed.');

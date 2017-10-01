@@ -11,13 +11,11 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome2');
-});
+
 
 // Ruta para probar la subscripcion
-Route::get('/subscribe', 'Subscribe\SubscribeController@showPaymentForm');
-Route::post('/subscribe', 'Subscribe\SubscribeController@index');
+Route::get('/subscribe', 'Subscribe\SubscribeController@showPaymentForm')->name('subscribe');
+Route::post('/subscribe', 'Subscribe\SubscribeController@orderPost')->name('order-post');
 
 
 // Ruta para desarrollar pruebas
@@ -26,3 +24,5 @@ Route::get('/pruebas', 'HomeController@showHomePage')->name('pruebas');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('/', 'HomeController@getWelcome2');

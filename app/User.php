@@ -5,6 +5,7 @@ namespace App;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Laravel\Cashier\Billable;
+use Laravel\Cashier\Contracts\Billable as BillableContract;
 
 class User extends Authenticatable
 {
@@ -18,9 +19,11 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password', 'status',
+        'name', 'email', 'password',
     ];
-
+    
+    protected $dates = ['trial_ends_at', 'subscription_ends_at'];
+    
     /**
      * The attributes that should be hidden for arrays.
      *

@@ -76,11 +76,12 @@
         <div class="container-fluid">
             <div class="row">
                 <img class="img-responsive" id="background" src="{{ asset('img/backgroundHomePage.jpg') }}" >
-                <div class="row noPadding" id='splashScreen'>
+                <div class="row" id='splashScreen'>
                     <p>Appealing Digital Display</p>
-                    <div id="separator" class="noPadding"></div>
-                    <h2>Keep patients and visitors informed and up-to-date</h2>
-                    <h2>on upcoming events and activities in your facility</h2>
+                    <div id="separator"></div>
+                    <h2>Keep patients and visitors informed and up-to-date <br>
+                        on upcoming events and activities in your facility
+                    </h2>
                 </div>
             </div>
         </div>

@@ -41,7 +41,7 @@
                         <ul class="nav navbar-nav navbar-right">
                             <!-- Authentication Links -->
                             <li><a href="#">how it works</a></li>
-                            <li><a href="#">pricing</a></li>
+                            <li><a href="{{ route('plans') }}">pricing</a></li>
                             <li><a href="#">blog</a></li>
                             @guest
                             <li id="LoginButton"><a href="{{ route('login') }}" >Login</a></li>

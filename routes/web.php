@@ -15,6 +15,8 @@ Route::get('/', function () {
     return view('welcome2');
 });
 
+Route::get('/plans', 'PlansController@index')->name('plans');
+
 // Ruta para desarrollar pruebas
 Route::get('/pruebas', 'HomeController@showHomePage')->name('pruebas');
     

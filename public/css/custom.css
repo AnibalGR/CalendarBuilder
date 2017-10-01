@@ -19,26 +19,15 @@
     left: 0;
     right: 0;
     z-index: 2;
-    width: 100%;
 }
 
-#separator
-{
-    position: absolute;
-    width: 40%;
-    height: 3px;
-    background-color: white;
-    align-self: center;
-}
-
-#splashScreen p{
+#splashScreen h1{
     font-family: CircularStd;
     font-weight: bold;
     color: white;
+    text-decoration: underline;
     font-size: 450%;
     margin-top: 45px;
-    width: auto;
-    border: solid;
 }
 
 #splashScreen h2{

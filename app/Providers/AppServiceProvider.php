@@ -16,6 +16,12 @@ class AppServiceProvider extends ServiceProvider
     {
         // Cambiamos la longitud de las cadenas de texto
         Schema::defaultStringLength(191);
+        
+        // Manejadores del BrainTree
+        \Braintree_Configuration::environment(config('services.braintree.environment'));
+        \Braintree_Configuration::merchantId(config('services.braintree.merchant_id'));
+        \Braintree_Configuration::publicKey(config('services.braintree.public_key'));
+        \Braintree_Configuration::privateKey(config('services.braintree.private_key'));
     }
 
     /**

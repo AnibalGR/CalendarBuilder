@@ -55,8 +55,7 @@
         </div>
         <div class="panel-body">
             <div class="col-md-12">
-              <form data-parsley-validate class="form-horizontal" method="POST" action="{{ route('order-post') }}" id="payment-form">
-                  {{ csrf_field() }}
+              {!! Form::open(['url' => route('order-post'), 'data-parsley-validate', 'id' => 'payment-form']) !!}
                 @if ($message = Session::get('success'))
                 <div class="alert alert-success alert-block">
                   <button type="button" class="close" data-dismiss="alert">×</button> 
@@ -64,68 +63,68 @@
                 </div>
                 @endif
                 <div class="form-group" id="product-group">
-                    <label for="plane">Select Plan:</label>
-                    <select name="plane" class="form-control" data-parsley-class-handler="#product-group" required="">
-                        <option value="1" selected="selected">Test ($10)</option>
-                        <option value="test2">Test2 ($20)</option>
-                        <option value="movie">Movie ($15)</option>
-                    </select>
+                    {!! Form::label('plane', 'Select Plan:') !!}
+                    {!! Form::select('plane', ['google' => 'Google ($10)', 'game' => 'Game ($20)', 'movie' => 'Movie ($15)'], 'Book', [
+                        'class'                       => 'form-control',
+                        'required'                    => 'required',
+                        'data-parsley-class-handler'  => '#product-group'
+                        ]) !!}
                 </div>
                 <div class="form-group" id="cc-group">
-                    <label>Credit card number:</label>
-                    <input type="text" class="form-control" data-stripe="number" data-parsley-type="number" maxlength="16" data-parsley-trigger="change focusout" data-parsley-class-handler="#ccv-group" required="">
+                    {!! Form::label(null, 'Credit card number:') !!}
+                    {!! Form::text(null, null, [
+                        'class'                         => 'form-control',
+                        'required'                      => 'required',
+                        'data-stripe'                   => 'number',
+                        'data-parsley-type'             => 'number',
+                        'maxlength'                     => '16',
+                        'data-parsley-trigger'          => 'change focusout',
+                        'data-parsley-class-handler'    => '#cc-group'
+                        ]) !!}
                 </div>
                 <div class="form-group" id="ccv-group">
-                    <label>CVC (3 or 4 digit number)</label>
-                    <input type="text" class="form-control" data-stripe="cvc" data-parsley-type="number" maxlength="4" data-parsley-trigger="change focusout" data-parsley-class-handler="#ccv-group" required="">
+                    {!! Form::label(null, 'CVC (3 or 4 digit number):') !!}
+                    {!! Form::text(null, null, [
+                        'class'                         => 'form-control',
+                        'required'                      => 'required',
+                        'data-stripe'                   => 'cvc',
+                        'data-parsley-type'             => 'number',
+                        'data-parsley-trigger'          => 'change focusout',
+                        'maxlength'                     => '4',
+                        'data-parsley-class-handler'    => '#ccv-group'
+                        ]) !!}
                 </div>
                 <div class="row">
                   <div class="col-md-6">
                     <div class="form-group" id="exp-m-group">
-                        <label>Ex. Month</label>
-                        <select name="month" class="form-control" data-stripe="exp-month" required>
-                            <option value="1" selected="selected">January</option>
-                            <option value="2">February</option>
-                            <option value="3">March</option>
-                            <option value="4">April</option>
-                            <option value="5">May</option>
-                            <option value="6">June</option>
-                            <option value="7">July</option>
-                            <option value="8">August</option>
-                            <option value="9">September</option>
-                            <option value="10">October</option>
-                            <option value="11">November</option>
-                            <option value="12">December</option>
-                        </select>
+                        {!! Form::label(null, 'Ex. Month') !!}
+                        {!! Form::selectMonth(null, null, [
+                            'class'                 => 'form-control',
+                            'required'              => 'required',
+                            'data-stripe'           => 'exp-month'
+                        ], '%m') !!}
                     </div>
                   </div>
                   <div class="col-md-6">
                     <div class="form-group" id="exp-y-group">
-                        <label>Ex. Year</label>
-                        <select name="year" class="form-control" data-stripe="exp-year" required>
-                            <option value="2017" selected="selected">2017</option>
-                            <option value="2018">2018</option>
-                            <option value="2019">2019</option>
-                            <option value="2020">2020</option>
-                            <option value="2021">2021</option>
-                            <option value="2022">2022</option>
-                            <option value="2023">2023</option>
-                            <option value="2024">2024</option>
-                            <option value="2025">2025</option>
-                            <option value="2026">2026</option>
-                        </select>
+                        {!! Form::label(null, 'Ex. Year') !!}
+                        {!! Form::selectYear(null, date('Y'), date('Y') + 10, null, [
+                            'class'             => 'form-control',
+                            'required'          => 'required',
+                            'data-stripe'       => 'exp-year'
+                            ]) !!}
                     </div>
                   </div>
                 </div>
                   <div class="form-group">
-                      <input type="submit" value="Place order" class="btn btn-lg btn-block btn-primary btn-order" id="submitBtn" style="marin-bottom: 10px">
+                      {!! Form::submit('Place order!', ['class' => 'btn btn-lg btn-block btn-primary btn-order', 'id' => 'submitBtn', 'style' => 'margin-bottom: 10px;']) !!}
                   </div>
                   <div class="row">
                     <div class="col-md-12">
                         <span class="payment-errors" style="color: red;margin-top:10px;"></span>
                     </div>
                   </div>
-              </form>
+              {!! Form::close() !!}
             </div>
         </div>
     </div>
@@ -147,7 +146,7 @@
     
     <script type="text/javascript" src="https://js.stripe.com/v2/"></script>
     <script>
-        Stripe.setPublishableKey("pk_test_5MTn3q57aRJkOgiz7xqkuVwB");
+        Stripe.setPublishableKey("<?php echo env('STRIPE_PUBLISHABLE_SECRET') ?>");
         jQuery(function($) {
             $('#payment-form').submit(function(event) {
                 var $form = $(this);

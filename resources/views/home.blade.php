@@ -176,7 +176,8 @@
                                         weekNumbers: false,
                                         navLinks: true, // can click day/week names to navigate views
                                         editable: true,
-                                        eventLimit: true // allow "more" link when too many events
+                                        eventLimit: true, // allow "more" link when too many events
+                                        dayNames: ['S', 'M', 'T', 'W', 'T', 'F', 'S']
                                 });
                         },
 
@@ -308,8 +309,10 @@
             var video = $('<video />', {
                 id: 'video',
                 src: "{{ asset('vid/001.mp4') }}",
+                autoplay: true,
                 type: 'video/mp4',
-                controls: true
+                loop: true,
+                controls: false
             });
             video.appendTo($('#videoDiv'));
             $("#video").css('width','100%');

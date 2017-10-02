@@ -10,14 +10,13 @@
 
 
 @section('content')
-<div class="upload-image-preview" id="imagePrev"></div>
 <div class="container-fluid">
     <div class="row">
         <div class="col-md-12">
             <div class="col-md-4" >
-                <div class="panel panel-default" >
-                    <div class="panel-heading">Tools</div>
-                    <div class="panel-body panel-left" >
+                <div class="panel panel-default">
+                    <div class="panel-heading" id='toolsPanel'>Tools</div>
+                    <div class="panel-body panel-left" id="toolsCont">
                         <div class="col-xs-2"> <!-- required for floating -->
                             <!-- Nav tabs -->
                             <ul class="nav nav-tabs tabs-left" id="left-menu">
@@ -37,6 +36,11 @@
                                         <span class="glyphicon glyphicon-film sb-icons" aria-hidden="true"></span>
                                         Video</a>
                                 </li>
+                                <li><a href="#Background" data-toggle="tab">
+                                        <span class="glyphicon glyphicon-picture sb-icons" aria-hidden="true"></span>
+                                        Back
+                                    </a>
+                                </li>
                             </ul>
                         </div>
 
@@ -44,23 +48,43 @@
                             <!-- Tab panes -->
                             <div class="tab-content">
                                 <div id="contenedor"></div>
-                                <div class="tab-pane active" id="home"><button id="showTopLayout" type="button" class="btn btn-primary">Top layout</button><button id="showBottomLayout" type="button" class="btn btn-success">Bottom layout</button><button id="noneLayout" type="button" class="btn btn-danger">None layout</button><button id="showLeftLayout" type="button" class="btn btn-success">Left layout</button><button id="showRightLayout" type="button" class="btn btn-success">Right layout</button></div>
-                                <div class="tab-pane" id="profile"><button id="addButton" type="button" class="btn btn-primary">Add Text</button></div>
-                                <div class="tab-pane" id="messages">
-                                    <div class="upload-image">
-                                        <input type="file" name="file" value="Upload Image" />
+                                <div class="tab-pane active" id="home">
+                                    <div class="layoutType">
+                                        <button id="showTopLayout" type="button" class="btn btn-primary" style="width: 100%; height: 100%">Top layout</button>
+                                    </div>
+                                    <div class="layoutType">
+                                        <button id="showBottomLayout" type="button" class="btn btn-success" style="width: 100%; height: 100%">Bottom layout</button>
+                                    </div>
+                                    <div class="layoutType">
+                                        <button id="noneLayout" type="button" class="btn btn-danger" style="width: 100%; height: 100%">None layout</button>
+                                    </div>
+                                    <div class="layoutType">
+                                        <button id="showLeftLayout" type="button" class="btn btn-success" style="width: 100%; height: 100%">Left layout</button>
+                                    </div>
+                                    <div class="layoutType">
+                                        <button id="showRightLayout" type="button" class="btn btn-success" style="width: 100%; height: 100%">Right layout</button>
                                     </div>
                                 </div>
-                                <div class="tab-pane" id="settings">Some videos</div>
-                                
+                                <div class="tab-pane" id="profile"><button id="addButton" type="button" class="btn btn-primary">Add Text</button></div>
+                                <div class="tab-pane" id="messages">
+                                    <div>
+                                        <input id="upImage" type="file" style="display:none;" />
+                                        <button id="addImage" type="button" class="btn btn-primary">Upload Image</button>
+                                    </div>
+                                </div>
+                                <div class="tab-pane" id="settings">
+                                    <button id="addVideo" type="button" class="btn btn-primary">Add Video</button>
+                                    <button id="removeVideo" type="button" class="btn btn-primary">Remove Video</button>
+                                </div>
+                                <div class="tab-pane" id="Background">Some background images</div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="col-md-8" id="calendarPanel">
+            <div class="col-md-8">
                 <div class="panel panel-default">
-                    <div class="panel-heading">
+                    <div class="panel-heading" id="calendarPanel">
                         
                         <div id='top'>
                             <div class='left'>Calendar</div>
@@ -114,12 +138,11 @@
 
                     <div class="panel-body" id="calendarPanel" style="height:auto">
                         <div class="panel-body bg-right" >
-                        
-
-
                     <div class="panel-body" id="calendarCont" style="overflow: auto">
+                        <div class="upload-image-preview" id="imagePrev" style="border: 5px"></div>
+                        <div id="videoDiv" style="visibility: hidden"></div>
                         <p id="topLayout" style="visibility: hidden;  width: 0px; height: 0px;">Put your image here!</p>
-                        <p id="leftLayout" style="visibility: hidden;  width: 0px; height: 0px; float: left">Put your image here!</p>
+                        <p id="leftLayout" style="visibility: hidden;  width: 0px; height: 0px; float: left; margin-bottom: 0px;">Put your image here!</p>
                         <p id="rightLayout" style="visibility: hidden;  width: 0px; height: 0px; float: right">Put your image here!</p>
                         <div id='calendar'></div>
                         <p id="bottomLayout" style="visibility: hidden;  width: 0px; height: 0px;">Put your image here!</p>
@@ -139,6 +162,30 @@
 <script>
     $(document).ready(function() {
         
+        initThemeChooser({
+            init: function(themeSystem) {
+                $('#calendar').fullCalendar({
+                                     themeSystem: themeSystem,
+                                        height: 'auto',
+                                        header: {
+                                                left: 'prev,next',
+                                                center: 'title',
+                                                right: null
+                                        },
+                                        defaultDate: '2017-10-12',
+                                        weekNumbers: false,
+                                        navLinks: true, // can click day/week names to navigate views
+                                        editable: true,
+                                        eventLimit: true // allow "more" link when too many events
+                                });
+                        },
+
+                        change: function(themeSystem) {
+                                $('#calendar').fullCalendar('option', 'themeSystem', themeSystem);
+                        }
+
+                });
+        
         $("#toolsP").css('height',$("#calendarPanel").height());
         $("#toolsP").css('border','solid');
         
@@ -152,20 +199,30 @@
         
         // Function to show the top Layout
         $("#showTopLayout").click(function(){
-        cleanLayout();
-        $("#topLayout").css('visibility','visible');
-        $("#topLayout").css('height','100px');
-        $("#topLayout").css('width','100%');
-        $("#topLayout").css('border-color','black');
-        $("#topLayout").css('border-style','solid');
-        $("#topLayout").show();
+            cleanLayout();
+            $("#topLayout").css('visibility','visible');
+            var heightTop = document.getElementById('toolsCont').offsetHeight;
+            var recommendedHeight = heightTop * 25 / 100;
+            $("#topLayout").css('height',recommendedHeight);
+            var calendarNewSize = document.getElementById('calendarCont').offsetHeight - recommendedHeight;
+            $("#calendarCont").css('height',calendarNewSize);
+            $("#topLayout").css('width','100%');
+            $("#topLayout").css('border-color','black');
+            $("#topLayout").css('border-style','solid');
+            $("#topLayout").show();
         });
         
         // Function to show the left Layout
         $("#showLeftLayout").click(function(){
         cleanLayout();
         $("#leftLayout").css('visibility','visible');
-        $("#leftLayout").css('height',$("#calendarCont").height());
+        
+        var actualSize = document.getElementById('videoDiv').style.height;
+        if((actualSize == 0)||(actualSize == '0px')){
+            $("#leftLayout").css('height',document.getElementById('calendarCont').offsetHeight);
+        }else{
+            $("#leftLayout").css('height',(document.getElementById('videoDiv').offsetHeight));
+        }
         $("#leftLayout").css('width','25%');
         $("#leftLayout").css('border-color','black');
         $("#leftLayout").css('border-style','solid');
@@ -191,7 +248,8 @@
         $("#showBottomLayout").click(function(){
         cleanLayout();
         $("#bottomLayout").css('visibility','visible');
-        $("#bottomLayout").css('height','100px');
+        $("#bottomLayout").css('height','25%');
+        $("#calendar").css('max-height','75%');
         $("#bottomLayout").css('width','100%');
         $("#bottomLayout").css('border-color','black');
         $("#bottomLayout").css('border-style','solid');
@@ -201,20 +259,29 @@
         
         function cleanLayout(){
             $("#topLayout").hide();
-        $("#bottomLayout").hide();
-        $("#leftLayout").hide();
-        $("#rightLayout").hide();
-        $("#calendar").css('max-width','100%');
-        $("#calendar").css('float','none');
+            $("#bottomLayout").hide();
+            $("#leftLayout").hide();
+            $("#rightLayout").hide();
+            $("#calendar").css('max-width','100%');
+            $("#calendar").css('float','none');
         };
         
         $("#noneLayout").click(function(){
             cleanLayout();
         });
         
-        // Función para subir imágenes
-        $("input[name=file]").change(function () {
-            if (this.files && this.files[0]) {
+        
+        });
+        
+</script>
+
+<script type="text/javascript">
+    $("#addImage").click(function(){
+        document.getElementById('upImage').click();
+    });
+
+    $("#upImage").change(function(){
+        if (this.files && this.files[0]) {
                 var reader = new FileReader();
 
                 reader.onload = function (e) {
@@ -227,33 +294,31 @@
             }
             $(".resis").resizable().css('position', 'absolute').css('z-index', '2');
             $('.upload-image-preview').resizable().css('position', 'absolute').css('z-index', '2');
-        });
-        
-        initThemeChooser({
-            init: function(themeSystem) {
-                $('#calendar').fullCalendar({
-                                     themeSystem: themeSystem,
-                                        height: 'auto',
-                                        header: {
-                                                left: 'prev,next',
-                                                center: 'title',
-                                                right: null
-                                        },
-                                        defaultDate: '2017-09-12',
-                                        weekNumbers: false,
-                                        navLinks: true, // can click day/week names to navigate views
-                                        editable: true,
-                                        eventLimit: true // allow "more" link when too many events
-                                });
-                        },
+    });
+    
+    $("#addVideo").click(function(){
+        var actualSize = document.getElementById('videoDiv').style.height;
+        if((actualSize == 0)||(actualSize == '0px')){
+            var originalSizeCont = document.getElementById('calendarCont').offsetHeight;
+            document.getElementById('toolsCont').style.height = originalSizeCont * 2 + 30 +'px';
+            document.getElementById('calendarCont').style.height = originalSizeCont * 2 +'px';
+            document.getElementById('videoDiv').style.height = originalSizeCont +'px';
+            $("#videoDiv").css('visibility','visible');
+        }
 
-                        change: function(themeSystem) {
-                                $('#calendar').fullCalendar('option', 'themeSystem', themeSystem);
-                        }
-
-                });
-        });
-        
+    });
+    
+    $("#removeVideo").click(function(){
+        var actualSize = document.getElementById('videoDiv').style.height
+        if((actualSize != 0) && (actualSize != '0px')){
+            var originalSizeBig = document.getElementById('calendarCont').offsetHeight;
+            document.getElementById('videoDiv').style.height = 0 + 'px';
+            $("#bottomLayout").css('visibility','hidden');
+            document.getElementById('toolsCont').style.height = originalSizeBig / 2 + 30 +'px';
+            document.getElementById('calendarCont').style.height = originalSizeBig / 2 +'px';
+        }
+    });
+    
 </script>
 <script type="text/javascript">
             $(init);
@@ -286,6 +351,13 @@
 //                    });
                     //$("#resizable").resizable();
                 });
+                
+                var offsetHeight1 = document.getElementById('calendarPanel').offsetHeight;
+                document.getElementById('toolsPanel').style.height = offsetHeight1 + 'px';
+                
+                var offsetHeight = document.getElementById('calendarCont').offsetHeight;
+//                alert(offsetHeight);
+                document.getElementById('toolsCont').style.height = offsetHeight + 30 +'px';
             }
 </script>
 @endsection

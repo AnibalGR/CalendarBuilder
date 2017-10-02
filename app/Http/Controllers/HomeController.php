@@ -34,10 +34,11 @@ class HomeController extends Controller
      */
     public function showHomePage()
     {   
-        $actualUser = Auth::user();
-        if($actualUser->status == 1){
             return view('pruebas');
-        }
-        return view('welcome');
+    }
+    
+    public function dashboard()
+    {   
+            return view('layouts.base');
     }
 }

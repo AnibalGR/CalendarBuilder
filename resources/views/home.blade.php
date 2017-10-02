@@ -304,6 +304,17 @@
             document.getElementById('calendarCont').style.height = originalSizeCont * 2 +'px';
             document.getElementById('videoDiv').style.height = originalSizeCont +'px';
             $("#videoDiv").css('visibility','visible');
+            
+            var video = $('<video />', {
+                id: 'video',
+                src: "{{ asset('vid/001.mp4') }}",
+                type: 'video/mp4',
+                controls: true
+            });
+            video.appendTo($('#videoDiv'));
+            $("#video").css('width','100%');
+            $("#video").css('height','100%');
+            
         }
 
     });
@@ -316,6 +327,7 @@
             $("#bottomLayout").css('visibility','hidden');
             document.getElementById('toolsCont').style.height = originalSizeBig / 2 + 30 +'px';
             document.getElementById('calendarCont').style.height = originalSizeBig / 2 +'px';
+            $("#video").remove();
         }
     });
     

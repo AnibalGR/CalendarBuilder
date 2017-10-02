@@ -17,6 +17,12 @@ Route::get('/', function () {
 
 Route::get('/plans', 'PlansController@index')->name('plans');
 
+Route::group(['middleware' => 'auth'], function () {
+    Route::get('/plan/{plan}', 'PlansController@show');
+    Route::get('/braintree/token', 'BraintreeTokenController@token');
+    Route::post('/subscribe', 'SubscriptionsController@store');
+});
+
 // Ruta para desarrollar pruebas
 Route::get('/pruebas', 'HomeController@showHomePage')->name('pruebas');
     

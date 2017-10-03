@@ -214,7 +214,7 @@
                 z-index: 4;
         }
         
-        .d { 
+        .erasable { 
             z-index: 6; 
             position: absolute;
         }
@@ -236,5 +236,11 @@
             padding-bottom: 0;
             padding-left: 0;
             padding-right: 0;
+<<<<<<< HEAD:public/css/custom-calendar.css
             height: auto !important;
         }
+=======
+        }
+        
+        
+>>>>>>> f3e7923bb0424363878952a636589627a5c20c18:public/css/custom.css

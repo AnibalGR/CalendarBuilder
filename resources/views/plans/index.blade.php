@@ -18,8 +18,10 @@
                                         <p>{{ $plan->description }}</p>
                                     @endif
                                 </div>
-                                @if (!Auth::user()->subscribedToPlan($plan->braintree_plan, 'main'))
-                                <a href="{{ url('/plan', $plan->slug) }}" class="btn btn-default pull-right">Choose Plan</a>
+                                @if(Auth::user())
+                                    @if (!Auth::user()->subscribedToPlan($plan->braintree_plan, 'main'))
+                                        <a href="{{ url('/plan', $plan->slug) }}" class="btn btn-default pull-right">Choose Plan</a>
+                                    @endif
                                 @endif
 
                             </li>

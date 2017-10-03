@@ -204,10 +204,16 @@
         }
 
         .upload-image-preview {
-                width: 150px;
-                height: 150px;
+            left: 0px;
+            right: 0px;
+            top: 42px;
+            bottom: 0px;
+                width: 98%;
+                height: 87%;
+                padding-left: 0;
+                //background-color: black;
                 position: absolute;
-                z-index: -2;
+                z-index: 4;
         }
 
         .resis {

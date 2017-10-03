@@ -21,6 +21,8 @@
                                 @if(Auth::user())
                                     @if (!Auth::user()->subscribedToPlan($plan->braintree_plan, 'main'))
                                         <a href="{{ url('/plan', $plan->slug) }}" class="btn btn-default pull-right">Choose Plan</a>
+                                    @else
+                                        <a href="" class="btn btn-default pull-right">You are already subscribed to this plan</a>
                                     @endif
                                 @endif
 

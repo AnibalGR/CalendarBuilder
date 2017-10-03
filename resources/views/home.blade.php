@@ -318,6 +318,9 @@
             $("#video").css('width','100%');
             $("#video").css('height','100%');
             
+            $("#imagePrev").css('height','48%');
+            $("#imagePrev").css('width','98%');
+            $("#imagePrev").css('top','453px');
         }
 
     });
@@ -339,7 +342,6 @@
             $(init);
             function init() {
                 
-                $("#imagePrev").draggable({ revert:'invalid' });
                 $(".resis").resizable();
                 
                 

@@ -192,10 +192,6 @@
 
                 });
         
-        $("#toolsP").css('height',$("#calendarPanel").height());
-        $("#toolsP").css('border','solid');
-        
-        
         // Restablecemos los layouts
         $("#topLayout").hide().droppable();
         $("#bottomLayout").hide().droppable();
@@ -205,13 +201,24 @@
         
         // Function to show the top Layout
         $("#showTopLayout").click(function(){
+            
+            //Comprobamos si hay un video presente
+            var actualSize = document.getElementById('videoDiv').style.height;
+            var recommendedHeight;
+                if((actualSize == 0)||(actualSize == '0px')){
+                    // No hay un video presente
+                    recommendedHeight = document.getElementById('calendarCont').offsetHeight * 25 / 100;
+                    $("#topLayout").css('height',recommendedHeight);
+                }else{
+                    // Si hay un video presente
+                    recommendedHeight = document.getElementById('videoDiv').offsetHeight * 25 / 100;
+                    $("#topLayout").css('height',recommendedHeight);
+                    var newCalendarHeight = document.getElementById('videoDiv').offsetHeight + document.getElementById('imagePrev').offsetHeight + document.getElementById('topLayout').offsetHeight + 3;
+                    $("#calendarCont").css('height',newCalendarHeight);
+                }
+            
             cleanLayout();
             $("#topLayout").css('visibility','visible');
-            var heightTop = document.getElementById('toolsCont').offsetHeight;
-            var recommendedHeight = heightTop * 25 / 100;
-            $("#topLayout").css('height',recommendedHeight);
-            var calendarNewSize = document.getElementById('calendarCont').offsetHeight - recommendedHeight;
-            $("#calendarCont").css('height',calendarNewSize);
             $("#topLayout").css('width','100%');
             $("#topLayout").css('border-color','black');
             $("#topLayout").css('border-style','solid');
@@ -292,7 +299,7 @@
                 var reader = new FileReader();
 
                 reader.onload = function (e) {
-                    var img = $('<div class="imageContainer"><img class="resis" src="' + e.target.result + '"></div>');
+                    var img = $('<div class="erasable"><div class="imageContainer"><img class="resis" src="' + e.target.result + '"></div></div>');
                     $('#imagePrev').append(img);
                     $(".resis").resizable();
                     $(".imageContainer").draggable({
@@ -354,41 +361,20 @@
 </script>
 <script type="text/javascript">
             $(init);
-            
-            jQuery.fn.selText = function() {
-    var obj = this[0];
-    if ($.browser.msie) {
-        var range = obj.offsetParent.createTextRange();
-        range.moveToElementText(obj);
-        range.select();
-    } else if ($.browser.mozilla || $.browser.opera) {
-        var selection = obj.ownerDocument.defaultView.getSelection();
-        var range = obj.ownerDocument.createRange();
-        range.selectNodeContents(obj);
-        selection.removeAllRanges();
-        selection.addRange(range);
-    } else if ($.browser.safari) {
-        var selection = obj.ownerDocument.defaultView.getSelection();
-        selection.setBaseAndExtent(obj, 0, obj, 1);
-    }
-    return this;
-}
-            
-            
+
             function init() {
                 // We configure the button whose create a new text object
                 $("#addButton").click(function () {
-                    $('#imagePrev').append('<p class="d" contenteditable="true">Double click here</p>');
+                    $('#imagePrev').append('<div class="erasable"><p class="d" contenteditable="true">Double click here</p></div>');
                     
-                    $(".d").draggable();
+                    $(".erasable").draggable();
                     
-                    $(".d").click(function() {
+                    $(".erasable").click(function() {
                         $(this).draggable( {disabled: false, revert:'invalid'});
                     });
                     
-                    $(".d").dblclick(function() {
+                    $(".erasable").dblclick(function() {
                         $(this).draggable( {disabled: true, revert:'invalid'});
-                        $(this).selText().addClass("selected");
                     });
                 });
                 

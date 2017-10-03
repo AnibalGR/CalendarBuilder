@@ -93,6 +93,8 @@
         #calendar {
                 max-width: 900px;
                 padding: 0 0px;
+                position:absolute;
+                z-index: 2;
         }   
 
 /*******Custom Calendar View********/
@@ -204,10 +206,11 @@
         }
 
         .upload-image-preview {
-                width: 150px;
-                height: 150px;
+                width: 100%;
+                height: 100%;
                 position: absolute;
-                z-index: -2;
+                background-color: black;
+                z-index: 3;
         }
 
         .resis {
@@ -220,3 +223,8 @@
             padding-left: 0;
             padding-right: 0;
         }
+        
+        #calendarCont{
+            position: relative;
+        }
+        

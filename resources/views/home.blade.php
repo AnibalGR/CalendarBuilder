@@ -139,13 +139,16 @@
                     <div class="panel-body" id="calendarPanel" style="height:auto">
                         <div class="panel-body bg-right" >
                     <div class="panel-body" id="calendarCont" style="overflow: auto">
-                        <div class="upload-image-preview" id="imagePrev" style="border: 5px"></div>
+                        <div id='calendar'></div>
+                        <div class="upload-image-preview" id="imagePrev" style="border: 5px">
                         <div id="videoDiv" style="visibility: hidden"></div>
                         <p id="topLayout" style="visibility: hidden;  width: 0px; height: 0px;">Put your image here!</p>
                         <p id="leftLayout" style="visibility: hidden;  width: 0px; height: 0px; float: left; margin-bottom: 0px;">Put your image here!</p>
                         <p id="rightLayout" style="visibility: hidden;  width: 0px; height: 0px; float: right">Put your image here!</p>
-                        <div id='calendar'></div>
+                        
                         <p id="bottomLayout" style="visibility: hidden;  width: 0px; height: 0px;">Put your image here!</p>
+                                                </div>
+
                     </div>
                 </div>
             </div>
@@ -177,7 +180,6 @@
                                         navLinks: true, // can click day/week names to navigate views
                                         editable: true,
                                         eventLimit: true, // allow "more" link when too many events
-                                        dayNames: ['S', 'M', 'T', 'W', 'T', 'F', 'S']
                                 });
                         },
 

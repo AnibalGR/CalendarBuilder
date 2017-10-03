@@ -23,7 +23,6 @@ Route::group(['middleware' => 'auth'], function () {
     Route::post('/subscribe', 'SubscriptionsController@store');
     Route::get('/dashboard', 'HomeController@dashboard');
 });
-
 // Ruta para desarrollar pruebas
 Route::get('/pruebas', 'HomeController@showHomePage')->name('pruebas');
     

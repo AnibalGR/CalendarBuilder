@@ -210,7 +210,7 @@
                 z-index: 4;
         }
         
-        .d { 
+        .erasable { 
             z-index: 6; 
             position: absolute;
         }
@@ -233,3 +233,5 @@
             padding-left: 0;
             padding-right: 0;
         }
+        
+        

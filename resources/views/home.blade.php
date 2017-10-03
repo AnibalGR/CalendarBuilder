@@ -139,7 +139,7 @@
                     <div class="panel-body" id="calendarPanel" style="height:auto">
                         <div class="panel-body bg-right" >
                     <div class="panel-body" id="calendarCont" style="overflow: auto">
-                        <div class="upload-image-preview" id="imagePrev" style="border: 5px"></div>
+                        <div id="imagePrev" style="border: 5px"></div>
                         <div id="videoDiv" style="visibility: hidden"></div>
                         <p id="topLayout" style="visibility: hidden;  width: 0px; height: 0px;">Put your image here!</p>
                         <p id="leftLayout" style="visibility: hidden;  width: 0px; height: 0px; float: left; margin-bottom: 0px;">Put your image here!</p>
@@ -277,6 +277,7 @@
 </script>
 
 <script type="text/javascript">
+    
     $("#addImage").click(function(){
         document.getElementById('upImage').click();
     });
@@ -286,15 +287,21 @@
                 var reader = new FileReader();
 
                 reader.onload = function (e) {
-                    var img = $('<img class="resis">').attr('src', e.target.result);
-                    $('.upload-image-preview').append(img);
-                    
+                    var img = $('<div class="imageContainer"><img class="resis" src="' + e.target.result + '"></div>');
+                    $('#imagePrev').append(img);
+                    $(".resis").resizable();
+                    $(".imageContainer").draggable({
+                        start: function(event, ui) {
+                            isDraggingMedia = true;
+                        },
+                        stop: function(event, ui) {
+                            isDraggingMedia = false;
+                        },
+                        revert: 'invalid',
+                    });
                 };
-
                 reader.readAsDataURL(this.files[0]);
             }
-            $(".resis").resizable().css('position', 'absolute').css('z-index', '2');
-            $('.upload-image-preview').resizable().css('position', 'absolute').css('z-index', '2');
     });
     
     $("#addVideo").click(function(){
@@ -334,47 +341,57 @@
             document.getElementById('toolsCont').style.height = originalSizeBig / 2 + 30 +'px';
             document.getElementById('calendarCont').style.height = originalSizeBig / 2 +'px';
             $("#video").remove();
+            $("#imagePrev").css('height','87%');
+            $("#imagePrev").css('top','42px');
         }
     });
     
 </script>
 <script type="text/javascript">
             $(init);
+            
+            jQuery.fn.selText = function() {
+    var obj = this[0];
+    if ($.browser.msie) {
+        var range = obj.offsetParent.createTextRange();
+        range.moveToElementText(obj);
+        range.select();
+    } else if ($.browser.mozilla || $.browser.opera) {
+        var selection = obj.ownerDocument.defaultView.getSelection();
+        var range = obj.ownerDocument.createRange();
+        range.selectNodeContents(obj);
+        selection.removeAllRanges();
+        selection.addRange(range);
+    } else if ($.browser.safari) {
+        var selection = obj.ownerDocument.defaultView.getSelection();
+        selection.setBaseAndExtent(obj, 0, obj, 1);
+    }
+    return this;
+}
+            
+            
             function init() {
-                
-                $(".resis").resizable();
-                
-                
                 // We configure the button whose create a new text object
                 $("#addButton").click(function () {
-                    $('#contenedor').append('<div contenteditable="true" class="d"><span>Double click here</span></div>');
+                    $('#imagePrev').append('<p class="d" contenteditable="true">Double click here</p>');
                     
-                    $(".d").draggable().click(function() {
+                    $(".d").draggable();
+                    
+                    $(".d").click(function() {
                         $(this).draggable( {disabled: false, revert:'invalid'});
-                        
-                    }).dblclick(function() {
-                    $(this).draggable({ disabled: true, revert:'invalid' });
                     });
-                    $(".d").resizable({animate: true});
-//                    $('.dragThis').draggable({
-//                        revert:'invalid'
-////                        drag: function(){
-////                            var offset = $(this).offset();
-////                            var xPos = offset.left;
-////                            var yPos = offset.top;
-////                            $('#posX').text('x: ' + xPos);
-////                            $('#posY').text('y: ' + yPos);
-////                        }
-//                    });
-                    //$("#resizable").resizable();
+                    
+                    $(".d").dblclick(function() {
+                        $(this).draggable( {disabled: true, revert:'invalid'});
+                        $(this).selText().addClass("selected");
+                    });
                 });
                 
                 var offsetHeight1 = document.getElementById('calendarPanel').offsetHeight;
                 document.getElementById('toolsPanel').style.height = offsetHeight1 + 'px';
                 
                 var offsetHeight = document.getElementById('calendarCont').offsetHeight;
-//                alert(offsetHeight);
                 document.getElementById('toolsCont').style.height = offsetHeight + 30 +'px';
-            }
+            };
 </script>
 @endsection

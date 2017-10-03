@@ -84,7 +84,6 @@
                 font: inherit; /* mock what Boostrap does, don't compete  */
         }
         
-        .d { z-index: 2; position: absolute;}
         #contenedor { z-index: 3; position: absolute; float: right; margin: 140px 0px 0px 80px;}
         .left { float: left }
         .right { float: right }
@@ -198,12 +197,8 @@
                 color:#26b8ea;
                 }
         }       
-        .upload-image-preview img{
-                width: 100%;
-                height:  100%;
-        }
-
-        .upload-image-preview {
+        
+        #imagePrev {
             left: 0px;
             right: 0px;
             top: 42px;
@@ -214,11 +209,24 @@
                 position: absolute;
                 z-index: 4;
         }
-
-        .resis {
-                position: absolute;
-                z-index: -2;
+        
+        .d { 
+            z-index: 6; 
+            position: absolute;
         }
+
+        .resis{
+            width: 100%;
+            height: 100%;
+        }
+        
+        .imageContainer {
+            width: 150px;
+            height:  150px;
+            position: absolute;
+            z-index: 5;
+        }
+        
         #calendarCont, #calendarPanel{
             padding-top: 0;
             padding-bottom: 0;

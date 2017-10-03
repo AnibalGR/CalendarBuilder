@@ -4,13 +4,18 @@
 <link href="{{ asset('css/fullcalendar.min.css') }}" rel='stylesheet' />
 <link href="{{ asset('css/fullcalendar.print.min.css') }}" rel="stylesheet" media="print" />
 <link href="{{ asset('css/bootstrap.vertical-tabs.css') }}" rel="stylesheet" >
-<link href="{{ asset('css/custom.css') }}" rel="stylesheet" >
+<link href="{{ asset('css/custom-calendar.css') }}" rel="stylesheet" >
 
 @endsection
 
 
 @section('content')
 <div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12 head-calendar">
+            
+        </div>
+    </div>
     <div class="row">
         <div class="col-md-12">
             <div class="col-md-4" >

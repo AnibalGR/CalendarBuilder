@@ -202,17 +202,17 @@
         
 /*************Anibal CSS*****************/        
         
-        #imagePrev {
-            left: 0px;
-            right: 0px;
-            top: 42px;
-            bottom: 0px;
-                width: 98%;
-                height: 87%;
-                padding-left: 0;
-                position: absolute;
-                z-index: 4;
-        }
+#imagePrev {
+    left: 22px;
+    right: 0px;
+    top: 97px;
+    bottom: 0px;
+    width: 93%;
+    height: 77%;
+    padding-left: 0;
+    position: absolute;
+    z-index: 4;
+}
         
         .erasable { 
             z-index: 6; 

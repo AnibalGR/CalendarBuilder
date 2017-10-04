@@ -90,8 +90,8 @@
             <div class="col-md-8">
                 <div id="tabs">
                     <ul>
-                        <li><a href="#tabs-1">Calendar</a></li>
-                        <li><a href="#tabs-2">Video</a></li>
+                        <li><a href="#tabs-1"><span class="glyphicon glyphicon-calendar sb-icons" aria-hidden="true" style="text-align: left; width: 20%; margin-right: 5px"></span>Calendar</a></li>
+                        <li><a href="#tabs-2"><span class="glyphicon glyphicon-film sb-icons" aria-hidden="true" style="text-align: left; width: 20%; margin-right: 10px"></span>Video</a></li>
                     </ul>
                     <div id="tabs-1">
                 <div class="panel panel-default">
@@ -195,7 +195,7 @@
                                      themeSystem: themeSystem,
                                         height: 'auto',
                                         header: {
-                                                left: 'prev,next',
+                                                left: null,
                                                 center: 'title',
                                                 right: null
                                         },

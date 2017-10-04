@@ -143,7 +143,7 @@
 
                     <div class="panel-body" id="calendarPanel" style="height:auto">
                         <div class="panel-body bg-right" >
-                    <div class="panel-body" id="calendarCont" style="overflow: auto">
+                    <div class="panel-body" id="calendarCont">
                         <div id="imagePrev" style="border: 5px"></div>
                         <div id="videoDiv" style="visibility: hidden"></div>
                         <p id="topLayout" style="visibility: hidden;  width: 0px; height: 0px;">Put your image here!</p>

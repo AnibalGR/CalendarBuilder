@@ -88,6 +88,12 @@
                 </div>
             </div>
             <div class="col-md-8">
+                <div id="tabs">
+                    <ul>
+                        <li><a href="#tabs-1">Calendar</a></li>
+                        <li><a href="#tabs-2">Video</a></li>
+                    </ul>
+                    <div id="tabs-1">
                 <div class="panel panel-default">
                     <div class="panel-heading" id="calendarPanel">
                         
@@ -155,6 +161,9 @@
                 </div>
             </div>
         </div>
+                </div>
+                    <div id="tabs-2"></div>
+            </div>
     </div>
 </div>
     </div></div>
@@ -165,6 +174,19 @@
 <script src="{{ asset('js/fullcalendar.min.js') }}"></script>
 <script src="{{ asset('js/theme-chooser.js') }}"></script>
 <script>
+    
+    $( function() {
+        $( "#tabs" ).tabs();
+    });
+    
+    function resizePanels(){
+        var offsetHeight1 = document.getElementById('calendarPanel').offsetHeight;
+        document.getElementById('toolsPanel').style.height = offsetHeight1 + 'px';
+                
+        var offsetHeight = document.getElementById('calendarCont').offsetHeight;
+        document.getElementById('toolsCont').style.height = offsetHeight + 30 +'px';
+    };
+    
     $(document).ready(function() {
         
         initThemeChooser({
@@ -377,12 +399,6 @@
                         $(this).draggable( {disabled: true, revert:'invalid'});
                     });
                 });
-                
-                var offsetHeight1 = document.getElementById('calendarPanel').offsetHeight;
-                document.getElementById('toolsPanel').style.height = offsetHeight1 + 'px';
-                
-                var offsetHeight = document.getElementById('calendarCont').offsetHeight;
-                document.getElementById('toolsCont').style.height = offsetHeight + 30 +'px';
             };
 </script>
 @endsection

@@ -142,6 +142,7 @@
 	</div></div>
 
 <<<<<<< HEAD
+<<<<<<< HEAD
                                     <div class='clear'></div>
                                 </div>
                             </div>
@@ -162,10 +163,15 @@
                     </div>
                     <div id="tabs-2">
 =======
+=======
+>>>>>>> parent of 2ec1ba1... Nothing
                     <div class="panel-body" id="calendarPanel" style="height:auto">
                         <div class="panel-body bg-right" >
                     <div class="panel-body" id="calendarCont">
                         <div id="imagePrev" style="border: 5px"></div>
+<<<<<<< HEAD
+>>>>>>> parent of 2ec1ba1... Nothing
+=======
 >>>>>>> parent of 2ec1ba1... Nothing
                         <div id="videoDiv" style="visibility: hidden"></div>
                         <p id="topLayout" style="visibility: hidden;  width: 0px; height: 0px;">Put your image here!</p>

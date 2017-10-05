@@ -71,21 +71,43 @@
                                     </div>
                                 </div>
                                 <div class="tab-pane" id="profile">
-                                    <button id="addButton" type="button" class="btn btn-primary">Add Text</button>
-                                    <button id="h1" type="button" class="btn btn-primary">H1</button>
-                                    <button id="h2" type="button" class="btn btn-primary">H2</button>
-                                    <button id="h3" type="button" class="btn btn-primary">H3</button>
-                                    <button id="h4" type="button" class="btn btn-primary">H4</button>
-                                    <button id="h5" type="button" class="btn btn-primary">H5</button>
-                                    <button id="h6" type="button" class="btn btn-primary">H6</button>
-                                    <button id="bold" type="button" class="btn btn-primary">Bold</button>
-                                    <button id="italic" type="button" class="btn btn-primary">Italic</button>
+                                    <div class="form-group">
+                                        <label for="sel1">Font Size</label>
+                                        <select class="form-control" id="fontSize">
+                                            <option>H1</option>
+                                            <option>H2</option>
+                                            <option>H3</option>
+                                            <option>H4</option>
+                                            <option selected="selected">H5</option>
+                                            <option>H6</option>
+                                        </select>
+                                        <label for="sel1">Fore Color</label>
+                                        <select class="form-control" id="sel12">
+                                            <option><button id="h1" type="button" class="btn btn-primary">H1</button></option>
+                                            <option><button id="h2" type="button" class="btn btn-primary">H2</button></option>
+                                            <option><button id="h3" type="button" class="btn btn-primary">H3</button></option>
+                                            <option><button id="h4" type="button" class="btn btn-primary">H4</button></option>
+                                            <option><button id="h5" type="button" class="btn btn-primary">H5</button></option>
+                                            <option><button id="h6" type="button" class="btn btn-primary">H6</button></option>
+                                        </select>
+                                        <label for="sel1">Background Color</label>
+                                        <select class="form-control" id="sel1">
+                                            <option><button id="h1" type="button" class="btn btn-primary">H1</button></option>
+                                            <option><button id="h2" type="button" class="btn btn-primary">H2</button></option>
+                                            <option><button id="h3" type="button" class="btn btn-primary">H3</button></option>
+                                            <option><button id="h4" type="button" class="btn btn-primary">H4</button></option>
+                                            <option><button id="h5" type="button" class="btn btn-primary">H5</button></option>
+                                            <option><button id="h6" type="button" class="btn btn-primary">H6</button></option>
+                                        </select>
+                                    </div>
+                                    <button id="bold" type="button" class="btn btn-primary"><span class="glyphicon glyphicon-bold sb-icons" aria-hidden="true"></span></button>
+                                    <button id="italic" type="button" class="btn btn-primary"><span class="glyphicon glyphicon-italic sb-icons" aria-hidden="true"></span></button>
                                     <button id="underline" type="button" class="btn btn-primary">Underline</button>
                                     <button id="undo" type="button" class="btn btn-primary">Undo</button>
                                     <button id="copy" type="button" class="btn btn-primary">Copy</button>
                                     <button id="cut" type="button" class="btn btn-primary">Cut</button>
                                     <button id="delete" type="button" class="btn btn-primary">Delete</button>
-                                    
+                                    <button id="addButton" type="button" class="btn btn-primary">Add Text</button>
                                 </div>
                                 <div class="tab-pane" id="messages">
                                     <div>
@@ -365,7 +387,7 @@
             $("#calendarTab").trigger("click");
         }
     });
-    
+     
 </script>
 
 <script type="text/javascript">

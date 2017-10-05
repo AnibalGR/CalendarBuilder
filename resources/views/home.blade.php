@@ -499,7 +499,7 @@
             function init() {
                 // We configure the button whose create a new text object
                 $("#addButton").click(function () {
-                    $('#imagePrev').append('<div class="erasable"><div class:closebtn;><img src="{{ asset('img/delete-element.png') }}" class="img-responsive" height:;></div><p class="d" contenteditable="true">Double click here</p></div>');
+                    $('#imagePrev').append('<div class="erasable"><div class="closebtn"><img src="{{ asset('img/delete-element.png') }}" class="img-responsive" height:;></div><p class="d" contenteditable="true">Double click here</p></div>');
                     
                     $(".erasable").draggable();
                     

@@ -222,7 +222,7 @@
                                     <button id="addVideo" type="button" class="btn btn-primary">Add Video</button>
                                     <button id="removeVideo" type="button" class="btn btn-primary">Remove Video</button>
                                 </div>
-                                <div class="tab-pane" id="Background">Some background images</div>
+                                <div class="tab-pane" id="Background"><button id="removeObject" type="button" class="btn btn-primary" style="width: 100%">Remove Object</button></div>
                             </div>
                         </div>
                     </div>

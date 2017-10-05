@@ -598,3 +598,8 @@ $('#redo').click(function () {
     document.execCommand('redo', false, null);
     
 });
+
+$('#removeObject').click(function () {
+    $('.erasable').addClass('erasable-2').removeClass('erasable');
+    $('.closebtn').addClass('closebtn-2').removeClass('closebtn');
+});

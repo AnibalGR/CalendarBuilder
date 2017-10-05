@@ -318,16 +318,22 @@
         }
         
         
-/********Test********/
+/********Close Button for Draggable items********/
 .erasable-2{
+    z-index: 6; 
+    position: absolute;
     border: 2px #FF69B4 solid;
     padding:5px;
 }
 .closebtn{
-    float: right;
+    /*float: right;*/
+    margin-right: -5px;
     margin-top: -5px;
-    visibility: hidden;
+    display: none !important;
 }
-.closebtn :hover{
-    visibility: visible !important;
+.closebtn-2{
+/*    visibility: visible !important;*/
+    float: right;
+    margin-top: -5px; 
+    display: block !important;
 }

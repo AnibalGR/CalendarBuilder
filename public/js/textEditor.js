@@ -108,3 +108,22 @@ $( "#fontSize" ).change(function() {
   H(size);
 });
 
+$('#green').click(function () {
+
+    // Get Selection
+    sel = window.getSelection();
+    if (sel.rangeCount && sel.getRangeAt) {
+        range = sel.getRangeAt(0);
+    }
+    // Set design mode to on
+    document.designMode = "on";
+    if (range) {
+        sel.removeAllRanges();
+        sel.addRange(range);
+    }
+    // Colorize text
+    document.execCommand("ForeColor", false, "red");
+    // Set design mode to off
+    document.designMode = "off";
+    
+});

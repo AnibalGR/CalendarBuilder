@@ -82,6 +82,44 @@
                                             <option>H6</option>
                                         </select>
                                         <label for="sel1">Fore Color</label>
+                                        <div class="colorMatrix">
+                                            <div class="colorE" id="green">
+                                                
+                                            </div>
+                                            <div class="colorE">
+                                                
+                                            </div>
+                                            <div class="colorE">
+                                                
+                                            </div>
+                                            <div class="colorE">
+                                                
+                                            </div>
+                                            <div class="colorE">
+                                                
+                                            </div>
+                                            <div class="colorE">
+                                                
+                                            </div>
+                                            <div class="colorE">
+                                                
+                                            </div>
+                                            <div class="colorE">
+                                                
+                                            </div>
+                                            <div class="colorE">
+                                                
+                                            </div>
+                                            <div class="colorE">
+                                                
+                                            </div>
+                                            <div class="colorE">
+                                                
+                                            </div>
+                                            <div class="colorE">
+                                                
+                                            </div>
+                                        </div>
                                         <select class="form-control" id="sel12">
                                             <option><button id="h1" type="button" class="btn btn-primary">H1</button></option>
                                             <option><button id="h2" type="button" class="btn btn-primary">H2</button></option>
@@ -396,7 +434,7 @@
             function init() {
                 // We configure the button whose create a new text object
                 $("#addButton").click(function () {
-                    $('#imagePrev').append('<div class="erasable"><p class="d" contenteditable="true">Double click here</p></div>');
+                    $('#imagePrev').append('<div class="erasable"><span class="d" contenteditable="true">Double click here</span></div>');
                     
                     $(".erasable").draggable();
                     

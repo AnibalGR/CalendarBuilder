@@ -138,6 +138,7 @@
 
 		</div>
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 		<div class='clear'></div>
 	</div></div>
@@ -145,10 +146,17 @@
 
 <<<<<<< HEAD
 
+=======
+
+		<div class='clear'></div>
+	</div></div>
+
+>>>>>>> parent of 2ec1ba1... Nothing
                     <div class="panel-body" id="calendarPanel" style="height:auto">
                         <div class="panel-body bg-right" >
                     <div class="panel-body" id="calendarCont">
                         <div id="imagePrev" style="border: 5px"></div>
+<<<<<<< HEAD
 
 =======
 >>>>>>> 2b958f98143285f4f41761a76e82e1fd9d19dece
@@ -195,6 +203,8 @@
 =======
 >>>>>>> 2b958f98143285f4f41761a76e82e1fd9d19dece
 >>>>>>> 567633e464ba8ffca9a24ff378657addfa5916ed
+=======
+>>>>>>> parent of 2ec1ba1... Nothing
                         <div id="videoDiv" style="visibility: hidden"></div>
                         <p id="topLayout" style="visibility: hidden;  width: 0px; height: 0px;">Put your image here!</p>
                         <p id="leftLayout" style="visibility: hidden;  width: 0px; height: 0px; float: left; margin-bottom: 0px;">Put your image here!</p>

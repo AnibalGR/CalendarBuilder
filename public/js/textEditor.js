@@ -599,11 +599,12 @@ $('#redo').click(function () {
     
 });
 
+$('.closebtn-2').click(function () {
+    alert('Si entró');
+});
+
 $('#removeObject').click(function () {
     $('.erasable').addClass('erasable-2').removeClass('erasable');
     $('.closebtn').addClass('closebtn-2').removeClass('closebtn');
 });
 
-$('.closebtn-2 img').click(function () {
-    alert('Si entró');
-});

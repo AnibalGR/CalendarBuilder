@@ -285,12 +285,12 @@
 
                                     </div>
 
-<<<<<<< HEAD
+
                     <div class="panel-body" id="calendarPanel" style="height:auto">
                         <div class="panel-body bg-right" >
                     <div class="panel-body" id="calendarCont">
                         <div id="imagePrev" style="border: 5px"></div>
-=======
+
                                     <div class='clear'></div>
                                 </div>
                             </div>
@@ -310,7 +310,7 @@
                         </div>
                     </div>
                     <div id="tabs-2">
->>>>>>> 52e6ff2ede7b57be9a922125256c1b471be2f63b
+
                         <div id="videoDiv" style="visibility: hidden"></div>
                     </div>
                 </div>

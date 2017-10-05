@@ -499,7 +499,7 @@
             function init() {
                 // We configure the button whose create a new text object
                 $("#addButton").click(function () {
-                    $('#imagePrev').append('<div class="erasable"><span class="d" contenteditable="true">Double click here</span></div>');
+                    $('#imagePrev').append('<div class="erasable"><p class="d" contenteditable="true">Double click here</p></div>');
                     
                     $(".erasable").draggable();
                     

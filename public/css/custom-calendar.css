@@ -316,3 +316,18 @@
         #black, #black2{
             background-color: black;
         }
+        
+        
+/********Test********/
+.erasable-2{
+    border: 2px #FF69B4 solid;
+    padding:5px;
+}
+.closebtn{
+    float: right;
+    margin-top: -5px;
+    visibility: hidden;
+}
+.closebtn :hover{
+    visibility: visible !important;
+}

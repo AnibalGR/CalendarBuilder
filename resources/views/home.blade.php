@@ -71,6 +71,7 @@
                                     </div>
                                 </div>
                                 <div class="tab-pane" id="profile">
+                                    <button id="addButton" type="button" class="btn btn-primary" style="width: 100%">Add Text</button>
                                     <div class="form-group">
                                         <label for="sel1">Font Size</label>
                                         <select class="form-control" id="fontSize">
@@ -81,62 +82,125 @@
                                             <option selected="selected">H5</option>
                                             <option>H6</option>
                                         </select>
+                                            <label for="sel1">Font Name</label>
+                                        <select class="form-control" id="fontName">
+                                            <option selected="selected">Arial</option>
+                                            <option>Arial Black</option>
+                                            <option>Calibri</option>
+                                            <option>Comic Sans MS</option>
+                                            <option>Lucida Sans Unicode</option>
+                                            <option>Trebuchet MS</option>
+                                            <option>Courier New</option>
+                                            <option>Lucida Console</option>
+                                            <option>Georgia</option>
+                                            <option>Palatino Linotype</option>
+                                            <option>Times New Roman</option>
+                                            <option>Impact</option>
+                                            <option>Tahoma</option>
+                                            <option>Verdana</option>
+                                        </select>
                                         <label for="sel1">Fore Color</label>
                                         <div class="colorMatrix">
-                                            <div class="colorE" id="green">
+                                            <button class="colorE" id="white">
                                                 
-                                            </div>
-                                            <div class="colorE">
+                                            </button>
+                                            <button class="colorE" id="lightBlue">
                                                 
-                                            </div>
-                                            <div class="colorE">
+                                            </button>
+                                            <button class="colorE" id="steelBlue">
                                                 
-                                            </div>
-                                            <div class="colorE">
+                                            </button>
+                                            <button class="colorE" id="blue">
                                                 
-                                            </div>
-                                            <div class="colorE">
+                                            </button>
+                                            <button class="colorE" id="lightGreen">
                                                 
-                                            </div>
-                                            <div class="colorE">
+                                            </button>
+                                            <button class="colorE" id="green">
                                                 
-                                            </div>
-                                            <div class="colorE">
+                                            </button>
+                                            <button class="colorE" id="darkGreen">
                                                 
-                                            </div>
-                                            <div class="colorE">
+                                            </button>
+                                            <button class="colorE" id="purple">
                                                 
-                                            </div>
-                                            <div class="colorE">
+                                            </button>
+                                            <button class="colorE" id="hotPink">
                                                 
-                                            </div>
-                                            <div class="colorE">
+                                            </button>
+                                            <button class="colorE" id="yellow">
                                                 
-                                            </div>
-                                            <div class="colorE">
+                                            </button>
+                                            <button class="colorE" id="gold">
                                                 
-                                            </div>
-                                            <div class="colorE">
+                                            </button>
+                                            <button class="colorE" id="orange">
                                                 
-                                            </div>
+                                            </button>
+                                            <button class="colorE" id="red">
+                                                
+                                            </button>
+                                            <button class="colorE" id="gray">
+                                                
+                                            </button>
+                                            <button class="colorE" id="brown">
+                                                
+                                            </button>
+                                            <button class="colorE" id="black">
+                                                
+                                            </button>
                                         </div>
-                                        <select class="form-control" id="sel12">
-                                            <option><button id="h1" type="button" class="btn btn-primary">H1</button></option>
-                                            <option><button id="h2" type="button" class="btn btn-primary">H2</button></option>
-                                            <option><button id="h3" type="button" class="btn btn-primary">H3</button></option>
-                                            <option><button id="h4" type="button" class="btn btn-primary">H4</button></option>
-                                            <option><button id="h5" type="button" class="btn btn-primary">H5</button></option>
-                                            <option><button id="h6" type="button" class="btn btn-primary">H6</button></option>
-                                        </select>
                                         <label for="sel1">Background Color</label>
-                                        <select class="form-control" id="sel1">
-                                            <option><button id="h1" type="button" class="btn btn-primary">H1</button></option>
-                                            <option><button id="h2" type="button" class="btn btn-primary">H2</button></option>
-                                            <option><button id="h3" type="button" class="btn btn-primary">H3</button></option>
-                                            <option><button id="h4" type="button" class="btn btn-primary">H4</button></option>
-                                            <option><button id="h5" type="button" class="btn btn-primary">H5</button></option>
-                                            <option><button id="h6" type="button" class="btn btn-primary">H6</button></option>
-                                        </select>
+                                        <div class="colorMatrix">
+                                            <button class="colorE" id="white2">
+                                                
+                                            </button>
+                                            <button class="colorE" id="lightBlue2">
+                                                
+                                            </button>
+                                            <button class="colorE" id="steelBlue2">
+                                                
+                                            </button>
+                                            <button class="colorE" id="blue2">
+                                                
+                                            </button>
+                                            <button class="colorE" id="lightGreen2">
+                                                
+                                            </button>
+                                            <button class="colorE" id="green2">
+                                                
+                                            </button>
+                                            <button class="colorE" id="darkGreen2">
+                                                
+                                            </button>
+                                            <button class="colorE" id="purple2">
+                                                
+                                            </button>
+                                            <button class="colorE" id="hotPink2">
+                                                
+                                            </button>
+                                            <button class="colorE" id="yellow2">
+                                                
+                                            </button>
+                                            <button class="colorE" id="gold2">
+                                                
+                                            </button>
+                                            <button class="colorE" id="orange2">
+                                                
+                                            </button>
+                                            <button class="colorE" id="red2">
+                                                
+                                            </button>
+                                            <button class="colorE" id="gray2">
+                                                
+                                            </button>
+                                            <button class="colorE" id="brown2">
+                                                
+                                            </button>
+                                            <button class="colorE" id="black2">
+                                                
+                                            </button>
+                                        </div>
                                     </div>
                                     <button id="bold" type="button" class="btn btn-primary"><span class="glyphicon glyphicon-bold sb-icons" aria-hidden="true"></span></button>
                                     <button id="italic" type="button" class="btn btn-primary"><span class="glyphicon glyphicon-italic sb-icons" aria-hidden="true"></span></button>
@@ -145,7 +209,8 @@
                                     <button id="copy" type="button" class="btn btn-primary">Copy</button>
                                     <button id="cut" type="button" class="btn btn-primary">Cut</button>
                                     <button id="delete" type="button" class="btn btn-primary">Delete</button>
-                                    <button id="addButton" type="button" class="btn btn-primary">Add Text</button>
+                                    <button id="paste" type="button" class="btn btn-primary">Paste</button>
+                                    <button id="redo" type="button" class="btn btn-primary">Redo</button>
                                 </div>
                                 <div class="tab-pane" id="messages">
                                     <div>

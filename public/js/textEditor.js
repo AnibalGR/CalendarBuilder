@@ -599,8 +599,9 @@ $('#redo').click(function () {
     
 });
 
-$('.closebtn-2').click(function () {
-    alert('Si entró');
+$("#imagePrev").on("click", "input.closebtn-2", function(){
+    alert('Hola mamá!');
+    $(this).parent().remove();
 });
 
 $('#removeObject').click(function () {

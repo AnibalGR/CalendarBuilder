@@ -22,7 +22,7 @@
                             @foreach ($calendars as $calendar)
                             <tr>
                                 <td>{{ $calendar->name }}</td>
-                                <td>Number of pages</td>
+                                <td>{{ $calendar->getPageCount() }}</td>
                                 <td>Continue editing</td>
                                 <td>Publish</td>
                                 <td>Download</td>

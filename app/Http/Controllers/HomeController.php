@@ -42,7 +42,7 @@ class HomeController extends Controller
     public function dashboard()
     {   
         $calendars = Calendar::where('user_id', Auth::id())->get();
-        $plans = Subscription::where('user_id', Auth::id())->get();
+        $plans = Subscription::where('user_id', Auth::id())->where('ends_at', null)->get();
         
         return view('dash')->with(['calendars' => $calendars, 'plans' => $plans]);
     }

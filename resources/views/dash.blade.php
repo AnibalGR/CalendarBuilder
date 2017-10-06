@@ -33,16 +33,24 @@
                         </table>
                     </div>
                     @else
-                    Aún no tienes ningún calendario
+                    You don´t have any calendar created
                     @endif
                 </div>
             </div>
             <div class="panel panel-default">
                 <div class="panel-heading">My Subscription</div>
                 <div class="panel-body">
-                    @foreach ($plans as $plan)
-                    <p>Nombre del plan <br>{{ $plan->braintree_plan }}</p>
-                    @endforeach
+                    @if(!$plans->isEmpty())
+                        @foreach ($plans as $plan)
+                        <p>You are subscribed to the <br>{{ $plan->braintree_plan }} plan
+                        @if($plan->braintree_plan == "Monthly")
+                        Why don´t you <a href="">Upgrade</a> your account?
+                        @endif
+                        </p>
+                        @endforeach
+                    @else
+                        <p>You are not subscribed to any plan. Why don´t you <a href="">Subscribe</a>?
+                    @endif
                 </div>
             </div>
             <div class="panel panel-default">

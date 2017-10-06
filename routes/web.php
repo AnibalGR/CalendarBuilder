@@ -25,7 +25,7 @@ Route::group(['middleware' => 'auth'], function () {
 });
 
 // Ruta para desarrollar pruebas
-Route::get('/pruebas', 'HomeController@showHomePage')->name('pruebas');
+Route::get('/dashboard', 'HomeController@dashboard')->name('dash');
     
 Auth::routes();
 

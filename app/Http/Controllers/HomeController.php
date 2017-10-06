@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use App\Calendar;
+use App\Subscription;
 
 class HomeController extends Controller
 {
@@ -39,6 +41,9 @@ class HomeController extends Controller
     
     public function dashboard()
     {   
-            return view('layouts.base');
+        $calendars = Calendar::where('user_id', Auth::id())->get();
+        $plans = Subscription::where('user_id', Auth::id())->get();
+        
+        return view('dash')->with(['calendars' => $calendars, 'plans' => $plans]);
     }
 }

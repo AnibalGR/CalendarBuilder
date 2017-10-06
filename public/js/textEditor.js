@@ -600,7 +600,6 @@ $('#redo').click(function () {
 });
 
 $("#imagePrev").on("click", "input.closebtn-2", function(){
-    alert('Hola mamá!');
     $(this).parent().remove();
 });
 

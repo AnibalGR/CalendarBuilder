@@ -47,6 +47,7 @@
                             <li class="menuNavBarButton"><a href="{{ route('login') }}" >Login</a></li>
                             <li class="menuNavBarButton"><a href="{{ route('register') }}">Register</a></li>
                             @else
+                            <li><a href="{{ route('dash') }}">Dashboard</a></li>
                             <li class="menuNavBarButton"><a href="{{ route('register') }}">My Calendars</a></li>
                             
                             <li class="dropdown">

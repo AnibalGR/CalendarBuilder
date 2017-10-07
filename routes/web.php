@@ -11,22 +11,34 @@
 |
 */
 
+// Home page
 Route::get('/', function () {
     return view('welcome2');
 });
 
+// A non-registered user can see the plans
 Route::get('/plans', 'PlansController@index')->name('plans');
 
+// Private routes to show only to subscribed members
 Route::group(['middleware' => 'auth'], function () {
+    
+    //This is the route to subscribe to a plan
     Route::get('/plan/{plan}', 'PlansController@show');
+    
+    // Internal route to generate a token for the user credit card
     Route::get('/braintree/token', 'BraintreeTokenController@token');
+    
+    // The registration for a subscription route
     Route::post('/subscribe', 'SubscriptionsController@store');
-    Route::get('/calendars', 'HomeController@calendars');
+    
+    // The main user interface (Dashboard)
+    Route::get('/dashboard', 'HomeController@dashboard')->name('dash');
 });
 
 // Ruta para desarrollar pruebas
-Route::get('/dashboard', 'HomeController@dashboard')->name('dash');
+
     
 Auth::routes();
 
+// This is the calendar builder URL
 Route::get('/home', 'HomeController@index')->name('home');

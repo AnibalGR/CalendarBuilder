@@ -35,9 +35,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/dashboard', 'HomeController@dashboard')->name('dash');
 });
 
-// Ruta para desarrollar pruebas
-
-    
+// Routes for the user´s autentication
 Auth::routes();
 
 // This is the calendar builder URL

@@ -236,7 +236,7 @@
                     </ul>
                     <div id="tabs-1" style="padding-left: 0px;padding-right: 0px;padding-bottom: 0px;padding-top: 0px">
                         <div class="panel panel-default" style="margin-bottom: 0px">
-                            <div class="panel-heading" id="calendarPanel">
+                            <div class="panel-heading">
 
                                 <div id='top'>
                                     <div class='left'>Calendar</div>
@@ -289,15 +289,15 @@
                                 </div>
                             </div>
 
-                            <div class="panel-body" id="calendarPanel" style="height:auto">
-                                <div id="imagePrev" style="border: 5px"></div>
-                                <div class="panel-body bg-right" >
-                                    <div class="panel-body" id="calendarCont" style="overflow: auto">
-                                        <p id="topLayout" style="visibility: hidden;  width: 100%; height: 130px; border: 2px solid; z-index: 3">Put your image here!</p>
-                                        <p id="leftLayout" style="visibility: hidden;  width: 0px; height: 0px; float: left; margin-bottom: 0px;">Put your image here!</p>
-                                        <p id="rightLayout" style="visibility: hidden;  width: 0px; height: 0px; float: right">Put your image here!</p>
-                                        <div id='calendar'></div>
-                                        <p id="bottomLayout" style="visibility: hidden;  width: 100%; height: 130px; border: 2px solid; z-index: 3">Put your image here!</p>
+                            <div class="panel-body prueba" id="calendarPanel" style="height:auto">
+                                <div id="imagePrev" class="prueba" style="border: 5px"></div>
+                                <div class="panel-body bg-right prueba" >
+                                    <div class="panel-body prueba" id="calendarCont" style="overflow: auto">
+                                        <p id="topLayout" class="prueba" style="visibility: hidden;  width: 100%; height: 130px; border: 2px solid; z-index: 3">Put your image here!</p>
+                                        <p id="leftLayout" class="prueba" style="visibility: hidden;  width: 0px; height: 0px; float: left; margin-bottom: 0px;">Put your image here!</p>
+                                        <p id="rightLayout" class="prueba" style="visibility: hidden;  width: 0px; height: 0px; float: right">Put your image here!</p>
+                                        <div id='calendar' class="prueba"></div>
+                                        <p id="bottomLayout" class="prueba" style="visibility: hidden;  width: 100%; height: 130px; border: 2px solid; z-index: 3">Put your image here!</p>
                                     </div>
                                 </div>
                             </div>
@@ -317,6 +317,24 @@
 <script src="{{ asset('js/fullcalendar.min.js') }}"></script>
 <script src="{{ asset('js/theme-chooser.js') }}"></script>
 <script src="{{ asset('js/textEditor.js') }}"></script>
+<script src="{{ asset('js/html2canvas.svg.min.js') }}"></script>
+<script src="{{ asset('js/html2canvas.js') }}"></script>
+<script>
+    
+    $('#saveImage').click(function(){
+    html2canvas($('#calendarPanel'), {
+        scale: 4,
+        onrendered: function(canvas) {
+        var a = document.createElement('a');
+        // toDataURL defaults to png, so we need to request a jpeg, then convert for file download.
+        a.href = canvas.toDataURL("image/jpeg").replace("image/jpeg", "image/octet-stream");
+        a.download = 'somefilename.jpg';
+        a.click();
+        }}
+    );
+    
+});
+</script>
 <script>
     
     $( function() {

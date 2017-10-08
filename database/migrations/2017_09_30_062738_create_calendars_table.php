@@ -17,6 +17,11 @@ class CreateCalendarsTable extends Migration
             $table->increments('id');
             $table->integer('user_id')->unsigned();
             $table->string('name');
+            $table->integer('year')->unsigned();
+            $table->integer('month')->unsigned();
+            $table->string('theme');
+            $table->string('video')->nullable(true);
+            $table->text('content');
             $table->timestamps();
             
             // Foreign key to user´s id

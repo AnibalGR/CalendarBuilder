@@ -24,9 +24,12 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        return view('home');
+        $name = $request->input('name');
+        $year = $request->input('year');
+        $month = $request->input('month');
+        return view('home', ['name' => $name, 'year' => $year, 'month' => $month]);
     }
     
     /**

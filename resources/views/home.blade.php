@@ -10,6 +10,7 @@
 
 
 @section('content')
+
 <div class="container-fluid">
     <div class="row">
         <div class="col-md-12 head-calendar">
@@ -239,7 +240,7 @@
                             <div class="panel-heading">
 
                                 <div id='top'>
-                                    <div class='left'>Calendar</div>
+                                    <div class='left'>Calendar: {{ $name }} </div>
                                     <div class='right'>
 
                                         <div id='theme-system-selector'class='selector' >
@@ -360,7 +361,7 @@
                                                 center: 'title',
                                                 right: null
                                         },
-                                        defaultDate: '2017-10-12',
+                                        defaultDate: '{{ $year }}-{{ $month }}',
                                         weekNumbers: false,
                                         navLinks: true, // can click day/week names to navigate views
                                         editable: true,

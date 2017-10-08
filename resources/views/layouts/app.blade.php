@@ -1,6 +1,3 @@
-<?php
-    use Carbon\Carbon;
-?>
 <!DOCTYPE html>
 <html lang="{{ app()->getLocale() }}">
     <head>

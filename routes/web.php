@@ -33,10 +33,13 @@ Route::group(['middleware' => 'auth'], function () {
     
     // The main user interface (Dashboard)
     Route::get('/dashboard', 'HomeController@dashboard')->name('dash');
+    
+    // Route to the Calendar Designer
+    //Route::post('/designer', 'HomeController@dashboard')->name('dash');
 });
 
 // Routes for the user´s autentication
 Auth::routes();
 
 // This is the calendar builder URL
-Route::get('/home', 'HomeController@index')->name('home');
+Route::post('/home', 'HomeController@index')->name('home');

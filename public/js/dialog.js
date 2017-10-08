@@ -8,7 +8,7 @@ $(document).ready(function () {
         $("#name").val("");
         $("#year").val($("#year option:first").val());
         $("#month").val("01");
-        $(this).parent().parent().hide();
+        $(this).parent().parent().hide("fade");
         $("#alert").remove();
     });
     

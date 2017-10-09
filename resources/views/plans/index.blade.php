@@ -1,5 +1,9 @@
 @extends('layouts.app')
 
+@section('styles')
+<link href="{{ asset('css/plans.css') }}" rel="stylesheet" >
+@endsection
+
 @section('content')
 <div class="container">
     <div class="row">

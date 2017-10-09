@@ -47,16 +47,20 @@
                         <!-- Right Side Of Navbar -->
                         <ul class="nav navbar-nav navbar-right">
                             <!-- Authentication Links -->
+                            <li><a href="#">how it works</a></li>
+                            <li><a href="{{ route('plans') }}">pricing</a></li>
+                            <li><a href="#">blog</a></li>
                             @guest
-                            <li><a href="{{ route('login') }}">Login</a></li>
-                            <li><a href="{{ route('register') }}">Register</a></li>
+                            <li class="menuNavBarButton"><a href="{{ route('login') }}" >Login</a></li>
+                            <li class="menuNavBarButton"><a href="{{ route('register') }}">Register</a></li>
                             @else
-                            <button id="saveImage">Crear imagen</button>
+                            <li><a href="{{ route('dash') }}">dashboard</a></li>
+                            
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
                                     {{ Auth::user()->name }} <span class="caret"></span>
                                 </a>
-
+                                <button id="saveImage">Crear imagen</button>
                                 <ul class="dropdown-menu" role="menu">
                                     <li>
                                         <a href="{{ route('logout') }}"
@@ -85,7 +89,9 @@
             </div>
             @yield('content')
         </div>
-
+        <footer>
+            algo
+        </footer>
         <!-- Scripts -->
         <script src="{{ asset('js/jquery-3.2.1.min.js') }}"></script>
         <script src="{{ asset('js/jquery-ui.min.js') }}"></script>
@@ -96,3 +102,4 @@
         @yield('braintree')        
     </body>
 </html>
+

@@ -34,8 +34,8 @@ Route::group(['middleware' => 'auth'], function () {
     // The main user interface (Dashboard)
     Route::get('/dashboard', 'HomeController@dashboard')->name('dash');
     
-    // Route to the Calendar Designer
-    //Route::post('/designer', 'HomeController@dashboard')->name('dash');
+    // Route to the delete calendar
+    Route::delete('/delete_calendar/{id}', 'HomeController@deleteCalendar')->name('deleteCalendar');
 });
 
 // Routes for the user´s autentication

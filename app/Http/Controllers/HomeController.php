@@ -10,10 +10,27 @@ use App\Subscription;
 class HomeController extends Controller
 {
     /**
-     * Create a new controller instance.
+     * Remove the specified resource from storage
      *
-     * @return void
+     * @param int $calendar_id
+     * @param Request $request
+     * @return Response
      */
+    
+    public function deleteCalendar($calendar_id, Request $request){
+        
+        $calendar = Calendar::find($calendar_id);
+               
+        $message = $calendar->name . ' was successfuly removed.';
+                
+        $calendar->delete();
+        
+        if($request->ajax()){
+            return $message;
+        }
+        
+    }
+    
     public function __construct()
     {
         $this->middleware('auth');
@@ -39,7 +56,7 @@ class HomeController extends Controller
         $calendar->theme = '0';
         $calendar->content = ' ';
         if($calendar->save()){
-        return view('home', ['name' => $name, 'year' => $year, 'month' => $month]);
+        return view('home', ['name' => $name, 'year' => $year, 'month' => $month, 'theme' => '0']);
         }else{
             
         }

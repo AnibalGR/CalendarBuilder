@@ -25,16 +25,16 @@ use Carbon\Carbon;
                                 <td>Continue editing</td>
                                 <td>Publish</td>
                                 <td>Download</td>
-                                <td>Remove</td>
+                                <td>Delete</td>
                             </tr>
 
                             @foreach ($calendars as $calendar)
-                            <tr>
+                            <tr data-id="{{ $calendar->id }}">
                                 <td>{{ $calendar->name }}</td>
                                 <td>Continue editing</td>
                                 <td>Publish</td>
                                 <td>Download</td>
-                                <td>Remove</td>
+                                <td><a href="#!" class="btn-delete">Delete</a></td>
                             </tr>
                             @endforeach
 
@@ -79,7 +79,7 @@ use Carbon\Carbon;
 </div>
 
 
-<!--Contact Form -->
+<!--New Calendar Form -->
 <div id="contactdiv">
     <form class="form" method="POST" action="{{ route('home') }}" id="contact">
         {{ csrf_field() }}
@@ -127,10 +127,20 @@ use Carbon\Carbon;
     </form>
 </div>
 
+<!--Delete Calendar Form-->
+<form method="POST" action="{{ route('deleteCalendar', ':USER_ID') }}" id="form-delete">
+    <input name="_method" type="hidden" value="DELETE">
+    {{ csrf_field() }}
+</form>
+
 @endsection
 
 @section('scripts')
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.9.2/jquery-ui.min.js"></script>
 <script type="text/javascript" src="{{ asset('js/dialog.js') }}"></script>
+<script>
+    
+</script>
+
 @endsection

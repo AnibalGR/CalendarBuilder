@@ -1,9 +1,13 @@
-$(document).ready(function () {
+
+    
+    
     $("#onclick").click(function () {
         $("#contactdiv").css("display", "block");
         $("#year").val($("#year option:first").val());
         $("#name").focus();
     });
+    
+    // Cancel button from Create New Calendar Form
     $("#contact #cancel").click(function () {
         $("#name").val("");
         $("#year").val($("#year option:first").val());
@@ -12,7 +16,7 @@ $(document).ready(function () {
         $("#alert").remove();
     });
     
-// Contact form popup send-button click event.
+    // Create new Calendar form popup send-button click event.
     $("#send").click(function () {
         var name = $("#name").val();
         if(name == ""){
@@ -22,14 +26,26 @@ $(document).ready(function () {
             $("#name").focus();
         }else{
             $('#contact').submit();
-        }
-//        var year = $( "#year option:selected" ).text();
-//        var month = $( "#month" ).val();
-//        
-//        alert('Nombre: ' + name);
-//        alert('Año: ' + year);
-//        alert('Mes: ' + month);
-//        
+        }  
+    });
+    
+    
+   $('.btn-delete').click(function(e){
+        
+        e.preventDefault();
+        
+        var row = $(this).parents('tr');
+        var id = row.data('id');
+        var form = $('#form-delete');
+        var url = form.attr('action').replace(':USER_ID', id);
+        var data = form.serialize();
+        
+        $.post(url, data, function(result){
+        
+            row.fadeOut();
+            
+        }).fail(function(){
+            alert ('The calendar has not been removed');
+        });
         
     });
-});

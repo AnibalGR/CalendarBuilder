@@ -36,6 +36,9 @@ Route::group(['middleware' => 'auth'], function () {
     
     // Route to the delete calendar
     Route::delete('/delete_calendar/{id}', 'HomeController@deleteCalendar')->name('deleteCalendar');
+    
+    // Route to the save calendar
+    Route::delete('/save_calendar/{id}', 'HomeController@saveCalendar')->name('saveCalendar');
 });
 
 // Routes for the user´s autentication
@@ -43,3 +46,6 @@ Auth::routes();
 
 // This is the calendar builder URL
 Route::post('/home', 'HomeController@index')->name('home');
+
+// This is the calendar builder URL
+Route::get('/home', 'HomeController@index');

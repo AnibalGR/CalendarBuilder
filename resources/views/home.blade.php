@@ -8,6 +8,10 @@
 
 @endsection
 
+@section('customButtons')
+<button id="saveImage">Crear imagen</button>
+<button id="saveCalendar">Guardar calendario</button>
+@endsection
 
 @section('content')
 
@@ -246,7 +250,7 @@
                                         <div id='theme-system-selector'class='selector' >
                                             Theme System:
 
-                                            <select>
+                                            <select id='themeCategory'>
                                                 <option value='standard' selected>Without theme</option>
                                                 <option value='jquery-ui'>With theme</option>	
                                             </select>
@@ -254,7 +258,7 @@
                                         <div data-theme-system="jquery-ui" class='selector' style='display:none'>
                                             Theme Name:
 
-                                            <select>
+                                            <select id='theme'>
                                                 <option value='black-tie' selected>Black Tie</option>
                                                 <option value='blitzer'>Blitzer</option>
                                                 <option value='cupertino'>Cupertino</option>
@@ -308,9 +312,15 @@
                         <div id="videoDiv" style="visibility: hidden"></div>
                     </div>
                 </div>
+            </div>
+        </div>
     </div>
+    <!--Save Calendar Form-->
+    <form method="POST" action="{{ route('saveCalendar', ':USER_ID') }}" id="form-delete">
+        {{ csrf_field() }}
+    </form>    
+
 </div>
-    </div></div>
 @endsection
 
 @section('scripts')
@@ -509,6 +519,47 @@
             $("#calendarTab").trigger("click");
         }
     });
+    
+    // Create new Calendar form popup send-button click event.
+$('#saveCalendar').click(function () {
+    
+    var themeCategory = $('#themeCategory').val();
+    var theme = $('#theme').val();
+    var video = $('#video').length;
+    var src;
+    if(video){
+        src = $('#video').attr('src');
+    };
+    var content = $('#calendarPanel').html();
+    
+    var calendar = {
+        id: '{{ $id }}',
+        name: '{{ $name }}',
+        year: '{{ $year }}',
+        month:'{{ $month }}',
+        themeC: themeCategory,
+        theme: theme,
+        video: src,
+        content: content
+    }
+    
+    alert(JSON.stringify(calendar));
+//    
+//    var row = $(this).parents('tr');
+//    var id = row.data('id');
+//    var form = $('#form-delete');
+//    var url = form.attr('action').replace(':USER_ID', id);
+//    var data = form.serialize();
+//
+//    $.post(url, data, function (result) {
+//
+//        row.fadeOut();
+//
+//    }).fail(function () {
+//        alert('The calendar has not been removed');
+//    });
+
+});
      
 </script>
 

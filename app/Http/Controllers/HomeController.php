@@ -31,6 +31,28 @@ class HomeController extends Controller
         
     }
     
+    /**
+     * Save the specified Calendar to storage
+     *
+     * @param int $calendar_id
+     * @param Request $request
+     * @return Response
+     */
+    
+    public function saveCalendar($calendar_id, Request $request){
+        
+        $calendar = Calendar::find($calendar_id);
+               
+        $message = $calendar->name . ' was successfuly removed.';
+                
+        $calendar->delete();
+        
+        if($request->ajax()){
+            return $message;
+        }
+        
+    }
+    
     public function __construct()
     {
         $this->middleware('auth');
@@ -56,7 +78,7 @@ class HomeController extends Controller
         $calendar->theme = '0';
         $calendar->content = ' ';
         if($calendar->save()){
-        return view('home', ['name' => $name, 'year' => $year, 'month' => $month, 'theme' => '0']);
+        return view('home', ['id' => $calendar->id, 'name' => $name, 'year' => $year, 'month' => $month]);
         }else{
             
         }

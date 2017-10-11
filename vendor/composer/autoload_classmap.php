@@ -6,6 +6,8 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
+    'App\\Calendar' => $baseDir . '/app/Calendar.php',
+    'App\\Calendar_Page' => $baseDir . '/app/Calendar_Page.php',
     'App\\Console\\Commands\\SyncPlans' => $baseDir . '/app/Console/Commands/SyncPlans.php',
     'App\\Console\\Kernel' => $baseDir . '/app/Console/Kernel.php',
     'App\\Exceptions\\Handler' => $baseDir . '/app/Exceptions/Handler.php',

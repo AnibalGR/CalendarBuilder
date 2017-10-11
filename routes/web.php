@@ -48,4 +48,6 @@ Auth::routes();
 Route::post('/home', 'HomeController@index')->name('home');
 
 // This is the calendar builder URL
-Route::get('/home', 'HomeController@index');
+Route::get('/home', function(){
+    return redirect('/dashboard');
+});

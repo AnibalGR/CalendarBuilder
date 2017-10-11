@@ -488,7 +488,7 @@
             data: fd,
             success: function (data) {
                 alert(data);
-                var img = $('<div class="erasable"><div class="imageContainer"><img class="resis" src="{{ asset("data") }}"></div></div>');
+                var img = $('<div class="erasable"><div class="imageContainer"><img class="resis" src="../' + data + '"></div></div>');
                     $('#imagePrev').append(img);
                     $(".resis").resizable();
                     $(".imageContainer").draggable({
@@ -505,40 +505,6 @@
                 alert('Error');
             }
         });
-        
-        // We check if a file is uploaded
-//        if (this.files && this.files[0]) {
-//            
-//            var form = $('#form-upload');
-//            var url = form.attr('action');
-//            var data = form.serialize();
-//            alert(data);
-//            $.post(url, data, function(result){
-//        
-//                alert(result)
-//            
-//            }).fail(function(){
-//                alert ('Algo salió mal');
-//            });
-            
-            
-//                var reader = new FileReader();
-//                reader.onload = function (e) {
-//                    var img = $('<div class="erasable"><div class="imageContainer"><img class="resis" src="' + e.target.result + '"></div></div>');
-//                    $('#imagePrev').append(img);
-//                    $(".resis").resizable();
-//                    $(".imageContainer").draggable({
-//                        start: function(event, ui) {
-//                            isDraggingMedia = true;
-//                        },
-//                        stop: function(event, ui) {
-//                            isDraggingMedia = false;
-//                        },
-//                        revert: 'invalid',
-//                    });
-//                };
-//                reader.readAsDataURL(this.files[0]);
-//            }
     });
     
     // Add video function

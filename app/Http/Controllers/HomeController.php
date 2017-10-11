@@ -64,7 +64,7 @@ class HomeController extends Controller
         //$storagePath = 'public/' . Auth::id() . '/images';
         $file = $request->file;
         if($file){
-            $path = $request->file('file')->store('images');
+            $path = $request->file('file')->store('images/' . Auth::id(), 'images');
             return $path;
 //            $response_array['status'] = 'success';
 //            header('Content-type: application/json');

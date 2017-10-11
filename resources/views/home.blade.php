@@ -8,6 +8,7 @@
 
 @endsection
 
+
 @section('customButtons')
 <button id="saveImage">Crear imagen</button>
 <button id="saveCalendar">Guardar calendario</button>
@@ -228,7 +229,9 @@
                                     </div>
                                 </div>
                                 <div class="tab-pane" id="settings">
-                                    <button id="addVideo" type="button" class="btn btn-primary">Add Video</button>
+                                    <button id="addVideo22222" type="button">
+                                        <img id="addVideo" src="{{ asset('img/thumb/video-1.jpg') }}" class="img-responsive" height="75px" width="150px">
+                                    </button>
                                     <button id="removeVideo" type="button" class="btn btn-primary">Remove Video</button>
                                 </div>
                                 <div class="tab-pane" id="Background"><button id="removeObject" type="button" class="btn btn-primary" style="width: 100%">Remove Object</button></div>

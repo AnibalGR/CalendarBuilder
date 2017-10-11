@@ -236,16 +236,16 @@
                                                     <img id="addVideo1" src="{{ asset('img/thumb/video-1.jpg') }}" class="img-responsive" height="75px" width="150px">
                                                 </div>
                                                 <div class="addVideoBox">
-                                                    <img id="addVideo2" src="{{ asset('img/thumb/video-1.jpg') }}" class="img-responsive" height="75px" width="150px">
+                                                    <img id="addVideo2" src="{{ asset('img/thumb/video-2.jpg') }}" class="img-responsive" height="75px" width="150px">
                                                 </div>
                                                 <div class="addVideoBox">
-                                                    <img id="addVideo3" src="{{ asset('img/thumb/video-1.jpg') }}" class="img-responsive" height="75px" width="150px">
+                                                    <img id="addVideo3" src="{{ asset('img/thumb/video-3.jpg') }}" class="img-responsive" height="75px" width="150px">
                                                 </div>
                                                 <div class="addVideoBox">
-                                                    <img id="addVideo4" src="{{ asset('img/thumb/video-1.jpg') }}" class="img-responsive" height="75px" width="150px">
+                                                    <img id="addVideo4" src="{{ asset('img/thumb/video-3.jpg') }}" class="img-responsive" height="75px" width="150px">
                                                 </div>
                                                 <div class="addVideoBox">
-                                                    <img id="addVideo5" src="{{ asset('img/thumb/video-1.jpg') }}" class="img-responsive" height="75px" width="150px">
+                                                    <img id="addVideo5" src="{{ asset('img/thumb/video-3.jpg') }}" class="img-responsive" height="75px" width="150px">
                                                 </div>
                                             </div>
                                             <div class="col-xs-3 zeropdg">
@@ -616,7 +616,7 @@ $('#saveCalendar').click(function () {
             function init() {
                 // We configure the button whose create a new text object
                 $("#addButton").click(function () {
-                    $('#imagePrev').append('<div class="erasable"><p class="d" contenteditable="true">Double click here</p><input type="image" class="closebtn" src="{{ asset('img/delete-element.png') }}"></div>');
+                    $('#imagePrev').append('<div class="erasable"><input type="text" class="closebtn" value="X"><p class="CalTxt1" contenteditable="true">Double click here</p></div>');
                     
                     $(".erasable").draggable();
                     
@@ -628,7 +628,7 @@ $('#saveCalendar').click(function () {
                     
                     $(".erasable").dblclick(function() {
                         $(this).draggable( {disabled: true, revert:'invalid'});
-                        $('.d').setAttribute('contenteditable',true);
+                        $('.CalTxt1').setAttribute('contenteditable',true);
                         $(this).setAttribute('contenteditable',true);
                     });
                 });

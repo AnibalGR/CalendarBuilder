@@ -226,6 +226,7 @@
                                             {{ csrf_field() }}
                                             <button id="addImage" type="button" class="btn btn-primary">Upload Image</button>
                                         </form>
+                                        <div id='imageError'></div>
                                     </div>
                                 </div>
                                 <div class="tab-pane" id="settings">
@@ -525,8 +526,12 @@
                     });
             },
             error: function (data){
-                var tamanio = data.length;
-                alert(tamanio);
+                alert(data.responseJSON.message);
+                if(!$('#imageError').html().length){
+                    $('#imageError').append("<p>" + data.responseJSON.message + "</p>");
+                }
+                var salida = JSON.stringify(data);
+                alert(salida);
             }
         });
         

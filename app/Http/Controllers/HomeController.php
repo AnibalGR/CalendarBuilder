@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Symfony\Component\HttpFoundation\Response;
 use App\Calendar;
 use App\Subscription;
 use Validator;
@@ -71,10 +72,9 @@ class HomeController extends Controller
                 return $path;
             }else{
                 $returnData = array(
-                    'status' => 'error',
-                    'message' => 'It is not a valid Image file!'
+                    'message' => 'The file must be a jpg|png|gif|svg image with a maximun size of 2MB!'
                 );
-                return Response::json($returnData, 500);
+                return response($returnData, 500);
             }
         }else{
             $response_array['status'] = 'error';

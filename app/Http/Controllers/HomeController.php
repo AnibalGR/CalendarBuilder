@@ -82,6 +82,35 @@ class HomeController extends Controller
             return json_encode($response_array); 
         }
     }
+    
+    /**
+     * Upload the file to the hard drive
+     *
+     * @param Request $request
+     * @return Response
+     */
+    public function uploadVideo(Request $request) {
+    
+        $file = $request->file;
+        if($file){
+            $validator = Validator::make($request->all(), [
+                'file' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            ]);
+            if ($validator->passes()) {
+                $path = $request->file('file')->store('images/' . Auth::id(), 'images');
+                return $path;
+            }else{
+                $returnData = array(
+                    'message' => 'The file must be a jpg|png|gif|svg image with a maximun size of 2MB!'
+                );
+                return response($returnData, 500);
+            }
+        }else{
+            $response_array['status'] = 'error';
+            header('Content-type: application/json');
+            return json_encode($response_array); 
+        }
+    }
 
     public function __construct()
     {

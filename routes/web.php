@@ -42,6 +42,9 @@ Route::group(['middleware' => 'auth'], function () {
     
     // Route to upload the image files
     Route::post('/upload', 'HomeController@uploadImage')->name('uploadImage');
+    
+    // Route to upload the video files
+    Route::post('/uploadV', 'HomeController@uploadVideo')->name('uploadVideo');
 });
 
 // Routes for the user´s autentication

@@ -243,13 +243,20 @@
                                                     <img id="addVideo3" src="{{ asset('img/thumb/video-3.jpg') }}" class="img-responsive" height="75px" width="150px">
                                                 </div>
                                                 <div class="addVideoBox">
-                                                    <img id="addVideo4" src="{{ asset('img/thumb/video-3.jpg') }}" class="img-responsive" height="75px" width="150px">
+                                                    <img id="addVideo4" src="{{ asset('img/thumb/video-1.jpg') }}" class="img-responsive" height="75px" width="150px">
                                                 </div>
                                                 <div class="addVideoBox">
-                                                    <img id="addVideo5" src="{{ asset('img/thumb/video-3.jpg') }}" class="img-responsive" height="75px" width="150px">
+                                                    <img id="addVideo5" src="{{ asset('img/thumb/video-2.jpg') }}" class="img-responsive" height="75px" width="150px">
                                                 </div>
                                             </div>
                                             <div class="col-xs-3 zeropdg">
+                                                <!--Upload Video Form-->
+                                                <form method="POST" action="{{ route('uploadVideo') }}" id="form-uploadV" enctype="multipart/form-data">
+                                                    <input id="upVideo" name="upVideo" type="file" style="display:none;" />
+                                                    {{ csrf_field() }}
+                                                    <button id="addVideo" type="button" class="btn btn-primary">Upload Video</button>
+                                                </form>
+                                                <div id='imageError'></div>
                                                 <button id="removeVideo" type="button" class="btn btn-danger">Remove</button>
                                             </div>
                                         </div>
@@ -369,59 +376,38 @@ $('#saveImage').click(function(){
     );
 });
 
-$("#addVideo1").click(function(){
-        if(!$("#video").is(":visible")){
-            $("#videoDiv").css('visibility','visible');
-            
-            var video = $('<video />', {
-                id: 'video',
-                src: "{{ asset('vid/001.mp4') }}",
-                autoplay: true,
-                type: 'video/mp4',
-                loop: false,
-                controls: true
-            });
-            video.appendTo($('#videoDiv'));
-            $("#video").css('width','100%');
-            $("#video").css('height','100%');
-   
-            $("#videoTab").trigger("click");
-        }else{
-            $('#video').attr('src', "{{ asset('vid/001.mp4') }}");
-            $("#video")[0].load();
-        } 
+    $("#addVideo1").click(function(){
+        changeVideo(1); 
     });
     
     $("#addVideo2").click(function(){
-        if(!$("#video").is(":visible")){
-            $("#videoDiv").css('visibility','visible');
-            
-            var video = $('<video />', {
-                id: 'video',
-                src: "{{ asset('vid/002.mp4') }}",
-                autoplay: true,
-                type: 'video/mp4',
-                loop: false,
-                controls: true
-            });
-            video.appendTo($('#videoDiv'));
-            $("#video").css('width','100%');
-            $("#video").css('height','100%');
-   
-            $("#videoTab").trigger("click");
-        }else{
-            $('#video').attr('src', "{{ asset('vid/002.mp4') }}");
-            $("#video")[0].load();
-        } 
+        changeVideo(2);
     });
     
     $("#addVideo3").click(function(){
+        changeVideo(3);
+    });
+    
+    function changeVideo(id){
+        
+        var url;
+        switch(id){
+            case 1:
+                url = "{{ asset('vid/001.mp4') }}";
+                break;
+            case 2:
+                url = "{{ asset('vid/002.mp4') }}";
+                break;
+            case 3:
+                url = "{{ asset('vid/003.mp4') }}";
+                break;
+        } 
+        
         if(!$("#video").is(":visible")){
             $("#videoDiv").css('visibility','visible');
-            
             var video = $('<video />', {
                 id: 'video',
-                src: "{{ asset('vid/003.mp4') }}",
+                src: url,
                 autoplay: true,
                 type: 'video/mp4',
                 loop: false,
@@ -433,11 +419,11 @@ $("#addVideo1").click(function(){
    
             $("#videoTab").trigger("click");
         }else{
-            $('#video').attr('src', "{{ asset('vid/003.mp4') }}");
+            $('#video').attr('src', url);
             $("#video")[0].load();
-        } 
-    });
-    
+        }
+        
+    }
     
     
     $("#removeVideo").click(function(){

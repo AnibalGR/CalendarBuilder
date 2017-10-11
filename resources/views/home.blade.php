@@ -508,7 +508,7 @@
             data: fd,
             success: function (data) {
                 alert(data);
-                var img = $('<div class="erasable"><input type="text" class="closebtn" value="X"><div class="imageContainer"><img class="resis" src="../' + data + '"></div></div>');
+                var img = $('<div><div class="imageContainer erasable"><input type="text" class="closebtn" value="X"><img class="resis" src="../' + data + '"></div></div>');
                     $(".erasable").draggable();
                     $('#imagePrev').append(img);
                     $(".resis").resizable();

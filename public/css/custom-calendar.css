@@ -175,33 +175,13 @@
             z-index: 6;
             width: 250px;
             margin: 0px 0px;
+            font-size: 18px;
         }
 
         .resis{
             width: 100%;
             height: 100%;
         }
-        .resis-2{
-            width: 100%;
-            height: 100%;
-            z-index: 6; 
-            position: absolute;
-            border: 2px #ee1515 solid;
-            padding:5px;
-            -webkit-border-radius: 5px;
-            -moz-border-radius: 5px;
-            border-radius: 5px;
-        }
-        .resis input{
-            width: 40px;
-            text-align: center;
-            background-color: red;
-            color: #ffffff;
-            font-weight: 600;
-            cursor: pointer;
-            border: black;
-        }
-        
         .imageContainer {
             width: 150px;
             height:  150px;
@@ -305,6 +285,10 @@
     -webkit-border-radius: 5px;
     -moz-border-radius: 5px;
     border-radius: 5px;
+    height: auto;
+    width: auto;
+    background-color: rgba(0,0,0,0.2);
+
 }
 .erasable-2 input{
     width: 40px;

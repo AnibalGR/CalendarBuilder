@@ -353,9 +353,10 @@
 <script src="{{ asset('js/textEditor.js') }}"></script>
 <script src="{{ asset('js/html2canvas.svg.min.js') }}"></script>
 <script src="{{ asset('js/html2canvas.js') }}"></script>
+<script src="{{ asset('js/videoCalendar.js') }}"></script>
 <script>
-    
-    $('#saveImage').click(function(){
+// Render Image from Calendar    
+$('#saveImage').click(function(){
     html2canvas($('#calendarPanel'), {
         scale: 4,
         onrendered: function(canvas) {
@@ -366,8 +367,85 @@
         a.click();
         }}
     );
-    
 });
+
+$("#addVideo1").click(function(){
+        if(!$("#video").is(":visible")){
+            $("#videoDiv").css('visibility','visible');
+            
+            var video = $('<video />', {
+                id: 'video',
+                src: "{{ asset('vid/001.mp4') }}",
+                autoplay: true,
+                type: 'video/mp4',
+                loop: false,
+                controls: true
+            });
+            video.appendTo($('#videoDiv'));
+            $("#video").css('width','100%');
+            $("#video").css('height','100%');
+   
+            $("#videoTab").trigger("click");
+        }else{
+            $('#video').attr('src', "{{ asset('vid/001.mp4') }}");
+            $("#video")[0].load();
+        } 
+    });
+    
+    $("#addVideo2").click(function(){
+        if(!$("#video").is(":visible")){
+            $("#videoDiv").css('visibility','visible');
+            
+            var video = $('<video />', {
+                id: 'video',
+                src: "{{ asset('vid/002.mp4') }}",
+                autoplay: true,
+                type: 'video/mp4',
+                loop: false,
+                controls: true
+            });
+            video.appendTo($('#videoDiv'));
+            $("#video").css('width','100%');
+            $("#video").css('height','100%');
+   
+            $("#videoTab").trigger("click");
+        }else{
+            $('#video').attr('src', "{{ asset('vid/002.mp4') }}");
+            $("#video")[0].load();
+        } 
+    });
+    
+    $("#addVideo3").click(function(){
+        if(!$("#video").is(":visible")){
+            $("#videoDiv").css('visibility','visible');
+            
+            var video = $('<video />', {
+                id: 'video',
+                src: "{{ asset('vid/003.mp4') }}",
+                autoplay: true,
+                type: 'video/mp4',
+                loop: false,
+                controls: true
+            });
+            video.appendTo($('#videoDiv'));
+            $("#video").css('width','100%');
+            $("#video").css('height','100%');
+   
+            $("#videoTab").trigger("click");
+        }else{
+            $('#video').attr('src', "{{ asset('vid/003.mp4') }}");
+            $("#video")[0].load();
+        } 
+    });
+    
+    
+    
+    $("#removeVideo").click(function(){
+        if($("#video").is(":visible")){
+            $("#video").remove();
+            $("#calendarTab").trigger("click");
+        }
+    });
 </script>
 <script>
     
@@ -534,38 +612,10 @@
                 alert(salida);
             }
         });
-        
         } 
-        
     });
     
-    // Add video function
-    $("#addVideo1").click(function(){
-        if(!$("#video").is(":visible")){
-            $("#videoDiv").css('visibility','visible');
-            
-            var video = $('<video />', {
-                id: 'video',
-                src: "{{ asset('vid/001.mp4') }}",
-                autoplay: true,
-                type: 'video/mp4',
-                loop: false,
-                controls: true
-            });
-            video.appendTo($('#videoDiv'));
-            $("#video").css('width','100%');
-            $("#video").css('height','100%');
-   
-            $("#videoTab").trigger("click");
-        }                   
-    });
     
-    $("#removeVideo").click(function(){
-        if($("#video").is(":visible")){
-            $("#video").remove();
-            $("#calendarTab").trigger("click");
-        }
-    });
     
     // Create new Calendar form popup send-button click event.
 $('#saveCalendar').click(function () {

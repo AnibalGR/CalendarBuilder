@@ -229,11 +229,31 @@
                                     </div>
                                 </div>
                                 <div class="tab-pane" id="settings">
-                                    <button id="addVideo22222" type="button">
-                                        <img id="addVideo" src="{{ asset('img/thumb/video-1.jpg') }}" class="img-responsive" height="75px" width="150px">
-                                    </button>
-                                    <button id="removeVideo" type="button" class="btn btn-primary">Remove Video</button>
-                                </div>
+                                    <div class="row">
+                                        <div class="container">
+                                            <div class="col-xs-7 col-sm-2 zeropdg">
+                                                <div class="addVideoBox">
+                                                    <img id="addVideo1" src="{{ asset('img/thumb/video-1.jpg') }}" class="img-responsive" height="75px" width="150px">
+                                                </div>
+                                                <div class="addVideoBox">
+                                                    <img id="addVideo2" src="{{ asset('img/thumb/video-1.jpg') }}" class="img-responsive" height="75px" width="150px">
+                                                </div>
+                                                <div class="addVideoBox">
+                                                    <img id="addVideo3" src="{{ asset('img/thumb/video-1.jpg') }}" class="img-responsive" height="75px" width="150px">
+                                                </div>
+                                                <div class="addVideoBox">
+                                                    <img id="addVideo4" src="{{ asset('img/thumb/video-1.jpg') }}" class="img-responsive" height="75px" width="150px">
+                                                </div>
+                                                <div class="addVideoBox">
+                                                    <img id="addVideo5" src="{{ asset('img/thumb/video-1.jpg') }}" class="img-responsive" height="75px" width="150px">
+                                                </div>
+                                            </div>
+                                            <div class="col-xs-3 zeropdg">
+                                                <button id="removeVideo" type="button" class="btn btn-danger">Remove</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>    
                                 <div class="tab-pane" id="Background"><button id="removeObject" type="button" class="btn btn-primary" style="width: 100%">Remove Object</button></div>
                             </div>
                         </div>
@@ -542,7 +562,7 @@
     });
     
     // Add video function
-    $("#addVideo").click(function(){
+    $("#addVideo1").click(function(){
         if(!$("#video").is(":visible")){
             $("#videoDiv").css('visibility','visible');
             

@@ -95,6 +95,10 @@
         }   
 
 /*******Custom Calendar View********/
+        .zeropdg{
+            padding-right: 0px;
+            padding-left: 0px;
+        }
         .col-xs-2{
                 padding-right: 0px;
                 padding-left: 0px;
@@ -137,8 +141,14 @@
             .col-md-8{
                 padding-left: 15px;
             }
-        }       
-        
+        }  
+
+/*************Video******************/
+.addVideoBox{
+     cursor:pointer;
+     margin: 10px 3px 10px 0px;
+}
+
 /*************Anibal CSS*****************/        
         
 #imagePrev {

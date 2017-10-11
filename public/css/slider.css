@@ -67,7 +67,7 @@ Fade content bs-carousel with hero headers
     letter-spacing: 1.5px;
     text-transform:initial;
 }
-
+/*
 .fade-carousel .carousel-inner .item .hero {
     opacity: 0;
     -webkit-transition: 2s all ease-in-out .1s;
@@ -84,7 +84,7 @@ Fade content bs-carousel with hero headers
          -o-transition: 2s all ease-in-out .1s; 
             transition: 2s all ease-in-out .1s;    
 }
-
+*/
 /********************************/
 /*            Overlay           */
 /********************************/

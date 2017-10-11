@@ -60,21 +60,27 @@ class HomeController extends Controller
      * @return Response
      */
     public function uploadImage(Request $request) {
-        
-        //$storagePath = 'public/' . Auth::id() . '/images';
+    
         $file = $request->file;
         if($file){
-            $path = $request->file('file')->store('images/' . Auth::id(), 'images');
-            return $path;
-//            $response_array['status'] = 'success';
-//            header('Content-type: application/json');
-//            return json_encode($response_array);            
+            $validator = Validator::make($request->all(), [
+                'file' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            ]);
+            if ($validator->passes()) {
+                $path = $request->file('file')->store('images/' . Auth::id(), 'images');
+                return $path;
+            }else{
+                $returnData = array(
+                    'status' => 'error',
+                    'message' => 'It is not a valid Image file!'
+                );
+                return Response::json($returnData, 500);
+            }
         }else{
             $response_array['status'] = 'error';
             header('Content-type: application/json');
-            return json_encode($response_array);            
+            return json_encode($response_array); 
         }
-        
     }
 
     public function __construct()

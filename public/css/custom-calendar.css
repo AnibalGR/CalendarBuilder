@@ -3,6 +3,9 @@
     font-family: 'Roboto', sans-serif !important;
     src: url(../fonts/CircularStd-Book.otf);
 }
+.tabs-left {
+    border-right: 0px solid #ddd;
+}
 
 .layoutType {
     

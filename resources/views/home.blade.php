@@ -610,7 +610,7 @@ $('#saveCalendar').click(function () {
             function init() {
                 // We configure the button whose create a new text object
                 $("#addButton").click(function () {
-                    $('#imagePrev').append('<div class="erasable"><p class="d" contenteditable="true">Double click here</p><input type="image" class="closebtn" src="{{ asset('img/delete-element.png') }}"></div>');
+                    $('#imagePrev').append('<div class="erasable"><input type="text" class="closebtn" value="X"><p class="CalTxt1" contenteditable="true">Double click here</p></div>');
                     
                     $(".erasable").draggable();
                     
@@ -622,7 +622,7 @@ $('#saveCalendar').click(function () {
                     
                     $(".erasable").dblclick(function() {
                         $(this).draggable( {disabled: true, revert:'invalid'});
-                        $('.d').setAttribute('contenteditable',true);
+                        $('.CalTxt1').setAttribute('contenteditable',true);
                         $(this).setAttribute('contenteditable',true);
                     });
                 });

@@ -341,6 +341,8 @@ class ComposerStaticInit9f89a4b94e450acaa2fc5b97a1a65edc
     );
 
     public static $classMap = array (
+        'App\\Calendar' => __DIR__ . '/../..' . '/app/Calendar.php',
+        'App\\Calendar_Page' => __DIR__ . '/../..' . '/app/Calendar_Page.php',
         'App\\Console\\Commands\\SyncPlans' => __DIR__ . '/../..' . '/app/Console/Commands/SyncPlans.php',
         'App\\Console\\Kernel' => __DIR__ . '/../..' . '/app/Console/Kernel.php',
         'App\\Exceptions\\Handler' => __DIR__ . '/../..' . '/app/Exceptions/Handler.php',

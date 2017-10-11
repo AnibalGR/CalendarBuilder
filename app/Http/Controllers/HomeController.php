@@ -75,10 +75,21 @@ class HomeController extends Controller
         $calendar->name = $name;
         $calendar->year = $year;
         $calendar->month = $month;
-        $calendar->theme = '0';
-        $calendar->content = ' ';
+        $calendar->themeC = 'standard';
+        $calendar->theme = '';
+        $calendar->video = null;
+        $calendar->content = '<div id="imagePrev" class="prueba" style="border: 5px"></div>
+                                <div class="panel-body bg-right prueba" >
+                                    <div class="panel-body prueba" id="calendarCont" style="overflow: auto">
+                                        <p id="topLayout" class="prueba" style="visibility: hidden;  width: 100%; height: 130px; border: 2px solid; z-index: 3">Put your image here!</p>
+                                        <p id="leftLayout" class="prueba" style="visibility: hidden;  width: 0px; height: 0px; float: left; margin-bottom: 0px;">Put your image here!</p>
+                                        <p id="rightLayout" class="prueba" style="visibility: hidden;  width: 0px; height: 0px; float: right">Put your image here!</p>
+                                        <div id="calendar" class="prueba"></div>
+                                        <p id="bottomLayout" class="prueba" style="visibility: hidden;  width: 100%; height: 130px; border: 2px solid; z-index: 3">Put your image here!</p>
+                                    </div>
+                                </div>';
         if($calendar->save()){
-        return view('home', ['id' => $calendar->id, 'name' => $name, 'year' => $year, 'month' => $month]);
+        return view('home', ['id' => $calendar->id, 'name' => $name, 'year' => $year, 'month' => $month, 'themeC' => $calendar->themeC, 'theme' => $calendar->theme, 'video' => $calendar->video, 'content' => $calendar->content]);
         }else{
             
         }

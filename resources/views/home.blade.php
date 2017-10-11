@@ -251,8 +251,13 @@
                                             Theme System:
 
                                             <select id='themeCategory'>
+                                                @if($themeC == 'standard')
                                                 <option value='standard' selected>Without theme</option>
-                                                <option value='jquery-ui'>With theme</option>	
+                                                <option value='jquery-ui'>With theme</option>
+                                                @else
+                                                <option value='standard'>Without theme</option>
+                                                <option value='jquery-ui' selected="">With theme</option>	
+                                                @endif
                                             </select>
                                         </div>
                                         <div data-theme-system="jquery-ui" class='selector' style='display:none'>
@@ -295,16 +300,7 @@
                             </div>
 
                             <div class="panel-body prueba" id="calendarPanel" style="height:auto">
-                                <div id="imagePrev" class="prueba" style="border: 5px"></div>
-                                <div class="panel-body bg-right prueba" >
-                                    <div class="panel-body prueba" id="calendarCont" style="overflow: auto">
-                                        <p id="topLayout" class="prueba" style="visibility: hidden;  width: 100%; height: 130px; border: 2px solid; z-index: 3">Put your image here!</p>
-                                        <p id="leftLayout" class="prueba" style="visibility: hidden;  width: 0px; height: 0px; float: left; margin-bottom: 0px;">Put your image here!</p>
-                                        <p id="rightLayout" class="prueba" style="visibility: hidden;  width: 0px; height: 0px; float: right">Put your image here!</p>
-                                        <div id='calendar' class="prueba"></div>
-                                        <p id="bottomLayout" class="prueba" style="visibility: hidden;  width: 100%; height: 130px; border: 2px solid; z-index: 3">Put your image here!</p>
-                                    </div>
-                                </div>
+                                {!! $content !!}
                             </div>
                         </div>
                     </div>
@@ -543,7 +539,13 @@ $('#saveCalendar').click(function () {
         content: content
     }
     
-    alert(JSON.stringify(calendar));
+    var form = $('#form-delete');
+    var url = form.attr('action').replace(':USER_ID', id);
+    
+    alert(url);
+    
+    
+    
 //    
 //    var row = $(this).parents('tr');
 //    var id = row.data('id');

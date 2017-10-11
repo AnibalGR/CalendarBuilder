@@ -219,8 +219,12 @@
                                 </div>
                                 <div class="tab-pane" id="messages">
                                     <div>
-                                        <input id="upImage" type="file" style="display:none;" />
-                                        <button id="addImage" type="button" class="btn btn-primary">Upload Image</button>
+                                        <!--Upload Image Form-->
+                                        <form method="POST" action="{{ route('uploadImage') }}" id="form-upload">
+                                            <input id="upImage" name="upImage" type="file" style="display:none;" />
+                                            {{ csrf_field() }}
+                                            <button id="addImage" type="button" class="btn btn-primary">Upload Image</button>
+                                        </form>
                                     </div>
                                 </div>
                                 <div class="tab-pane" id="settings">
@@ -260,11 +264,11 @@
                                                 @endif
                                             </select>
                                         </div>
-                                        <div data-theme-system="jquery-ui" class='selector' style='display:none'>
+                                        <div id="themeSelector" data-theme-system="jquery-ui" class='selector' style='display:none'>
                                             Theme Name:
 
                                             <select id='theme'>
-                                                <option value='black-tie' selected>Black Tie</option>
+                                                <option value='black-tie'>Black Tie</option>
                                                 <option value='blitzer'>Blitzer</option>
                                                 <option value='cupertino'>Cupertino</option>
                                                 <option value='dark-hive'>Dark Hive</option>
@@ -315,7 +319,6 @@
     <form method="POST" action="{{ route('saveCalendar', ':USER_ID') }}" id="form-delete">
         {{ csrf_field() }}
     </form>    
-
 </div>
 @endsection
 
@@ -344,19 +347,20 @@
 </script>
 <script>
     
+    // Function to add the tabs to the calendar main panel
     $( function() {
         $( "#tabs" ).tabs();
     });
     
-    function resizePanels(){
-        var offsetHeight1 = document.getElementById('calendarPanel').offsetHeight;
-        document.getElementById('toolsPanel').style.height = offsetHeight1 + 'px';
-                
-        var offsetHeight = document.getElementById('calendarCont').offsetHeight;
-        document.getElementById('toolsCont').style.height = offsetHeight + 30 +'px';
-    };
-    
     $(document).ready(function() {
+        
+        // We load the Calendar´s theme
+        @if($themeC == 'jquery-ui')
+            $('#themeSelector').css('display', 'inline-block');    
+            $('#theme').val($theme);
+        @endif
+        
+        // Function to load the calendar
         initThemeChooser({
             init: function(themeSystem) {
                 $('#calendar').fullCalendar({
@@ -369,16 +373,14 @@
                                         },
                                         defaultDate: '{{ $year }}-{{ $month }}',
                                         weekNumbers: false,
-                                        navLinks: true, // can click day/week names to navigate views
+                                        navLinks: true,
                                         editable: true,
-                                        eventLimit: true, // allow "more" link when too many events
+                                        eventLimit: true,
                                 });
                         },
-
                         change: function(themeSystem) {
                                 $('#calendar').fullCalendar('option', 'themeSystem', themeSystem);
                         }
-
                 });
         
         // Restablecemos los layouts
@@ -463,16 +465,27 @@
 
 <script type="text/javascript">
     
+    // Asociative function to call the Input File buton
     $("#addImage").click(function(){
         document.getElementById('upImage').click();
     });
-
+    
+    // Input Image File function
     $("#upImage").change(function(){
-        if (this.files && this.files[0]) {
-                var reader = new FileReader();
-
-                reader.onload = function (e) {
-                    var img = $('<div class="erasable"><div class="imageContainer"><img class="resis" src="' + e.target.result + '"></div></div>');
+        
+        var fd = new FormData();    
+        fd.append( 'file', this.files[0] );
+        
+        $.ajax({
+            type: "POST",
+            headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
+            url: "{{ route('uploadImage') }}",    
+            contentType: false,
+            processData: false,
+            data: fd,
+            success: function (data) {
+                alert(data);
+                var img = $('<div class="erasable"><div class="imageContainer"><img class="resis" src="{{ asset("data") }}"></div></div>');
                     $('#imagePrev').append(img);
                     $(".resis").resizable();
                     $(".imageContainer").draggable({
@@ -484,11 +497,48 @@
                         },
                         revert: 'invalid',
                     });
-                };
-                reader.readAsDataURL(this.files[0]);
+            },
+            error: function (data){
+                alert('Error');
             }
+        });
+        
+        // We check if a file is uploaded
+//        if (this.files && this.files[0]) {
+//            
+//            var form = $('#form-upload');
+//            var url = form.attr('action');
+//            var data = form.serialize();
+//            alert(data);
+//            $.post(url, data, function(result){
+//        
+//                alert(result)
+//            
+//            }).fail(function(){
+//                alert ('Algo salió mal');
+//            });
+            
+            
+//                var reader = new FileReader();
+//                reader.onload = function (e) {
+//                    var img = $('<div class="erasable"><div class="imageContainer"><img class="resis" src="' + e.target.result + '"></div></div>');
+//                    $('#imagePrev').append(img);
+//                    $(".resis").resizable();
+//                    $(".imageContainer").draggable({
+//                        start: function(event, ui) {
+//                            isDraggingMedia = true;
+//                        },
+//                        stop: function(event, ui) {
+//                            isDraggingMedia = false;
+//                        },
+//                        revert: 'invalid',
+//                    });
+//                };
+//                reader.readAsDataURL(this.files[0]);
+//            }
     });
     
+    // Add video function
     $("#addVideo").click(function(){
         if(!$("#video").is(":visible")){
             $("#videoDiv").css('visibility','visible');

@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Calendar;
 use App\Subscription;
+use Validator;
 
 class HomeController extends Controller
 {
@@ -52,7 +53,30 @@ class HomeController extends Controller
         }
         
     }
-    
+    /**
+     * Upload the file to the hard drive
+     *
+     * @param Request $request
+     * @return Response
+     */
+    public function uploadImage(Request $request) {
+        
+        //$storagePath = 'public/' . Auth::id() . '/images';
+        $file = $request->file;
+        if($file){
+            $path = $request->file('file')->store('images');
+            return $path;
+//            $response_array['status'] = 'success';
+//            header('Content-type: application/json');
+//            return json_encode($response_array);            
+        }else{
+            $response_array['status'] = 'error';
+            header('Content-type: application/json');
+            return json_encode($response_array);            
+        }
+        
+    }
+
     public function __construct()
     {
         $this->middleware('auth');

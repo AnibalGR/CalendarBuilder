@@ -221,7 +221,7 @@
                                 <div class="tab-pane" id="messages">
                                     <div>
                                         <!--Upload Image Form-->
-                                        <form method="POST" action="{{ route('uploadImage') }}" id="form-upload">
+                                        <form method="POST" action="{{ route('uploadImage') }}" id="form-upload" enctype="multipart/form-data">
                                             <input id="upImage" name="upImage" type="file" style="display:none;" />
                                             {{ csrf_field() }}
                                             <button id="addImage" type="button" class="btn btn-primary">Upload Image</button>
@@ -496,6 +496,8 @@
     // Input Image File function
     $("#upImage").change(function(){
         
+        if(this.files && this.files[0]){
+            
         var fd = new FormData();    
         fd.append( 'file', this.files[0] );
         
@@ -523,9 +525,13 @@
                     });
             },
             error: function (data){
-                alert('Error');
+                var tamanio = data.length;
+                alert(tamanio);
             }
         });
+        
+        } 
+        
     });
     
     // Add video function

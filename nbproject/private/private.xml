@@ -3,17 +3,14 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-<<<<<<< HEAD
             <file>file:/C:/xampp/htdocs/jeff/CalendarBuilder/resources/views/home.blade.php</file>
             <file>file:/C:/xampp/htdocs/jeff/CalendarBuilder/resources/views/welcome2.blade.php</file>
             <file>file:/C:/xampp/htdocs/jeff/CalendarBuilder/resources/views/layouts/app.blade.php</file>
-=======
             <file>file:/C:/xampp/htdocs/jeff/CalendarBuilder/app/Http/Controllers/HomeController.php</file>
             <file>file:/C:/xampp/htdocs/jeff/CalendarBuilder/resources/views/dash.blade.php</file>
             <file>file:/C:/xampp/htdocs/jeff/CalendarBuilder/resources/views/home.blade.php</file>
             <file>file:/C:/xampp/htdocs/jeff/CalendarBuilder/routes/web.php</file>
             <file>file:/C:/xampp/htdocs/jeff/CalendarBuilder/.env</file>
->>>>>>> 636f188a948b93b19e54ea4b3e1baa69c954d36b
         </group>
     </open-files>
 </project-private>

@@ -11,6 +11,7 @@
         <title>{{ config('app.name', 'Laravel') }} </title>
 
         <!-- Styles -->
+        <link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,500,500i,700,700i,900,900i" rel="stylesheet">
         <link href="{{ asset('css/app.css') }}" rel="stylesheet">
         <link href="{{ asset('css/bootstrap.css') }}" rel="stylesheet">
         <link href="{{ asset('css/jquery-ui.css') }}" rel="stylesheet" >
@@ -20,8 +21,8 @@
     </head>
     <body>
         <div id="app">
-            <nav class="navbar navbar-default navbar-static-top">
-                <div class="container">
+            <nav class="navbar navbar-default navbar-fixed-top">
+                <div class="container full-width">
                     <div class="navbar-header">
 
                         <!-- Collapsed Hamburger -->
@@ -34,7 +35,7 @@
 
                         <!-- Branding Image -->
                         <a class="navbar-brand" href="{{ url('/') }}">
-                            <img src="{{ asset('img/calendar-builder-2.png') }}" class="img-responsive top-logo">
+                            <img src="{{ asset('img/calendar-builder-3.png') }}" class="img-responsive top-logo">
                         </a>
                     </div>
 
@@ -47,14 +48,14 @@
                         <!-- Right Side Of Navbar -->
                         <ul class="nav navbar-nav navbar-right">
                             <!-- Authentication Links -->
-                            <li><a href="#">how it works</a></li>
-                            <li><a href="{{ route('plans') }}">pricing</a></li>
-                            <li><a href="#">blog</a></li>
+                            <li><a href="#">How it works</a></li>
+                            <li><a href="{{ route('plans') }}">Pricing</a></li>
+                            <li><a href="#">Blog</a></li>
                             @guest
-                            <li class="menuNavBarButton"><a href="{{ route('login') }}" >Login</a></li>
-                            <li class="menuNavBarButton"><a href="{{ route('register') }}">Register</a></li>
+                            <li class="menuNavBarButton colorB-W"><a href="{{ route('login') }}" >Login</a></li>
+                            <li class="menuNavBarButton2 colorW-B"><a href="{{ route('register') }}">Register</a></li>
                             @else
-                            <li><a href="{{ route('dash') }}">dashboard</a></li>
+                            <li><a href="{{ route('dash') }}">Dashboard</a></li>
                             
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
@@ -80,7 +81,7 @@
                     </div>
                 </div>
             </nav>
-            <div class="container">
+           <div class="container marginContent">
                 <div class="row">
                     <div class="col-md-8 col-md-offset-2">
                         @include ('layouts.partials._notifications')

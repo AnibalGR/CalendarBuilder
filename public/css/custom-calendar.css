@@ -1,10 +1,8 @@
 
 @font-face {
-    font-family: CircularStd;
+    font-family: 'Roboto', sans-serif !important;
     src: url(../fonts/CircularStd-Book.otf);
 }
-
-
 
 .layoutType {
     
@@ -139,65 +137,6 @@
             .col-md-8{
                 padding-left: 15px;
             }
-        }
-/*******Nav Bar******/
-        .navbar-default{
-            border: none;
-            height: 90px;
-            background-color: white;
-        }
-        .top-logo{
-                margin-top: -10px;
-                display: block;
-                max-width: 100%;
-                height: auto;
-        }
-
-        .navbar-right{
-            margin-top: 18px;
-        }
-        
-        .navbar-nav li a{
-            font-family: CircularStd;
-            font-size: 120%;
-        }
-        
-        .menuNavBarButton{
-            color:#26b8ea;
-            border: 2px solid #26b8ea;
-            border-radius: 15px;
-            margin-left: 5px;
-            margin-right: 5px;
-            background-color: white;
-        }
-        
-        .menuNavBarButton:hover{
-            color: red;
-            border: 2px solid black;
-            background-color: #26b8ea;
-        }
-
-/*******Mobile Menu********/
-        .navbar-toggle{
-                margin-top: 49px;
-                border-color: #26b8ea !important;
-        }
-        .navbar-toggle .icon-bar{
-                background-color: #26b8ea !important;
-        }
-        .navbar-default .navbar-nav li a{
-                color:#26b8ea;
-        }
-        .navbar-default .navbar-nav .open .dropdown-menu li a{
-                color:#000;
-        }
-        @media screen and (max-width: 767px){ 
-                .navbar-default .navbar-collapse{
-                        background-color: rgba(158, 158, 158, 0.9);
-                }
-                .navbar-default .navbar-nav .open .dropdown-menu li a{
-                color:#26b8ea;
-                }
         }       
         
 /*************Anibal CSS*****************/        

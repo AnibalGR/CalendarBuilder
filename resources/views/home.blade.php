@@ -585,7 +585,9 @@ $('#saveImage').click(function(){
         $( "#dialog" ).dialog( "open" );
         progressbar = $( "#progressbar" );
         
-        $.ajax({
+        var $request;
+        
+        $request = $.ajax({
             xhr: function() {
                 var xhr = new window.XMLHttpRequest();
                 
@@ -630,33 +632,30 @@ $('#saveImage').click(function(){
                 }
             },
             error: function (data){
+                try{
                 alert(data.responseJSON.message);
                 if(!$('#imageError').html().length){
                     $('#imageError').append("<p>" + data.responseJSON.message + "</p>");
+                }
+                }catch(err){
+                    console.log(err);
                 }
             }
         });
         
         $("#cancelUpload").click(function(){
-                    if(ajax){ 
-                        ajax.abort();
-                    }
+            if($request){
+                $request.abort();
+                $( "#dialog" ).dialog( "close" );
+            }else{
+                alert('Hola mamá');
+            }
         });
-        
         } 
+        
+        $("#upVideo").val(null);
+        
     });
-    
-    // Progress bar atributes
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
     
     // Asociative function to call the Input File buton
     $("#addImage").click(function(){
@@ -702,7 +701,8 @@ $('#saveImage').click(function(){
                 alert(salida);
             }
         });
-        } 
+        }
+        $("#upImage").val(null);
     });
     
     

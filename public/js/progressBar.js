@@ -1,10 +1,12 @@
 $( function() {
-    var xhr, progressbar = $( "#progressbar" ),
+    var progressbar = $( "#progressbar" ),
       progressLabel = $( ".progress-label" ),
       dialogButtons = [{
         text: "Cancel Upload",
         id: "cancelUpload",
-        click:""
+        click:function(){
+            
+        }
       }],
       dialog = $( "#dialog" ).dialog({
         autoOpen: false,

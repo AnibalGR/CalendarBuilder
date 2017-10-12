@@ -5,7 +5,20 @@
 <link href="{{ asset('css/fullcalendar.print.min.css') }}" rel="stylesheet" media="print" />
 <link href="{{ asset('css/bootstrap.vertical-tabs.css') }}" rel="stylesheet" >
 <link href="{{ asset('css/custom-calendar.css') }}" rel="stylesheet" >
-
+<style>
+    #progressbar {
+    margin-top: 20px;
+  }
+ 
+  .progress-label {
+    font-weight: bold;
+    text-shadow: 1px 1px 0 #fff;
+  }
+ 
+  .ui-dialog-titlebar-close {
+    display: none;
+  }
+</style>
 @endsection
 
 
@@ -256,8 +269,12 @@
                                                     {{ csrf_field() }}
                                                     <button id="addVideo" type="button" class="btn btn-primary">Upload Video</button>
                                                 </form>
-                                                <div id='imageError'></div>
+                                                <div id='videoError'></div>
                                                 <button id="removeVideo" type="button" class="btn btn-danger">Remove</button>
+                                                <div id="dialog" title="Video Upload">
+                                                    <div class="progress-label">Starting upload...</div>
+                                                    <div id="progressbar"></div>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -360,6 +377,7 @@
 <script src="{{ asset('js/textEditor.js') }}"></script>
 <script src="{{ asset('js/html2canvas.svg.min.js') }}"></script>
 <script src="{{ asset('js/html2canvas.js') }}"></script>
+<script src="{{ asset('js/progressBar.js') }}"></script>
 <script>
 // Render Image from Calendar    
 $('#saveImage').click(function(){
@@ -564,7 +582,27 @@ $('#saveImage').click(function(){
         var fd = new FormData();    
         fd.append( 'file', this.files[0] );
         
+        $( "#dialog" ).dialog( "open" );
+        progressbar = $( "#progressbar" );
+        
         $.ajax({
+            xhr: function() {
+                var xhr = new window.XMLHttpRequest();
+                
+                xhr.upload.addEventListener("progress", function(evt) {
+                    if (evt.lengthComputable) {
+                        var percentComplete = evt.loaded / evt.total;
+                        percentComplete = parseInt(percentComplete * 100);
+                        console.log(percentComplete);
+                        progressbar.progressbar( "value", percentComplete);
+                        if (percentComplete === 100) {
+                            $( "#dialog" ).dialog( "close" );
+                        }
+                    }
+                }, false);
+                
+                return xhr;
+            },
             type: "POST",
             headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
             url: "{{ route('uploadVideo') }}",    
@@ -598,8 +636,26 @@ $('#saveImage').click(function(){
                 }
             }
         });
+        
+        $("#cancelUpload").click(function(){
+                    if(ajax){ 
+                        ajax.abort();
+                    }
+        });
+        
         } 
     });
+    
+    // Progress bar atributes
+    
+    
+    
+    
+    
+    
+    
+    
+    
     
     
     // Asociative function to call the Input File buton
@@ -675,7 +731,7 @@ $('#saveCalendar').click(function () {
     }
     
     var form = $('#form-delete');
-    var url = form.attr('action').replace(':USER_ID', id);
+    var url = form.attr('action').replace(':USER_ID', '{{ $id }}');
     
     alert(url);
     

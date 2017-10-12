@@ -96,14 +96,14 @@ class HomeController extends Controller
         
         if($file){
             $validator = Validator::make($request->all(), [
-                'file' => 'required|mimes:mp4,x-flv,x-mpegURL,MP2T,3gpp,qt,x-msvideo,x-ms-wmv',
+                'file' => 'required|mimes:mp4,x-flv,x-mpegURL,MP2T,3gpp,qt,x-msvideo,x-ms-wmv,h264',
             ]);
             if ($validator->passes()) {
                 $path = $request->file('file')->store('videos/' . Auth::id(), 'images');
                 return $path;
             }else{
                 $returnData = array(
-                    'message' => 'The file must be a mp4, mov or wmv video!'
+                    'message' => 'The file must be a mp4, mov, h264 or wmv video!'
                 );
                 return response($returnData, 500);
             }

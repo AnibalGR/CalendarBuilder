@@ -587,7 +587,7 @@ $('#saveImage').click(function(){
                     $("#video").css('height','100%');
                     $("#videoTab").trigger("click");
                 }else{
-                    $('#video').attr('src', url);
+                    $('#video').attr('src', '../' + url);
                     $("#video")[0].load();
                 }
             },

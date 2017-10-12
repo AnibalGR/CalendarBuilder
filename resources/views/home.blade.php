@@ -360,7 +360,6 @@
 <script src="{{ asset('js/textEditor.js') }}"></script>
 <script src="{{ asset('js/html2canvas.svg.min.js') }}"></script>
 <script src="{{ asset('js/html2canvas.js') }}"></script>
-<script src="{{ asset('js/videoCalendar.js') }}"></script>
 <script>
 // Render Image from Calendar    
 $('#saveImage').click(function(){
@@ -552,6 +551,56 @@ $('#saveImage').click(function(){
 </script>
 
 <script type="text/javascript">
+    // Asociative function to call the Input File buton
+    $("#addVideo").click(function(){
+        document.getElementById('upVideo').click();
+    });
+    
+    // Input Image File function
+    $("#upVideo").change(function(){
+        
+        if(this.files && this.files[0]){
+            
+        var fd = new FormData();    
+        fd.append( 'file', this.files[0] );
+        
+        $.ajax({
+            type: "POST",
+            headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
+            url: "{{ route('uploadVideo') }}",    
+            contentType: false,
+            processData: false,
+            data: fd,
+            success: function (url) {
+                if(!$("#video").is(":visible")){
+                    $("#videoDiv").css('visibility','visible');
+                    var video = $('<video />', {
+                        id: 'video',
+                        src: '../' + url,
+                        autoplay: true,
+                        type: 'video/mp4',
+                        loop: false,
+                        controls: true
+                    });
+                    video.appendTo($('#videoDiv'));
+                    $("#video").css('width','100%');
+                    $("#video").css('height','100%');
+                    $("#videoTab").trigger("click");
+                }else{
+                    $('#video').attr('src', url);
+                    $("#video")[0].load();
+                }
+            },
+            error: function (data){
+                alert(data.responseJSON.message);
+                if(!$('#imageError').html().length){
+                    $('#imageError').append("<p>" + data.responseJSON.message + "</p>");
+                }
+            }
+        });
+        } 
+    });
+    
     
     // Asociative function to call the Input File buton
     $("#addImage").click(function(){
@@ -574,7 +623,6 @@ $('#saveImage').click(function(){
             processData: false,
             data: fd,
             success: function (data) {
-                alert(data);
                 var img = $('<div><div class="imageContainer erasable"><input type="text" class="closebtn" value="X"><img class="resis" src="../' + data + '"></div></div>');
                     $(".erasable").draggable();
                     $('#imagePrev').append(img);

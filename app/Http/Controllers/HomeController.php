@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Symfony\Component\HttpFoundation\Response;
+use Illuminate\Support\Facades\Input;
 use App\Calendar;
 use App\Subscription;
 use Validator;
@@ -65,14 +66,14 @@ class HomeController extends Controller
         $file = $request->file;
         if($file){
             $validator = Validator::make($request->all(), [
-                'file' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+                'file' => 'required|image|mimes:jpeg,png,jpg,gif,svg',
             ]);
             if ($validator->passes()) {
                 $path = $request->file('file')->store('images/' . Auth::id(), 'images');
                 return $path;
             }else{
                 $returnData = array(
-                    'message' => 'The file must be a jpg|png|gif|svg image with a maximun size of 2MB!'
+                    'message' => 'The file must be a jpg|png|gif|svg image!'
                 );
                 return response($returnData, 500);
             }
@@ -90,18 +91,19 @@ class HomeController extends Controller
      * @return Response
      */
     public function uploadVideo(Request $request) {
-    
+        
         $file = $request->file;
+        
         if($file){
             $validator = Validator::make($request->all(), [
-                'file' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+                'file' => 'required|mimes:mp4,x-flv,x-mpegURL,MP2T,3gpp,qt,x-msvideo,x-ms-wmv',
             ]);
             if ($validator->passes()) {
-                $path = $request->file('file')->store('images/' . Auth::id(), 'images');
+                $path = $request->file('file')->store('videos/' . Auth::id(), 'images');
                 return $path;
             }else{
                 $returnData = array(
-                    'message' => 'The file must be a jpg|png|gif|svg image with a maximun size of 2MB!'
+                    'message' => 'The file must be a mp4, mov or wmv video!'
                 );
                 return response($returnData, 500);
             }

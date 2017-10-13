@@ -125,7 +125,7 @@ Fade content bs-carousel with hero headers
   background-repeat: no-repeat;
 }
 .fade-carousel .slides .slide-1 {
-  background-image: url('../img/bg-home-2.jpg'); 
+  background-image: url('../img/home/bg-home-2.jpg'); 
 }
 .fade-carousel .slides .slide-2 {
   background-image: url('../img/bg-home-2.jpg');
@@ -140,6 +140,7 @@ Fade content bs-carousel with hero headers
 @media screen and (min-width: 980px){
     .hero { width: 980px; }    
 }
-@media screen and (max-width: 640px){
-    .hero h1 { font-size: 4em; }    
+@media screen and (max-width: 767px){
+    .hero h1 { font-size: 3em; } 
+    .hero h3{ font-size: 1.5em;
 }

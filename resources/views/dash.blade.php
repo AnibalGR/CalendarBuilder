@@ -31,7 +31,7 @@ use Carbon\Carbon;
                             @foreach ($calendars as $calendar)
                             <tr data-id="{{ $calendar->id }}">
                                 <td>{{ $calendar->name }}</td>
-                                <td><a href="#!" >Continue editing</a></td>
+                                <td><a href="{{ route('editCalendar', $calendar->id) }}" >Continue editing</a></td>
                                 <td>Publish</td>
                                 <td>Download</td>
                                 <td><a href="#!" class="btn-delete">Delete</a></td>

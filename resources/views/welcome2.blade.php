@@ -54,5 +54,34 @@
                 </div>
             </div>
         </div>
+        <div class="container space-40 bg-gray">
+            <div class="row">
+                <div class="col-lg-12 space-40 space-20 txtcenter">
+                <p>We are so exited to have signed up for this service. Digital Activity Clendars has helped our business
+                save time and money, and our facility looks better than over. This service has everything I need.<p>
+                </div>
+            </div>
+        </div>
+        <div class="container space-40">
+            <div class="row">
+                <div class="col-lg-12 txtcenter color-2">
+                <h1>Customized for any display.</h1>
+                </div>
+            </div>
+            <div class="row space-20">
+                <div class="col-sm-4 hIcons-2 linebox-right">
+                    <img src="{{ asset('img/home/home-4.png') }}" class="img-responsive">
+                    <h3>Computer Screens</h3>
+                </div>
+                <div class="col-sm-4 hIcons-2">
+                <img src="{{ asset('img/home/home-5.png') }}" class="img-responsive">
+                <h3>Flatscreen TV's</h3>
+                </div>
+                <div class="col-sm-4 hIcons-2 linebox-left">
+                <img src="{{ asset('img/home/home-6.png') }}" class="img-responsive">
+                <h3>Patient rooms</h3>
+                </div>
+            </div>
+        </div>
     </div>
 @endsection

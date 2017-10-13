@@ -7,7 +7,9 @@ and open the template in the editor.
     Created on : Oct 3, 2017, 4:36:23 PM
     Author     : Z-Bomb
 */
-
+p{
+    font-size: 18px;
+}
 .imgcenter img{
     width: 200px;
 }
@@ -36,4 +38,20 @@ and open the template in the editor.
     text-align: center;
     font-size:18px;
     padding:0 40px;
+}
+
+.hIcons-2{
+    padding: 10px;
+}
+.hIcons-2 img{
+    width: 70%;
+    margin: 0 auto;
+}
+.hIcons-2 h3{
+    font-weight: 400;
+    text-align: center;
+    color:#0061d0;
+}
+.bg-gray{
+    background-color: #cccccc;
 }

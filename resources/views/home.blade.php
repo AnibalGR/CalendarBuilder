@@ -365,6 +365,14 @@
     </div>
     <!--Save Calendar Form-->
     <form method="POST" action="{{ route('saveCalendar') }}" id="form-save">
+        <input id="idCal" name="idCal" type="text" style="visibility: hidden">
+        <input id="nameCal" name="nameCal" type="text" style="visibility: hidden">
+        <input id="yearCal" name="yearCal" type="text" style="visibility: hidden">
+        <input id="monthCal" name="monthCal" type="text" style="visibility: hidden">
+        <input id="themeCCal" name="themeCCal" type="text" style="visibility: hidden">
+        <input id="themeCal" name="themeCal" type="text" style="visibility: hidden">
+        <input id="videoCal" name="videoCal" type="text" style="visibility: hidden">
+        <textarea id="contentCal" name="contentCal" form="form-save" maxlength="50000" style="visibility: hidden"></textarea>
         {{ csrf_field() }}
     </form>    
 </div>
@@ -676,7 +684,7 @@ $('#saveImage').click(function(){
             processData: false,
             data: fd,
             success: function (data) {
-                var img = $('<div><div class="imageContainer erasable"><input type="text" class="closebtn" value="X"><img class="resis" src="../' + data + '"></div></div>');
+                var img = $('<div><div class="imageContainer erasable"><input type="text" class="closebtn" value="X"><img class="resis" src=" ../../' + data + '"></div></div>');
                     $(".erasable").draggable();
                     $('#imagePrev').append(img);
                     $(".resis").resizable();
@@ -708,42 +716,29 @@ $('#saveImage').click(function(){
     // Create new Calendar form popup send-button click event.
 $('#saveCalendar').click(function () {
     
-    var themeCategory = $('#themeCategory').val();
-    var theme = $('#theme').val();
+    var $themeCategory = $('#themeCategory').val();
+    var $theme = $('#theme').val();
     var video = $('#video').length;
-    var src;
+    var $src = "";
     if(video){
-        src = $('#video').attr('src');
+        $src = $('#video').attr('src');
     };
-    var content = $('#calendarPanel').html();
-    
-    var calendar = {
-        id: '{{ $id }}',
-        name: '{{ $name }}',
-        year: '{{ $year }}',
-        month:'{{ $month }}',
-        themeC: themeCategory,
-        theme: theme,
-        video: src,
-        content: content
-    }
-    
+    var $content = $('#calendarPanel').html();
+    $('#idCal').val('{{$id}}');
+    $('#nameCal').val('{{$name}}');
+    $('#yearCal').val('{{$year}}');
+    $('#monthCal').val('{{$month}}');
+    $('#themeCCal').val($themeCategory);
+    $('#themeCal').val($theme);
+    $('#videoCal').val($src);
+    $('#contentCal').val($content);
     var form = $('#form-save');
     var url = form.attr('action');
-    
-    $.ajax({
-            type: "POST",
-            headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
-            url: url,    
-            contentType: "json",
-            processData: false,
-            data: calendar,
-            success: function (data) {
-                alert(data);
-            },
-            error: function (data){
-                alert("Error");
-            }
+    var data = form.serialize();
+    $.post(url, data, function(result){
+            alert(result);
+        }).fail(function(e){
+            alert (e.message);
         });
 });
      

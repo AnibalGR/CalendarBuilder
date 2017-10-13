@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Symfony\Component\HttpFoundation\Response;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Input;
 use App\Calendar;
 use App\Subscription;
@@ -43,10 +44,19 @@ class HomeController extends Controller
      */
     
     public function saveCalendar(Request $request){
+        $calendar = Calendar::find($request->idCal);
+        if($calendar->user_id == Auth::id()){
+            $calendar->theme = $request->themeCal;
+            $calendar->themeC = $request->themeCCal;
+            $calendar->video = $request->videoCal;
+            $calendar->content = $request->contentCal;
+            if($calendar->save()){
+                return "The Calendar have been saved!";
+            }
+            return "The Calendar could not been saved!";
+        }
         
-        $content = dd(json_decode($request->getContent(), true));
-        
-        return $content;
+        return "You can not save this Calendar!";
         
     }
     /**
@@ -144,11 +154,23 @@ class HomeController extends Controller
                                     </div>
                                 </div>';
         if($calendar->save()){
-        return view('home', ['id' => $calendar->id, 'name' => $name, 'year' => $year, 'month' => $month, 'themeC' => $calendar->themeC, 'theme' => $calendar->theme, 'video' => $calendar->video, 'content' => $calendar->content]);
-        }else{
-            
+            return view('home', ['id' => $calendar->id, 'name' => $name, 'year' => $year, 'month' => $month, 'themeC' => $calendar->themeC, 'theme' => $calendar->theme, 'video' => $calendar->video, 'content' => $calendar->content]);
         }
     }
+    
+    public function editCalendar($calendar_id, Request $request){
+        
+        $calendar = Calendar::find($calendar_id);
+        
+        if($calendar){
+            if($calendar->user_id == Auth::id()){
+                return view('home', ['id' => $calendar->id, 'name' => $calendar->name, 'year' => $calendar->year, 'month' => $calendar->month, 'themeC' => $calendar->themeC, 'theme' => $calendar->theme, 'video' => $calendar->video, 'content' => $calendar->content]);
+            }
+        }
+        return redirect()->back();
+    }
+    
+    
     
     /**
      * Show the application Main Page.

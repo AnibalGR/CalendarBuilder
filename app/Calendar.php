@@ -8,6 +8,6 @@ use App\Calendar_Page;
 class Calendar extends Model
 {
     //
-    protected $fillable = ['user_id', 'name', 'year', 'month', 'theme', 'video', 'content'];
+    protected $fillable = ['user_id', 'name', 'year', 'month', 'theme', 'themeC', 'video', 'content'];
     
 }

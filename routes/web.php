@@ -45,6 +45,9 @@ Route::group(['middleware' => 'auth'], function () {
     
     // Route to upload the video files
     Route::post('/uploadV', 'HomeController@uploadVideo')->name('uploadVideo');
+    
+    // Route to edit the calendars
+    Route::get('/edit_calendar/{id}', 'HomeController@editCalendar')->name('editCalendar');
 });
 
 // Routes for the user´s autentication

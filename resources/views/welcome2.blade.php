@@ -50,7 +50,7 @@
                 <div class="col-sm-4 hIcons-1 linebox-left">
                 <img src="{{ asset('img/home/home-3.png') }}" class="img-responsive">
                 <h3>Publish & Downloads</h3>
-                    <p>Finalize your file and upload it to any screen at yu.</p>
+                    <p>Finalize your file and upload it to any screen at your facility</p>
                 </div>
             </div>
         </div>

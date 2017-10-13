@@ -476,25 +476,28 @@ $('#saveImage').click(function(){
         // Function to load the calendar
         initThemeChooser({
             init: function(themeSystem) {
-                $('#calendar').fullCalendar({
-                                     themeSystem: themeSystem,
-                                        height: 'auto',
-                                        header: {
-                                                left: null,
-                                                center: 'title',
-                                                right: null
-                                        },
-                                        defaultDate: '{{ $year }}-{{ $month }}',
-                                        weekNumbers: false,
-                                        navLinks: true,
-                                        editable: true,
-                                        eventLimit: true,
-                                });
-                        },
-                        change: function(themeSystem) {
-                                $('#calendar').fullCalendar('option', 'themeSystem', themeSystem);
-                        }
+                if( !$.trim( $('#calendar').html() ).length ){
+                    $('#calendar').fullCalendar({
+                    themeSystem: themeSystem,
+                    height: 'auto',
+                    header: {
+                        left: null,
+                        center: 'title',
+                        right: null
+                    },
+                    defaultDate: '{{ $year }}-{{ $month }}',
+                    weekNumbers: false,
+                    navLinks: true,
+                    editable: true,
+                    eventLimit: true,
                 });
+                }
+                
+            },
+            change: function(themeSystem) {
+                $('#calendar').fullCalendar('option', 'themeSystem', themeSystem);
+            }
+        });
         
         // Restablecemos los layouts
         $("#topLayout").hide().droppable();
@@ -571,7 +574,32 @@ $('#saveImage').click(function(){
             cleanLayout();
         });
         
-        
+        $(".erasable").draggable();
+                    
+                    $('.d').resizable();
+                    
+                    $(".erasable").click(function() {
+                        $(this).draggable( {disabled: false, revert:'invalid'});
+                    });
+                    
+                    $(".erasable").dblclick(function() {
+                        $(this).draggable( {disabled: true, revert:'invalid'});
+                        $('.CalTxt1').setAttribute('contenteditable',true);
+                        $(this).setAttribute('contenteditable',true);
+                    });
+                    
+                    
+                    
+                    $(".resis").resizable();
+                    $(".imageContainer").draggable({
+                        start: function(event, ui) {
+                            isDraggingMedia = true;
+                        },
+                        stop: function(event, ui) {
+                            isDraggingMedia = false;
+                        },
+                        revert: 'invalid',
+                    });
         });
         
 </script>

@@ -154,7 +154,8 @@ class HomeController extends Controller
                                     </div>
                                 </div>';
         if($calendar->save()){
-            return view('home', ['id' => $calendar->id, 'name' => $name, 'year' => $year, 'month' => $month, 'themeC' => $calendar->themeC, 'theme' => $calendar->theme, 'video' => $calendar->video, 'content' => $calendar->content]);
+            return redirect()->route('editCalendar', ['id' => $calendar->id]);
+//            return view('home', ['id' => $calendar->id, 'name' => $name, 'year' => $year, 'month' => $month, 'themeC' => $calendar->themeC, 'theme' => $calendar->theme, 'video' => $calendar->video, 'content' => $calendar->content]);
         }
     }
     

@@ -7,12 +7,42 @@ and open the template in the editor.
     Created on : Oct 3, 2017, 4:36:23 PM
     Author     : Z-Bomb
 */
-body, a, p{
-    font-family: 'Lato', sans-serif;
+@font-face{
+    font-family: 'Open Sans', sans-serif;
 }
 a{
     color:#0061d0;
 }
+.txtcenter{
+    text-align: center;
+}
+.imgcenter img{
+    margin: 0 auto;
+}
+.color-1{
+    color: #26b8ea;
+}
+.color-2{
+    color: #0061d0;
+}
+h1{
+    font-weight:800; 
+}
+.space-20{
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+.space-40{
+    margin-top: 40px;
+    margin-bottom: 40px;
+}
+.padd-20{
+    padding:20px 20px 20px 20px;
+}
+.padd-40{
+    padding:40px 40px 40px 40px;
+}
+
 /*******Custom Css********/
 .full-width{
     width: 100%;
@@ -101,7 +131,27 @@ a{
                 color:#0061d0;
                 }
         }
-        
+
+@media (min-width: 768px) and (max-width: 991px) {
+    .navbar-collapse.collapse {
+        display: none !important;
+    }
+    .navbar-collapse.collapse.in {
+        display: block !important;
+    }
+    .navbar-header .collapse, .navbar-toggle {
+        display:block !important;
+    }
+    .navbar-header {
+        float:none;
+    }
+}
+@media screen and (max-width: 350px){ 
+    .navbar-brand img{
+        margin-top: 1px;
+        width: 190px;
+    }
+}
         .marginContent{
             margin-top: 100px;
         }

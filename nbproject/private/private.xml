@@ -4,9 +4,19 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/C:/xampp/htdocs/jeff/CalendarBuilder/resources/views/home.blade.php</file>
+<<<<<<< HEAD
             <file>file:/C:/xampp/htdocs/jeff/CalendarBuilder/app/Http/Controllers/HomeController.php</file>
             <file>file:/C:/xampp/htdocs/jeff/CalendarBuilder/routes/web.php</file>
             <file>file:/C:/xampp/htdocs/jeff/CalendarBuilder/.env</file>
+=======
+            <file>file:/C:/xampp/htdocs/jeff/CalendarBuilder/public/css/custom-calendar.css</file>
+            <file>file:/C:/xampp/htdocs/jeff/CalendarBuilder/public/css/slider.css</file>
+            <file>file:/C:/xampp/htdocs/jeff/CalendarBuilder/resources/views/welcome2.blade.php</file>
+            <file>file:/C:/xampp/htdocs/jeff/CalendarBuilder/resources/views/layouts/app.blade.php</file>
+            <file>file:/C:/xampp/htdocs/jeff/CalendarBuilder/public/.htaccess</file>
+            <file>file:/C:/xampp/htdocs/jeff/CalendarBuilder/public/css/custom.css</file>
+            <file>file:/C:/xampp/htdocs/jeff/CalendarBuilder/public/js/textEditor.js</file>
+>>>>>>> 0668f9d17962e06caf8021a5af1391aa741a4e15
         </group>
     </open-files>
 </project-private>

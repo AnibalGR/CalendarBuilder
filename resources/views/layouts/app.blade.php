@@ -94,9 +94,22 @@
             @yield('content')
         </div>
         <footer>
-            algo
+            <div class="container full-width footer">
+                <div class="full-width space-20"></div>
+                    <div class="col-xs-12 col-sm-7 copyright">
+                        <div class="full-width space-40"></div>
+                        © 2017 Digital Activity Calendars, Inc. - All Right Reserved
+                    </div>
+                    <div class="col-xs-12 col-sm-4 copyright">
+                        <a href="{{ url('/') }}">
+                            <img src="{{ asset('img/calendar-builder.png') }}" class="img-responsive footer-logo">
+                        </a>
+                    </div>
+                </div>
+            </div>
         </footer>
         <!-- Scripts -->
+        <script src="https://use.fontawesome.com/4a5daede5c.js"></script>
         <script src="{{ asset('js/jquery-3.2.1.min.js') }}"></script>
         <script src="{{ asset('js/jquery-ui.min.js') }}"></script>
         <script src="{{ asset('js/jquery.ui.touch-punch.min.js') }}"></script>

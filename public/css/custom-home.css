@@ -48,10 +48,48 @@ p{
     margin: 0 auto;
 }
 .hIcons-2 h3{
-    font-weight: 400;
+    font-weight: 600;
     text-align: center;
     color:#0061d0;
 }
 .bg-gray{
     background-color: #cccccc;
+    border-bottom:3px dashed #ffffff;
+}
+.testimonial{
+    text-align: right;    
+    border-right: 2px solid #444444;
+    padding: 20px;
+}
+.testimonial .fa-icons{
+    background-color: #444444;
+    color:#cccccc;
+    font-size: 50px;
+    padding: 30px;
+    -webkit-border-radius: 90px;
+    -moz-border-radius: 90px;
+    border-radius: 90px;
+
+}
+.testimonial-2 p{
+    text-align: left;
+    font-size: 20px;
+}
+
+@media screen and (max-width: 767px){ 
+        .testimonial{
+            text-align: center;    
+            border-right: 0px transparent;
+        }
+        .testimonial-2 p{
+            text-align: center;
+            font-size: 20px;
+        }
+        .linebox-right{
+            border-right: 0px transparent;
+        }
+
+        .linebox-left{
+            border-left: 0px transparent;
+        }
 }

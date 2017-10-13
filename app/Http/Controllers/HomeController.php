@@ -42,17 +42,11 @@ class HomeController extends Controller
      * @return Response
      */
     
-    public function saveCalendar($calendar_id, Request $request){
+    public function saveCalendar(Request $request){
         
-        $calendar = Calendar::find($calendar_id);
-               
-        $message = $calendar->name . ' was successfuly removed.';
-                
-        $calendar->delete();
+        $content = dd(json_decode($request->getContent(), true));
         
-        if($request->ajax()){
-            return $message;
-        }
+        return $content;
         
     }
     /**

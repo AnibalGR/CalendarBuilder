@@ -364,7 +364,7 @@
         </div>
     </div>
     <!--Save Calendar Form-->
-    <form method="POST" action="{{ route('saveCalendar', ':USER_ID') }}" id="form-delete">
+    <form method="POST" action="{{ route('saveCalendar') }}" id="form-save">
         {{ csrf_field() }}
     </form>    
 </div>
@@ -647,14 +647,12 @@ $('#saveImage').click(function(){
             if($request){
                 $request.abort();
                 $( "#dialog" ).dialog( "close" );
-            }else{
-                alert('Hola mamá');
             }
         });
         } 
         
         $("#upVideo").val(null);
-        
+        $("#addVideo").focus();
     });
     
     // Asociative function to call the Input File buton
@@ -730,28 +728,23 @@ $('#saveCalendar').click(function () {
         content: content
     }
     
-    var form = $('#form-delete');
-    var url = form.attr('action').replace(':USER_ID', '{{ $id }}');
+    var form = $('#form-save');
+    var url = form.attr('action');
     
-    alert(url);
-    
-    
-    
-//    
-//    var row = $(this).parents('tr');
-//    var id = row.data('id');
-//    var form = $('#form-delete');
-//    var url = form.attr('action').replace(':USER_ID', id);
-//    var data = form.serialize();
-//
-//    $.post(url, data, function (result) {
-//
-//        row.fadeOut();
-//
-//    }).fail(function () {
-//        alert('The calendar has not been removed');
-//    });
-
+    $.ajax({
+            type: "POST",
+            headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
+            url: url,    
+            contentType: "json",
+            processData: false,
+            data: calendar,
+            success: function (data) {
+                alert(data);
+            },
+            error: function (data){
+                alert("Error");
+            }
+        });
 });
      
 </script>

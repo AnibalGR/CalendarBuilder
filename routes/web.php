@@ -38,7 +38,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::delete('/delete_calendar/{id}', 'HomeController@deleteCalendar')->name('deleteCalendar');
     
     // Route to the save calendar
-    Route::post('/save_calendar/{id}', 'HomeController@saveCalendar')->name('saveCalendar');
+    Route::post('/save_calendar', 'HomeController@saveCalendar')->name('saveCalendar');
     
     // Route to upload the image files
     Route::post('/upload', 'HomeController@uploadImage')->name('uploadImage');

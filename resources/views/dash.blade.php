@@ -83,7 +83,7 @@ use Carbon\Carbon;
 <div id="contactdiv">
     <form class="form" method="POST" action="{{ route('home') }}" id="contact">
         {{ csrf_field() }}
-        <img src="images/button_cancel.png" class="img" id="cancel"/>
+        <img src="{{ asset('img/delete-element.png') }}" class="img" id="cancel"/>
         <h3>Create New Calendar</h3>
         <hr/><br/>
         <label>Name:</label>

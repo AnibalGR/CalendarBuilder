@@ -142,5 +142,5 @@ Fade content bs-carousel with hero headers
 }
 @media screen and (max-width: 767px){
     .hero h1 { font-size: 3em; } 
-    .hero h3{ font-size: 1.5em;
+    .hero h3{ font-size: 1.5em; }
 }

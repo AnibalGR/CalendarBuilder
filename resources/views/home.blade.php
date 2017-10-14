@@ -358,6 +358,7 @@
                                         <p id="topLayout" class="prueba" style="visibility: hidden;  width: 100%; height: 130px; border: 2px solid; z-index: 3">Put your image here!</p>
                                         <p id="leftLayout" class="prueba" style="visibility: hidden;  width: 0px; height: 0px; float: left; margin-bottom: 0px;">Put your image here!</p>
                                         <p id="rightLayout" class="prueba" style="visibility: hidden;  width: 0px; height: 0px; float: right">Put your image here!</p>
+                                        
                                         <div id="calendar" class="prueba"></div>
                                         <p id="bottomLayout" class="prueba" style="visibility: hidden;  width: 100%; height: 130px; border: 2px solid; z-index: 3">Put your image here!</p>
                                     </div>
@@ -381,6 +382,7 @@
         <input id="themeCCal" name="themeCCal" type="text" style="visibility: hidden">
         <input id="themeCal" name="themeCal" type="text" style="visibility: hidden">
         <input id="videoCal" name="videoCal" type="text" style="visibility: hidden">
+        <input id="layoutCal" name="layoutCal" type="text" style="visibility: hidden">
         <textarea id="contentCal" name="contentCal" form="form-save" maxlength="50000" style="visibility: hidden"></textarea>
         {{ csrf_field() }}
     </form>    
@@ -397,259 +399,51 @@
 <script src="{{ asset('js/progressBar.js') }}"></script>
 <script src="{{ asset('js/calendarBuilder.js') }}"></script>
 <script>
+// Asociative function to call the Input File buton
+$("#addVideo").click(function () {
+    document.getElementById('upVideo').click();
+});
 
+// Input Video File function
+$("#upVideo").change(function () {
 
-    $("#addVideo1").click(function(){
-        changeVideo(1); 
-    });
-    
-    $("#addVideo2").click(function(){
-        changeVideo(2);
-    });
-    
-    $("#addVideo3").click(function(){
-        changeVideo(3);
-    });
-    
-    function changeVideo(id){
-        
-        var url;
-        switch(id){
-            case 1:
-                url = "{{ asset('vid/001.mp4') }}";
-                break;
-            case 2:
-                url = "{{ asset('vid/002.mp4') }}";
-                break;
-            case 3:
-                url = "{{ asset('vid/003.mp4') }}";
-                break;
-        } 
-        
-        if(!$("#video").is(":visible")){
-            $("#videoDiv").css('visibility','visible');
-            var video = $('<video />', {
-                id: 'video',
-                src: url,
-                autoplay: true,
-                type: 'video/mp4',
-                loop: false,
-                controls: true
-            });
-            video.appendTo($('#videoDiv'));
-            $("#video").css('width','100%');
-            $("#video").css('height','100%');
-   
-            $("#videoTab").trigger("click");
-        }else{
-            $('#video').attr('src', url);
-            $("#video")[0].load();
-        }
-        
-    }
-    
-    
-    $("#removeVideo").click(function(){
-        if($("#video").is(":visible")){
-            $("#video").remove();
-            $("#calendarTab").trigger("click");
-        }
-    });
-</script>
-<script>
-    
-    // Function to add the tabs to the calendar main panel
-    $( function() {
-        $( "#tabs" ).tabs();
-    });
-    
-    $(document).ready(function() {
-        
-        updateTheme();
-        
-        // Function to load the calendar
-        initThemeChooser({
-            init: function(themeSystem) {
-                
-                    $('#calendar').fullCalendar({
-                    themeSystem: themeSystem,
-                    height: 'auto',
-                    header: {
-                        left: null,
-                        center: 'title',
-                        right: null
-                    },
-                    defaultDate: '{{ $year }}-{{ $month }}',
-                    weekNumbers: false,
-                    navLinks: true,
-                    editable: true,
-                    eventLimit: true,
-                });
-                
-                
-            },
-            change: function(themeSystem) {
-                $('#calendar').fullCalendar('option', 'themeSystem', themeSystem);
-            }
-        });
-        
-        // Restablecemos los layouts
-        $("#topLayout").hide().droppable();
-        $("#bottomLayout").hide().droppable();
-        $("#leftLayout").hide().droppable();
-        $("#rightLayout").hide().droppable();
-        $('#calendar').droppable();
-        
-        // Function to show the top Layout
-        $("#showTopLayout").click(function(){
-            // Clean any previous layout
-            cleanLayout();
-            
-            // Must see if is already visible
-            if($("#topLayout").is(":visible")){
-                // We hide it if visible
-                $("#topLayout").hide();
-            }else{
-                $("#topLayout").css('visibility', 'visible');
-                $("#topLayout").show();
-            }
-            
-        });
-        
-        // Function to show the left Layout
-        $("#showLeftLayout").click(function(){
-            cleanLayout();
-            $("#leftLayout").css('visibility','visible');
-            $("#leftLayout").css('height',$("#calendarCont").height());
-            $("#leftLayout").css('width','25%');
-            $("#leftLayout").css('border-color','black');
-            $("#leftLayout").css('border-style','solid');
-            $("#calendar").css('max-width','75%');
-            $("#calendar").css('float','right');
-            $("#leftLayout").show();
-        });
-        
-        // Function to show the right Layout
-        $("#showRightLayout").click(function(){
-            cleanLayout();
-        $("#rightLayout").css('visibility','visible');
-        $("#rightLayout").css('height',$("#calendarCont").height());
-        $("#rightLayout").css('width','25%');
-        $("#rightLayout").css('border-color','black');
-        $("#rightLayout").css('border-style','solid');
-        $("#calendar").css('max-width','75%');
-        $("#calendar").css('float','left');
-        $("#rightLayout").show();
-        });
-        
-        // Function to show the bottom Layout
-        $("#showBottomLayout").click(function(){
-            cleanLayout();
-        // Must see if is already visible
-            if($("#bottomLayout").is(":visible")){
-                // We hide it if visible
-                $("#bottomLayout").hide();
-            }else{
-                $("#bottomLayout").css('visibility', 'visible');
-                $("#bottomLayout").show();
-            }
-        });
-        
-        function cleanLayout(){
-            $("#topLayout").hide();
-            $("#bottomLayout").hide();
-            $("#leftLayout").hide();
-            $("#rightLayout").hide();
-            $("#calendar").css('max-width','100%');
-            $("#calendar").css('float','none');
-        };
-        
-        $("#noneLayout").click(function(){
-            cleanLayout();
-        });
-        
-        $(".erasable").draggable();
-                    
-                    $('.d').resizable();
-                    
-                    $(".erasable").click(function() {
-                        $(this).draggable( {disabled: false, revert:'invalid'});
-                    });
-                    
-                    $(".erasable").dblclick(function() {
-                        $(this).draggable( {disabled: true, revert:'invalid'});
-                        $('.CalTxt1').setAttribute('contenteditable',true);
-                        $(this).setAttribute('contenteditable',true);
-                    });
-                    
-                    
-                    
-                    $(".resis").resizable();
-                    $(".imageContainer").draggable({
-                        start: function(event, ui) {
-                            isDraggingMedia = true;
-                        },
-                        stop: function(event, ui) {
-                            isDraggingMedia = false;
-                        },
-                        revert: 'invalid',
-                    });
-                    
-                    function updateTheme(){
-                        
-                        $actualTheme = '{{ $theme }}';
-                        $('#theme').val($actualTheme);
-                    }
-        });
-        
-</script>
+    if (this.files && this.files[0]) {
 
-<script type="text/javascript">
-    // Asociative function to call the Input File buton
-    $("#addVideo").click(function(){
-        document.getElementById('upVideo').click();
-    });
-    
-    // Input Image File function
-    $("#upVideo").change(function(){
-        
-        if(this.files && this.files[0]){
-            
-        var fd = new FormData();    
-        fd.append( 'file', this.files[0] );
-        
-        $( "#dialog" ).dialog( "open" );
-        progressbar = $( "#progressbar" );
-        
+        var fd = new FormData();
+        fd.append('file', this.files[0]);
+
+        $("#dialog").dialog("open");
+        progressbar = $("#progressbar");
+
         var $request;
-        
+
         $request = $.ajax({
-            xhr: function() {
+            xhr: function () {
                 var xhr = new window.XMLHttpRequest();
-                
-                xhr.upload.addEventListener("progress", function(evt) {
+
+                xhr.upload.addEventListener("progress", function (evt) {
                     if (evt.lengthComputable) {
                         var percentComplete = evt.loaded / evt.total;
                         percentComplete = parseInt(percentComplete * 100);
                         console.log(percentComplete);
-                        progressbar.progressbar( "value", percentComplete);
+                        progressbar.progressbar("value", percentComplete);
                         if (percentComplete === 100) {
-                            $( "#dialog" ).dialog( "close" );
+                            $("#dialog").dialog("close");
                         }
                     }
                 }, false);
-                
+
                 return xhr;
             },
             type: "POST",
             headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
-            url: "{{ route('uploadVideo') }}",    
+            url: "{{ route('uploadVideo') }}",
             contentType: false,
             processData: false,
             data: fd,
             success: function (url) {
-                if(!$("#video").is(":visible")){
-                    $("#videoDiv").css('visibility','visible');
+                if (!$("#video").is(":visible")) {
+                    $("#videoDiv").css('visibility', 'visible');
                     var video = $('<video />', {
                         id: 'video',
                         src: '../' + url,
@@ -659,93 +453,319 @@
                         controls: true
                     });
                     video.appendTo($('#videoDiv'));
-                    $("#video").css('width','100%');
-                    $("#video").css('height','100%');
+                    $("#video").css('width', '100%');
+                    $("#video").css('height', '100%');
                     $("#videoTab").trigger("click");
-                }else{
+                } else {
                     $('#video').attr('src', '../' + url);
                     $("#video")[0].load();
                 }
             },
-            error: function (data){
-                try{
-                alert(data.responseJSON.message);
-                if(!$('#imageError').html().length){
-                    $('#imageError').append("<p>" + data.responseJSON.message + "</p>");
-                }
-                }catch(err){
+            error: function (data) {
+                try {
+                    alert(data.responseJSON.message);
+                    if (!$('#imageError').html().length) {
+                        $('#imageError').append("<p>" + data.responseJSON.message + "</p>");
+                    }
+                } catch (err) {
                     console.log(err);
                 }
             }
         });
         
-        $("#cancelUpload").click(function(){
-            if($request){
+        // Cancel Upload Video button
+        $("#cancelUpload").click(function () {
+            if ($request) {
                 $request.abort();
-                $( "#dialog" ).dialog( "close" );
+                $("#dialog").dialog("close");
             }
         });
-        } 
-        
-        $("#upVideo").val(null);
-        $("#addVideo").focus();
-    });
-    
-    // Asociative function to call the Input File buton
-    $("#addImage").click(function(){
-        document.getElementById('upImage').click();
-    });
-    
-    // Input Image File function
-    $("#upImage").change(function(){
-        
-        if(this.files && this.files[0]){
-            
-        var fd = new FormData();    
-        fd.append( 'file', this.files[0] );
-        
+    }
+
+    $("#upVideo").val(null);
+    $("#addVideo").focus();
+});
+
+// Asociative function to call the Input File buton
+$("#addImage").click(function () {
+    document.getElementById('upImage').click();
+});
+
+// Input Image File function
+$("#upImage").change(function () {
+
+    if (this.files && this.files[0]) {
+
+        var fd = new FormData();
+        fd.append('file', this.files[0]);
+
         $.ajax({
             type: "POST",
             headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
-            url: "{{ route('uploadImage') }}",    
+            url: "{{ route('uploadImage') }}",
             contentType: false,
             processData: false,
             data: fd,
             success: function (data) {
                 var img = $('<div><div class="imageContainer erasable"><input type="text" class="closebtn" value="X"><img class="resis" src=" ../../' + data + '"></div></div>');
-                    $(".erasable").draggable();
-                    $('#imagePrev').append(img);
-                    $(".resis").resizable();
-                    $(".imageContainer").draggable({
-                        start: function(event, ui) {
-                            isDraggingMedia = true;
-                        },
-                        stop: function(event, ui) {
-                            isDraggingMedia = false;
-                        },
-                        revert: 'invalid',
-                    });
+                $(".erasable").draggable();
+                $('#imagePrev').append(img);
+                $(".resis").resizable();
+                $(".imageContainer").draggable({
+                    start: function (event, ui) {
+                        isDraggingMedia = true;
+                    },
+                    stop: function (event, ui) {
+                        isDraggingMedia = false;
+                    },
+                    revert: 'invalid',
+                });
             },
-            error: function (data){
+            error: function (data) {
                 alert(data.responseJSON.message);
-                if(!$('#imageError').html().length){
+                if (!$('#imageError').html().length) {
                     $('#imageError').append("<p>" + data.responseJSON.message + "</p>");
                 }
                 var salida = JSON.stringify(data);
                 alert(salida);
             }
         });
+    }
+    $("#upImage").val(null);
+});
+
+// Initialize all the functions and variables
+$(document).ready(function() {
+        
+    $( "#tabs" ).tabs();
+        
+    updateTheme();
+        
+    // Function to load the calendar
+    initThemeChooser({
+        init: function(themeSystem) {
+            $('#calendar').fullCalendar({
+                themeSystem: themeSystem,
+                height: 'auto',
+                header: {
+                    left: null,
+                    center: 'title',
+                    right: null
+                },
+                defaultDate: '{{ $year }}-{{ $month }}',
+                weekNumbers: false,
+                navLinks: true,
+                editable: true,
+                eventLimit: true,
+            });
+            
+            resizeLayout();
+            
+        },
+        change: function(themeSystem) {
+            $('#calendar').fullCalendar('option', 'themeSystem', themeSystem);
         }
-        $("#upImage").val(null);
     });
     
+    setObjectsProperties();
     
+    cleanLayout();
     
+    loadLayout();
+});        
+        
+        
+// Function to show the top Layout
+$("#showTopLayout").click(function(){
+           
+    showTopLayout();
+            
+});
+        
+// Function to show the left Layout
+$("#showLeftLayout").click(function(){
+            
+    showLeftLayout();
+            
+});
+        
+function setObjectsProperties(){
+            
+    $(".erasable").draggable();
+                    
+    $('.d').resizable();
+                    
+    $(".erasable").click(function() {
+
+        $(this).draggable( {disabled: false, revert:'invalid'});
+    });
+                    
+    $(".erasable").dblclick(function() {
+    
+        $(this).draggable( {disabled: true, revert:'invalid'});
+    
+        $('.CalTxt1').setAttribute('contenteditable',true);
+        
+        $(this).setAttribute('contenteditable',true);
+    });
+                    
+    $(".resis").resizable();
+            
+    $(".imageContainer").draggable({
+        start: function(event, ui) {
+            isDraggingMedia = true;
+        },
+        stop: function(event, ui) {
+            isDraggingMedia = false;
+        },
+        revert: 'invalid',
+    });
+}
+        
+// Function to show the right Layout
+$("#showRightLayout").click(function(){
+            
+    showRightLayout();
+            
+});
+        
+// Function to show the bottom Layout
+$("#showBottomLayout").click(function(){
+            
+    showBottomLayout();
+    
+});
+        
+function showBottomLayout(){
+    // Clean any previous layout
+    cleanLayout();
+            
+    // Must see if is already visible
+    $("#bottomLayout").css('visibility', 'visible');
+    $("#bottomLayout").css('border-color','black');
+    $("#bottomLayout").css('border-style','solid');
+            
+    // Show top Layout
+    $("#bottomLayout").show();
+
+}
+        
+function showTopLayout(){
+    // Clean any previous layout
+    cleanLayout();
+            
+    // Must see if is already visible
+    $("#topLayout").css('visibility', 'visible');
+    $("#topLayout").css('border-color','black');
+    $("#topLayout").css('border-style','solid');
+            
+    // Show top Layout
+    $("#topLayout").show();
+}
+        
+function showLeftLayout(){
+    cleanLayout();
+    $("#leftLayout").css('visibility','visible');
+    $("#leftLayout").css('height',$("#calendarCont").height());
+    $("#leftLayout").css('width','25%');
+    $("#leftLayout").css('border-color','black');
+    $("#leftLayout").css('border-style','solid');
+    $("#calendar").css('max-width','75%');
+    $("#calendar").css('float','right');
+    $("#leftLayout").show();
+}
+
+function resizeLayout(){
+    if($("#leftLayout").is(":visible")){
+        $("#leftLayout").css('height',$("#calendarCont").height());
+    }
+    if($("#rightLayout").is(":visible")){
+        $("#rightLayout").css('height',$("#calendarCont").height());
+    }
+}
+
+function showRightLayout(){
+            
+    cleanLayout();
+    $("#rightLayout").css('visibility','visible');
+    $("#rightLayout").css('height',$("#calendarCont").height());
+    $("#rightLayout").css('width','25%');
+    $("#rightLayout").css('border-color','black');
+    $("#rightLayout").css('border-style','solid');
+    $("#calendar").css('max-width','75%');
+    $("#calendar").css('float','left');
+    $("#rightLayout").show();
+            
+}
+        
+function cleanLayout(){
+    $("#topLayout").hide();
+    $("#bottomLayout").hide();
+    $("#leftLayout").hide();
+    $("#rightLayout").hide();
+    $("#calendar").css('max-width','100%');
+    $("#calendar").css('float','none');
+};
+        
+$("#noneLayout").click(function(){
+    cleanLayout();
+});
+
+function getLayout(){
+    if($("#bottomLayout").is(":visible")){
+        return 'bottom';
+    }
+    if($("#rightLayout").is(":visible")){
+        return 'right';
+    }
+    if($("#leftLayout").is(":visible")){
+        return 'left';
+    }
+    if($("#topLayout").is(":visible")){
+        return 'top';
+    }
+    return 'none';
+}
+
+function loadLayout(){
+    $actualLayout = '{{ $layout }}';
+    switch($actualLayout){
+        case "none":
+            cleanLayout();
+            break;
+        case "top":
+            showTopLayout();
+            break;
+        case "bottom":
+            showBottomLayout();
+            break;
+        case "left":
+            showLeftLayout();
+            break;
+        case "right":
+            showRightLayout();
+            break;
+    }
+}
+                    
+function updateTheme(){
+    $actualThemeC = '{{ $themeC }}'
+    if($actualThemeC == 'jquery-ui'){
+        $actualTheme = '{{ $theme }}';
+        $('#theme').val($actualTheme);
+    }
+}
+        
+        
+</script>
+
+<script type="text/javascript">
     // Create new Calendar form popup send-button click event.
 $('#saveCalendar').click(function () {
     
     var $themeCategory = $('#themeCategory').val();
     var $theme = $('#theme').val();
+    var $layout = getLayout();
     var video = $('#video').length;
     var $src = "none";
     if(video){
@@ -758,6 +778,7 @@ $('#saveCalendar').click(function () {
     $('#monthCal').val('{{$month}}');
     $('#themeCCal').val($themeCategory);
     $('#themeCal').val($theme);
+    $('#layoutCal').val($layout);
     $('#videoCal').val($src);
     $('#contentCal').val('<div id="imagePrev" class="prueba" style="border: 5px">' + $content + '</div>');
     var form = $('#form-save');
@@ -770,6 +791,8 @@ $('#saveCalendar').click(function () {
             alert (e.message);
         });
 });
+     
+     
      
 </script>
 @endsection

@@ -48,6 +48,7 @@ class HomeController extends Controller
         if($calendar->user_id == Auth::id()){
             $calendar->theme = $request->themeCal;
             $calendar->themeC = $request->themeCCal;
+            $calendar->layout = $request->layoutCal;
             $calendar->video = $request->videoCal;
             $calendar->content = $request->contentCal;
             if($calendar->save()){
@@ -140,12 +141,13 @@ class HomeController extends Controller
         $calendar->name = $name;
         $calendar->year = $year;
         $calendar->month = $month;
-        $calendar->themeC = 'standard';
         $calendar->theme = 'none';
+        $calendar->themeC = 'standard';
+        $calendar->layout = 'none';
         $calendar->video = 'none';
         $calendar->content = '<div id="imagePrev" class="prueba" style="border: 5px"></div>';
         if($calendar->save()){
-            return redirect()->route('editCalendar', ['id' => $calendar->id, 'name' => $calendar->name, 'year' => $calendar->year, 'month' => $calendar->month, 'themeC' => $calendar->themeC, 'theme' => $calendar->theme, 'video' => $calendar->video, 'content' => $calendar->content]);
+            return redirect()->route('editCalendar', ['id' => $calendar->id, 'name' => $calendar->name, 'year' => $calendar->year, 'month' => $calendar->month, 'themeC' => $calendar->themeC, 'theme' => $calendar->theme, 'layout' => $calendar->layout, 'video' => $calendar->video, 'content' => $calendar->content]);
 //            return view('home', ['id' => $calendar->id, 'name' => $name, 'year' => $year, 'month' => $month, 'themeC' => $calendar->themeC, 'theme' => $calendar->theme, 'video' => $calendar->video, 'content' => $calendar->content]);
         }
     }
@@ -156,7 +158,7 @@ class HomeController extends Controller
         
         if($calendar){
             if($calendar->user_id == Auth::id()){
-                return view('home', ['id' => $calendar->id, 'name' => $calendar->name, 'year' => $calendar->year, 'month' => $calendar->month, 'themeC' => $calendar->themeC, 'theme' => $calendar->theme, 'video' => $calendar->video, 'content' => $calendar->content]);
+                return view('home', ['id' => $calendar->id, 'name' => $calendar->name, 'year' => $calendar->year, 'month' => $calendar->month, 'themeC' => $calendar->themeC, 'theme' => $calendar->theme, 'layout' => $calendar->layout, 'video' => $calendar->video, 'content' => $calendar->content]);
             }
         }
         return redirect()->back();

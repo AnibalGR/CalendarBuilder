@@ -37,7 +37,7 @@ $("#addVideo3").click(function () {
 function changeVideo(id) {
 
     var url;
-    
+
     switch (id) {
         case 1:
             url = "{{ asset('vid/001.mp4') }}";

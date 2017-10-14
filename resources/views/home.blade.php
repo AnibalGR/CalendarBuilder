@@ -353,6 +353,15 @@
 
                             <div class="panel-body prueba" id="calendarPanel" style="height:auto">
                                 {!! $content !!}
+                                <div class="panel-body bg-right prueba" >
+                                    <div class="panel-body prueba" id="calendarCont" style="overflow: auto">
+                                        <p id="topLayout" class="prueba" style="visibility: hidden;  width: 100%; height: 130px; border: 2px solid; z-index: 3">Put your image here!</p>
+                                        <p id="leftLayout" class="prueba" style="visibility: hidden;  width: 0px; height: 0px; float: left; margin-bottom: 0px;">Put your image here!</p>
+                                        <p id="rightLayout" class="prueba" style="visibility: hidden;  width: 0px; height: 0px; float: right">Put your image here!</p>
+                                        <div id="calendar" class="prueba"></div>
+                                        <p id="bottomLayout" class="prueba" style="visibility: hidden;  width: 100%; height: 130px; border: 2px solid; z-index: 3">Put your image here!</p>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -386,20 +395,9 @@
 <script src="{{ asset('js/html2canvas.svg.min.js') }}"></script>
 <script src="{{ asset('js/html2canvas.js') }}"></script>
 <script src="{{ asset('js/progressBar.js') }}"></script>
+<script src="{{ asset('js/calendarBuilder.js') }}"></script>
 <script>
-// Render Image from Calendar    
-$('#saveImage').click(function(){
-    html2canvas($('#calendarPanel'), {
-        scale: 4,
-        onrendered: function(canvas) {
-        var a = document.createElement('a');
-        // toDataURL defaults to png, so we need to request a jpeg, then convert for file download.
-        a.href = canvas.toDataURL("image/jpeg").replace("image/jpeg", "image/octet-stream");
-        a.download = 'somefilename.jpg';
-        a.click();
-        }}
-    );
-});
+
 
     $("#addVideo1").click(function(){
         changeVideo(1); 
@@ -467,16 +465,12 @@ $('#saveImage').click(function(){
     
     $(document).ready(function() {
         
-        // We load the Calendar´s theme
-        @if($themeC == 'jquery-ui')
-            $('#themeSelector').css('display', 'inline-block');    
-            $('#theme').val($theme);
-        @endif
+        updateTheme();
         
         // Function to load the calendar
         initThemeChooser({
             init: function(themeSystem) {
-                if( !$.trim( $('#calendar').html() ).length ){
+                
                     $('#calendar').fullCalendar({
                     themeSystem: themeSystem,
                     height: 'auto',
@@ -491,7 +485,7 @@ $('#saveImage').click(function(){
                     editable: true,
                     eventLimit: true,
                 });
-                }
+                
                 
             },
             change: function(themeSystem) {
@@ -600,6 +594,12 @@ $('#saveImage').click(function(){
                         },
                         revert: 'invalid',
                     });
+                    
+                    function updateTheme(){
+                        
+                        $actualTheme = '{{ $theme }}';
+                        $('#theme').val($actualTheme);
+                    }
         });
         
 </script>
@@ -747,11 +747,11 @@ $('#saveCalendar').click(function () {
     var $themeCategory = $('#themeCategory').val();
     var $theme = $('#theme').val();
     var video = $('#video').length;
-    var $src = "";
+    var $src = "none";
     if(video){
         $src = $('#video').attr('src');
     };
-    var $content = $('#calendarPanel').html();
+    var $content = $('#imagePrev').html();
     $('#idCal').val('{{$id}}');
     $('#nameCal').val('{{$name}}');
     $('#yearCal').val('{{$year}}');
@@ -759,10 +759,11 @@ $('#saveCalendar').click(function () {
     $('#themeCCal').val($themeCategory);
     $('#themeCal').val($theme);
     $('#videoCal').val($src);
-    $('#contentCal').val($content);
+    $('#contentCal').val('<div id="imagePrev" class="prueba" style="border: 5px">' + $content + '</div>');
     var form = $('#form-save');
     var url = form.attr('action');
     var data = form.serialize();
+    alert(data);
     $.post(url, data, function(result){
             alert(result);
         }).fail(function(e){
@@ -770,30 +771,5 @@ $('#saveCalendar').click(function () {
         });
 });
      
-</script>
-
-<script type="text/javascript">
-        $(init);
-
-            function init() {
-                // We configure the button whose create a new text object
-                $("#addButton").click(function () {
-                    $('#imagePrev').append('<div class="erasable"><input type="text" class="closebtn" value="X"><p class="CalTxt1" contenteditable="true">Double click here</p></div>');
-                    
-                    $(".erasable").draggable();
-                    
-                    $('.d').resizable();
-                    
-                    $(".erasable").click(function() {
-                        $(this).draggable( {disabled: false, revert:'invalid'});
-                    });
-                    
-                    $(".erasable").dblclick(function() {
-                        $(this).draggable( {disabled: true, revert:'invalid'});
-                        $('.CalTxt1').setAttribute('contenteditable',true);
-                        $(this).setAttribute('contenteditable',true);
-                    });
-                });
-            };
 </script>
 @endsection

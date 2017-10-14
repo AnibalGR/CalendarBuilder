@@ -358,7 +358,6 @@
                                         <p id="topLayout" class="prueba" style="visibility: hidden;  width: 100%; height: 130px; border: 2px solid; z-index: 3">Put your image here!</p>
                                         <p id="leftLayout" class="prueba" style="visibility: hidden;  width: 0px; height: 0px; float: left; margin-bottom: 0px;">Put your image here!</p>
                                         <p id="rightLayout" class="prueba" style="visibility: hidden;  width: 0px; height: 0px; float: right">Put your image here!</p>
-                                        
                                         <div id="calendar" class="prueba"></div>
                                         <p id="bottomLayout" class="prueba" style="visibility: hidden;  width: 100%; height: 130px; border: 2px solid; z-index: 3">Put your image here!</p>
                                     </div>
@@ -442,11 +441,13 @@ $("#upVideo").change(function () {
             processData: false,
             data: fd,
             success: function (url) {
-                if (!$("#video").is(":visible")) {
+                    if ($("#video")) {
+                        $("#video").remove();
+                    }
                     $("#videoDiv").css('visibility', 'visible');
                     var video = $('<video />', {
                         id: 'video',
-                        src: '../' + url,
+                        src: '{{ asset("") }}' + url,
                         autoplay: true,
                         type: 'video/mp4',
                         loop: false,
@@ -456,10 +457,6 @@ $("#upVideo").change(function () {
                     $("#video").css('width', '100%');
                     $("#video").css('height', '100%');
                     $("#videoTab").trigger("click");
-                } else {
-                    $('#video').attr('src', '../' + url);
-                    $("#video")[0].load();
-                }
             },
             error: function (data) {
                 try {
@@ -572,8 +569,48 @@ $(document).ready(function() {
     cleanLayout();
     
     loadLayout();
+    
+    loadVideo();
 });        
-        
+
+// Function to setup a predeterminated video
+function changeVideo(id) {
+
+    var url;
+
+    switch (id) {
+        case 1:
+            url = "{{ asset('vid/001.mp4') }}";
+            break;
+        case 2:
+            url = "{{ asset('vid/002.mp4') }}";
+            break;
+        case 3:
+            url = "{{ asset('vid/003.mp4') }}";
+            break;
+    }
+
+    if (!$("#video").is(":visible")) {
+        $("#videoDiv").css('visibility', 'visible');
+        var video = $('<video />', {
+            id: 'video',
+            src: url,
+            autoplay: true,
+            type: 'video/mp4',
+            loop: false,
+            controls: true
+        });
+        video.appendTo($('#videoDiv'));
+        $("#video").css('width', '100%');
+        $("#video").css('height', '100%');
+
+        $("#videoTab").trigger("click");
+    } else {
+        $('#video').attr('src', url);
+        $("#video")[0].load();
+    }
+
+}
         
 // Function to show the top Layout
 $("#showTopLayout").click(function(){
@@ -609,7 +646,7 @@ function setObjectsProperties(){
         $(this).setAttribute('contenteditable',true);
     });
                     
-    $(".resis").resizable();
+    $(".resis").resizable().draggable({revert: 'invalid'});
             
     $(".imageContainer").draggable({
         start: function(event, ui) {
@@ -619,7 +656,7 @@ function setObjectsProperties(){
             isDraggingMedia = false;
         },
         revert: 'invalid',
-    });
+    }).resizable();
 }
         
 // Function to show the right Layout
@@ -747,7 +784,27 @@ function loadLayout(){
             break;
     }
 }
-                    
+
+function loadVideo(){
+    var url = '{{ $video }}'
+    if(url != 'none'){
+        $("#videoDiv").css('visibility', 'visible');
+        var video = $('<video />', {
+            id: 'video',
+            src: url,
+            autoplay: true,
+            type: 'video/mp4',
+            loop: false,
+            controls: true
+        });
+        video.appendTo($('#videoDiv'));
+        $("#video").css('width', '100%');
+        $("#video").css('height', '100%');
+        $("#videoDiv").show();
+    }
+}
+
+
 function updateTheme(){
     $actualThemeC = '{{ $themeC }}'
     if($actualThemeC == 'jquery-ui'){
@@ -791,8 +848,6 @@ $('#saveCalendar').click(function () {
             alert (e.message);
         });
 });
-     
-     
-     
+              
 </script>
 @endsection

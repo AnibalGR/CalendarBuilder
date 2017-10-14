@@ -33,45 +33,6 @@ $("#addVideo3").click(function () {
     changeVideo(3);
 });
 
-// Function to setup a predeterminated video
-function changeVideo(id) {
-
-    var url;
-
-    switch (id) {
-        case 1:
-            url = "{{ asset('vid/001.mp4') }}";
-            break;
-        case 2:
-            url = "{{ asset('vid/002.mp4') }}";
-            break;
-        case 3:
-            url = "{{ asset('vid/003.mp4') }}";
-            break;
-    }
-
-    if (!$("#video").is(":visible")) {
-        $("#videoDiv").css('visibility', 'visible');
-        var video = $('<video />', {
-            id: 'video',
-            src: url,
-            autoplay: true,
-            type: 'video/mp4',
-            loop: false,
-            controls: true
-        });
-        video.appendTo($('#videoDiv'));
-        $("#video").css('width', '100%');
-        $("#video").css('height', '100%');
-
-        $("#videoTab").trigger("click");
-    } else {
-        $('#video').attr('src', url);
-        $("#video")[0].load();
-    }
-
-}
-
 // Remove video function
 $("#removeVideo").click(function () {
     if ($("#video").is(":visible")) {
@@ -79,7 +40,6 @@ $("#removeVideo").click(function () {
         $("#calendarTab").trigger("click");
     }
 });
-
 
 // We configure the button whose create a new text object
 $("#addButton").click(function () {

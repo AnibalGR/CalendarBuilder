@@ -505,8 +505,8 @@ $("#upImage").change(function () {
             data: fd,
             success: function (data) {
                 var img = $('<div><div class="imageContainer erasable"><input type="text" class="closebtn" value="X"><img class="resis" src=" ../../' + data + '"></div></div>');
-                $(".erasable").draggable();
                 $('#imagePrev').append(img);
+                $('#imagePrev').droppable();
                 $(".resis").resizable();
                 $(".imageContainer").draggable({
                     start: function (event, ui) {
@@ -656,7 +656,7 @@ function setObjectsProperties(){
             isDraggingMedia = false;
         },
         revert: 'invalid',
-    }).resizable();
+    });
 }
         
 // Function to show the right Layout

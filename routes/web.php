@@ -40,6 +40,12 @@ Route::group(['middleware' => 'auth'], function () {
     // Route to the save calendar
     Route::post('/save_calendar', 'HomeController@saveCalendar')->name('saveCalendar');
     
+    // Route to generate video
+    Route::post('/generateV', 'HomeController@generateVideo')->name('generateVideo');
+    
+    // Route to store the calendar image
+    Route::post('/saveImage', 'HomeController@saveImage')->name('saveImage');
+    
     // Route to upload the image files
     Route::post('/upload', 'HomeController@uploadImage')->name('uploadImage');
     

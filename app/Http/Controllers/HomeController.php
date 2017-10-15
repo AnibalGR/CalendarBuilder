@@ -8,6 +8,8 @@ use Symfony\Component\HttpFoundation\Response;
 use App\Calendar;
 use App\Subscription;
 use Validator;
+use Symfony\Component\Process\Process;
+use Symfony\Component\Process\Exception\ProcessFailedException;
 
 
 class HomeController extends Controller
@@ -19,6 +21,36 @@ class HomeController extends Controller
      * @param Request $request
      * @return Response
      */
+    
+    public function generateVideo(){
+        
+    }
+    
+    public function saveImage(Request $request){
+        
+        try{
+        //Get the base-64 string from data
+        $filteredData=substr($request->img_val, strpos($request->img_val, ",")+1);
+ 
+        //Decode the string
+        $unencodedData=base64_decode($filteredData);
+        
+        $path = public_path().'/temp/' . Auth::id();
+        
+        if (!is_dir($path)) {
+            // dir doesn't exist, make it
+            mkdir($path);
+        }
+        
+        //Save the image
+        file_put_contents($path . '/img.png', $unencodedData);
+        
+        
+        
+        }catch(\Exception $e){
+            return $e;
+        }
+    }
     
     public function deleteCalendar($calendar_id, Request $request){
         

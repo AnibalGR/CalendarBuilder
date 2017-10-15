@@ -53,6 +53,11 @@ return [
             'root'   => public_path(),
         ],
         
+        'temp' => [
+            'driver' => 'local',
+            'root'   => public_path().'/temp',
+        ],
+        
         'public' => [
             'driver' => 'local',
             'root' => storage_path('app/public'),

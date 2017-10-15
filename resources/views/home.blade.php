@@ -388,6 +388,7 @@
     </form>
     <form method="POST" enctype="multipart/form-data" action="{{ route('saveImage') }}" id="myForm">
         <input type="hidden" name="img_val" id="img_val" value="" />
+        <input type="hidden" name="cal_val" id="cal_val" value="" />
         {{ csrf_field() }}
     </form>
 </div>
@@ -837,6 +838,7 @@ $('#saveImage').click(function () {
         scale: 4,
         onrendered: function (canvas) {
                 $('#img_val').val(canvas.toDataURL("image/png"));
+                $('#cal_val').val("{{ $id }}");
         }
     });
     
@@ -848,9 +850,9 @@ $('#saveImage').click(function () {
     $.post(url, data, function(result){
             alert(result);
         }).fail(function(e){
-            alert (e);
+            alert (JSON.stringify(e));
         });
-        }, 1500);
+        }, 3500);
 });
                                     
     // Create new Calendar form popup send-button click event.

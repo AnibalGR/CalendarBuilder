@@ -9,6 +9,7 @@ use App\Calendar;
 use App\Subscription;
 use Validator;
 use Symfony\Component\Process\Process;
+use Symfony\Component\Process\ProcessBuilder;
 use Symfony\Component\Process\Exception\ProcessFailedException;
 
 
@@ -29,6 +30,8 @@ class HomeController extends Controller
     public function saveImage(Request $request){
         
         try{
+            set_time_limit(300);
+            
         //Get the base-64 string from data
         $filteredData=substr($request->img_val, strpos($request->img_val, ",")+1);
  
@@ -42,13 +45,69 @@ class HomeController extends Controller
             mkdir($path);
         }
         
+        $absoluteImagePath = $path . '/img.png';
+        
         //Save the image
-        file_put_contents($path . '/img.png', $unencodedData);
+        file_put_contents($absoluteImagePath, $unencodedData);
         
+        $builder = new ProcessBuilder();
+        $builder->setPrefix('ffmpeg');
         
+        $builder
+            ->setArguments(array('-loop', '1', '-i', $absoluteImagePath, '-c:v', 'libx264', '-t', '15', '-pix_fmt', 'yuv420p', '-vf', 'scale=1920:1080', $path .'/input1.mp4'))
+            ->getProcess()
+            ->run();
+
+        // At this point we have the calendar video ready
+        // We need to retrieve the other video
+        $calendar = Calendar::find($request->cal_val);
+        
+        if($calendar->video != "none"){
+            // The calendar does have a video
+            $ext = pathinfo($calendar->video, PATHINFO_EXTENSION);
+            // Check if it is a MP4 video
+            if($ext == "mp4" || $ext == "MP4"){
+                // The video is already an MP4
+                file_put_contents($path . "/input2.mp4", fopen("$calendar->video", 'r'));
+                
+            }else{
+                // We need to convert to MP4 first
+                $stringProcess = $stringProcess . '\n ffmpeg -i ' . $calendar->video .' '. $path.'/input2.mp4 -hide_banner';
+//                $process = new Process('ffmpeg -i ' . $calendar->video .' '. $path.'/input2.mp4 -hide_banner');
+//                $process->run();
+//                while ($process->isRunning()){}
+            }
+            $cadena = 'concat:' . $path . '/intermediate1.ts|'. $path . '/intermediate2.ts';
+            $builder
+            ->setArguments(array('-i', $path . '/input1.mp4', '-c', 'copy', '-bsf:v', 'h264_mp4toannexb', '-f', 'mpegts', $path . '/intermediate1.ts'))
+            ->getProcess()
+            ->run();
+            $builder
+            ->setArguments(array('-i', $path . '/input2.mp4', '-c', 'copy', '-bsf:v', 'h264_mp4toannexb', '-f', 'mpegts', $path . '/intermediate2.ts'))
+            ->getProcess()
+            ->run();
+            $builder
+            ->setArguments(array())
+            ->add('-i')
+            ->add($cadena)
+            ->add('-c')
+            ->add('copy')
+            ->add('-bsf:a')
+            ->add('aac_adtstoasc')
+            ->add($path . '/' . $calendar->name . '.mp4')
+            ->getProcess()
+            ->run();
+            
+            return $builder->getProcess()->getCommandLine();
+            
+        }else{
+            // The calendar does not have a video
+            
+        }
+        return "Si funcionó";
         
         }catch(\Exception $e){
-            return $e;
+            return $e->getMessage();
         }
     }
     

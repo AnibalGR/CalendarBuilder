@@ -25,6 +25,7 @@
 @section('customButtons')
 <button id="saveImage">Crear imagen</button>
 <button id="saveCalendar">Guardar calendario</button>
+<button id="generateCalendar">Generar calendario</button>
 @endsection
 
 @section('content')
@@ -384,7 +385,12 @@
         <input id="layoutCal" name="layoutCal" type="text" style="visibility: hidden">
         <textarea id="contentCal" name="contentCal" form="form-save" maxlength="50000" style="visibility: hidden"></textarea>
         {{ csrf_field() }}
-    </form>    
+    </form>
+    <form method="POST" enctype="multipart/form-data" action="{{ route('saveImage') }}" id="myForm">
+        <input type="hidden" name="img_val" id="img_val" value="" />
+        <input type="hidden" name="cal_val" id="cal_val" value="" />
+        {{ csrf_field() }}
+    </form>
 </div>
 @endsection
 
@@ -395,6 +401,7 @@
 <script src="{{ asset('js/textEditor.js') }}"></script>
 <script src="{{ asset('js/html2canvas.svg.min.js') }}"></script>
 <script src="{{ asset('js/html2canvas.js') }}"></script>
+<script src="{{ asset('js/jquery.plugin.html2canvas.js') }}"></script>
 <script src="{{ asset('js/progressBar.js') }}"></script>
 <script src="{{ asset('js/calendarBuilder.js') }}"></script>
 <script>
@@ -554,6 +561,7 @@ $(document).ready(function() {
                 navLinks: true,
                 editable: true,
                 eventLimit: true,
+                showNonCurrentDates: false,
             });
             
             resizeLayout();
@@ -817,6 +825,36 @@ function updateTheme(){
 </script>
 
 <script type="text/javascript">
+$("#generateCalendar").click(function (){
+    
+    $( "#saveCalendar" ).trigger( "click" );
+    
+});
+
+// Render Image from Calendar    
+$('#saveImage').click(function () {
+    
+    html2canvas($('#calendarPanel'), {
+        scale: 4,
+        onrendered: function (canvas) {
+                $('#img_val').val(canvas.toDataURL("image/png"));
+                $('#cal_val').val("{{ $id }}");
+        }
+    });
+    
+    setTimeout(function(){
+    var form = $('#myForm');
+    var url = form.attr('action');
+    var data = form.serialize();
+    alert(data);
+    $.post(url, data, function(result){
+            alert(result);
+        }).fail(function(e){
+            alert (JSON.stringify(e));
+        });
+        }, 3500);
+});
+                                    
     // Create new Calendar form popup send-button click event.
 $('#saveCalendar').click(function () {
     

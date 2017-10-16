@@ -236,7 +236,7 @@
                                     <div>
                                         <!--Upload Image Form-->
                                         <form method="POST" action="{{ route('uploadImage') }}" id="form-upload" enctype="multipart/form-data">
-                                            <input id="upImage" name="upImage" type="file" style="display:none;" />
+                                            <input id="upImage" name="upImage" type="file" style="display:none;" accept=".jpg,.jpeg,.png,.svg,.gif"/>
                                             {{ csrf_field() }}
                                             <button id="addImage" type="button" class="btn btn-primary">Upload Image</button>
                                         </form>
@@ -266,7 +266,7 @@
                                             <div class="col-xs-3 zeropdg">
                                                 <!--Upload Video Form-->
                                                 <form method="POST" action="{{ route('uploadVideo') }}" id="form-uploadV" enctype="multipart/form-data">
-                                                    <input id="upVideo" name="upVideo" type="file" style="display:none;" />
+                                                    <input id="upVideo" name="upVideo" type="file" style="display:none;" accept=".mpg,.avi,.flv,.mkv,.mov,.mp4,.ogv,.webm,.wmv"/>
                                                     {{ csrf_field() }}
                                                     <button id="addVideo" type="button" class="btn btn-primary">Upload Video</button>
                                                 </form>

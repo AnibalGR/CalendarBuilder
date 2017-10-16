@@ -55,7 +55,7 @@ class HomeController extends Controller
         $builder->setPrefix('ffmpeg');
         
         $builder
-            ->setArguments(array('-loop', '1', '-i', $absoluteImagePath, '-c:v', 'libx264', '-t', '15', '-pix_fmt', 'yuv420p', '-vf', 'scale=1920:1080', $path .'/input1.mp4'))
+            ->setArguments(array('-f', 'lavfi', '-i', 'anullsrc' , '-loop', '1', '-i', $absoluteImagePath, '-c:v', 'libx264', '-t', '15', '-pix_fmt', 'yuv420p', '-vf', 'scale=1920:1080', $path .'/input1.mp4'))
             ->getProcess()
             ->run();
 
@@ -286,6 +286,10 @@ class HomeController extends Controller
     public function dashboard()
     {   
         $videosPath = public_path() . '/calendars/' . Auth::id();
+        if (!is_dir($videosPath)) {
+            // dir doesn't exist, make it
+            mkdir($videosPath);
+        }
         $files = File::allFiles($videosPath);
         $calendars = Calendar::where('user_id', Auth::id())->get();
         $plans = Subscription::where('user_id', Auth::id())->where('ends_at', null)->get();

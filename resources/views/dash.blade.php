@@ -80,10 +80,9 @@ use Carbon\Carbon;
                         </table>
                     </div>
                     @else
-                    You don´t have any calendar created
+                    You don´t have any video created
                     @endif
                     <br>
-                    <button class="panel-default" id='onclick'>Create new Calendar</button>
                 </div>
             </div>
             <div class="panel panel-default">

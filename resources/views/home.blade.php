@@ -511,7 +511,7 @@ $("#upImage").change(function () {
             processData: false,
             data: fd,
             success: function (data) {
-                var img = $('<div><div class="imageContainer erasable"><input type="text" class="closebtn" value="X"><img class="resis" src=" ../../' + data + '"></div></div>');
+                var img = $('<div class="imageContainer erasable"><input type="text" class="closebtn" value="X"><img class="resis" src=" ../../' + data + '"></div>');
                 $('#imagePrev').append(img);
                 $('#imagePrev').droppable();
                 $(".resis").resizable();

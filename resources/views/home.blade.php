@@ -412,7 +412,7 @@ $("#addVideo").click(function () {
 
 // Input Video File function
 $("#upVideo").change(function () {
-
+    
     if (this.files && this.files[0]) {
 
         var fd = new FormData();
@@ -448,6 +448,7 @@ $("#upVideo").change(function () {
             processData: false,
             data: fd,
             success: function (url) {
+                alert(url);
                     if ($("#video")) {
                         $("#video").remove();
                     }
@@ -488,6 +489,9 @@ $("#upVideo").change(function () {
 
     $("#upVideo").val(null);
     $("#addVideo").focus();
+    
+    
+    
 });
 
 // Asociative function to call the Input File buton

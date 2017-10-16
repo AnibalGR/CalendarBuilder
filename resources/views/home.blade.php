@@ -456,7 +456,7 @@ $("#upVideo").change(function () {
                     var video = $('<video />', {
                         id: 'video',
                         src: '{{ asset("") }}' + url,
-                        autoplay: true,
+                        autoplay: false,
                         type: 'video/mp4',
                         loop: false,
                         controls: true

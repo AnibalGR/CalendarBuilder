@@ -856,7 +856,7 @@ $('#saveImage').click(function () {
         }).fail(function(e){
             alert (JSON.stringify(e));
         });
-        }, 3500);
+        }, 4500);
 });
                                     
     // Create new Calendar form popup send-button click event.

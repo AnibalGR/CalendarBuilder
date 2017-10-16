@@ -7,6 +7,22 @@
 
 @section('content')
 
+<section class="bgimg-2">
+    <div class="container-fluid">
+        
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="mt-80">
+                    Pricin Page
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+
 <!-- Black Pricing Table -->
 	<section class="section-padding black-table-area bgimg-1 bg-additional">
 		<div class="container">

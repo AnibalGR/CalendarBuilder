@@ -8,6 +8,7 @@ use Symfony\Component\HttpFoundation\Response;
 use App\Calendar;
 use App\Subscription;
 use Validator;
+use File;
 use Symfony\Component\Process\Process;
 use Symfony\Component\Process\ProcessBuilder;
 use Symfony\Component\Process\Exception\ProcessFailedException;
@@ -54,7 +55,7 @@ class HomeController extends Controller
         $builder->setPrefix('ffmpeg');
         
         $builder
-            ->setArguments(array('-loop', '1', '-i', $absoluteImagePath, '-c:v', 'libx264', '-t', '15', '-pix_fmt', 'yuv420p', '-vf', 'scale=1920:1080', $path .'/input1.mp4'))
+            ->setArguments(array('-f', 'lavfi', '-i', 'anullsrc' , '-loop', '1', '-i', $absoluteImagePath, '-c:v', 'libx264', '-t', '15', '-pix_fmt', 'yuv420p', '-vf', 'scale=1920:1080', $path .'/input1.mp4'))
             ->getProcess()
             ->run();
 
@@ -98,7 +99,23 @@ class HomeController extends Controller
             ->getProcess()
             ->run();
             
-            return $builder->getProcess()->getCommandLine();
+            // Delete temporary files
+            unlink($absoluteImagePath);
+            unlink($path . '/input1.mp4');
+            unlink($path . '/input2.mp4');
+            unlink($path . '/intermediate1.ts');
+            unlink($path . '/intermediate2.ts');
+            
+            $calendarPath = public_path().'/calendars/' . Auth::id();
+        
+            if (!is_dir($calendarPath)) {
+                // dir doesn't exist, make it
+                mkdir($calendarPath);
+            }
+            
+            rename($path . '/' . $calendar->name . '.mp4', $calendarPath . '/' . $calendar->name . '.mp4');
+            
+            return 'El video ha sido generado exitosamente!';
             
         }else{
             // The calendar does not have a video
@@ -268,9 +285,15 @@ class HomeController extends Controller
     
     public function dashboard()
     {   
+        $videosPath = public_path() . '/calendars/' . Auth::id();
+        if (!is_dir($videosPath)) {
+            // dir doesn't exist, make it
+            mkdir($videosPath);
+        }
+        $files = File::allFiles($videosPath);
         $calendars = Calendar::where('user_id', Auth::id())->get();
         $plans = Subscription::where('user_id', Auth::id())->where('ends_at', null)->get();
         
-        return view('dash')->with(['calendars' => $calendars, 'plans' => $plans]);
+        return view('dash')->with(['calendars' => $calendars, 'plans' => $plans, 'videos' =>$files]);
     }
 }

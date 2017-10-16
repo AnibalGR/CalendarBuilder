@@ -800,7 +800,7 @@ function loadVideo(){
         var video = $('<video />', {
             id: 'video',
             src: url,
-            autoplay: true,
+            autoplay: false,
             type: 'video/mp4',
             loop: false,
             controls: true

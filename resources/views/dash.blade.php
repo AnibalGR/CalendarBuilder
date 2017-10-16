@@ -22,18 +22,13 @@ use Carbon\Carbon;
                         <table class="table-bordered table-striped">
                             <tr>
                                 <td>Name</td>
-                                <td>Continue editing</td>
-                                <td>Publish</td>
-                                <td>Download</td>
-                                <td>Delete</td>
+                                <td colspan="2">Actions</td>
                             </tr>
 
                             @foreach ($calendars as $calendar)
                             <tr data-id="{{ $calendar->id }}">
                                 <td>{{ $calendar->name }}</td>
                                 <td><a href="{{ route('editCalendar', $calendar->id) }}" >Continue editing</a></td>
-                                <td>Publish</td>
-                                <td>Download</td>
                                 <td><a href="#!" class="btn-delete">Delete</a></td>
                             </tr>
                             @endforeach
@@ -61,6 +56,33 @@ use Carbon\Carbon;
                     @else
                         <p>You are not subscribed to any plan. Why don´t you <a href="">Subscribe</a>?
                     @endif
+                </div>
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-heading">My Videos</div>
+                <div class="panel-body">
+                    @if (count($videos) > 0)
+                    <div class="table-responsive">
+                        <table class="table-bordered table-striped">
+                            <tr>
+                                <td>Name</td>
+                                <td colspan="2">Actions</td>
+                            </tr>
+
+                            @foreach ($videos as $video)
+                            <tr>
+                                <td>{{ $video->getBasename() }}</td>
+                                <td><a href="{{ $video->getRealPath() }}" >Download</a></td>
+                                <td><a href="#!" class="btn-delete">Delete</a></td>
+                            </tr>
+                            @endforeach
+
+                        </table>
+                    </div>
+                    @else
+                    You don´t have any video created
+                    @endif
+                    <br>
                 </div>
             </div>
             <div class="panel panel-default">

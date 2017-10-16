@@ -8,6 +8,7 @@ use Symfony\Component\HttpFoundation\Response;
 use App\Calendar;
 use App\Subscription;
 use Validator;
+use File;
 use Symfony\Component\Process\Process;
 use Symfony\Component\Process\ProcessBuilder;
 use Symfony\Component\Process\Exception\ProcessFailedException;
@@ -98,7 +99,23 @@ class HomeController extends Controller
             ->getProcess()
             ->run();
             
-            return $builder->getProcess()->getCommandLine();
+            // Delete temporary files
+            unlink($absoluteImagePath);
+            unlink($path . '/input1.mp4');
+            unlink($path . '/input2.mp4');
+            unlink($path . '/intermediate1.ts');
+            unlink($path . '/intermediate2.ts');
+            
+            $calendarPath = public_path().'/calendars/' . Auth::id();
+        
+            if (!is_dir($calendarPath)) {
+                // dir doesn't exist, make it
+                mkdir($calendarPath);
+            }
+            
+            rename($path . '/' . $calendar->name . '.mp4', $calendarPath . '/' . $calendar->name . '.mp4');
+            
+            return 'El video ha sido generado exitosamente!';
             
         }else{
             // The calendar does not have a video
@@ -268,9 +285,11 @@ class HomeController extends Controller
     
     public function dashboard()
     {   
+        $videosPath = public_path() . '/calendars/' . Auth::id();
+        $files = File::allFiles($videosPath);
         $calendars = Calendar::where('user_id', Auth::id())->get();
         $plans = Subscription::where('user_id', Auth::id())->where('ends_at', null)->get();
         
-        return view('dash')->with(['calendars' => $calendars, 'plans' => $plans]);
+        return view('dash')->with(['calendars' => $calendars, 'plans' => $plans, 'videos' =>$files]);
     }
 }

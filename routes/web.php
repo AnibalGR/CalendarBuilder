@@ -66,3 +66,7 @@ Route::post('/home', 'HomeController@index')->name('home');
 Route::get('/home', function(){
     return redirect('/dashboard');
 });
+
+Route::get('/how-it-works', function(){
+    return view('how-it-works');
+})->name('how-it-works');

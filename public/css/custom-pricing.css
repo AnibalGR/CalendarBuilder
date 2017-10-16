@@ -212,12 +212,16 @@ body {
   background-attachment: fixed;
   background-position: center;
   background-repeat: no-repeat;
-  background-size: cover;
-  box-shadow:inset 0 0 0 2000px rgba(0,0,0,0.6);
+  background-size: 450px];
+  /*box-shadow:inset 0 0 0 2000px rgba(0,0,0,0.3);*/    
 
 }
 .bgimg-1 {
   background-image: url('../img/home/bg-5.jpg');
+  min-height: 100%;
+}
+.bgimg-2 {
+  background-image: url('../img/pricing/bg-5.jpg');
   min-height: 100%;
 }
 .caption {

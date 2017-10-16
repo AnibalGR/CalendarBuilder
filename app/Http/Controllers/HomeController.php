@@ -57,8 +57,8 @@ class HomeController extends Controller
         $builder
             ->setArguments(array('-f', 'lavfi', '-i', 'anullsrc' , '-loop', '1', '-i', $absoluteImagePath, '-c:v', 'libx264', '-t', '15', '-pix_fmt', 'yuv420p', '-vf', 'scale=1920:1080', $path .'/input1.mp4'))
             ->getProcess()
+            ->setTimeout(300)
             ->run();
-
         // At this point we have the calendar video ready
         // We need to retrieve the other video
         $calendar = Calendar::find($request->cal_val);
@@ -110,15 +110,37 @@ class HomeController extends Controller
                 mkdir($calendarPath);
             }
             
-            rename($path . '/' . $calendar->name . '.mp4', $calendarPath . '/' . $calendar->name . '.mp4');
+            //New name for the video
+            $newName = str_replace(" ", "", $calendar->name);
+            
+            rename($path . '/' . $newName . '.mp4', $calendarPath . '/' . $calendar->name . '.mp4');
             
             return 'El video ha sido generado exitosamente!';
             
         }else{
-            // The calendar does not have a video
+            // Path to store the generated video
+            $calendarPath = public_path().'/calendars/' . Auth::id();
             
+            // Create the dir if this doesn't exists
+            if (!is_dir($calendarPath)) {
+                // dir doesn't exist, make it
+                mkdir($calendarPath);
+            }
+            
+            //New name for the video
+            $newName = str_replace(" ", "", $calendar->name);
+            
+            // Delete the video if it exists
+            if(file_exists($calendarPath . '/' . $newName . '.mp4')){
+                unlink($calendarPath . '/' . $newName . '.mp4');
+            }
+            
+            //Save the image video
+            rename($path .'/input1.mp4', $calendarPath . '/' . $newName . '.mp4');
+            unlink($absoluteImagePath);
+            
+            return 'El video ha sido generado exitosamente!';
         }
-        return "Si funcionó";
         
         }catch(\Exception $e){
             return $e->getMessage();
@@ -200,6 +222,8 @@ class HomeController extends Controller
      * @return Response
      */
     public function uploadVideo(Request $request) {
+        
+        ini_set('max_execution_time', 300);
         
         $file = $request->file;
         

@@ -64,29 +64,26 @@ class HomeController extends Controller
         $calendar = Calendar::find($request->cal_val);
         
         if($calendar->video != "none"){
-            // The calendar does have a video
-            $ext = pathinfo($calendar->video, PATHINFO_EXTENSION);
-            // Check if it is a MP4 video
-            if($ext == "mp4" || $ext == "MP4"){
-                // The video is already an MP4
-                file_put_contents($path . "/input2.mp4", fopen("$calendar->video", 'r'));
-                
-            }else{
-                // We need to convert to MP4 first
-                $stringProcess = $stringProcess . '\n ffmpeg -i ' . $calendar->video .' '. $path.'/input2.mp4 -hide_banner';
-//                $process = new Process('ffmpeg -i ' . $calendar->video .' '. $path.'/input2.mp4 -hide_banner');
-//                $process->run();
-//                while ($process->isRunning()){}
-            }
-            $cadena = 'concat:' . $path . '/intermediate1.ts|'. $path . '/intermediate2.ts';
+            
+            // Copy the Calendar video
+            file_put_contents($path . "/input2.mp4", fopen("$calendar->video", 'r'));
+            
+            // Process to generate intermediate video 1
             $builder
             ->setArguments(array('-i', $path . '/input1.mp4', '-c', 'copy', '-bsf:v', 'h264_mp4toannexb', '-f', 'mpegts', $path . '/intermediate1.ts'))
             ->getProcess()
             ->run();
+            
+            // Process to generate intermediate video 2
             $builder
             ->setArguments(array('-i', $path . '/input2.mp4', '-c', 'copy', '-bsf:v', 'h264_mp4toannexb', '-f', 'mpegts', $path . '/intermediate2.ts'))
             ->getProcess()
             ->run();
+            
+            // String to concatenate both videos
+            $cadena = 'concat:' . $path . '/intermediate1.ts|'. $path . '/intermediate2.ts';
+            
+            // Process to concatenate both videos
             $builder
             ->setArguments(array())
             ->add('-i')
@@ -208,14 +205,55 @@ class HomeController extends Controller
         
         if($file){
             $validator = Validator::make($request->all(), [
-                'file' => 'required|mimes:mp4,x-flv,x-mpegURL,MP2T,3gpp,qt,x-msvideo,x-ms-wmv,h264',
+                'file' => 'required|mimetypes:video/webm,video/quicktime,video/mp4,video/x-flv,video/x-msvideo,video/x-ms-asf,video/x-matroska,video/mpeg,video/ogg',
             ]);
             if ($validator->passes()) {
+                
+                $userPath = public_path(). '/videos/' . Auth::id();
+            
+                // Create if not created
+                if (!is_dir($userPath)) {
+                    // dir doesn't exist, make it
+                    mkdir($userPath);
+                }
+                
+                // Upload the file
                 $path = $request->file('file')->store('videos/' . Auth::id(), 'images');
-                return $path;
+                
+                // Let´s see if it is a MP4 video
+                if(ends_with($path, "mp4") || ends_with($path, "MP4")){
+                    
+                    // No need to convert video
+                    return $path;
+                    
+                }
+                              
+                // Generate random name
+                $name = substr(md5(microtime()),rand(0,26),7);
+                
+                // Generate the new URL
+                $url = 'videos/' . Auth::id() . "/" . $name . '.mp4';
+                
+                // Absolute path to store video
+                $storePath = public_path().'/videos/' . Auth::id() . "/" . $name . '.mp4';
+                                        
+                // Absolute path to uploaded video
+                $path = public_path(). "/". $path;
+                
+                    $builder = new ProcessBuilder();
+                    $builder->setPrefix('ffmpeg');
+                    $builder
+                    ->setArguments(array('-i', $path, $storePath, '-hide_banner'))
+                    ->getProcess()
+                    ->setTimeout(5000)
+                    ->run();
+                    unlink($path);
+                    
+                    return $url;
+                    
             }else{
                 $returnData = array(
-                    'message' => 'The file must be a mp4, mov, h264 or wmv video!'
+                    'message' => 'The file must be a webm, mp4, mov, flv, avi, wmv, mkv, mpeg or ogg video!'
                 );
                 return response($returnData, 500);
             }
@@ -296,4 +334,11 @@ class HomeController extends Controller
         
         return view('dash')->with(['calendars' => $calendars, 'plans' => $plans, 'videos' =>$files]);
     }
+    
+    function endsWith($haystack, $needle)
+    {
+        $length = strlen($needle);
+
+        return $length === 0 || (substr($haystack, -$length) === $needle);
+}
 }

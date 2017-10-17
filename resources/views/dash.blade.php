@@ -66,13 +66,14 @@ use Carbon\Carbon;
                         <table class="table-bordered table-striped">
                             <tr>
                                 <td>Name</td>
-                                <td colspan="2">Actions</td>
+                                <td colspan="3">Actions</td>
                             </tr>
 
                             @foreach ($videos as $video)
                             <tr>
                                 <td>{{ $video->getBasename() }}</td>
-                                <td><a href="{{ $video->getRealPath() }}" >Download</a></td>
+                                <td><a href='{{ asset("") }}calendars/{{Auth::id()}}/{{$video->getBasename()}}' target="_blank" download>Download</a></td>
+                                <td><a href="" >Share</a></td>
                                 <td><a href="#!" class="btn-delete">Delete</a></td>
                             </tr>
                             @endforeach

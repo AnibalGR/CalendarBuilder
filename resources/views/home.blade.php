@@ -906,11 +906,8 @@ $("#removeVideo").click(function () {
         var data = form.serialize();
         alert(data);
         $.post(url, data, function(result){
-            alert(result);
-            
             $("#video").remove();
             $("#calendarTab").trigger("click");
-            
         }).fail(function(e){
             alert (e.message);
         });

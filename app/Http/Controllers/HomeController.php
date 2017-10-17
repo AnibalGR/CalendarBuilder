@@ -150,16 +150,43 @@ class HomeController extends Controller {
     }
 
     public function deleteCalendar($calendar_id, Request $request) {
-
+        
+        // Look for the calendar in the db
         $calendar = Calendar::find($calendar_id);
-
-        $message = $calendar->name . ' was successfuly removed.';
-
-        $calendar->delete();
-
-        if ($request->ajax()) {
-            return $message;
+        
+        // Look for the video to remove
+        $video = $calendar->video;
+        
+        // Check if it is a local video
+        if(ends_with($video, "001.mp4")||ends_with($video, "002.mp4")||ends_with($video, "003.mp4")||
+                ends_with($video, "004.mp4")||ends_with($video, "005.mp4")||ends_with($video, "006.mp4")||
+                ends_with($video, "007.mp4")||ends_with($video, "008.mp4")||ends_with($video, "009.mp4")||
+                ends_with($video, "010.mp4")||ends_with($video, "011.mp4")||ends_with($video, "012.mp4")){
+            
+            
+            
+        }else{
+            // It is not a local video, let´s get the name
+            $videoName = substr("$video", -11);
+            
+            // Absolute path to video
+            $videoPath = public_path() . "/videos/" . Auth::id() . "/" . $videoName;
+            
+            // Delete the video
+            if(!unlink($videoPath)){
+                return response()->json(['error' => 'The video could not be removed'], 500);
+            }
+            
         }
+        
+        // Remove it form it
+        if($calendar->delete()){
+            return response()->json(['success' => 'The calendar has been successfully removed!'], 200);
+        }
+        
+        // Return error if not removed
+        return response()->json(['error' => 'The calendar could not be removed'], 500);
+        
     }
 
     /**
@@ -244,21 +271,25 @@ class HomeController extends Controller {
                 // Upload the file
                 $path = $request->file('file')->store('videos/' . Auth::id(), 'images');
 
-                // Let´s see if it is a MP4 video
-                if (ends_with($path, "mp4") || ends_with($path, "MP4")) {
-
-                    // No need to convert video
-                    return $path;
-                }
-
                 // Generate random name
                 $name = substr(md5(microtime()), rand(0, 26), 7);
-
-                // Generate the new URL
-                $url = 'videos/' . Auth::id() . "/" . $name . '.mp4';
-
+                
+                // Video URL
+                $videoURL = '/videos/' . Auth::id() . "/" . $name . '.mp4';
+                
                 // Absolute path to store video
-                $storePath = public_path() . '/videos/' . Auth::id() . "/" . $name . '.mp4';
+                $storePath = public_path() . $videoURL;
+                
+                // Let´s see if it is a MP4 video
+                if (ends_with($path, "mp4") || ends_with($path, "MP4")) {
+                    
+                    // Change the name
+                    if(rename(public_path() . "/" . $path, $storePath)){
+                        
+                        return $videoURL;
+                    }
+                    
+                }
 
                 // Absolute path to uploaded video
                 $path = public_path() . "/" . $path;
@@ -272,7 +303,7 @@ class HomeController extends Controller {
                         ->run();
                 unlink($path);
 
-                return $url;
+                return $videoURL;
             } else {
                 $returnData = array(
                     'message' => 'The file must be a webm, mp4, mov, flv, avi, wmv, mkv, mpeg or ogg video!'

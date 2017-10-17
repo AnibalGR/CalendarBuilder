@@ -4,11 +4,14 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Calendar;
+use Illuminate\Support\Facades\Auth;
 
 class VideoController extends Controller
 {
     //
     public function removeVideo(Request $request){
+        
+        try{
         
         $calendarID = $request->idVideo;
         
@@ -21,18 +24,19 @@ class VideoController extends Controller
                 ends_with($video, "007.mp4")||ends_with($video, "008.mp4")||ends_with($video, "009.mp4")||
                 ends_with($video, "010.mp4")||ends_with($video, "011.mp4")||ends_with($video, "012.mp4")){
             
-            return "Si entró";
             
-//            $videoName = $rest = substr($calendar->video, -11);
-//            
-//            $videoPath = public_path() . "videos/" . Auth::id() . "/" . $videoName;
-//            
-//            return $videoPath;
-//            
-//            unlink($videoPath);
             
         }else{
-            return "No entró";
+            $videoName = substr("$video", -11);
+            
+            $videoPath = public_path() . "/videos/" . Auth::id() . "/" . $videoName;
+            
+            unlink($videoPath);
+            
+            return "El video ha sido eliminado exitosamente!";
+        }
+        } catch (Exception $e){
+            return $e->getMessage();
         }
         
     }

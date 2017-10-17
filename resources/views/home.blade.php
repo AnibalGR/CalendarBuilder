@@ -527,15 +527,7 @@ $("#upImage").change(function () {
                 $('#imagePrev').append(img);
                 $('#imagePrev').droppable();
                 $(".resis").resizable();
-                $(".imageContainer").draggable({
-                    start: function (event, ui) {
-                        isDraggingMedia = true;
-                    },
-                    stop: function (event, ui) {
-                        isDraggingMedia = false;
-                    },
-                    revert: 'invalid',
-                });
+                $(".imageContainer").draggable({ revert: 'invalid' });
             },
             error: function (data) {
                 alert(data.responseJSON.message);
@@ -584,13 +576,13 @@ $(document).ready(function() {
         }
     });
     
-    setObjectsProperties();
-    
     cleanLayout();
     
     loadLayout();
     
     loadVideo();
+    
+    setObjectsProperties();
 });        
 
 // Function to setup a predeterminated video
@@ -647,36 +639,42 @@ $("#showLeftLayout").click(function(){
 });
         
 function setObjectsProperties(){
-            
-    $(".erasable").draggable();
-                    
-    $('.d').resizable();
-                    
-    $(".erasable").click(function() {
 
-        $(this).draggable( {disabled: false, revert:'invalid'});
-    });
-                    
-    $(".erasable").dblclick(function() {
+    $(".resis").resizable("enable");
+    $(".imageContainer").draggable({ revert: 'invalid' });
+    $('#imagePrev').droppable();
     
-        $(this).draggable( {disabled: true, revert:'invalid'});
     
-        $('.CalTxt1').setAttribute('contenteditable',true);
-        
-        $(this).setAttribute('contenteditable',true);
-    });
-                    
-    $(".resis").resizable().draggable({revert: 'invalid'});
             
-    $(".imageContainer").draggable({
-        start: function(event, ui) {
-            isDraggingMedia = true;
-        },
-        stop: function(event, ui) {
-            isDraggingMedia = false;
-        },
-        revert: 'invalid',
-    });
+//    $(".erasable").draggable();
+//                    
+//    $('.d').resizable();
+//                    
+//    $(".erasable").click(function() {
+//
+//        $(this).draggable( {disabled: false, revert:'invalid'});
+//    });
+//                    
+//    $(".erasable").dblclick(function() {
+//    
+//        $(this).draggable( {disabled: true, revert:'invalid'});
+//    
+//        $('.CalTxt1').setAttribute('contenteditable',true);
+//        
+//        $(this).setAttribute('contenteditable',true);
+//    });
+//                    
+//    $(".resis").resizable().draggable({revert: 'invalid'});
+//            
+//    $(".imageContainer").draggable({
+//        start: function(event, ui) {
+//            isDraggingMedia = true;
+//        },
+//        stop: function(event, ui) {
+//            isDraggingMedia = false;
+//        },
+//        revert: 'invalid',
+//    });
 }
         
 // Function to show the right Layout

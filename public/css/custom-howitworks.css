@@ -94,14 +94,14 @@ margin: 0px 0px 0px 0px;
 }
 .button-sign-up{
     margin: 30px 10px;
-    color: #ffffff;
+    color: #138fcf;
     text-align: center;
 }
 .button-sign-up a{
-    color: #ffffff;
+    color: #138fcf;
     text-decoration: none;
     padding: 15px 45px;
-    background-color: #138fcf;
+    background-color: #ffffff;
     -webkit-border-radius: 5px;
     -moz-border-radius: 5px;
     border-radius: 5px;
@@ -155,6 +155,26 @@ margin: 0px 0px 0px 0px;
 .bg-div-2{
     background-color: #eeeeee ;
 }
+.bg-div-3{
+    background-color: #138fcf;
+}
+
+.hIcons-2{
+    font-size: 50px;
+    text-align: center;
+    color: #0061d0;
+    padding: 30px 0px 10px 0px;
+}
+.hIcons-2 ul li{
+  color: #0061d0;
+  list-style: none;
+  font-size: 50px;
+}
+.hIcons-2 ul li .fa{
+    font-size: 150px;
+    color: #0061d0; 
+}
+
 @media screen and (max-width: 767px){ 
 .section-title h1{
     font-size: 30px !important;

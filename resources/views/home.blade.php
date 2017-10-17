@@ -409,6 +409,7 @@
 <script src="{{ asset('js/jquery.plugin.html2canvas.js') }}"></script>
 <script src="{{ asset('js/progressBar.js') }}"></script>
 <script src="{{ asset('js/calendarBuilder.js') }}"></script>
+<script src="{{ asset('js/bootstrap-waitingfor.min.js') }}"></script>
 <script>
 // Asociative function to call the Input File buton
 $("#addVideo").click(function () {
@@ -440,6 +441,7 @@ $("#upVideo").change(function () {
                         progressbar.progressbar("value", percentComplete);
                         if (percentComplete === 100) {
                             $("#dialog").dialog("close");
+                            waitingDialog.show('Please wait while your video is processed!', {dialogSize: 'sm', progressType: 'success'});
                         }
                     }
                 }, false);
@@ -453,7 +455,7 @@ $("#upVideo").change(function () {
             processData: false,
             data: fd,
             success: function (url) {
-                alert(url);
+                waitingDialog.hide();
                     if ($("#video")) {
                         $("#video").remove();
                     }
@@ -474,7 +476,7 @@ $("#upVideo").change(function () {
             },
             error: function (data) {
                 try {
-                    alert(data.responseJSON.message);
+                    waitingDialog.hide();
                     if (!$('#imageError').html().length) {
                         $('#imageError').append("<p>" + data.responseJSON.message + "</p>");
                     }
@@ -835,14 +837,10 @@ function updateTheme(){
 </script>
 
 <script type="text/javascript">
-$("#generateCalendar").click(function (){
-    
-    $( "#saveCalendar" ).trigger( "click" );
-    
-});
-
 // Render Image from Calendar    
 $('#saveImage').click(function () {
+    waitingDialog.show('Please wait while your video is created!', {dialogSize: 'sm', progressType: 'danger'});
+    $("#calendarTab").trigger("click");
     
     html2canvas($('#calendarPanel'), {
         scale: 4,
@@ -856,10 +854,11 @@ $('#saveImage').click(function () {
     var form = $('#myForm');
     var url = form.attr('action');
     var data = form.serialize();
-    alert(data);
     $.post(url, data, function(result){
+        waitingDialog.hide();
             alert(result);
         }).fail(function(e){
+            waitingDialog.hide();
             alert (JSON.stringify(e));
         });
         }, 4500);
@@ -889,7 +888,6 @@ $('#saveCalendar').click(function () {
     var form = $('#form-save');
     var url = form.attr('action');
     var data = form.serialize();
-    alert(data);
     $.post(url, data, function(result){
             alert(result);
         }).fail(function(e){
@@ -904,10 +902,10 @@ $("#removeVideo").click(function () {
         var form = $('#del_video');
         var url = form.attr('action');
         var data = form.serialize();
-        alert(data);
         $.post(url, data, function(result){
             $("#video").remove();
             $("#calendarTab").trigger("click");
+            $( "#saveCalendar" ).trigger( "click" );
         }).fail(function(e){
             alert (e.message);
         });

@@ -87,6 +87,9 @@ class HomeController extends Controller {
                 // String to concatenate both videos
                 $cadena = 'concat:' . $path . '/intermediate1.ts|' . $path . '/intermediate2.ts';
 
+                //New name for the video
+                $newName = str_replace(" ", "", $calendar->name);
+                
                 // Process to concatenate both videos
                 $builder
                         ->setArguments(array())
@@ -96,7 +99,7 @@ class HomeController extends Controller {
                         ->add('copy')
                         ->add('-bsf:a')
                         ->add('aac_adtstoasc')
-                        ->add($path . '/' . $calendar->name . '.mp4')
+                        ->add($path . '/' . $newName . '.mp4')
                         ->getProcess()
                         ->run();
 
@@ -114,10 +117,7 @@ class HomeController extends Controller {
                     mkdir($calendarPath);
                 }
 
-                //New name for the video
-                $newName = str_replace(" ", "", $calendar->name);
-
-                rename($path . '/' . $newName . '.mp4', $calendarPath . '/' . $calendar->name . '.mp4');
+                rename($path . '/' . $newName . '.mp4', $calendarPath . '/' . $newName . '.mp4');
 
                 return 'El video ha sido generado exitosamente!';
             } else {

@@ -40,16 +40,17 @@
                 </div>
             </div>
         </div>
-
+<!--
         <div class="container full-width bg-div-3">
             <div class="row space-60">
                 <div class="col-xs-12">
                     <div class="button-sign-up">
                     <a href="#">SIGN UP</a>
-                    </div>
+                </div>
             </div>
         </div>
         </div>
+-->
 <section>
 <div class="container-fluid bg-div-2">
     <div class="mt-50"></div>

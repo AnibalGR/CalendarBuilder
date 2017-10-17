@@ -61,7 +61,7 @@
                     <p>Edit and view, save and export</p>
                 </div>
                 <div class="princint-1">
-                    <span>Monthly</span>
+                    <span>$39.99</span>
                 </div>
                 <!-- Price Item -->
                 <div class="pricing-item">
@@ -97,7 +97,7 @@
                     <p>Edit and view, save and export</p>
                 </div>
                 <div class="princint-1">
-                    <span>Yearly</span>
+                    <span>$400.00</span>
                 </div>
                 <!-- Price Item -->
                 <div class="pricing-item">

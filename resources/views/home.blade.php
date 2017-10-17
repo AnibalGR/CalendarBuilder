@@ -648,22 +648,22 @@ function setObjectsProperties(){
             
 //    $(".erasable").draggable();
 //                    
-//    $('.d').resizable();
-//                    
-//    $(".erasable").click(function() {
-//
-//        $(this).draggable( {disabled: false, revert:'invalid'});
-//    });
-//                    
-//    $(".erasable").dblclick(function() {
-//    
-//        $(this).draggable( {disabled: true, revert:'invalid'});
-//    
-//        $('.CalTxt1').setAttribute('contenteditable',true);
-//        
-//        $(this).setAttribute('contenteditable',true);
-//    });
-//                    
+    $('.d').resizable();
+                    
+    $(".erasable").click(function() {
+
+        $(this).draggable( {disabled: false, revert:'invalid'});
+    });
+                    
+    $(".erasable").dblclick(function() {
+    
+        $(this).draggable( {disabled: true, revert:'invalid'});
+    
+        $('.CalTxt1').setAttribute('contenteditable',true);
+        
+        $(this).setAttribute('contenteditable',true);
+    });
+                    
 //    $(".resis").resizable().draggable({revert: 'invalid'});
 //            
 //    $(".imageContainer").draggable({

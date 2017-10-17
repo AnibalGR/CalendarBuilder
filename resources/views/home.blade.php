@@ -271,7 +271,11 @@
                                                     <button id="addVideo" type="button" class="btn btn-primary">Upload Video</button>
                                                 </form>
                                                 <div id='videoError'></div>
-                                                <button id="removeVideo" type="button" class="btn btn-danger">Remove</button>
+                                                <form method="POST" action="{{ route('delVideo') }}" id="del_video">
+                                                    <input id="idVideo" name="idVideo" type="hidden"/>
+                                                    {{ csrf_field() }}
+                                                    <button id="removeVideo" type="button" class="btn btn-danger">Remove</button>
+                                                </form>
                                                 <div id="dialog" title="Video Upload">
                                                     <div class="progress-label">Starting upload...</div>
                                                     <div id="progressbar"></div>
@@ -386,6 +390,7 @@
         <textarea id="contentCal" name="contentCal" form="form-save" maxlength="50000" style="visibility: hidden"></textarea>
         {{ csrf_field() }}
     </form>
+    <!--Save Calendar Form-->
     <form method="POST" enctype="multipart/form-data" action="{{ route('saveImage') }}" id="myForm">
         <input type="hidden" name="img_val" id="img_val" value="" />
         <input type="hidden" name="cal_val" id="cal_val" value="" />
@@ -404,6 +409,7 @@
 <script src="{{ asset('js/jquery.plugin.html2canvas.js') }}"></script>
 <script src="{{ asset('js/progressBar.js') }}"></script>
 <script src="{{ asset('js/calendarBuilder.js') }}"></script>
+<script src="{{ asset('js/bootstrap-waitingfor.min.js') }}"></script>
 <script>
 // Asociative function to call the Input File buton
 $("#addVideo").click(function () {
@@ -435,6 +441,7 @@ $("#upVideo").change(function () {
                         progressbar.progressbar("value", percentComplete);
                         if (percentComplete === 100) {
                             $("#dialog").dialog("close");
+                            waitingDialog.show('Please wait while your video is processed!', {dialogSize: 'sm', progressType: 'success'});
                         }
                     }
                 }, false);
@@ -448,7 +455,7 @@ $("#upVideo").change(function () {
             processData: false,
             data: fd,
             success: function (url) {
-                alert(url);
+                waitingDialog.hide();
                     if ($("#video")) {
                         $("#video").remove();
                     }
@@ -465,10 +472,11 @@ $("#upVideo").change(function () {
                     $("#video").css('width', '100%');
                     $("#video").css('height', '100%');
                     $("#videoTab").trigger("click");
+                    $( "#saveCalendar" ).trigger( "click" );
             },
             error: function (data) {
                 try {
-                    alert(data.responseJSON.message);
+                    waitingDialog.hide();
                     if (!$('#imageError').html().length) {
                         $('#imageError').append("<p>" + data.responseJSON.message + "</p>");
                     }
@@ -519,15 +527,7 @@ $("#upImage").change(function () {
                 $('#imagePrev').append(img);
                 $('#imagePrev').droppable();
                 $(".resis").resizable();
-                $(".imageContainer").draggable({
-                    start: function (event, ui) {
-                        isDraggingMedia = true;
-                    },
-                    stop: function (event, ui) {
-                        isDraggingMedia = false;
-                    },
-                    revert: 'invalid',
-                });
+                $(".imageContainer").draggable({ revert: 'invalid' });
             },
             error: function (data) {
                 alert(data.responseJSON.message);
@@ -576,13 +576,13 @@ $(document).ready(function() {
         }
     });
     
-    setObjectsProperties();
-    
     cleanLayout();
     
     loadLayout();
     
     loadVideo();
+    
+    setObjectsProperties();
 });        
 
 // Function to setup a predeterminated video
@@ -621,7 +621,7 @@ function changeVideo(id) {
         $('#video').attr('src', url);
         $("#video")[0].load();
     }
-
+    
 }
         
 // Function to show the top Layout
@@ -639,9 +639,15 @@ $("#showLeftLayout").click(function(){
 });
         
 function setObjectsProperties(){
+
+    $(".resis").resizable("enable");
+    $(".imageContainer").draggable({ revert: 'invalid' });
+    $('#imagePrev').droppable();
+    
+    
             
-    $(".erasable").draggable();
-                    
+//    $(".erasable").draggable();
+//                    
     $('.d').resizable();
                     
     $(".erasable").click(function() {
@@ -658,17 +664,17 @@ function setObjectsProperties(){
         $(this).setAttribute('contenteditable',true);
     });
                     
-    $(".resis").resizable().draggable({revert: 'invalid'});
-            
-    $(".imageContainer").draggable({
-        start: function(event, ui) {
-            isDraggingMedia = true;
-        },
-        stop: function(event, ui) {
-            isDraggingMedia = false;
-        },
-        revert: 'invalid',
-    });
+//    $(".resis").resizable().draggable({revert: 'invalid'});
+//            
+//    $(".imageContainer").draggable({
+//        start: function(event, ui) {
+//            isDraggingMedia = true;
+//        },
+//        stop: function(event, ui) {
+//            isDraggingMedia = false;
+//        },
+//        revert: 'invalid',
+//    });
 }
         
 // Function to show the right Layout
@@ -829,14 +835,10 @@ function updateTheme(){
 </script>
 
 <script type="text/javascript">
-$("#generateCalendar").click(function (){
-    
-    $( "#saveCalendar" ).trigger( "click" );
-    
-});
-
 // Render Image from Calendar    
 $('#saveImage').click(function () {
+    waitingDialog.show('Please wait while your video is created!', {dialogSize: 'sm', progressType: 'danger'});
+    $("#calendarTab").trigger("click");
     
     html2canvas($('#calendarPanel'), {
         scale: 4,
@@ -850,10 +852,11 @@ $('#saveImage').click(function () {
     var form = $('#myForm');
     var url = form.attr('action');
     var data = form.serialize();
-    alert(data);
     $.post(url, data, function(result){
+        waitingDialog.hide();
             alert(result);
         }).fail(function(e){
+            waitingDialog.hide();
             alert (JSON.stringify(e));
         });
         }, 4500);
@@ -883,13 +886,29 @@ $('#saveCalendar').click(function () {
     var form = $('#form-save');
     var url = form.attr('action');
     var data = form.serialize();
-    alert(data);
     $.post(url, data, function(result){
             alert(result);
         }).fail(function(e){
             alert (e.message);
         });
 });
-              
+           
+// Remove video function
+$("#removeVideo").click(function () {
+    if ($("#video").is(":visible")) {
+        $('#idVideo').val("{{ $id }}");
+        var form = $('#del_video');
+        var url = form.attr('action');
+        var data = form.serialize();
+        $.post(url, data, function(result){
+            $("#video").remove();
+            $("#calendarTab").trigger("click");
+            $( "#saveCalendar" ).trigger( "click" );
+        }).fail(function(e){
+            alert (e.message);
+        });
+    }
+});
+
 </script>
 @endsection

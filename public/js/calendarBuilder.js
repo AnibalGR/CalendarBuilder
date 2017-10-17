@@ -21,13 +21,6 @@ $("#addVideo3").click(function () {
     changeVideo(3);
 });
 
-// Remove video function
-$("#removeVideo").click(function () {
-    if ($("#video").is(":visible")) {
-        $("#video").remove();
-        $("#calendarTab").trigger("click");
-    }
-});
 
 // We configure the button whose create a new text object
 $("#addButton").click(function () {

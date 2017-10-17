@@ -271,7 +271,11 @@
                                                     <button id="addVideo" type="button" class="btn btn-primary">Upload Video</button>
                                                 </form>
                                                 <div id='videoError'></div>
-                                                <button id="removeVideo" type="button" class="btn btn-danger">Remove</button>
+                                                <form method="POST" action="{{ route('delVideo') }}" id="del_video">
+                                                    <input id="idVideo" name="idVideo" type="hidden"/>
+                                                    {{ csrf_field() }}
+                                                    <button id="removeVideo" type="button" class="btn btn-danger">Remove</button>
+                                                </form>
                                                 <div id="dialog" title="Video Upload">
                                                     <div class="progress-label">Starting upload...</div>
                                                     <div id="progressbar"></div>
@@ -386,6 +390,7 @@
         <textarea id="contentCal" name="contentCal" form="form-save" maxlength="50000" style="visibility: hidden"></textarea>
         {{ csrf_field() }}
     </form>
+    <!--Save Calendar Form-->
     <form method="POST" enctype="multipart/form-data" action="{{ route('saveImage') }}" id="myForm">
         <input type="hidden" name="img_val" id="img_val" value="" />
         <input type="hidden" name="cal_val" id="cal_val" value="" />
@@ -465,6 +470,7 @@ $("#upVideo").change(function () {
                     $("#video").css('width', '100%');
                     $("#video").css('height', '100%');
                     $("#videoTab").trigger("click");
+                    $( "#saveCalendar" ).trigger( "click" );
             },
             error: function (data) {
                 try {
@@ -621,7 +627,7 @@ function changeVideo(id) {
         $('#video').attr('src', url);
         $("#video")[0].load();
     }
-
+    
 }
         
 // Function to show the top Layout
@@ -890,6 +896,26 @@ $('#saveCalendar').click(function () {
             alert (e.message);
         });
 });
-              
+           
+// Remove video function
+$("#removeVideo").click(function () {
+    if ($("#video").is(":visible")) {
+        $('#idVideo').val("{{ $id }}");
+        var form = $('#del_video');
+        var url = form.attr('action');
+        var data = form.serialize();
+        alert(data);
+        $.post(url, data, function(result){
+            alert(result);
+            
+            $("#video").remove();
+            $("#calendarTab").trigger("click");
+            
+        }).fail(function(e){
+            alert (e.message);
+        });
+    }
+});
+
 </script>
 @endsection

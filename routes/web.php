@@ -46,6 +46,8 @@ Route::group(['middleware' => 'auth'], function () {
     // Route to store the calendar image
     Route::post('/saveImage', 'HomeController@saveImage')->name('saveImage');
     
+    // Route to delete video from calendar
+    Route::post('/delVideo', 'VideoController@removeVideo')->name('delVideo');
     // Route to upload the image files
     Route::post('/upload', 'HomeController@uploadImage')->name('uploadImage');
     

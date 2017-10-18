@@ -53,6 +53,57 @@ $("#imagePrev").on("click", "input.closebtn-2", function(){
     $(this).parent().remove();
 });
 
-$('#removeObject').click(function () {
+// Initialize all the functions and variables
+$(document).ready(function () {
     
+    // Initialize the tabs panel
+    $("#tabs").tabs();
+
+    // Load theme from calendar
+    updateTheme();
+    
+    // Clean layout
+    cleanLayout();
+    
+    // Load layout
+    loadLayout();
+
+    // Load video if present
+    loadVideo();
+
+    // Give element properties
+    setObjectsProperties();
+    
+    // Initialize canvas
+    var canvas = this.__canvas = new fabric.Canvas('c');
+    canvas.setHeight(500);
+    canvas.setWidth(500);
+
+    // Resize canvas
+    window.addEventListener('resize', resizeCanvas, false);
+
+    function resizeCanvas() {
+        canvas.setHeight($("#c").parent().parent().height());
+        canvas.setWidth($("#c").parent().parent().width());
+        canvas.renderAll();
+    }
+    
+    // resize on init
+    resizeCanvas();
+
+    // Add text to canvas
+    $('#addText').click(function () {
+
+        canvas.add(new fabric.IText('Tap and Type', {
+            left: 50,
+            top: 100,
+            fontFamily: 'arial black',
+            fill: '#333',
+            fontSize: 50
+        }));
+
+        canvas.renderAll();
+
+    });
+
 });

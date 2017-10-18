@@ -91,9 +91,12 @@
                                     </div>
                                 </div>
                                 <div class="tab-pane" id="profile">
-                                    <button id="addButton" type="button" class="btn btn-primary" style="width: 100%">Add Text</button>
-                                    <div class="form-group">
-                                        <label for="sel1">Font Size</label>
+                                    <button id="addText" class="btn-primary">Add Texto</button>
+                                    
+<!--                                    <button id="addButton" type="button" class="btn btn-primary" style="width: 100%">Add Text</button>
+                                    <div class="form-group">-->
+                                        
+<!--                                        <label for="sel1">Font Size</label>
                                         <select class="form-control" id="fontSize">
                                             <option>H1</option>
                                             <option>H2</option>
@@ -230,7 +233,7 @@
                                     <button id="cut" type="button" class="btn btn-primary">Cut</button>
                                     <button id="delete" type="button" class="btn btn-primary">Delete</button>
                                     <button id="paste" type="button" class="btn btn-primary">Paste</button>
-                                    <button id="redo" type="button" class="btn btn-primary">Redo</button>
+                                    <button id="redo" type="button" class="btn btn-primary">Redo</button>-->
                                 </div>
                                 <div class="tab-pane" id="messages">
                                     <div>
@@ -368,8 +371,11 @@
                             </div>
 
                             <div class="panel-body prueba" id="calendarPanel" style="height:auto">
-                                {!! $content !!}
-                                <div class="panel-body bg-right prueba full-width" id='calendarBackground' style="background-image: url('../../img/backgrounds/christmas.jpg'); background-size: cover;">
+                                
+                                <div id="imagePrev" class="prueba box" style="border: 5px">
+                                    <canvas id="c"></canvas>
+                                </div>
+                                <div class="panel-body bg-right prueba full-width" id='calendarBackground'>
                                     <div class="panel-body prueba" id="calendarCont" style="overflow: auto">
                                         <p id="topLayout" class="prueba" style="visibility: hidden;  width: 100%; height: 130px; border: 2px solid; z-index: 3">Put your image here!</p>
                                         <p id="leftLayout" class="prueba" style="visibility: hidden;  width: 0px; height: 0px; float: left; margin-bottom: 0px;">Put your image here!</p>
@@ -419,8 +425,9 @@
 <script src="{{ asset('js/html2canvas.js') }}"></script>
 <script src="{{ asset('js/jquery.plugin.html2canvas.js') }}"></script>
 <script src="{{ asset('js/progressBar.js') }}"></script>
-<script src="{{ asset('js/calendarBuilder.js') }}"></script>
 <script src="{{ asset('js/bootstrap-waitingfor.min.js') }}"></script>
+<script src="{{ asset('js/fabric.js') }}"></script>
+<script src="{{ asset('js/calendarBuilder.js') }}"></script>
 <script>
 // Asociative function to call the Input File buton
 $("#addVideo").click(function () {
@@ -553,13 +560,6 @@ $("#upImage").change(function () {
     $("#upImage").val(null);
 });
 
-// Initialize all the functions and variables
-$(document).ready(function() {
-        
-    $( "#tabs" ).tabs();
-        
-    updateTheme();
-        
     // Function to load the calendar
     initThemeChooser({
         init: function(themeSystem) {
@@ -587,14 +587,8 @@ $(document).ready(function() {
         }
     });
     
-    cleanLayout();
     
-    loadLayout();
-    
-    loadVideo();
-    
-    setObjectsProperties();
-});        
+        
 
 // Function to setup a predeterminated video
 function changeVideo(id) {

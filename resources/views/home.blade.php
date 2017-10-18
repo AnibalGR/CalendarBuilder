@@ -929,38 +929,26 @@ $('#saveImage').click(function () {
         });
         }, 4500);
 });
-                                    
-    // Create new Calendar form popup send-button click event.
-$('#saveCalendar').click(function () {
-    
-    var $themeCategory = $('#themeCategory').val();
-    var $theme = $('#theme').val();
-    var $layout = getLayout();
-    var video = $('#video').length;
-    var $src = "none";
-    if(video){
-        $src = $('#video').attr('src');
-    };
-    var $content = $('#imagePrev').html();
-    $('#idCal').val('{{$id}}');
-    $('#nameCal').val('{{$name}}');
-    $('#yearCal').val('{{$year}}');
-    $('#monthCal').val('{{$month}}');
-    $('#themeCCal').val($themeCategory);
-    $('#themeCal').val($theme);
-    $('#layoutCal').val($layout);
-    $('#videoCal').val($src);
-    $('#contentCal').val('<div id="imagePrev" class="prueba" style="border: 5px">' + $content + '</div>');
-    var form = $('#form-save');
-    var url = form.attr('action');
-    var data = form.serialize();
-    $.post(url, data, function(result){
-            alert(result);
-        }).fail(function(e){
-            alert (e.message);
-        });
-});
-           
+function getContent(){
+    return '{{ $content }}';
+}
+
+function getUserID(){
+    return '{{$id}}';
+}
+
+function getName(){
+    return '{{$name}}';
+}
+
+function getYear(){
+    return '{{$year}}';
+}
+
+function getMonth(){
+    return '{{$month}}';
+}
+
 // Remove video function
 $("#removeVideo").click(function () {
     if ($("#video").is(":visible")) {

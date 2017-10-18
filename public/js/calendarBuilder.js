@@ -90,7 +90,8 @@ $(document).ready(function () {
     
     // resize on init
     resizeCanvas();
-
+    canvas.loadFromJSON(getContent().replace(/&quot;/g,'"'), canvas.renderAll.bind(canvas));
+    
     // Add text to canvas
     $('#addText').click(function () {
 
@@ -294,5 +295,37 @@ $(document).ready(function () {
         }
         return (points);
     }
+
+    $('#saveCalendar').click(function () {
+
+        var $themeCategory = $('#themeCategory').val();
+        var $theme = $('#theme').val();
+        var $layout = getLayout();
+        var video = $('#video').length;
+        var $src = "none";
+        if (video) {
+            $src = $('#video').attr('src');
+        }
+        ;
+        $('#idCal').val(getUserID());
+        $('#nameCal').val(getName());
+        $('#yearCal').val(getYear());
+        $('#monthCal').val(getMonth());
+        $('#themeCCal').val($themeCategory);
+        $('#themeCal').val($theme);
+        $('#layoutCal').val($layout);
+        $('#videoCal').val($src);
+        $('#contentCal').val(JSON.stringify(canvas));
+        var form = $('#form-save');
+        var url = form.attr('action');
+        var data = form.serialize();
+        $.post(url, data, function (result) {
+            alert(result);
+        }).fail(function (e) {
+            alert(JSON.stringify(e));
+        });
+    });
+
+
 
 });

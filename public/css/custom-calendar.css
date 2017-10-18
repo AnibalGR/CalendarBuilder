@@ -190,15 +190,14 @@ margin-bottom: 10px;
 border-radius: 5px;
 }
 .btn-custom{
-    margin: 10px 3px 20px 3px;
-    
-        display: inline-block;
+    margin: 10px 3px 20px -15px;
+    display: inline-block;
     padding: 6px 12px;
     margin-bottom: 0;*/
     font-size: 13px;
     font-weight: normal;
     line-height: 1.42857143;
-    text-align: center;
+    text-align: left;
     white-space: nowrap;
     vertical-align: middle;
     -ms-touch-action: manipulation;

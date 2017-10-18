@@ -42,7 +42,7 @@
                 <div class="panel panel-default">
                     <div class="panel-heading" id='toolsPanel'>Tools</div>
                     <div class="panel-body panel-left" id="toolsCont">
-                        <div class="col-xs-2"> <!-- required for floating -->
+                        <div class="col-xs-3"> <!-- required for floating -->
                             <!-- Nav tabs -->
                             <ul class="nav nav-tabs tabs-left" id="left-menu">
                                 <li class="active"><a href="#home" data-toggle="tab">
@@ -63,31 +63,32 @@
                                 </li>
                                 <li><a href="#Background" data-toggle="tab">
                                         <span class="glyphicon glyphicon-picture sb-icons" aria-hidden="true"></span>
-                                        Back
+                                        BG
                                     </a>
                                 </li>
                             </ul>
                         </div>
 
-                        <div class="col-xs-10 sb-content">
+                        <div class="col-xs-9">
                             <!-- Tab panes -->
                             <div class="tab-content">
                                 <div id="contenedor"></div>
                                 <div class="tab-pane active" id="home">
                                     <div class="layoutType">
-                                        <button id="showTopLayout" type="button" class="btn btn-primary" style="width: 100%; height: 100%">Top layout</button>
+                                        <img id="noneLayout" src="{{ asset('img/thumb/layout-1.jpg') }}" class="img-responsive" height="100px" width="150px">
                                     </div>
                                     <div class="layoutType">
-                                        <button id="showBottomLayout" type="button" class="btn btn-success" style="width: 100%; height: 100%">Bottom layout</button>
+                                        <img id="showTopLayout" src="{{ asset('img/thumb/layout-2.jpg') }}" class="img-responsive" height="100px" width="150px">
+                                    </div>
+                                    
+                                    <div class="layoutType">
+                                        <img id="showBottomLayout" src="{{ asset('img/thumb/layout-3.jpg') }}" class="img-responsive" height="100px" width="150px">
                                     </div>
                                     <div class="layoutType">
-                                        <button id="noneLayout" type="button" class="btn btn-danger" style="width: 100%; height: 100%">None layout</button>
+                                        <img id="showLeftLayout" src="{{ asset('img/thumb/layout-4.jpg') }}" class="img-responsive" height="100px" width="150px">
                                     </div>
                                     <div class="layoutType">
-                                        <button id="showLeftLayout" type="button" class="btn btn-success" style="width: 100%; height: 100%">Left layout</button>
-                                    </div>
-                                    <div class="layoutType">
-                                        <button id="showRightLayout" type="button" class="btn btn-success" style="width: 100%; height: 100%">Right layout</button>
+                                        <img id="showRightLayout" src="{{ asset('img/thumb/layout-5.jpg') }}" class="img-responsive" height="100px" width="150px">
                                     </div>
                                 </div>
                                 <div class="tab-pane" id="profile">
@@ -247,9 +248,38 @@
                                     </div>
                                 </div>
                                 <div class="tab-pane" id="settings">
-                                    <div class="row">
-                                        <div class="container">
-                                            <div class="col-xs-7 col-sm-2 zeropdg">
+                                    
+                                            <div class="container">
+                                                <div class="row">
+                                                    <div class="col-xs-6">
+                                                        <!--Upload Video Form-->
+                                                        <form method="POST" action="{{ route('uploadVideo') }}" id="form-uploadV" enctype="multipart/form-data">
+                                                            <input id="upVideo" name="upVideo" type="file" style="display:none;" accept=".mpg,.avi,.flv,.mkv,.mov,.mp4,.ogv,.webm,.wmv"/>
+                                                            {{ csrf_field() }}
+                                                            <button id="addVideo" type="button" class="btn btn-primary">Upload Video</button>
+                                                        </form>
+                                                    </div>
+                                                    <div class="col-xs-6">
+                                                        <form method="POST" action="{{ route('delVideo') }}" id="del_video">
+                                                            <input id="idVideo" name="idVideo" type="hidden"/>
+                                                            {{ csrf_field() }}
+                                                            <button id="removeVideo" type="button" class="btn btn-danger">Remove</button>
+                                                        </form>
+                                                    </div>
+                                                    <div class="col-xs-12 zeropdg">
+                                                        <div id='videoError'></div>
+                                                        <div id="dialog" title="Video Upload">
+                                                            <div class="progress-label">Starting upload...</div>
+                                                            <div id="progressbar"></div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                    
+                                    
+                                    <div class="container">
+                                        <div class="row">
+                                            <div class="col-xs-6 col-sm-6 zeropdg">
                                                 <div class="addVideoBox">
                                                     <img id="addVideo1" src="{{ asset('img/thumb/video-1.jpg') }}" class="img-responsive" height="75px" width="150px">
                                                 </div>
@@ -266,25 +296,7 @@
                                                     <img id="addVideo5" src="{{ asset('img/thumb/video-2.jpg') }}" class="img-responsive" height="75px" width="150px">
                                                 </div>
                                             </div>
-                                            <div class="col-xs-3 zeropdg">
-                                                <!--Upload Video Form-->
-                                                <form method="POST" action="{{ route('uploadVideo') }}" id="form-uploadV" enctype="multipart/form-data">
-                                                    <input id="upVideo" name="upVideo" type="file" style="display:none;" accept=".mpg,.avi,.flv,.mkv,.mov,.mp4,.ogv,.webm,.wmv"/>
-                                                    {{ csrf_field() }}
-                                                    <button id="addVideo" type="button" class="btn btn-primary">Upload Video</button>
-                                                </form>
-                                                <div id='videoError'></div>
-                                                <form method="POST" action="{{ route('delVideo') }}" id="del_video">
-                                                    <input id="idVideo" name="idVideo" type="hidden"/>
-                                                    {{ csrf_field() }}
-                                                    <button id="removeVideo" type="button" class="btn btn-danger">Remove</button>
-                                                </form>
-                                                <div id="dialog" title="Video Upload">
-                                                    <div class="progress-label">Starting upload...</div>
-                                                    <div id="progressbar"></div>
-                                                </div>
                                             </div>
-                                        </div>
                                     </div>
                                 </div>    
                                 <div class="tab-pane" id="Background">

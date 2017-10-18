@@ -638,32 +638,7 @@ $("#upImage").change(function () {
     $("#upImage").val(null);
 });
 
-    // Function to load the calendar
-    initThemeChooser({
-        init: function(themeSystem) {
-            $('#calendar').fullCalendar({
-                themeSystem: themeSystem,
-                height: 'auto',
-                header: {
-                    left: null,
-                    center: 'title',
-                    right: null
-                },
-                defaultDate: '{{ $year }}-{{ $month }}',
-                weekNumbers: false,
-                navLinks: true,
-                editable: true,
-                eventLimit: true,
-                showNonCurrentDates: false,
-            });
-            
-            resizeLayout();
-            
-        },
-        change: function(themeSystem) {
-            $('#calendar').fullCalendar('option', 'themeSystem', themeSystem);
-        }
-    });
+    
     
     
         

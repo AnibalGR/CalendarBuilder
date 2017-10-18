@@ -59,9 +59,6 @@ $(document).ready(function () {
     // Initialize the tabs panel
     $("#tabs").tabs();
 
-    // Load theme from calendar
-    updateTheme();
-    
     // Clean layout
     cleanLayout();
     
@@ -74,10 +71,44 @@ $(document).ready(function () {
     // Give element properties
     setObjectsProperties();
     
+    
+    
+    // Function to load the calendar
+    initThemeChooser({
+        init: function(themeSystem) {
+            $('#calendar').fullCalendar({
+                themeSystem: themeSystem,
+                height: 'auto',
+                header: {
+                    left: null,
+                    center: 'title',
+                    right: null
+                },
+                defaultDate: getYear() + '-' + getMonth(),
+                weekNumbers: false,
+                navLinks: true,
+                editable: true,
+                eventLimit: true,
+                showNonCurrentDates: false,
+            });
+            
+            resizeLayout();
+            
+        },
+        change: function(themeSystem) {
+            $('#calendar').fullCalendar('option', 'themeSystem', themeSystem);
+        }
+    });
+    
+    // Load theme from calendar
+    updateTheme();
+    
+    
     // Initialize canvas
     var canvas = this.__canvas = new fabric.Canvas('c');
-    canvas.setHeight(500);
-    canvas.setWidth(500);
+    canvas.loadFromJSON(getContent().replace(/&quot;/g,'"'), canvas.renderAll.bind(canvas));
+//    canvas.setHeight(500);
+//    canvas.setWidth(500);
 
     // Resize canvas
     window.addEventListener('resize', resizeCanvas, false);
@@ -90,12 +121,11 @@ $(document).ready(function () {
     
     // resize on init
     resizeCanvas();
-    canvas.loadFromJSON(getContent().replace(/&quot;/g,'"'), canvas.renderAll.bind(canvas));
     
     // Add text to canvas
     $('#addText').click(function () {
 
-        canvas.add(new fabric.IText('Tap and Type', {
+        canvas.add(new fabric.IText('Double click here', {
             left: 50,
             top: 100,
             fontFamily: 'arial black',

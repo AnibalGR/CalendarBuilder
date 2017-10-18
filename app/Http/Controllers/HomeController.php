@@ -344,7 +344,7 @@ class HomeController extends Controller {
         $calendar->themeC = 'standard';
         $calendar->layout = 'none';
         $calendar->video = 'none';
-        $calendar->content = '<div id="imagePrev" class="prueba" style="border: 5px"></div>';
+        $calendar->content = '{"version":"2.0.0-beta7","objects":[]}';
         if ($calendar->save()) {
             return redirect()->route('editCalendar', ['id' => $calendar->id, 'name' => $calendar->name, 'year' => $calendar->year, 'month' => $calendar->month, 'themeC' => $calendar->themeC, 'theme' => $calendar->theme, 'layout' => $calendar->layout, 'video' => $calendar->video, 'content' => $calendar->content]);
 //            return view('home', ['id' => $calendar->id, 'name' => $name, 'year' => $year, 'month' => $month, 'themeC' => $calendar->themeC, 'theme' => $calendar->theme, 'video' => $calendar->video, 'content' => $calendar->content]);

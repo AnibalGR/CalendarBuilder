@@ -14,9 +14,7 @@
 .layoutType {
     
     width: 100%;
-    height: 75px;
-    margin-top: 10px;
-    margin-bottom: 3px;
+    height: 100px;
 }
 
 /****Main page background*****/
@@ -106,8 +104,8 @@
             padding-right: 0px;
             padding-left: 0px;
         }
-        .col-xs-2{
-                padding-right: 0px;
+        .col-xs-2, .col-xs-3, .col-xs-5, .col-xs-7, .col-xs-8, .col-md-4, .col-md-8{
+                padding-right: 0px !important;
                 padding-left: 0px;
         }
         .col-md-4{
@@ -140,6 +138,8 @@
         }
         .sb-content{
                 color: #ffffff;
+                overflow-y: scroll;
+                max-height: 450px
         }
         @media screen and (max-width: 991px){
             .col-md-4{
@@ -150,8 +150,8 @@
             }
         }  
 
-/*************Video******************/
-.addVideoBox{
+/*************Video and Layout******************/
+.addVideoBox, .layoutType{
      cursor:pointer;
      margin: 10px 3px 10px 0px;
 }

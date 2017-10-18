@@ -42,7 +42,7 @@
                 <div class="panel panel-default">
                     <div class="panel-heading" id='toolsPanel'>Tools</div>
                     <div class="panel-body panel-left" id="toolsCont">
-                        <div class="col-xs-2"> <!-- required for floating -->
+                        <div class="col-xs-3"> <!-- required for floating -->
                             <!-- Nav tabs -->
                             <ul class="nav nav-tabs tabs-left" id="left-menu">
                                 <li class="active"><a href="#home" data-toggle="tab">
@@ -69,7 +69,7 @@
                             </ul>
                         </div>
 
-                        <div class="col-xs-10 sb-content">
+                        <div class="col-xs-9 sb-content">
                             <!-- Tab panes -->
                             <div class="tab-content">
                                 <div id="contenedor"></div>

@@ -599,12 +599,5 @@ $('#redo').click(function () {
     
 });
 
-$("#imagePrev").on("click", "input.closebtn-2", function(){
-    $(this).parent().remove();
-});
 
-$('#removeObject').click(function () {
-    $('.erasable').addClass('erasable-2').removeClass('erasable');
-    $('.closebtn').addClass('closebtn-2').removeClass('closebtn');
-});
 

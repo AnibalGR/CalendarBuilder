@@ -36,7 +36,6 @@ class HomeController extends Controller {
                 }
             }
 
-
             //Get the base-64 string from data
             $filteredData = substr($request->img_val, strpos($request->img_val, ",") + 1);
 
@@ -54,17 +53,21 @@ class HomeController extends Controller {
 
             //Save the image
             file_put_contents($absoluteImagePath, $unencodedData);
-
+            
             $builder = new ProcessBuilder();
             $builder->setPrefix('ffmpeg');
-
+            try{
             $builder
-                    ->setArguments(array('-f', 'lavfi', '-i', 'anullsrc', '-loop', '1', '-i', $absoluteImagePath, '-c:v', 'libx264', '-t', '15', '-pix_fmt', 'yuv420p', '-vf', 'scale=1920:1080', $path . '/input1.mp4'))
+                    ->setArguments(array('-f', 'lavfi', '-i', 'anullsrc', '-loop', '1', '-i', $absoluteImagePath, '-c:v', 'libx264', '-strict', '-2', '-t', '15', '-pix_fmt', 'yuv420p', '-vf', 'scale=1920:1080', $path . '/input1.mp4'))
                     ->getProcess()
-                    ->setTimeout(300)
-                    ->run();
+                    ->setTimeout(500)
+            ->run();}
+            catch(Exception $e) {
+                return 'Message: ' .$e->getMessage();
+            }
             // At this point we have the calendar video ready
             // We need to retrieve the other video
+            
             $calendar = Calendar::find($request->cal_val);
 
             if ($calendar->video != "none") {
@@ -297,7 +300,7 @@ class HomeController extends Controller {
                 $builder = new ProcessBuilder();
                 $builder->setPrefix('ffmpeg');
                 $builder
-                        ->setArguments(array('-i', $path, $storePath, '-hide_banner'))
+                        ->setArguments(array('-i', $path, '-strict', '-2', $storePath, '-hide_banner', '-strict', '-2'))
                         ->getProcess()
                         ->setTimeout(5000)
                         ->run();

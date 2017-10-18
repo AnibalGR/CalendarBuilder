@@ -53,6 +53,10 @@
                                         <span class="glyphicon glyphicon-text-width sb-icons" aria-hidden="true"></span>
                                     Text</a>
                                 </li>
+                                <li><a href="#shapes" data-toggle="tab">
+                                        <span class="glyphicon glyphicon-stop sb-icons" aria-hidden="true"></span>
+                                     Shapes</a>
+                                </li>
                                 <li><a href="#messages" data-toggle="tab">
                                         <span class="glyphicon glyphicon-picture sb-icons" aria-hidden="true"></span>
                                      Image</a>
@@ -92,7 +96,71 @@
                                 </div>
                                 <div class="tab-pane" id="profile">
                                     <button id="addText" class="btn-primary">Add Texto</button>
-                                    
+                                    <div id="text-wrapper" style="margin-top: 10px" ng-show="getText()">
+
+    <div id="text-controls">
+	  <input type="color" value="" id="text-color" size="10">
+      <label for="font-family" style="display:inline-block">Font family:</label>
+      <select id="font-family">
+        <option value="arial">Arial</option>
+        <option value="helvetica" selected>Helvetica</option>
+        <option value="myriad pro">Myriad Pro</option>
+        <option value="delicious">Delicious</option>
+        <option value="verdana">Verdana</option>
+        <option value="georgia">Georgia</option>
+        <option value="courier">Courier</option>
+        <option value="comic sans ms">Comic Sans MS</option>
+        <option value="impact">Impact</option>
+        <option value="monaco">Monaco</option>
+        <option value="optima">Optima</option>
+        <option value="hoefler text">Hoefler Text</option>
+        <option value="plaster">Plaster</option>
+        <option value="engagement">Engagement</option>
+      </select>
+      <br>
+      <label for="text-align" style="display:inline-block">Text align:</label>
+      <select id="text-align">
+        <option value="left">Left</option>
+        <option value="center">Center</option>
+        <option value="right">Right</option>
+        <option value="justify">Justify</option>
+      </select>
+      <div>
+        <label for="text-bg-color">Background color:</label>
+        <input type="color" value="" id="text-bg-color" size="10">
+      </div>
+      <div>
+        <label for="text-lines-bg-color">Background text color:</label>
+        <input type="color" value="" id="text-lines-bg-color" size="10">
+      </div>
+      <div>
+        <label for="text-stroke-color">Stroke color:</label>
+        <input type="color" value="" id="text-stroke-color">
+      </div>
+      <div>
+	  
+
+        <label for="text-stroke-width">Stroke width:</label>
+        <input type="range" value="1" min="1" max="5" id="text-stroke-width">
+      </div>
+      <div>
+        <label for="text-font-size">Font size:</label>
+        <input type="range" value="" min="1" max="120" step="1" id="text-font-size">
+      </div>
+      <div>
+        <label for="text-line-height">Line height:</label>
+        <input type="range" value="" min="0" max="10" step="0.1" id="text-line-height">
+      </div>
+    </div>
+    <div id="text-controls-additional">
+      <input type='checkbox' name='fonttype' id="text-cmd-bold">
+        Bold
+    
+      <input type='checkbox' name='fonttype' id="text-cmd-italic">
+        Italic
+      
+    </div>
+                                    </div>   
 <!--                                    <button id="addButton" type="button" class="btn btn-primary" style="width: 100%">Add Text</button>
                                     <div class="form-group">-->
                                         
@@ -234,6 +302,16 @@
                                     <button id="delete" type="button" class="btn btn-primary">Delete</button>
                                     <button id="paste" type="button" class="btn btn-primary">Paste</button>
                                     <button id="redo" type="button" class="btn btn-primary">Redo</button>-->
+                                </div>
+                                <div class="tab-pane" id="shapes">
+                                    <div>
+                                        <button id="addRect" type="button" class="btn btn-primary">Add Rectangle</button>
+                                        <button id="addCircle" type="button" class="btn btn-primary">Add Circle</button>
+                                        <button id="addTriangle" type="button" class="btn btn-primary">Add Triangle</button>
+                                        <button id="addLine" type="button" class="btn btn-primary">Add Line</button>
+                                        <button id="addStar4" type="button" class="btn btn-primary">Add Star (4 edges)</button>
+                                        <button id="addStar5" type="button" class="btn btn-primary">Add Star (5 edges)</button>
+                                    </div>
                                 </div>
                                 <div class="tab-pane" id="messages">
                                     <div>

@@ -105,5 +105,194 @@ $(document).ready(function () {
         canvas.renderAll();
 
     });
+    
+    $('#text-color').change(function () {
+        canvas.getActiveObject().setFill(this.value);
+        canvas.renderAll();
+    });
+
+    $('#text-bg-color').change(function () {
+        canvas.getActiveObject().setBackgroundColor(this.value);
+        canvas.renderAll();
+    });
+
+    $('#text-lines-bg-color').change(function () {
+        canvas.getActiveObject().setTextBackgroundColor(this.value);
+        canvas.renderAll();
+    });
+
+    $('#text-stroke-color').change(function () {
+        canvas.getActiveObject().setStroke(this.value);
+        canvas.renderAll();
+    });
+
+    $('#text-stroke-width').change(function () {
+        canvas.getActiveObject().setStrokeWidth(this.value);
+        canvas.renderAll();
+    });
+
+    $('#font-family').change(function () {
+        canvas.getActiveObject().setFontFamily(this.value);
+        canvas.renderAll();
+    });
+
+    $('#text-font-size').change(function () {
+        canvas.getActiveObject().setFontSize(this.value);
+        canvas.renderAll();
+    });
+
+    $('#text-line-height').change(function () {
+        canvas.getActiveObject().setLineHeight(this.value);
+        canvas.renderAll();
+    });
+
+    $('#text-align').change(function () {
+        canvas.getActiveObject().setTextAlign(this.value);
+        canvas.renderAll();
+    });
+    
+    
+    radios5 = document.getElementsByName("fonttype");  // wijzig naar button
+    for (var i = 0, max = radios5.length; i < max; i++) {
+        radios5[i].onclick = function () {
+
+            if (document.getElementById(this.id).checked == true) {
+                if (this.id == "text-cmd-bold") {
+                    canvas.getActiveObject().set("fontWeight", "bold");
+                }
+                if (this.id == "text-cmd-italic") {
+                    canvas.getActiveObject().set("fontStyle", "italic");
+                }
+            } else {
+                if (this.id == "text-cmd-bold") {
+                    canvas.getActiveObject().set("fontWeight", "");
+                }
+                if (this.id == "text-cmd-italic") {
+                    canvas.getActiveObject().set("fontStyle", "");
+                }
+            }
+            canvas.renderAll();
+        };
+    }
+
+    // Add rectangle to canvas
+    $('#addRect').click(function () {
+
+        // create a rectangle object
+        var rect = new fabric.Rect({
+            left: 100,
+            top: 100,
+            fill: 'red',
+            width: 50,
+            height: 50
+        });
+
+        canvas.add(rect);
+
+        canvas.renderAll();
+
+    });
+    
+    // Add rectangle to canvas
+    $('#addCircle').click(function () {
+
+        // create a rectangle object
+        var circle = new fabric.Circle({
+            radius: 20, fill: 'green', left: 100, top: 100
+        });
+
+        canvas.add(circle);
+
+        canvas.renderAll();
+
+    });
+    
+    // Add triangle to canvas
+    $('#addTriangle').click(function () {
+
+        // create a triangle object
+        var triangle = new fabric.Triangle({
+            width: 40, height: 60, fill: 'blue', left: 50, top: 50
+        });
+
+        canvas.add(triangle);
+
+        canvas.renderAll();
+
+    });
+    
+    // Add line to canvas
+    $('#addLine').click(function () {
+
+        // create a triangle object
+        var line = new fabric.Line([100, 100, 200, 150], {
+            left: 170,
+            top: 150,
+            stroke: 'black'
+        });
+
+        canvas.add(line);
+
+        canvas.renderAll();
+
+    });
+    
+    // Add star to canvas
+    $('#addStar5').click(function () {
+
+        // create a star object
+        var points = starPolygonPoints(5, 50, 20);
+        var star = new fabric.Polygon(points, {
+            fill: 'yellow',
+            stroke: 'black',
+            left: 50,
+            top: 50
+        });
+
+        canvas.add(star);
+
+        canvas.renderAll();
+
+    });
+    
+    // Add star to canvas
+    $('#addStar4').click(function () {
+
+        // create a star object
+        var points = starPolygonPoints(4, 50, 20);
+        var star = new fabric.Polygon(points, {
+            fill: 'yellow',
+            stroke: 'black',
+            left: 50,
+            top: 50
+        });
+
+        canvas.add(star);
+
+        canvas.renderAll();
+
+    });
+
+    function starPolygonPoints(spikeCount, outerRadius, innerRadius) {
+        var rot = Math.PI / 2 * 3;
+        var cx = outerRadius;
+        var cy = outerRadius;
+        var sweep = Math.PI / spikeCount;
+        var points = [];
+        var angle = 0;
+
+        for (var i = 0; i < spikeCount; i++) {
+            var x = cx + Math.cos(angle) * outerRadius;
+            var y = cy + Math.sin(angle) * outerRadius;
+            points.push({x: x, y: y});
+            angle += sweep;
+
+            x = cx + Math.cos(angle) * innerRadius;
+            y = cy + Math.sin(angle) * innerRadius;
+            points.push({x: x, y: y});
+            angle += sweep
+        }
+        return (points);
+    }
 
 });

@@ -73,7 +73,7 @@
                             </ul>
                         </div>
 
-                        <div class="col-xs-9">
+                        <div class="col-xs-6">
                             <!-- Tab panes -->
                             <div class="tab-content">
                                 <div id="contenedor"></div>
@@ -326,24 +326,25 @@
                                     </div>
                                 </div>
                                 <div class="tab-pane" id="settings">
-                                    
-                                            <div class="container">
+                                            <div class="container-fluid">
                                                 <div class="row">
                                                     <div class="col-xs-6">
                                                         <!--Upload Video Form-->
                                                         <form method="POST" action="{{ route('uploadVideo') }}" id="form-uploadV" enctype="multipart/form-data">
                                                             <input id="upVideo" name="upVideo" type="file" style="display:none;" accept=".mpg,.avi,.flv,.mkv,.mov,.mp4,.ogv,.webm,.wmv"/>
                                                             {{ csrf_field() }}
-                                                            <button id="addVideo" type="button" class="btn btn-primary">Upload Video</button>
+                                                            <button id="addVideo" type="button" class="btn btn-success btn-custom"><span class="glyphicon glyphicon-upload" aria-hidden="true"></span> Upload</button>
                                                         </form>
                                                     </div>
                                                     <div class="col-xs-6">
                                                         <form method="POST" action="{{ route('delVideo') }}" id="del_video">
                                                             <input id="idVideo" name="idVideo" type="hidden"/>
                                                             {{ csrf_field() }}
-                                                            <button id="removeVideo" type="button" class="btn btn-danger">Remove</button>
+                                                            <button id="removeVideo" type="button" class="btn-danger btn-custom"><span class="glyphicon glyphicon-erase" aria-hidden="true"></span> Remove</button>
                                                         </form>
                                                     </div>
+                                                </div>
+                                                <div class="row">
                                                     <div class="col-xs-12 zeropdg">
                                                         <div id='videoError'></div>
                                                         <div id="dialog" title="Video Upload">
@@ -354,18 +355,17 @@
                                                 </div>
                                             </div>
                                     
-                                    
-                                    <div class="container">
+                                    <div class="container-fluid">
                                         <div class="row">
                                             <div class="col-xs-6 col-sm-6 zeropdg">
                                                 <div class="addVideoBox">
                                                     <img id="addVideo1" src="{{ asset('img/thumb/video-1.jpg') }}" class="img-responsive" height="75px" width="150px">
                                                 </div>
                                                 <div class="addVideoBox">
-                                                    <img id="addVideo2" src="{{ asset('img/thumb/video-2.jpg') }}" class="img-responsive" height="75px" width="150px">
+                                                    <img id="addVideo2" src="{{ asset('img/thumb/video-3.jpg') }}" class="img-responsive" height="75px" width="150px">
                                                 </div>
                                                 <div class="addVideoBox">
-                                                    <img id="addVideo3" src="{{ asset('img/thumb/video-3.jpg') }}" class="img-responsive" height="75px" width="150px">
+                                                    <img id="addVideo3" src="{{ asset('img/thumb/video-2.jpg') }}" class="img-responsive" height="75px" width="150px">
                                                 </div>
                                                 <div class="addVideoBox">
                                                     <img id="addVideo4" src="{{ asset('img/thumb/video-1.jpg') }}" class="img-responsive" height="75px" width="150px">
@@ -374,7 +374,7 @@
                                                     <img id="addVideo5" src="{{ asset('img/thumb/video-2.jpg') }}" class="img-responsive" height="75px" width="150px">
                                                 </div>
                                             </div>
-                                            </div>
+                                        </div>
                                     </div>
                                 </div>    
                                 <div class="tab-pane" id="Background">

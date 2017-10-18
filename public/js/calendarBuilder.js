@@ -118,10 +118,10 @@ $(document).ready(function () {
         canvas.setWidth($("#c").parent().parent().width());
         canvas.renderAll();
     }
-    
+    setTimeout(function(){
     // resize on init
     resizeCanvas();
-    
+    },200);
     // Add text to canvas
     $('#addText').click(function () {
 

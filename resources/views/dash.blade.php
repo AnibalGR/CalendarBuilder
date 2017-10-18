@@ -74,7 +74,7 @@ use Carbon\Carbon;
                                 <td>{{ $video->getBasename() }}</td>
                                 <td><a href='{{ asset("") }}calendars/{{Auth::id()}}/{{$video->getBasename()}}' target="_blank" download>Download</a></td>
                                 <td><a href="" >Share</a></td>
-                                <td><a href="#!" class="btn-delete">Delete</a></td>
+                                <td><a href="#!" >Delete</a></td>
                             </tr>
                             @endforeach
 

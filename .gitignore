@@ -2,3 +2,7 @@
 nbproject/private/private.xml
 nbproject
 *.xml
+public/images/*
+public/temp/*
+public/videos/*
+public/calendars/*

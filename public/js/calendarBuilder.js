@@ -26,9 +26,7 @@ $("#addVideo3").click(function () {
 $("#addButton").click(function () {
     $('#imagePrev').append('<div class="erasable"><input type="text" class="closebtn" value="X"><p class="CalTxt1" contenteditable="true">Double click here</p></div>');
 
-    $(".erasable").draggable();
-
-    $('.d').resizable();
+    $('.CalTxt1').resizable();
 
     $(".erasable").click(function () {
         $(this).draggable({disabled: false, revert: 'invalid'});
@@ -41,3 +39,20 @@ $("#addButton").click(function () {
     });
 });
 
+$('#delObject').change(function () {
+    if ($("#delObject").is(':checked')){
+        $('.erasable').addClass('erasable-2').removeClass('erasable');
+        $('.closebtn').addClass('closebtn-2').removeClass('closebtn');
+    }else{
+        $('.erasable-2').addClass('erasable').removeClass('erasable-2');
+        $('.closebtn-2').addClass('closebtn').removeClass('closebtn-2');
+    }
+});
+
+$("#imagePrev").on("click", "input.closebtn-2", function(){
+    $(this).parent().remove();
+});
+
+$('#removeObject').click(function () {
+    
+});

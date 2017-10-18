@@ -5,6 +5,7 @@
 <link href="{{ asset('css/fullcalendar.print.min.css') }}" rel="stylesheet" media="print" />
 <link href="{{ asset('css/bootstrap.vertical-tabs.css') }}" rel="stylesheet" >
 <link href="{{ asset('css/custom-calendar.css') }}" rel="stylesheet" >
+<link href="{{ asset('css/switchButton.css') }}" rel="stylesheet" >
 <style>
     #progressbar {
     margin-top: 20px;
@@ -23,9 +24,8 @@
 
 
 @section('customButtons')
-<button id="saveImage">Crear imagen</button>
-<button id="saveCalendar">Guardar calendario</button>
-<button id="generateCalendar">Generar calendario</button>
+<button id="saveImage">Generate Calendar Video</button>
+<button id="saveCalendar">Save Calendar</button>
 @endsection
 
 @section('content')
@@ -284,7 +284,18 @@
                                         </div>
                                     </div>
                                 </div>    
-                                <div class="tab-pane" id="Background"><button id="removeObject" type="button" class="btn btn-primary" style="width: 100%">Remove Object</button></div>
+                                <div class="tab-pane" id="Background">
+                                    <div class="addVideoBox">
+                                        <img id="addVideo5" src="{{ asset('img/thumb/video-2.jpg') }}" class="img-responsive" height="75px" width="150px">
+                                    </div>
+                                    <!-- Rounded switch -->
+                                    <label class="switch" >
+                                        <input type="checkbox" id="delObject">
+                                        <span class="slider round"></span>
+                                    </label>
+                                    <button id="removeObject" type="button" class="btn btn-primary" style="width: 100%">Remove Object</button>
+                                We are going to put some season image to use as background!
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -358,7 +369,7 @@
 
                             <div class="panel-body prueba" id="calendarPanel" style="height:auto">
                                 {!! $content !!}
-                                <div class="panel-body bg-right prueba" >
+                                <div class="panel-body bg-right prueba full-width" id='calendarBackground' style="background-image: url('../../img/backgrounds/christmas.jpg'); background-size: cover;">
                                     <div class="panel-body prueba" id="calendarCont" style="overflow: auto">
                                         <p id="topLayout" class="prueba" style="visibility: hidden;  width: 100%; height: 130px; border: 2px solid; z-index: 3">Put your image here!</p>
                                         <p id="leftLayout" class="prueba" style="visibility: hidden;  width: 0px; height: 0px; float: left; margin-bottom: 0px;">Put your image here!</p>
@@ -523,7 +534,7 @@ $("#upImage").change(function () {
             processData: false,
             data: fd,
             success: function (data) {
-                var img = $('<div class="imageContainer erasable"><input type="text" class="closebtn" value="X"><img class="resis" src=" ../../' + data + '"></div>');
+                var img = $('<div class="erasable imageContainer"><input type="text" class="closebtn" value="X"><img class="resis" src=" ../../' + data + '"></div>');
                 $('#imagePrev').append(img);
                 $('#imagePrev').droppable();
                 $(".resis").resizable();
@@ -639,42 +650,28 @@ $("#showLeftLayout").click(function(){
 });
         
 function setObjectsProperties(){
-
-    $(".resis").resizable("enable");
+    
+    // Image properties
+//    $('.resis').resizable("destroy");
+    $(".resis").resizable();
     $(".imageContainer").draggable({ revert: 'invalid' });
     $('#imagePrev').droppable();
     
+    // Text properties
+//    $('.CalTxt1').resizable();
     
-            
-//    $(".erasable").draggable();
-//                    
-    $('.d').resizable();
-                    
-    $(".erasable").click(function() {
+    $(".erasable").draggable();
+    
+    $(".erasable").click(function () {
+        $(this).draggable({disabled: false, revert: 'invalid'});
+    });
 
-        $(this).draggable( {disabled: false, revert:'invalid'});
+    $(".erasable").dblclick(function () {
+        $(this).draggable({disabled: true, revert: 'invalid'});
+        $('.CalTxt1').attr('contenteditable', true);
+        $(this).setAttribute('contenteditable', true);
     });
-                    
-    $(".erasable").dblclick(function() {
-    
-        $(this).draggable( {disabled: true, revert:'invalid'});
-    
-        $('.CalTxt1').setAttribute('contenteditable',true);
-        
-        $(this).setAttribute('contenteditable',true);
-    });
-                    
-//    $(".resis").resizable().draggable({revert: 'invalid'});
-//            
-//    $(".imageContainer").draggable({
-//        start: function(event, ui) {
-//            isDraggingMedia = true;
-//        },
-//        stop: function(event, ui) {
-//            isDraggingMedia = false;
-//        },
-//        revert: 'invalid',
-//    });
+
 }
         
 // Function to show the right Layout
@@ -847,7 +844,6 @@ $('#saveImage').click(function () {
                 $('#cal_val').val("{{ $id }}");
         }
     });
-    
     setTimeout(function(){
     var form = $('#myForm');
     var url = form.attr('action');

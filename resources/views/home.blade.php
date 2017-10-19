@@ -175,24 +175,24 @@
                                 </div>
                                 <div class="tab-pane" id="messages">
                                     <div class="container-fluid">
-                                                <div class="row">
-                                                    <div class="col-xs-6">
-                                                        <!--Upload Image Form-->
-                                                        <form method="POST" action="{{ route('uploadImage') }}" id="form-upload" enctype="multipart/form-data">
-                                                            <input id="upImage" name="upImage" type="file" style="display:none;" accept=".jpg,.jpeg,.png,.svg,.gif"/>
-                                                            {{ csrf_field() }}
-                                                            <button id="addImage" type="button" class="btn btn-success btn-custom"><span class="glyphicon glyphicon-upload" aria-hidden="true"></span> Upload</button>
-                                                        </form>
-                                                        <div id='imageError'></div>
-                                                    </div>
-                                                    <div class="col-xs-6">
-                                                        <form method="POST" action="{{ route('delVideo') }}" id="del_video">
-                                                            <input id="idVideo" name="idVideo" type="hidden"/>
-                                                            {{ csrf_field() }}
-                                                            <button id="removeVideo" type="button" class="btn-danger btn-custom"><span class="glyphicon glyphicon-erase" aria-hidden="true"></span> Remove</button>
-                                                        </form>
-                                                    </div>
-                                                </div>
+                                        <div class="row">
+                                            <div class="col-xs-6">
+                                                <!--Upload Image Form-->
+                                                <form method="POST" action="{{ route('uploadImage') }}" id="form-upload" enctype="multipart/form-data">
+                                                    <input id="upImage" name="upImage" type="file" style="display:none;" accept=".jpg,.jpeg,.png,.svg,.gif"/>
+                                                    {{ csrf_field() }}
+                                                    <button id="addImage" type="button" class="btn btn-success btn-custom"><span class="glyphicon glyphicon-upload" aria-hidden="true"></span> Upload</button>
+                                                </form>
+                                                <div id='imageError'></div>
+                                            </div>
+                                            <div class="col-xs-6">
+                                                <form method="POST" action="{{ route('delVideo') }}" id="del_video">
+                                                    <input id="idVideo" name="idVideo" type="hidden"/>
+                                                    {{ csrf_field() }}
+                                                    <button id="removeVideo" type="button" class="btn-danger btn-custom"><span class="glyphicon glyphicon-erase" aria-hidden="true"></span> Remove</button>
+                                                </form>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="tab-pane" id="settings">
@@ -542,9 +542,8 @@
     break;
     case 3:
             url = "{{ asset('vid/003.mp4') }}";
-<<<<<<< HEAD
     break;
-=======
+
             break;
         case 4:
             url = "{{ asset('vid/004.mp4') }}";
@@ -573,7 +572,6 @@
         case 12:
             url = "{{ asset('vid/012.mp4') }}";
             break;
->>>>>>> bf7ffe0d1389fcc7db998eca90d4dfcf0d9ae0ae
     }
 
     if (!$("#video").is(":visible")) {

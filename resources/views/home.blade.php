@@ -8,17 +8,17 @@
 <link href="{{ asset('css/switchButton.css') }}" rel="stylesheet" >
 <style>
     #progressbar {
-    margin-top: 20px;
-  }
- 
-  .progress-label {
-    font-weight: bold;
-    text-shadow: 1px 1px 0 #fff;
-  }
- 
-  .ui-dialog-titlebar-close {
-    display: none;
-  }
+        margin-top: 20px;
+    }
+
+    .progress-label {
+        font-weight: bold;
+        text-shadow: 1px 1px 0 #fff;
+    }
+
+    .ui-dialog-titlebar-close {
+        display: none;
+    }
 </style>
 @endsection
 
@@ -33,7 +33,7 @@
 <div class="container-fluid">
     <div class="row">
         <div class="col-md-12 head-calendar">
-            
+
         </div>
     </div>
     <div class="row">
@@ -47,19 +47,19 @@
                             <ul class="nav nav-tabs tabs-left" id="left-menu">
                                 <li class="active"><a href="#home" data-toggle="tab">
                                         <span class="glyphicon glyphicon-th sb-icons" aria-hidden="true"></span>
-                                    Layout</a>
+                                        Layout</a>
                                 </li>
                                 <li><a href="#profile" data-toggle="tab">
                                         <span class="glyphicon glyphicon-text-width sb-icons" aria-hidden="true"></span>
-                                    Text</a>
+                                        Text</a>
                                 </li>
                                 <li><a href="#shapes" data-toggle="tab">
                                         <span class="glyphicon glyphicon-stop sb-icons" aria-hidden="true"></span>
-                                     Shapes</a>
+                                        Shapes</a>
                                 </li>
                                 <li><a href="#messages" data-toggle="tab">
                                         <span class="glyphicon glyphicon-picture sb-icons" aria-hidden="true"></span>
-                                     Image</a>
+                                        Image</a>
                                 </li>
                                 <li><a href="#settings" data-toggle="tab">
                                         <span class="glyphicon glyphicon-film sb-icons" aria-hidden="true"></span>
@@ -84,7 +84,7 @@
                                     <div class="layoutType">
                                         <img id="showTopLayout" src="{{ asset('img/thumb/layout-2.jpg') }}" class="img-responsive" height="100px" width="150px">
                                     </div>
-                                    
+
                                     <div class="layoutType">
                                         <img id="showBottomLayout" src="{{ asset('img/thumb/layout-3.jpg') }}" class="img-responsive" height="100px" width="150px">
                                     </div>
@@ -99,210 +99,70 @@
                                     <button id="addText" class="btn-primary">Add Texto</button>
                                     <div id="text-wrapper" style="margin-top: 10px" ng-show="getText()">
 
-    <div id="text-controls">
-	  <input type="color" value="" id="text-color" size="10">
-      <label for="font-family" style="display:inline-block">Font family:</label>
-      <select id="font-family">
-        <option value="arial">Arial</option>
-        <option value="helvetica" selected>Helvetica</option>
-        <option value="myriad pro">Myriad Pro</option>
-        <option value="delicious">Delicious</option>
-        <option value="verdana">Verdana</option>
-        <option value="georgia">Georgia</option>
-        <option value="courier">Courier</option>
-        <option value="comic sans ms">Comic Sans MS</option>
-        <option value="impact">Impact</option>
-        <option value="monaco">Monaco</option>
-        <option value="optima">Optima</option>
-        <option value="hoefler text">Hoefler Text</option>
-        <option value="plaster">Plaster</option>
-        <option value="engagement">Engagement</option>
-      </select>
-      <br>
-      <label for="text-align" style="display:inline-block">Text align:</label>
-      <select id="text-align">
-        <option value="left">Left</option>
-        <option value="center">Center</option>
-        <option value="right">Right</option>
-        <option value="justify">Justify</option>
-      </select>
-      <div>
-        <label for="text-bg-color">Background color:</label>
-        <input type="color" value="" id="text-bg-color" size="10">
-      </div>
-      <div>
-        <label for="text-lines-bg-color">Background text color:</label>
-        <input type="color" value="" id="text-lines-bg-color" size="10">
-      </div>
-      <div>
-        <label for="text-stroke-color">Stroke color:</label>
-        <input type="color" value="" id="text-stroke-color">
-      </div>
-      <div>
-	  
+                                        <div id="text-controls">
+                                            <input type="color" value="" id="text-color" size="10">
+                                            <label for="font-family" style="display:inline-block">Font family:</label>
+                                            <select id="font-family">
+                                                <option value="arial">Arial</option>
+                                                <option value="helvetica" selected>Helvetica</option>
+                                                <option value="myriad pro">Myriad Pro</option>
+                                                <option value="delicious">Delicious</option>
+                                                <option value="verdana">Verdana</option>
+                                                <option value="georgia">Georgia</option>
+                                                <option value="courier">Courier</option>
+                                                <option value="comic sans ms">Comic Sans MS</option>
+                                                <option value="impact">Impact</option>
+                                                <option value="monaco">Monaco</option>
+                                                <option value="optima">Optima</option>
+                                                <option value="hoefler text">Hoefler Text</option>
+                                                <option value="plaster">Plaster</option>
+                                                <option value="engagement">Engagement</option>
+                                            </select>
+                                            <br>
+                                            <label for="text-align" style="display:inline-block">Text align:</label>
+                                            <select id="text-align">
+                                                <option value="left">Left</option>
+                                                <option value="center">Center</option>
+                                                <option value="right">Right</option>
+                                                <option value="justify">Justify</option>
+                                            </select>
+                                            <div>
+                                                <label for="text-bg-color">Background color:</label>
+                                                <input type="color" value="" id="text-bg-color" size="10">
+                                            </div>
+                                            <div>
+                                                <label for="text-lines-bg-color">Background text color:</label>
+                                                <input type="color" value="" id="text-lines-bg-color" size="10">
+                                            </div>
+                                            <div>
+                                                <label for="text-stroke-color">Stroke color:</label>
+                                                <input type="color" value="" id="text-stroke-color">
+                                            </div>
+                                            <div>
 
-        <label for="text-stroke-width">Stroke width:</label>
-        <input type="range" value="1" min="1" max="5" id="text-stroke-width">
-      </div>
-      <div>
-        <label for="text-font-size">Font size:</label>
-        <input type="range" value="" min="1" max="120" step="1" id="text-font-size">
-      </div>
-      <div>
-        <label for="text-line-height">Line height:</label>
-        <input type="range" value="" min="0" max="10" step="0.1" id="text-line-height">
-      </div>
-    </div>
-    <div id="text-controls-additional">
-      <input type='checkbox' name='fonttype' id="text-cmd-bold">
-        Bold
-    
-      <input type='checkbox' name='fonttype' id="text-cmd-italic">
-        Italic
-      
-    </div>
+
+                                                <label for="text-stroke-width">Stroke width:</label>
+                                                <input type="range" value="1" min="1" max="5" id="text-stroke-width">
+                                            </div>
+                                            <div>
+                                                <label for="text-font-size">Font size:</label>
+                                                <input type="range" value="" min="1" max="120" step="1" id="text-font-size">
+                                            </div>
+                                            <div>
+                                                <label for="text-line-height">Line height:</label>
+                                                <input type="range" value="" min="0" max="10" step="0.1" id="text-line-height">
+                                            </div>
+                                        </div>
+                                        <div id="text-controls-additional">
+                                            <input type='checkbox' name='fonttype' id="text-cmd-bold">
+                                            Bold
+
+                                            <input type='checkbox' name='fonttype' id="text-cmd-italic">
+                                            Italic
+
+                                        </div>
                                     </div>   
-<!--                                    <button id="addButton" type="button" class="btn btn-primary" style="width: 100%">Add Text</button>
-                                    <div class="form-group">-->
-                                        
-<!--                                        <label for="sel1">Font Size</label>
-                                        <select class="form-control" id="fontSize">
-                                            <option>H1</option>
-                                            <option>H2</option>
-                                            <option>H3</option>
-                                            <option>H4</option>
-                                            <option selected="selected">H5</option>
-                                            <option>H6</option>
-                                        </select>
-                                            <label for="sel1">Font Name</label>
-                                        <select class="form-control" id="fontName">
-                                            <option selected="selected">Arial</option>
-                                            <option>Arial Black</option>
-                                            <option>Calibri</option>
-                                            <option>Comic Sans MS</option>
-                                            <option>Lucida Sans Unicode</option>
-                                            <option>Trebuchet MS</option>
-                                            <option>Courier New</option>
-                                            <option>Lucida Console</option>
-                                            <option>Georgia</option>
-                                            <option>Palatino Linotype</option>
-                                            <option>Times New Roman</option>
-                                            <option>Impact</option>
-                                            <option>Tahoma</option>
-                                            <option>Verdana</option>
-                                        </select>
-                                        <label for="sel1">Fore Color</label>
-                                        <div class="colorMatrix">
-                                            <button class="colorE" id="white">
-                                                
-                                            </button>
-                                            <button class="colorE" id="lightBlue">
-                                                
-                                            </button>
-                                            <button class="colorE" id="steelBlue">
-                                                
-                                            </button>
-                                            <button class="colorE" id="blue">
-                                                
-                                            </button>
-                                            <button class="colorE" id="lightGreen">
-                                                
-                                            </button>
-                                            <button class="colorE" id="green">
-                                                
-                                            </button>
-                                            <button class="colorE" id="darkGreen">
-                                                
-                                            </button>
-                                            <button class="colorE" id="purple">
-                                                
-                                            </button>
-                                            <button class="colorE" id="hotPink">
-                                                
-                                            </button>
-                                            <button class="colorE" id="yellow">
-                                                
-                                            </button>
-                                            <button class="colorE" id="gold">
-                                                
-                                            </button>
-                                            <button class="colorE" id="orange">
-                                                
-                                            </button>
-                                            <button class="colorE" id="red">
-                                                
-                                            </button>
-                                            <button class="colorE" id="gray">
-                                                
-                                            </button>
-                                            <button class="colorE" id="brown">
-                                                
-                                            </button>
-                                            <button class="colorE" id="black">
-                                                
-                                            </button>
-                                        </div>
-                                        <label for="sel1">Background Color</label>
-                                        <div class="colorMatrix">
-                                            <button class="colorE" id="white2">
-                                                
-                                            </button>
-                                            <button class="colorE" id="lightBlue2">
-                                                
-                                            </button>
-                                            <button class="colorE" id="steelBlue2">
-                                                
-                                            </button>
-                                            <button class="colorE" id="blue2">
-                                                
-                                            </button>
-                                            <button class="colorE" id="lightGreen2">
-                                                
-                                            </button>
-                                            <button class="colorE" id="green2">
-                                                
-                                            </button>
-                                            <button class="colorE" id="darkGreen2">
-                                                
-                                            </button>
-                                            <button class="colorE" id="purple2">
-                                                
-                                            </button>
-                                            <button class="colorE" id="hotPink2">
-                                                
-                                            </button>
-                                            <button class="colorE" id="yellow2">
-                                                
-                                            </button>
-                                            <button class="colorE" id="gold2">
-                                                
-                                            </button>
-                                            <button class="colorE" id="orange2">
-                                                
-                                            </button>
-                                            <button class="colorE" id="red2">
-                                                
-                                            </button>
-                                            <button class="colorE" id="gray2">
-                                                
-                                            </button>
-                                            <button class="colorE" id="brown2">
-                                                
-                                            </button>
-                                            <button class="colorE" id="black2">
-                                                
-                                            </button>
-                                        </div>
-                                    </div>
-                                    <button id="bold" type="button" class="btn btn-primary"><span class="glyphicon glyphicon-bold sb-icons" aria-hidden="true"></span></button>
-                                    <button id="italic" type="button" class="btn btn-primary"><span class="glyphicon glyphicon-italic sb-icons" aria-hidden="true"></span></button>
-                                    <button id="underline" type="button" class="btn btn-primary">Underline</button>
-                                    <button id="undo" type="button" class="btn btn-primary">Undo</button>
-                                    <button id="copy" type="button" class="btn btn-primary">Copy</button>
-                                    <button id="cut" type="button" class="btn btn-primary">Cut</button>
-                                    <button id="delete" type="button" class="btn btn-primary">Delete</button>
-                                    <button id="paste" type="button" class="btn btn-primary">Paste</button>
-                                    <button id="redo" type="button" class="btn btn-primary">Redo</button>-->
+
                                 </div>
                                 <div class="tab-pane" id="shapes">
                                     <div>
@@ -326,35 +186,35 @@
                                     </div>
                                 </div>
                                 <div class="tab-pane" id="settings">
-                                            <div class="container-fluid">
-                                                <div class="row">
-                                                    <div class="col-xs-6">
-                                                        <!--Upload Video Form-->
-                                                        <form method="POST" action="{{ route('uploadVideo') }}" id="form-uploadV" enctype="multipart/form-data">
-                                                            <input id="upVideo" name="upVideo" type="file" style="display:none;" accept=".mpg,.avi,.flv,.mkv,.mov,.mp4,.ogv,.webm,.wmv"/>
-                                                            {{ csrf_field() }}
-                                                            <button id="addVideo" type="button" class="btn btn-success btn-custom"><span class="glyphicon glyphicon-upload" aria-hidden="true"></span> Upload</button>
-                                                        </form>
-                                                    </div>
-                                                    <div class="col-xs-6">
-                                                        <form method="POST" action="{{ route('delVideo') }}" id="del_video">
-                                                            <input id="idVideo" name="idVideo" type="hidden"/>
-                                                            {{ csrf_field() }}
-                                                            <button id="removeVideo" type="button" class="btn-danger btn-custom"><span class="glyphicon glyphicon-erase" aria-hidden="true"></span> Remove</button>
-                                                        </form>
-                                                    </div>
-                                                </div>
-                                                <div class="row">
-                                                    <div class="col-xs-12 zeropdg">
-                                                        <div id='videoError'></div>
-                                                        <div id="dialog" title="Video Upload">
-                                                            <div class="progress-label">Starting upload...</div>
-                                                            <div id="progressbar"></div>
-                                                        </div>
-                                                    </div>
+                                    <div class="container-fluid">
+                                        <div class="row">
+                                            <div class="col-xs-6">
+                                                <!--Upload Video Form-->
+                                                <form method="POST" action="{{ route('uploadVideo') }}" id="form-uploadV" enctype="multipart/form-data">
+                                                    <input id="upVideo" name="upVideo" type="file" style="display:none;" accept=".mpg,.avi,.flv,.mkv,.mov,.mp4,.ogv,.webm,.wmv"/>
+                                                    {{ csrf_field() }}
+                                                    <button id="addVideo" type="button" class="btn btn-success btn-custom"><span class="glyphicon glyphicon-upload" aria-hidden="true"></span> Upload</button>
+                                                </form>
+                                            </div>
+                                            <div class="col-xs-6">
+                                                <form method="POST" action="{{ route('delVideo') }}" id="del_video">
+                                                    <input id="idVideo" name="idVideo" type="hidden"/>
+                                                    {{ csrf_field() }}
+                                                    <button id="removeVideo" type="button" class="btn-danger btn-custom"><span class="glyphicon glyphicon-erase" aria-hidden="true"></span> Remove</button>
+                                                </form>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-xs-12 zeropdg">
+                                                <div id='videoError'></div>
+                                                <div id="dialog" title="Video Upload">
+                                                    <div class="progress-label">Starting upload...</div>
+                                                    <div id="progressbar"></div>
                                                 </div>
                                             </div>
-                                    
+                                        </div>
+                                    </div>
+
                                     <div class="container-fluid">
                                         <div class="row">
                                             <div class="col-xs-6 col-sm-6 zeropdg">
@@ -387,7 +247,7 @@
                                         <span class="slider round"></span>
                                     </label>
                                     <button id="removeObject" type="button" class="btn btn-primary" style="width: 100%">Remove Object</button>
-                                We are going to put some season image to use as background!
+                                    We are going to put some season image to use as background!
                                 </div>
                             </div>
                         </div>
@@ -461,7 +321,7 @@
                             </div>
 
                             <div class="panel-body prueba" id="calendarPanel" style="height:auto">
-                                
+
                                 <div id="imagePrev" class="prueba box" style="border: 5px">
                                     <canvas id="c"></canvas>
                                 </div>
@@ -520,42 +380,36 @@
 <script src="{{ asset('js/calendarBuilder.js') }}"></script>
 <script>
 // Asociative function to call the Input File buton
-$("#addVideo").click(function () {
+    $("#addVideo").click(function () {
     document.getElementById('upVideo').click();
-});
-
+    });
 // Input Video File function
-$("#upVideo").change(function () {
-    
+    $("#upVideo").change(function () {
+
     if (this.files && this.files[0]) {
 
-        var fd = new FormData();
-        fd.append('file', this.files[0]);
-
-        $("#dialog").dialog("open");
-        progressbar = $("#progressbar");
-
-        var $request;
-
-        $request = $.ajax({
-            xhr: function () {
-                var xhr = new window.XMLHttpRequest();
-
-                xhr.upload.addEventListener("progress", function (evt) {
-                    if (evt.lengthComputable) {
-                        var percentComplete = evt.loaded / evt.total;
-                        percentComplete = parseInt(percentComplete * 100);
-                        console.log(percentComplete);
-                        progressbar.progressbar("value", percentComplete);
-                        if (percentComplete === 100) {
-                            $("#dialog").dialog("close");
-                            waitingDialog.show('Please wait while your video is processed!', {dialogSize: 'sm', progressType: 'success'});
-                        }
-                    }
-                }, false);
-
-                return xhr;
-            },
+    var fd = new FormData();
+    fd.append('file', this.files[0]);
+    $("#dialog").dialog("open");
+    progressbar = $("#progressbar");
+    var $request;
+    $request = $.ajax({
+    xhr: function () {
+    var xhr = new window.XMLHttpRequest();
+    xhr.upload.addEventListener("progress", function (evt) {
+    if (evt.lengthComputable) {
+    var percentComplete = evt.loaded / evt.total;
+    percentComplete = parseInt(percentComplete * 100);
+    console.log(percentComplete);
+    progressbar.progressbar("value", percentComplete);
+    if (percentComplete === 100) {
+    $("#dialog").dialog("close");
+    waitingDialog.show('Please wait while your video is processed!', {dialogSize: 'sm', progressType: 'success'});
+    }
+    }
+    }, false);
+    return xhr;
+    },
             type: "POST",
             headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
             url: "{{ route('uploadVideo') }}",
@@ -563,395 +417,359 @@ $("#upVideo").change(function () {
             processData: false,
             data: fd,
             success: function (url) {
-                waitingDialog.hide();
-                    if ($("#video")) {
-                        $("#video").remove();
-                    }
-                    $("#videoDiv").css('visibility', 'visible');
-                    var video = $('<video />', {
-                        id: 'video',
-                        src: '{{ asset("") }}' + url,
-                        autoplay: false,
-                        type: 'video/mp4',
-                        loop: false,
-                        controls: true
-                    });
-                    video.appendTo($('#videoDiv'));
-                    $("#video").css('width', '100%');
-                    $("#video").css('height', '100%');
-                    $("#videoTab").trigger("click");
-                    $( "#saveCalendar" ).trigger( "click" );
+            waitingDialog.hide();
+            if ($("#video")) {
+            $("#video").remove();
+            }
+            $("#videoDiv").css('visibility', 'visible');
+            var video = $('<video />', {
+            id: 'video',
+                    src: '{{ asset("") }}' + url,
+                    autoplay: false,
+                    type: 'video/mp4',
+                    loop: false,
+                    controls: true
+            });
+            video.appendTo($('#videoDiv'));
+            $("#video").css('width', '100%');
+            $("#video").css('height', '100%');
+            $("#videoTab").trigger("click");
+            $("#saveCalendar").trigger("click");
             },
             error: function (data) {
-                try {
-                    waitingDialog.hide();
-                    if (!$('#imageError').html().length) {
-                        $('#imageError').append("<p>" + data.responseJSON.message + "</p>");
-                    }
-                } catch (err) {
-                    console.log(err);
-                }
+            try {
+            waitingDialog.hide();
+            if (!$('#imageError').html().length) {
+            $('#imageError').append("<p>" + data.responseJSON.message + "</p>");
             }
-        });
-        
-        // Cancel Upload Video button
-        $("#cancelUpload").click(function () {
-            if ($request) {
-                $request.abort();
-                $("#dialog").dialog("close");
+            } catch (err) {
+            console.log(err);
             }
-        });
+            }
+    });
+    // Cancel Upload Video button
+    $("#cancelUpload").click(function () {
+    if ($request) {
+    $request.abort();
+    $("#dialog").dialog("close");
+    }
+    });
     }
 
     $("#upVideo").val(null);
     $("#addVideo").focus();
-    
-    
-    
-});
-
+    });
 // Asociative function to call the Input File buton
-$("#addImage").click(function () {
+    $("#addImage").click(function () {
     document.getElementById('upImage').click();
-});
-
+    });
 // Input Image File function
-$("#upImage").change(function () {
+    $("#upImage").change(function () {
 
     if (this.files && this.files[0]) {
 
-        var fd = new FormData();
-        fd.append('file', this.files[0]);
-
-        $.ajax({
-            type: "POST",
+    var fd = new FormData();
+    fd.append('file', this.files[0]);
+    $.ajax({
+    type: "POST",
             headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
             url: "{{ route('uploadImage') }}",
             contentType: false,
             processData: false,
             data: fd,
             success: function (data) {
-                var img = $('<div class="erasable imageContainer"><input type="text" class="closebtn" value="X"><img class="resis" src=" ../../' + data + '"></div>');
-                $('#imagePrev').append(img);
-                $('#imagePrev').droppable();
-                $(".resis").resizable();
-                $(".imageContainer").draggable({ revert: 'invalid' });
+            var img = $('<div class="erasable imageContainer"><input type="text" class="closebtn" value="X"><img class="resis" src=" ../../' + data + '"></div>');
+            $('#imagePrev').append(img);
+            $('#imagePrev').droppable();
+            $(".resis").resizable();
+            $(".imageContainer").draggable({ revert: 'invalid' });
             },
             error: function (data) {
-                alert(data.responseJSON.message);
-                if (!$('#imageError').html().length) {
-                    $('#imageError').append("<p>" + data.responseJSON.message + "</p>");
-                }
-                var salida = JSON.stringify(data);
-                alert(salida);
+            alert(data.responseJSON.message);
+            if (!$('#imageError').html().length) {
+            $('#imageError').append("<p>" + data.responseJSON.message + "</p>");
             }
-        });
+            var salida = JSON.stringify(data);
+            alert(salida);
+            }
+    });
     }
     $("#upImage").val(null);
-});
-
-    
-    
-    
-        
-
+    });
 // Function to setup a predeterminated video
-function changeVideo(id) {
+    function changeVideo(id) {
 
     var url;
-
     switch (id) {
-        case 1:
+    case 1:
             url = "{{ asset('vid/001.mp4') }}";
-            break;
-        case 2:
+    break;
+    case 2:
             url = "{{ asset('vid/002.mp4') }}";
-            break;
-        case 3:
+    break;
+    case 3:
             url = "{{ asset('vid/003.mp4') }}";
-            break;
+    break;
     }
 
     if (!$("#video").is(":visible")) {
-        $("#videoDiv").css('visibility', 'visible');
-        var video = $('<video />', {
-            id: 'video',
+    $("#videoDiv").css('visibility', 'visible');
+    var video = $('<video />', {
+    id: 'video',
             src: url,
             autoplay: true,
             type: 'video/mp4',
             loop: false,
             controls: true
-        });
-        video.appendTo($('#videoDiv'));
-        $("#video").css('width', '100%');
-        $("#video").css('height', '100%');
-
-        $("#videoTab").trigger("click");
+    });
+    video.appendTo($('#videoDiv'));
+    $("#video").css('width', '100%');
+    $("#video").css('height', '100%');
+    $("#videoTab").trigger("click");
     } else {
-        $('#video').attr('src', url);
-        $("#video")[0].load();
+    $('#video').attr('src', url);
+    $("#video")[0].load();
     }
-    
-}
-        
+
+    }
+
 // Function to show the top Layout
-$("#showTopLayout").click(function(){
-           
+    $("#showTopLayout").click(function(){
+
     showTopLayout();
-            
-});
-        
+    });
 // Function to show the left Layout
-$("#showLeftLayout").click(function(){
-            
+    $("#showLeftLayout").click(function(){
+
     showLeftLayout();
-            
-});
-        
-function setObjectsProperties(){
-    
+    });
+    function setObjectsProperties(){
+
     // Image properties
 //    $('.resis').resizable("destroy");
     $(".resis").resizable();
     $(".imageContainer").draggable({ revert: 'invalid' });
     $('#imagePrev').droppable();
-    
     // Text properties
 //    $('.CalTxt1').resizable();
-    
+
     $(".erasable").draggable();
-    
     $(".erasable").click(function () {
-        $(this).draggable({disabled: false, revert: 'invalid'});
+    $(this).draggable({disabled: false, revert: 'invalid'});
     });
-
     $(".erasable").dblclick(function () {
-        $(this).draggable({disabled: true, revert: 'invalid'});
-        $('.CalTxt1').attr('contenteditable', true);
-        $(this).setAttribute('contenteditable', true);
+    $(this).draggable({disabled: true, revert: 'invalid'});
+    $('.CalTxt1').attr('contenteditable', true);
+    $(this).setAttribute('contenteditable', true);
     });
+    }
 
-}
-        
 // Function to show the right Layout
-$("#showRightLayout").click(function(){
-            
+    $("#showRightLayout").click(function(){
+
     showRightLayout();
-            
-});
-        
+    });
 // Function to show the bottom Layout
-$("#showBottomLayout").click(function(){
-            
+    $("#showBottomLayout").click(function(){
+
     showBottomLayout();
-    
-});
-        
-function showBottomLayout(){
+    });
+    function showBottomLayout(){
     // Clean any previous layout
     cleanLayout();
-            
     // Must see if is already visible
     $("#bottomLayout").css('visibility', 'visible');
-    $("#bottomLayout").css('border-color','black');
-    $("#bottomLayout").css('border-style','solid');
-            
+    $("#bottomLayout").css('border-color', 'black');
+    $("#bottomLayout").css('border-style', 'solid');
     // Show top Layout
     $("#bottomLayout").show();
+    }
 
-}
-        
-function showTopLayout(){
+    function showTopLayout(){
     // Clean any previous layout
     cleanLayout();
-            
     // Must see if is already visible
     $("#topLayout").css('visibility', 'visible');
-    $("#topLayout").css('border-color','black');
-    $("#topLayout").css('border-style','solid');
-            
+    $("#topLayout").css('border-color', 'black');
+    $("#topLayout").css('border-style', 'solid');
     // Show top Layout
     $("#topLayout").show();
-}
-        
-function showLeftLayout(){
+    }
+
+    function showLeftLayout(){
     cleanLayout();
-    $("#leftLayout").css('visibility','visible');
-    $("#leftLayout").css('height',$("#calendarCont").height());
-    $("#leftLayout").css('width','25%');
-    $("#leftLayout").css('border-color','black');
-    $("#leftLayout").css('border-style','solid');
-    $("#calendar").css('max-width','75%');
-    $("#calendar").css('float','right');
+    $("#leftLayout").css('visibility', 'visible');
+    $("#leftLayout").css('height', $("#calendarCont").height());
+    $("#leftLayout").css('width', '25%');
+    $("#leftLayout").css('border-color', 'black');
+    $("#leftLayout").css('border-style', 'solid');
+    $("#calendar").css('max-width', '75%');
+    $("#calendar").css('float', 'right');
     $("#leftLayout").show();
-}
-
-function resizeLayout(){
-    if($("#leftLayout").is(":visible")){
-        $("#leftLayout").css('height',$("#calendarCont").height());
     }
-    if($("#rightLayout").is(":visible")){
-        $("#rightLayout").css('height',$("#calendarCont").height());
-    }
-}
 
-function showRightLayout(){
-            
+    function resizeLayout(){
+    if ($("#leftLayout").is(":visible")){
+    $("#leftLayout").css('height', $("#calendarCont").height());
+    }
+    if ($("#rightLayout").is(":visible")){
+    $("#rightLayout").css('height', $("#calendarCont").height());
+    }
+    }
+
+    function showRightLayout(){
+
     cleanLayout();
-    $("#rightLayout").css('visibility','visible');
-    $("#rightLayout").css('height',$("#calendarCont").height());
-    $("#rightLayout").css('width','25%');
-    $("#rightLayout").css('border-color','black');
-    $("#rightLayout").css('border-style','solid');
-    $("#calendar").css('max-width','75%');
-    $("#calendar").css('float','left');
+    $("#rightLayout").css('visibility', 'visible');
+    $("#rightLayout").css('height', $("#calendarCont").height());
+    $("#rightLayout").css('width', '25%');
+    $("#rightLayout").css('border-color', 'black');
+    $("#rightLayout").css('border-style', 'solid');
+    $("#calendar").css('max-width', '75%');
+    $("#calendar").css('float', 'left');
     $("#rightLayout").show();
-            
-}
-        
-function cleanLayout(){
+    }
+
+    function cleanLayout(){
     $("#topLayout").hide();
     $("#bottomLayout").hide();
     $("#leftLayout").hide();
     $("#rightLayout").hide();
-    $("#calendar").css('max-width','100%');
-    $("#calendar").css('float','none');
-};
-        
-$("#noneLayout").click(function(){
+    $("#calendar").css('max-width', '100%');
+    $("#calendar").css('float', 'none');
+    };
+    $("#noneLayout").click(function(){
     cleanLayout();
-});
-
-function getLayout(){
-    if($("#bottomLayout").is(":visible")){
-        return 'bottom';
+    });
+    function getLayout(){
+    if ($("#bottomLayout").is(":visible")){
+    return 'bottom';
     }
-    if($("#rightLayout").is(":visible")){
-        return 'right';
+    if ($("#rightLayout").is(":visible")){
+    return 'right';
     }
-    if($("#leftLayout").is(":visible")){
-        return 'left';
+    if ($("#leftLayout").is(":visible")){
+    return 'left';
     }
-    if($("#topLayout").is(":visible")){
-        return 'top';
+    if ($("#topLayout").is(":visible")){
+    return 'top';
     }
     return 'none';
-}
-
-function loadLayout(){
-    $actualLayout = '{{ $layout }}';
-    switch($actualLayout){
-        case "none":
-            cleanLayout();
-            break;
-        case "top":
-            showTopLayout();
-            break;
-        case "bottom":
-            showBottomLayout();
-            break;
-        case "left":
-            showLeftLayout();
-            break;
-        case "right":
-            showRightLayout();
-            break;
     }
-}
 
-function loadVideo(){
+    function loadLayout(){
+    $actualLayout = '{{ $layout }}';
+    switch ($actualLayout){
+    case "none":
+            cleanLayout();
+    break;
+    case "top":
+            showTopLayout();
+    break;
+    case "bottom":
+            showBottomLayout();
+    break;
+    case "left":
+            showLeftLayout();
+    break;
+    case "right":
+            showRightLayout();
+    break;
+    }
+    }
+
+    function loadVideo(){
     var url = '{{ $video }}'
-    if(url != 'none'){
-        $("#videoDiv").css('visibility', 'visible');
-        var video = $('<video />', {
-            id: 'video',
+            if (url != 'none'){
+    $("#videoDiv").css('visibility', 'visible');
+    var video = $('<video />', {
+    id: 'video',
             src: url,
             autoplay: false,
             type: 'video/mp4',
             loop: false,
             controls: true
-        });
-        video.appendTo($('#videoDiv'));
-        $("#video").css('width', '100%');
-        $("#video").css('height', '100%');
-        $("#videoDiv").show();
+    });
+    video.appendTo($('#videoDiv'));
+    $("#video").css('width', '100%');
+    $("#video").css('height', '100%');
+    $("#videoDiv").show();
     }
-}
+    }
 
 
-function updateTheme(){
+    function updateTheme(){
     $actualThemeC = '{{ $themeC }}'
-    if($actualThemeC == 'jquery-ui'){
-        $actualTheme = '{{ $theme }}';
-        $('#theme').val($actualTheme);
+            if ($actualThemeC == 'jquery-ui'){
+    $actualTheme = '{{ $theme }}';
+    $('#theme').val($actualTheme);
     }
-}
-        
-        
+    }
+
+
 </script>
 
 <script type="text/javascript">
 // Render Image from Calendar    
-$('#saveImage').click(function () {
+    $('#saveImage').click(function () {
     waitingDialog.show('Please wait while your video is created!', {dialogSize: 'sm', progressType: 'danger'});
     $("#calendarTab").trigger("click");
-    
     html2canvas($('#calendarPanel'), {
-        scale: 4,
-        onrendered: function (canvas) {
-                $('#img_val').val(canvas.toDataURL("image/png"));
-                $('#cal_val').val("{{ $id }}");
-        }
+    scale: 4,
+            onrendered: function (canvas) {
+            $('#img_val').val(canvas.toDataURL("image/png"));
+            $('#cal_val').val("{{ $id }}");
+            }
     });
     setTimeout(function(){
     var form = $('#myForm');
     var url = form.attr('action');
     var data = form.serialize();
     $.post(url, data, function(result){
-        waitingDialog.hide();
-            alert(result);
-        }).fail(function(e){
-            waitingDialog.hide();
-            alert (JSON.stringify(e));
-        });
-        }, 4500);
-});
-function getContent(){
+    waitingDialog.hide();
+    alert(result);
+    }).fail(function(e){
+    waitingDialog.hide();
+    alert (JSON.stringify(e));
+    });
+    }, 4500);
+    });
+    function getContent(){
     return '{{ $content }}';
-}
+    }
 
-function getUserID(){
+    function getUserID(){
     return '{{$id}}';
-}
+    }
 
-function getName(){
+    function getName(){
     return '{{$name}}';
-}
+    }
 
-function getYear(){
+    function getYear(){
     return '{{$year}}';
-}
+    }
 
-function getMonth(){
+    function getMonth(){
     return '{{$month}}';
-}
+    }
 
 // Remove video function
-$("#removeVideo").click(function () {
+    $("#removeVideo").click(function () {
     if ($("#video").is(":visible")) {
-        $('#idVideo').val("{{ $id }}");
-        var form = $('#del_video');
-        var url = form.attr('action');
-        var data = form.serialize();
-        $.post(url, data, function(result){
-            $("#video").remove();
-            $("#calendarTab").trigger("click");
-            $( "#saveCalendar" ).trigger( "click" );
-        }).fail(function(e){
-            alert (e.message);
-        });
+    $('#idVideo').val("{{ $id }}");
+    var form = $('#del_video');
+    var url = form.attr('action');
+    var data = form.serialize();
+    $.post(url, data, function(result){
+    $("#video").remove();
+    $("#calendarTab").trigger("click");
+    $("#saveCalendar").trigger("click");
+    }).fail(function(e){
+    alert (e.message);
+    });
     }
-});
+    });
 
 </script>
 @endsection

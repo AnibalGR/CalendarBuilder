@@ -71,7 +71,8 @@ $(document).ready(function () {
     // Give element properties
     setObjectsProperties();
     
-    
+    // Load theme from calendar
+    updateTheme();
     
     // Function to load the calendar
     initThemeChooser({
@@ -100,10 +101,6 @@ $(document).ready(function () {
         }
     });
     
-    // Load theme from calendar
-    updateTheme();
-    
-    
     // Initialize canvas
     var canvas = this.__canvas = new fabric.Canvas('c');
     canvas.loadFromJSON(getContent().replace(/&quot;/g,'"'), canvas.renderAll.bind(canvas));
@@ -121,7 +118,7 @@ $(document).ready(function () {
     setTimeout(function(){
     // resize on init
     resizeCanvas();
-    },200);
+    },400);
     // Add text to canvas
     $('#addText').click(function () {
 
@@ -355,6 +352,25 @@ $(document).ready(function () {
             alert(JSON.stringify(e));
         });
     });
+
+$("#removeObject").click(function(){
+    
+    var activeObject = canvas.getActiveObject();
+    var activeGroup = canvas.getActiveGroup();
+    if(activeGroup != null){
+        
+    }else{
+            
+            canvas.remove(activeObject);
+            
+    }
+        
+        
+
+        
+});
+
+    
 
 
 

@@ -29,8 +29,7 @@
 @endsection
 
 @section('content')
-
-<div class="container-fluid">
+<div class="container-fluid" id="Background-body">
     <div class="row">
         <div class="col-md-12 head-calendar">
 
@@ -73,7 +72,7 @@
                             </ul>
                         </div>
 
-                        <div class="col-xs-6">
+                        <div class="col-xs-9">
                             <!-- Tab panes -->
                             <div class="tab-content">
                                 <div id="contenedor"></div>
@@ -175,14 +174,25 @@
                                     </div>
                                 </div>
                                 <div class="tab-pane" id="messages">
-                                    <div>
-                                        <!--Upload Image Form-->
-                                        <form method="POST" action="{{ route('uploadImage') }}" id="form-upload" enctype="multipart/form-data">
-                                            <input id="upImage" name="upImage" type="file" style="display:none;" accept=".jpg,.jpeg,.png,.svg,.gif"/>
-                                            {{ csrf_field() }}
-                                            <button id="addImage" type="button" class="btn btn-primary">Upload Image</button>
-                                        </form>
-                                        <div id='imageError'></div>
+                                    <div class="container-fluid">
+                                                <div class="row">
+                                                    <div class="col-xs-6">
+                                                        <!--Upload Image Form-->
+                                                        <form method="POST" action="{{ route('uploadImage') }}" id="form-upload" enctype="multipart/form-data">
+                                                            <input id="upImage" name="upImage" type="file" style="display:none;" accept=".jpg,.jpeg,.png,.svg,.gif"/>
+                                                            {{ csrf_field() }}
+                                                            <button id="addImage" type="button" class="btn btn-success btn-custom"><span class="glyphicon glyphicon-upload" aria-hidden="true"></span> Upload</button>
+                                                        </form>
+                                                        <div id='imageError'></div>
+                                                    </div>
+                                                    <div class="col-xs-6">
+                                                        <form method="POST" action="{{ route('delVideo') }}" id="del_video">
+                                                            <input id="idVideo" name="idVideo" type="hidden"/>
+                                                            {{ csrf_field() }}
+                                                            <button id="removeVideo" type="button" class="btn-danger btn-custom"><span class="glyphicon glyphicon-erase" aria-hidden="true"></span> Remove</button>
+                                                        </form>
+                                                    </div>
+                                                </div>
                                     </div>
                                 </div>
                                 <div class="tab-pane" id="settings">
@@ -217,21 +227,44 @@
 
                                     <div class="container-fluid">
                                         <div class="row">
-                                            <div class="col-xs-6 col-sm-6 zeropdg">
+                                            <div class="col-xs-6 col-sm-6 zeropdg-2">
                                                 <div class="addVideoBox">
                                                     <img id="addVideo1" src="{{ asset('img/thumb/video-1.jpg') }}" class="img-responsive" height="75px" width="150px">
                                                 </div>
                                                 <div class="addVideoBox">
-                                                    <img id="addVideo2" src="{{ asset('img/thumb/video-3.jpg') }}" class="img-responsive" height="75px" width="150px">
+                                                    <img id="addVideo2" src="{{ asset('img/thumb/video-2.jpg') }}" class="img-responsive" height="75px" width="150px">
                                                 </div>
                                                 <div class="addVideoBox">
-                                                    <img id="addVideo3" src="{{ asset('img/thumb/video-2.jpg') }}" class="img-responsive" height="75px" width="150px">
+                                                    <img id="addVideo3" src="{{ asset('img/thumb/video-3.jpg') }}" class="img-responsive" height="75px" width="150px">
                                                 </div>
                                                 <div class="addVideoBox">
-                                                    <img id="addVideo4" src="{{ asset('img/thumb/video-1.jpg') }}" class="img-responsive" height="75px" width="150px">
+                                                    <img id="addVideo4" src="{{ asset('img/thumb/video-4.jpg') }}" class="img-responsive" height="75px" width="150px">
                                                 </div>
                                                 <div class="addVideoBox">
-                                                    <img id="addVideo5" src="{{ asset('img/thumb/video-2.jpg') }}" class="img-responsive" height="75px" width="150px">
+                                                    <img id="addVideo5" src="{{ asset('img/thumb/video-5.jpg') }}" class="img-responsive" height="75px" width="150px">
+                                                </div>
+                                                <div class="addVideoBox">
+                                                    <img id="addVideo6" src="{{ asset('img/thumb/video-6.jpg') }}" class="img-responsive" height="75px" width="150px">
+                                                </div>
+                                            </div>
+                                            <div class="col-xs-6 col-sm-6 zeropdg-2">
+                                                <div class="addVideoBox">
+                                                    <img id="addVideo7" src="{{ asset('img/thumb/video-7.jpg') }}" class="img-responsive" height="75px" width="150px">
+                                                </div>
+                                                <div class="addVideoBox">
+                                                    <img id="addVideo8" src="{{ asset('img/thumb/video-8.jpg') }}" class="img-responsive" height="75px" width="150px">
+                                                </div>
+                                                <div class="addVideoBox">
+                                                    <img id="addVideo9" src="{{ asset('img/thumb/video-9.jpg') }}" class="img-responsive" height="75px" width="150px">
+                                                </div>
+                                                <div class="addVideoBox">
+                                                    <img id="addVideo10" src="{{ asset('img/thumb/video-10.jpg') }}" class="img-responsive" height="75px" width="150px">
+                                                </div>
+                                                <div class="addVideoBox">
+                                                    <img id="addVideo11" src="{{ asset('img/thumb/video-11.jpg') }}" class="img-responsive" height="75px" width="150px">
+                                                </div>
+                                                <div class="addVideoBox">
+                                                    <img id="addVideo12" src="{{ asset('img/thumb/video-12.jpg') }}" class="img-responsive" height="75px" width="150px">
                                                 </div>
                                             </div>
                                         </div>
@@ -509,7 +542,38 @@
     break;
     case 3:
             url = "{{ asset('vid/003.mp4') }}";
+<<<<<<< HEAD
     break;
+=======
+            break;
+        case 4:
+            url = "{{ asset('vid/004.mp4') }}";
+            break;
+        case 5:
+            url = "{{ asset('vid/005.mp4') }}";
+            break;
+        case 6:
+            url = "{{ asset('vid/006.mp4') }}";
+            break;
+        case 7:
+            url = "{{ asset('vid/007.mp4') }}";
+            break;
+        case 8:
+            url = "{{ asset('vid/008.mp4') }}";
+            break;
+        case 9:
+            url = "{{ asset('vid/009.mp4') }}";
+            break;
+        case 10:
+            url = "{{ asset('vid/010.mp4') }}";
+            break;
+        case 11:
+            url = "{{ asset('vid/011.mp4') }}";
+            break;
+        case 12:
+            url = "{{ asset('vid/012.mp4') }}";
+            break;
+>>>>>>> bf7ffe0d1389fcc7db998eca90d4dfcf0d9ae0ae
     }
 
     if (!$("#video").is(":visible")) {

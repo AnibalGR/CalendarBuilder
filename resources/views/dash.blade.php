@@ -17,9 +17,10 @@ use Carbon\Carbon;
             <div class="panel panel-default">
                 <div class="panel-heading">My Calendars</div>
                 <div class="panel-body">
+                    <div id='calendarsShow'>
                     @if (!$calendars->isEmpty())
                     <div class="table-responsive">
-                        <table class="table-bordered table-striped">
+                        <table class="table-bordered table-striped" id="calendarsTable">
                             <tr>
                                 <td>Name</td>
                                 <td colspan="2">Actions</td>
@@ -38,6 +39,7 @@ use Carbon\Carbon;
                     @else
                     You don´t have any calendar created
                     @endif
+                    </div>
                     <br>
                     <button class="panel-default" id='onclick'>Create new Calendar</button>
                 </div>
@@ -104,7 +106,7 @@ use Carbon\Carbon;
 
 <!--New Calendar Form -->
 <div id="contactdiv">
-    <form class="form" method="POST" action="{{ route('home') }}" id="contact">
+    <form class="form" method="POST" action="{{ route('calendarBuilder') }}" id="contact">
         {{ csrf_field() }}
         <img src="{{ asset('img/delete-element.png') }}" class="img" id="cancel"/>
         <h3>Create New Calendar</h3>

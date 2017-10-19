@@ -24,7 +24,7 @@
 
 
 @section('customButtons')
-<button id="saveImage">Generate Calendar Video</button>
+<button id="generateVideo">Generate Calendar Video</button>
 <button id="saveCalendar">Save Calendar</button>
 @endsection
 
@@ -184,13 +184,6 @@
                                                     <button id="addImage" type="button" class="btn btn-success btn-custom"><span class="glyphicon glyphicon-upload" aria-hidden="true"></span> Upload</button>
                                                 </form>
                                                 <div id='imageError'></div>
-                                            </div>
-                                            <div class="col-xs-6">
-                                                <form method="POST" action="{{ route('delVideo') }}" id="del_video">
-                                                    <input id="idVideo" name="idVideo" type="hidden"/>
-                                                    {{ csrf_field() }}
-                                                    <button id="removeVideo" type="button" class="btn-danger btn-custom"><span class="glyphicon glyphicon-erase" aria-hidden="true"></span> Remove</button>
-                                                </form>
                                             </div>
                                         </div>
                                     </div>
@@ -773,7 +766,7 @@
 
 <script type="text/javascript">
 // Render Image from Calendar    
-    $('#saveImage').click(function () {
+    $('#generateVideo').click(function () {
     waitingDialog.show('Please wait while your video is created!', {dialogSize: 'sm', progressType: 'danger'});
     $("#calendarTab").trigger("click");
     html2canvas($('#calendarPanel'), {

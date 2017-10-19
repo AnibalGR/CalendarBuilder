@@ -32,13 +32,13 @@ Route::group(['middleware' => 'auth'], function () {
     Route::post('/subscribe', 'SubscriptionsController@store');
     
     // The main user interface (Dashboard)
-    Route::get('/dashboard', 'HomeController@dashboard')->name('dash');
+    Route::get('/dashboard', 'HomeController@showDashboard')->name('dash');
     
     // Route to the delete calendar
-    Route::delete('/delete_calendar/{id}', 'HomeController@deleteCalendar')->name('deleteCalendar');
+    Route::delete('/delete_calendar/{id}', 'CalendarController@deleteCalendar')->name('deleteCalendar');
     
     // Route to the save calendar
-    Route::post('/save_calendar', 'HomeController@saveCalendar')->name('saveCalendar');
+    Route::post('/save_calendar', 'CalendarController@saveCalendar')->name('saveCalendar');
     
     // Route to generate video
     Route::post('/generateV', 'HomeController@generateVideo')->name('generateVideo');
@@ -48,6 +48,7 @@ Route::group(['middleware' => 'auth'], function () {
     
     // Route to delete video from calendar
     Route::post('/delVideo', 'VideoController@removeVideo')->name('delVideo');
+    
     // Route to upload the image files
     Route::post('/upload', 'HomeController@uploadImage')->name('uploadImage');
     
@@ -55,14 +56,14 @@ Route::group(['middleware' => 'auth'], function () {
     Route::post('/uploadV', 'HomeController@uploadVideo')->name('uploadVideo');
     
     // Route to edit the calendars
-    Route::get('/edit_calendar/{id}', 'HomeController@editCalendar')->name('editCalendar');
+    Route::get('/edit_calendar/{id}', 'CalendarController@editCalendar')->name('editCalendar');
 });
 
 // Routes for the user´s autentication
 Auth::routes();
 
 // This is the calendar builder URL
-Route::post('/home', 'HomeController@index')->name('home');
+Route::post('/calendar-builder', 'CalendarController@showCalendarBuilder')->name('calendarBuilder');
 
 // This is the calendar builder URL
 Route::get('/home', function(){

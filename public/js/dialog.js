@@ -33,17 +33,24 @@
         e.preventDefault();
         
         var row = $(this).parents('tr');
+        var rowCount = $('#calendarsTable tr').length;
         var id = row.data('id');
         var form = $('#form-delete');
         var url = form.attr('action').replace(':USER_ID', id);
         var data = form.serialize();
         
         $.post(url, data, function(result){
-        
-            row.fadeOut();
             
-        }).fail(function(){
-            alert ('The calendar has not been removed');
+            row.fadeOut();
+            row.remove();
+            
+            if(rowCount == 2){
+                $("#calendarsTable").remove();
+                $("#calendarsShow").append("You don´t have any calendar created");
+            }
+            
+        }).fail(function(e){
+            alert (JSON.stringify(e));
         });
         
     });

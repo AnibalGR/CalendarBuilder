@@ -1,6 +1,6 @@
 .env
 nbproject/private/private.xml
-nbproject
+nbproject/*
 *.xml
 public/images/*
 public/temp/*

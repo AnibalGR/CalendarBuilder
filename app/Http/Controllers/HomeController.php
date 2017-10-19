@@ -151,18 +151,6 @@ class HomeController extends Controller {
             return $e->getMessage();
         }
     }
-
-
-
-    /**
-     * Save the specified Calendar to storage
-     *
-     * @param int $calendar_id
-     * @param Request $request
-     * @return Response
-     */
-    
-
     /**
      * Upload the file to the hard drive
      *

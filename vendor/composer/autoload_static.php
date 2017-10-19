@@ -342,7 +342,6 @@ class ComposerStaticInit9f89a4b94e450acaa2fc5b97a1a65edc
 
     public static $classMap = array (
         'App\\Calendar' => __DIR__ . '/../..' . '/app/Calendar.php',
-        'App\\Calendar_Page' => __DIR__ . '/../..' . '/app/Calendar_Page.php',
         'App\\Console\\Commands\\SyncPlans' => __DIR__ . '/../..' . '/app/Console/Commands/SyncPlans.php',
         'App\\Console\\Kernel' => __DIR__ . '/../..' . '/app/Console/Kernel.php',
         'App\\Exceptions\\Handler' => __DIR__ . '/../..' . '/app/Exceptions/Handler.php',
@@ -351,6 +350,7 @@ class ComposerStaticInit9f89a4b94e450acaa2fc5b97a1a65edc
         'App\\Http\\Controllers\\Auth\\RegisterController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/RegisterController.php',
         'App\\Http\\Controllers\\Auth\\ResetPasswordController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/ResetPasswordController.php',
         'App\\Http\\Controllers\\BraintreeTokenController' => __DIR__ . '/../..' . '/app/Http/Controllers/BraintreeTokenController.php',
+        'App\\Http\\Controllers\\CalendarController' => __DIR__ . '/../..' . '/app/Http/Controllers/CalendarController.php',
         'App\\Http\\Controllers\\Controller' => __DIR__ . '/../..' . '/app/Http/Controllers/Controller.php',
         'App\\Http\\Controllers\\HomeController' => __DIR__ . '/../..' . '/app/Http/Controllers/HomeController.php',
         'App\\Http\\Controllers\\PlansController' => __DIR__ . '/../..' . '/app/Http/Controllers/PlansController.php',

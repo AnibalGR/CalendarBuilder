@@ -26,6 +26,10 @@
 @section('customButtons')
 <button id="generateVideo">Generate Calendar Video</button>
 <button id="saveCalendar">Save Calendar</button>
+<div>
+    <label for="calendarColor">Calendar color:</label>
+    <input type="color" value="" id="calendarColor" size="5">
+</div>
 @endsection
 
 @section('content')

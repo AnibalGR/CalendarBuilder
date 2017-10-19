@@ -9,6 +9,6 @@ class Calendar extends Model
 {
     //
     protected $fillable = ['user_id', 'name', 'year', 'month', 'theme', 'themeC', 
-        'layout', 'background', 'video', 'content'];
+        'layout', 'background','color', 'video', 'content'];
     
 }

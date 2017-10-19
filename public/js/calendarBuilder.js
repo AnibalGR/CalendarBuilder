@@ -404,6 +404,15 @@ $("#removeObject").click(function(){
         
 });
 
+    $('#calendarColor').change(function () {
+        alert(this.value);
+        $(".fc-center h2").css("color",this.value);
+        $(".fc-day-header span").css("color",this.value);
+        $(".fc-day-header").css("color",this.value);
+        $(".fc-widget-content a").css("color",this.value);
+        $(".ui-widget-content a").css("color",this.value);
+        alert($(".fc-center h2").css("color"));
+    });
     
 
 

@@ -21,6 +21,50 @@ $("#addVideo3").click(function () {
     changeVideo(3);
 });
 
+// Add "Video 4" event listener
+$("#addVideo4").click(function () {
+    changeVideo(4);
+});
+
+// Add "Video 5" event listener
+$("#addVideo5").click(function () {
+    changeVideo(5);
+});
+
+// Add "Video 6" event listener
+$("#addVideo6").click(function () {
+    changeVideo(6);
+});
+
+// Add "Video 7" event listener
+$("#addVideo7").click(function () {
+    changeVideo(7);
+});
+
+// Add "Video 3" event listener
+$("#addVideo8").click(function () {
+    changeVideo(8);
+});
+
+// Add "Video 9" event listener
+$("#addVideo9").click(function () {
+    changeVideo(9);
+});
+
+// Add "Video 10" event listener
+$("#addVideo10").click(function () {
+    changeVideo(10);
+});
+
+// Add "Video 11" event listener
+$("#addVideo11").click(function () {
+    changeVideo(11);
+});
+
+// Add "Video 12" event listener
+$("#addVideo12").click(function () {
+    changeVideo(12);
+});
 
 // We configure the button whose create a new text object
 $("#addButton").click(function () {
@@ -356,17 +400,7 @@ $(document).ready(function () {
 $("#removeObject").click(function(){
     
     var activeObject = canvas.getActiveObject();
-    var activeGroup = canvas.getActiveGroup();
-    if(activeGroup != null){
-        
-    }else{
-            
-            canvas.remove(activeObject);
-            
-    }
-        
-        
-
+    canvas.remove(activeObject);
         
 });
 

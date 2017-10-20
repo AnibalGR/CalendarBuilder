@@ -513,8 +513,10 @@
         <input id="monthCal" name="monthCal" type="text" style="visibility: hidden">
         <input id="themeCCal" name="themeCCal" type="text" style="visibility: hidden">
         <input id="themeCal" name="themeCal" type="text" style="visibility: hidden">
-        <input id="videoCal" name="videoCal" type="text" style="visibility: hidden">
         <input id="layoutCal" name="layoutCal" type="text" style="visibility: hidden">
+        <input id="backgroundCal" name="backgroundCal" type="text" style="visibility: hidden">
+        <input id="colorCal" name="colorCal" type="text" style="visibility: hidden">
+        <input id="videoCal" name="videoCal" type="text" style="visibility: hidden">
         <textarea id="contentCal" name="contentCal" form="form-save" maxlength="50000" style="visibility: hidden"></textarea>
         {{ csrf_field() }}
     </form>
@@ -942,6 +944,10 @@
 
     function getMonth(){
     return '{{$month}}';
+    }
+    
+    function getColor(){
+        return '{{ $color }}';
     }
 
 // Remove video function

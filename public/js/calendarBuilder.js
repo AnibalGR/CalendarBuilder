@@ -134,7 +134,7 @@ $(document).ready(function () {
                 navLinks: true,
                 editable: true,
                 eventLimit: true,
-                showNonCurrentDates: false,
+                showNonCurrentDates: true
             });
             
             resizeLayout();
@@ -162,6 +162,7 @@ $(document).ready(function () {
     setTimeout(function(){
     // resize on init
     resizeCanvas();
+    loadColor();
     },400);
     // Add text to canvas
     $('#addText').click(function () {
@@ -386,7 +387,7 @@ $(document).ready(function () {
         $('#themeCal').val($theme);
         $('#layoutCal').val($layout);
         $('#backgroundCal').val("none");
-        $('#colorCal').val("none");
+//        $('#colorCal').val("none");
         $('#videoCal').val($src);
         $('#contentCal').val(JSON.stringify(canvas));
         var form = $('#form-save');
@@ -407,17 +408,26 @@ $("#removeObject").click(function(){
 });
 
     $('#calendarColor').change(function () {
-        alert(this.value);
         $(".fc-center h2").css("color",this.value);
         $(".fc-day-header span").css("color",this.value);
         $(".fc-day-header").css("color",this.value);
         $(".fc-widget-content a").css("color",this.value);
         $(".fc-future a").css("color",this.value);
         $(".fc-past a").css("color",this.value);
-        alert($(".fc-center h2").css("color"));
+        $('#colorCal').val(String(this.value));     
     });
     
-
+    function loadColor(){
+        var color = getColor();
+        $(".fc-center h2").css("color",color);
+        $(".fc-day-header span").css("color",color);
+        $(".fc-day-header").css("color",color);
+        $(".fc-widget-content a").css("color",color);
+        $(".fc-future a").css("color",color);
+        $(".fc-past a").css("color",color);
+        $('#colorCal').val(String(color));
+        $('#calendarColor').val(color);
+    }
 
 
 });

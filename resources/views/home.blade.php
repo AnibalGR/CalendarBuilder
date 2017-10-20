@@ -75,21 +75,39 @@
                             <div class="tab-content">
                                 <div id="contenedor"></div>
                                 <div class="tab-pane active" id="home">
-                                    <div class="layoutType">
-                                        <img id="noneLayout" src="{{ asset('img/thumb/layout-1.jpg') }}" class="img-responsive" height="100px" width="150px">
-                                    </div>
-                                    <div class="layoutType">
-                                        <img id="showTopLayout" src="{{ asset('img/thumb/layout-2.jpg') }}" class="img-responsive" height="100px" width="150px">
-                                    </div>
-
-                                    <div class="layoutType">
-                                        <img id="showBottomLayout" src="{{ asset('img/thumb/layout-3.jpg') }}" class="img-responsive" height="100px" width="150px">
-                                    </div>
-                                    <div class="layoutType">
-                                        <img id="showLeftLayout" src="{{ asset('img/thumb/layout-4.jpg') }}" class="img-responsive" height="100px" width="150px">
-                                    </div>
-                                    <div class="layoutType">
-                                        <img id="showRightLayout" src="{{ asset('img/thumb/layout-5.jpg') }}" class="img-responsive" height="100px" width="150px">
+                                    <div class="container-fluid">
+                                        <div class="row">
+                                            <div class="col-xs-12 text-center">
+                                                <div class="layoutType">
+                                                    <button id="noneLayout" type="button" class="btn-danger btn-custom"><span class="glyphicon glyphicon-erase" aria-hidden="true"></span>Remove Layout</button>
+                                                    <!--<img id="noneLayout" src="{{ asset('img/thumb/layout-1.jpg') }}" class="img-responsive" height="100px" width="150px">-->
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-xs-6">
+                                                <div class="layoutType">
+                                                    <img id="showTopLayout" src="{{ asset('img/thumb/layout-2.jpg') }}" class="img-responsive" height="100px" width="150px">
+                                                </div>
+                                            </div>
+                                            <div class="col-xs-6">
+                                                <div class="layoutType">
+                                                    <img id="showBottomLayout" src="{{ asset('img/thumb/layout-3.jpg') }}" class="img-responsive" height="100px" width="150px">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-xs-6">
+                                                <div class="layoutType">
+                                                    <img id="showLeftLayout" src="{{ asset('img/thumb/layout-4.jpg') }}" class="img-responsive" height="100px" width="150px">
+                                                </div>
+                                            </div>
+                                            <div class="col-xs-6">
+                                                <div class="layoutType">
+                                                    <img id="showRightLayout" src="{{ asset('img/thumb/layout-5.jpg') }}" class="img-responsive" height="100px" width="150px">
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="tab-pane" id="profile">
@@ -183,6 +201,52 @@
                                                 </form>
                                                 <div id='imageError'></div>
                                             </div>
+                                            <div class="col-xs-6">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="container-fluid">
+                                        <div class="row">
+                                            <div class="col-xs-6 col-sm-6 zeropdg-2">
+                                                <div class="addImgBox">
+                                                    <img id="addImg1" src="{{ asset('img/thumb/video-1.jpg') }}" class="img-responsive" height="75px" width="150px">
+                                                </div>
+                                                <div class="addImgBox">
+                                                    <img id="addImg2" src="{{ asset('img/thumb/video-2.jpg') }}" class="img-responsive" height="75px" width="150px">
+                                                </div>
+                                                <div class="addImgBox">
+                                                    <img id="addImg3" src="{{ asset('img/thumb/video-3.jpg') }}" class="img-responsive" height="75px" width="150px">
+                                                </div>
+                                                <div class="addImgBox">
+                                                    <img id="addImg4" src="{{ asset('img/thumb/video-4.jpg') }}" class="img-responsive" height="75px" width="150px">
+                                                </div>
+                                                <div class="addImgBox">
+                                                    <img id="addImg5" src="{{ asset('img/thumb/video-5.jpg') }}" class="img-responsive" height="75px" width="150px">
+                                                </div>
+                                                <div class="addImgBox">
+                                                    <img id="addImg6" src="{{ asset('img/thumb/video-6.jpg') }}" class="img-responsive" height="75px" width="150px">
+                                                </div>
+                                            </div>
+                                            <div class="col-xs-6 col-sm-6 zeropdg-2">
+                                                <div class="addImgBox">
+                                                    <img id="addImg7" src="{{ asset('img/thumb/video-7.jpg') }}" class="img-responsive" height="75px" width="150px">
+                                                </div>
+                                                <div class="addImgBox">
+                                                    <img id="addImg8" src="{{ asset('img/thumb/video-8.jpg') }}" class="img-responsive" height="75px" width="150px">
+                                                </div>
+                                                <div class="addImgBox">
+                                                    <img id="addImg9" src="{{ asset('img/thumb/video-9.jpg') }}" class="img-responsive" height="75px" width="150px">
+                                                </div>
+                                                <div class="addImgBox">
+                                                    <img id="addImg10" src="{{ asset('img/thumb/video-10.jpg') }}" class="img-responsive" height="75px" width="150px">
+                                                </div>
+                                                <div class="addImgBox">
+                                                    <img id="addImg11" src="{{ asset('img/thumb/video-11.jpg') }}" class="img-responsive" height="75px" width="150px">
+                                                </div>
+                                                <div class="addImgBox">
+                                                    <img id="addImg12" src="{{ asset('img/thumb/video-12.jpg') }}" class="img-responsive" height="75px" width="150px">
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -262,16 +326,66 @@
                                     </div>
                                 </div>    
                                 <div class="tab-pane" id="Background">
-                                    <div class="addVideoBox">
-                                        <img id="addVideo5" src="{{ asset('img/thumb/video-2.jpg') }}" class="img-responsive" height="75px" width="150px">
+                                    <div class="container-fluid">
+                                        <div class="row">
+                                            <div class="col-xs-6">
+                                                <!--Upload Image Form-->
+                                                <form method="POST" action="{{ route('uploadImage') }}" id="form-upload" enctype="multipart/form-data">
+                                                    <input id="upBgImg" name="upImage" type="file" style="display:none;" accept=".jpg,.jpeg,.png,.svg,.gif"/>
+                                                    {{ csrf_field() }}
+                                                    <button id="addBgImg" type="button" class="btn btn-success btn-custom"><span class="glyphicon glyphicon-upload" aria-hidden="true"></span> Upload</button>
+                                                </form>
+                                                <div id='imageError'></div>
+                                            </div>
+                                            <div class="col-xs-6">
+                                            </div>
+                                        </div>
                                     </div>
-                                    <!-- Rounded switch -->
-                                    <label class="switch" >
-                                        <input type="checkbox" id="delObject">
-                                        <span class="slider round"></span>
-                                    </label>
+                                    <div class="container-fluid">
+                                        <div class="row">
+                                            <div class="col-xs-6 col-sm-6 zeropdg-2">
+                                                <div class="addBgBox">
+                                                    <img id="addBg1" src="{{ asset('img/thumb/video-1.jpg') }}" class="img-responsive" height="75px" width="150px">
+                                                </div>
+                                                <div class="addBgBox">
+                                                    <img id="addBg2" src="{{ asset('img/thumb/video-2.jpg') }}" class="img-responsive" height="75px" width="150px">
+                                                </div>
+                                                <div class="addBgBox">
+                                                    <img id="addBg3" src="{{ asset('img/thumb/video-3.jpg') }}" class="img-responsive" height="75px" width="150px">
+                                                </div>
+                                                <div class="addBgBox">
+                                                    <img id="addBg4" src="{{ asset('img/thumb/video-4.jpg') }}" class="img-responsive" height="75px" width="150px">
+                                                </div>
+                                                <div class="addBgBox">
+                                                    <img id="addBg5" src="{{ asset('img/thumb/video-5.jpg') }}" class="img-responsive" height="75px" width="150px">
+                                                </div>
+                                                <div class="addBgBox">
+                                                    <img id="addBg6" src="{{ asset('img/thumb/video-6.jpg') }}" class="img-responsive" height="75px" width="150px">
+                                                </div>
+                                            </div>
+                                            <div class="col-xs-6 col-sm-6 zeropdg-2">
+                                                <div class="addBgBox">
+                                                    <img id="addBg7" src="{{ asset('img/thumb/video-7.jpg') }}" class="img-responsive" height="75px" width="150px">
+                                                </div>
+                                                <div class="addBgBox">
+                                                    <img id="addBg8" src="{{ asset('img/thumb/video-8.jpg') }}" class="img-responsive" height="75px" width="150px">
+                                                </div>
+                                                <div class="addBgBox">
+                                                    <img id="addBg9" src="{{ asset('img/thumb/video-9.jpg') }}" class="img-responsive" height="75px" width="150px">
+                                                </div>
+                                                <div class="addBgBox">
+                                                    <img id="addBg10" src="{{ asset('img/thumb/video-10.jpg') }}" class="img-responsive" height="75px" width="150px">
+                                                </div>
+                                                <div class="addBgBox">
+                                                    <img id="addBg11" src="{{ asset('img/thumb/video-11.jpg') }}" class="img-responsive" height="75px" width="150px">
+                                                </div>
+                                                <div class="addBgBox">
+                                                    <img id="addBg12" src="{{ asset('img/thumb/video-12.jpg') }}" class="img-responsive" height="75px" width="150px">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
                                     
-                                    We are going to put some season image to use as background!
                                 </div>
                             </div>
                         </div>

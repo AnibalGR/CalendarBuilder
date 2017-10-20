@@ -22,21 +22,15 @@
 </style>
 @endsection
 
-
-@section('customButtons')
-<button id="generateVideo">Generate Calendar Video</button>
-<button id="saveCalendar">Save Calendar</button>
-<div>
-    <label for="calendarColor">Calendar color:</label>
-    <input type="color" value="" id="calendarColor" size="5">
-</div>
-@endsection
-
 @section('content')
 <div class="container-fluid" id="Background-body">
     <div class="row">
         <div class="col-md-12 head-calendar">
-
+            <button id="removeObject" type="button" class="btn btn-primary" style="width: 100%">Remove Object</button>
+            <button id="generateVideo">Generate Calendar Video</button>
+            <button id="saveCalendar">Save Calendar</button>
+            <label for="calendarColor">Calendar color:</label>
+            <input type="color" value="" id="calendarColor" size="5">
         </div>
     </div>
     <div class="row">
@@ -276,7 +270,7 @@
                                         <input type="checkbox" id="delObject">
                                         <span class="slider round"></span>
                                     </label>
-                                    <button id="removeObject" type="button" class="btn btn-primary" style="width: 100%">Remove Object</button>
+                                    
                                     We are going to put some season image to use as background!
                                 </div>
                             </div>

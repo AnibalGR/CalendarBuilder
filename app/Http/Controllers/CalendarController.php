@@ -54,6 +54,8 @@ class CalendarController extends Controller {
             $calendar->theme = $request->themeCal;
             $calendar->themeC = $request->themeCCal;
             $calendar->layout = $request->layoutCal;
+            $calendar->background = $request->backgroundCal;
+            $calendar->color = $request->colorCal;
             $calendar->video = $request->videoCal;
             $calendar->content = $request->contentCal;
             if ($calendar->save()) {

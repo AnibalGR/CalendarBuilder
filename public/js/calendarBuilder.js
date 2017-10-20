@@ -385,6 +385,8 @@ $(document).ready(function () {
         $('#themeCCal').val($themeCategory);
         $('#themeCal').val($theme);
         $('#layoutCal').val($layout);
+        $('#backgroundCal').val("none");
+        $('#colorCal').val("none");
         $('#videoCal').val($src);
         $('#contentCal').val(JSON.stringify(canvas));
         var form = $('#form-save');
@@ -410,7 +412,8 @@ $("#removeObject").click(function(){
         $(".fc-day-header span").css("color",this.value);
         $(".fc-day-header").css("color",this.value);
         $(".fc-widget-content a").css("color",this.value);
-        $(".ui-widget-content a").css("color",this.value);
+        $(".fc-future a").css("color",this.value);
+        $(".fc-past a").css("color",this.value);
         alert($(".fc-center h2").css("color"));
     });
     

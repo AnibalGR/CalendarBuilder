@@ -111,7 +111,7 @@
                                     </div>
                                 </div>
                                 <div class="tab-pane" id="profile">
-                                    <button id="addText" class="btn-primary">Add Texto</button>
+                                    <button id="addText" type="button" class="btn btn-primary btn-custom"><span class="fa fa-text-width" aria-hidden="true"></span> Add Texto</button>
                                     <div id="text-wrapper" style="margin-top: 10px" ng-show="getText()">
 
                                         <div id="text-controls">
@@ -180,13 +180,31 @@
 
                                 </div>
                                 <div class="tab-pane" id="shapes">
-                                    <div>
-                                        <button id="addRect" type="button" class="btn btn-primary">Add Rectangle</button>
-                                        <button id="addCircle" type="button" class="btn btn-primary">Add Circle</button>
-                                        <button id="addTriangle" type="button" class="btn btn-primary">Add Triangle</button>
-                                        <button id="addLine" type="button" class="btn btn-primary">Add Line</button>
-                                        <button id="addStar4" type="button" class="btn btn-primary">Add Star (4 edges)</button>
-                                        <button id="addStar5" type="button" class="btn btn-primary">Add Star (5 edges)</button>
+                                    <div class="container-fluid">
+                                        <div class="row">
+                                            <div class="col-xs-6">
+                                                <button id="addRect" type="button" class="btn btn-primary btn-custom">Add Rectangle</button>
+                                            </div>
+                                            <div class="col-xs-6">
+                                                <button id="addLine" type="button" class="btn btn-primary btn-custom">Add Line</button>    
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-xs-6">
+                                                <button id="addCircle" type="button" class="btn btn-primary btn-custom">Add Circle</button>
+                                            </div>
+                                            <div class="col-xs-6">
+                                                <button id="addStar4" type="button" class="btn btn-primary btn-custom">Add Star (4 edges)</button>    
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-xs-6">
+                                                <button id="addTriangle" type="button" class="btn btn-primary btn-custom">Add Triangle</button>
+                                            </div>
+                                            <div class="col-xs-6">
+                                                <button id="addStar5" type="button" class="btn btn-primary btn-custom">Add Star (5 edges)</button>    
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="tab-pane" id="messages">
@@ -338,6 +356,11 @@
                                                 <div id='imageError'></div>
                                             </div>
                                             <div class="col-xs-6">
+                                                <form method="POST" action="{{ route('uploadImage') }}" id="form-upload" enctype="multipart/form-data">
+                                                    <input id="upBgImg" name="upImage" type="file" style="display:none;" accept=".jpg,.jpeg,.png,.svg,.gif"/>
+                                                    {{ csrf_field() }}
+                                                    <button id="removeBg" type="button" class="btn-danger btn-custom"><span class="glyphicon glyphicon-erase" aria-hidden="true"></span> Remove</button>
+                                                </form>
                                             </div>
                                         </div>
                                     </div>

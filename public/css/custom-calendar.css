@@ -211,6 +211,19 @@ border-radius: 5px;
     border: 1px solid transparent;
     border-radius: 4px;
 }
+/***************Texto*******************/
+.tab-pane{
+    color:#ffffff;
+    line-height: 1.5;
+    font-family: 'Open Sans', sans-serif;
+    padding-bottom: 40px;
+}
+.tab-pane label{
+    color:#ffffff;
+    line-height: 2.5;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 400;
+}
 /*************Anibal CSS*****************/        
         
 #imagePrev {

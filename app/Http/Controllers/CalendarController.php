@@ -73,7 +73,7 @@ class CalendarController extends Controller {
 
         if ($calendar) {
             if ($calendar->user_id == Auth::id()) {
-                return view('home', ['id' => $calendar->id, 'name' => $calendar->name, 'year' => $calendar->year, 'month' => $calendar->month, 'themeC' => $calendar->themeC, 'theme' => $calendar->theme, 'layout' => $calendar->layout, 'background' => $calendar->background, 'video' => $calendar->video, 'content' => $calendar->content]);
+                return view('home', ['id' => $calendar->id, 'name' => $calendar->name, 'year' => $calendar->year, 'month' => $calendar->month, 'themeC' => $calendar->themeC, 'theme' => $calendar->theme, 'layout' => $calendar->layout, 'background' => $calendar->background, 'color' => $calendar->color, 'video' => $calendar->video, 'content' => $calendar->content]);
             }
         }
         return redirect()->back();

@@ -368,42 +368,42 @@
                                         <div class="row">
                                             <div class="col-xs-6 col-sm-6 zeropdg-2">
                                                 <div class="addBgBox">
-                                                    <img id="addBg1" src="{{ asset('img/thumb/video-1.jpg') }}" class="img-responsive" height="75px" width="150px">
+                                                    <img id="addBg1" src="{{ asset('img/backgrounds/thumbs/april_showers_thumb.jpg') }}" class="img-responsive" height="75px" width="150px">
                                                 </div>
                                                 <div class="addBgBox">
-                                                    <img id="addBg2" src="{{ asset('img/thumb/video-2.jpg') }}" class="img-responsive" height="75px" width="150px">
+                                                    <img id="addBg2" src="{{ asset('img/backgrounds/thumbs/autumn_leaves_thumb.jpg') }}" class="img-responsive" height="75px" width="150px">
                                                 </div>
                                                 <div class="addBgBox">
-                                                    <img id="addBg3" src="{{ asset('img/thumb/video-3.jpg') }}" class="img-responsive" height="75px" width="150px">
+                                                    <img id="addBg3" src="{{ asset('img/backgrounds/thumbs/balloons_thumb.jpg') }}" class="img-responsive" height="75px" width="150px">
                                                 </div>
                                                 <div class="addBgBox">
-                                                    <img id="addBg4" src="{{ asset('img/thumb/video-4.jpg') }}" class="img-responsive" height="75px" width="150px">
+                                                    <img id="addBg4" src="{{ asset('img/backgrounds/thumbs/christmas_thumb.jpg') }}" class="img-responsive" height="75px" width="150px">
                                                 </div>
                                                 <div class="addBgBox">
-                                                    <img id="addBg5" src="{{ asset('img/thumb/video-5.jpg') }}" class="img-responsive" height="75px" width="150px">
+                                                    <img id="addBg5" src="{{ asset('img/backgrounds/thumbs/cornucopia_thumb.jpg') }}" class="img-responsive" height="75px" width="150px">
                                                 </div>
                                                 <div class="addBgBox">
-                                                    <img id="addBg6" src="{{ asset('img/thumb/video-6.jpg') }}" class="img-responsive" height="75px" width="150px">
+                                                    <img id="addBg6" src="{{ asset('img/backgrounds/thumbs/early_autumn.jpg') }}" class="img-responsive" height="75px" width="150px">
                                                 </div>
                                             </div>
                                             <div class="col-xs-6 col-sm-6 zeropdg-2">
                                                 <div class="addBgBox">
-                                                    <img id="addBg7" src="{{ asset('img/thumb/video-7.jpg') }}" class="img-responsive" height="75px" width="150px">
+                                                    <img id="addBg7" src="{{ asset('img/backgrounds/thumbs/easter_thumb.jpg') }}" class="img-responsive" height="75px" width="150px">
                                                 </div>
                                                 <div class="addBgBox">
-                                                    <img id="addBg8" src="{{ asset('img/thumb/video-8.jpg') }}" class="img-responsive" height="75px" width="150px">
+                                                    <img id="addBg8" src="{{ asset('img/backgrounds/thumbs/fireplace_thumb.jpg') }}" class="img-responsive" height="75px" width="150px">
                                                 </div>
                                                 <div class="addBgBox">
-                                                    <img id="addBg9" src="{{ asset('img/thumb/video-9.jpg') }}" class="img-responsive" height="75px" width="150px">
+                                                    <img id="addBg9" src="{{ asset('img/backgrounds/thumbs/football_autumn_thumb.jpg') }}" class="img-responsive" height="75px" width="150px">
                                                 </div>
                                                 <div class="addBgBox">
-                                                    <img id="addBg10" src="{{ asset('img/thumb/video-10.jpg') }}" class="img-responsive" height="75px" width="150px">
+                                                    <img id="addBg10" src="{{ asset('img/backgrounds/thumbs/grain_thumb.jpg') }}" class="img-responsive" height="75px" width="150px">
                                                 </div>
                                                 <div class="addBgBox">
-                                                    <img id="addBg11" src="{{ asset('img/thumb/video-11.jpg') }}" class="img-responsive" height="75px" width="150px">
+                                                    <img id="addBg11" src="{{ asset('img/backgrounds/thumbs/halloween_thumb.jpg') }}" class="img-responsive" height="75px" width="150px">
                                                 </div>
                                                 <div class="addBgBox">
-                                                    <img id="addBg12" src="{{ asset('img/thumb/video-12.jpg') }}" class="img-responsive" height="75px" width="150px">
+                                                    <img id="addBg12" src="{{ asset('img/backgrounds/thumbs/hanukkah_thumb.jpg') }}" class="img-responsive" height="75px" width="150px">
                                                 </div>
                                             </div>
                                         </div>
@@ -482,11 +482,11 @@
                             </div>
 
                             <div class="panel-body prueba" id="calendarPanel" style="height:auto">
-
+                                <div id='calendarBackground' style="z-index: 1; position: absolute"></div>
                                 <div id="imagePrev" class="prueba box" style="border: 5px">
                                     <canvas id="c"></canvas>
                                 </div>
-                                <div class="panel-body bg-right prueba full-width" id='calendarBackground'>
+                                <div class="panel-body bg-right prueba full-width">
                                     <div class="panel-body prueba" id="calendarCont" style="overflow: auto">
                                         <p id="topLayout" class="prueba" style="visibility: hidden;  width: 100%; height: 130px; border: 2px solid; z-index: 3">Put your image here!</p>
                                         <p id="leftLayout" class="prueba" style="visibility: hidden;  width: 0px; height: 0px; float: left; margin-bottom: 0px;">Put your image here!</p>
@@ -659,21 +659,23 @@
     }
     $("#upImage").val(null);
     });
-// Function to setup a predeterminated video
-    function changeVideo(id) {
+    
+
+    
+
+    // Function to setup a predeterminated video
+function changeVideo(id) {
 
     var url;
     switch (id) {
-    case 1:
+        case 1:
             url = "{{ asset('vid/001.mp4') }}";
-    break;
-    case 2:
+            break;
+        case 2:
             url = "{{ asset('vid/002.mp4') }}";
-    break;
-    case 3:
+            break;
+        case 3:
             url = "{{ asset('vid/003.mp4') }}";
-    break;
-
             break;
         case 4:
             url = "{{ asset('vid/004.mp4') }}";
@@ -705,25 +707,24 @@
     }
 
     if (!$("#video").is(":visible")) {
-    $("#videoDiv").css('visibility', 'visible');
-    var video = $('<video />', {
-    id: 'video',
+        $("#videoDiv").css('visibility', 'visible');
+        var video = $('<video />', {
+            id: 'video',
             src: url,
             autoplay: true,
             type: 'video/mp4',
             loop: false,
             controls: true
-    });
-    video.appendTo($('#videoDiv'));
-    $("#video").css('width', '100%');
-    $("#video").css('height', '100%');
-    $("#videoTab").trigger("click");
+        });
+        video.appendTo($('#videoDiv'));
+        $("#video").css('width', '100%');
+        $("#video").css('height', '100%');
+        $("#videoTab").trigger("click");
     } else {
-    $('#video').attr('src', url);
-    $("#video")[0].load();
+        $('#video').attr('src', url);
+        $("#video")[0].load();
     }
-
-    }
+}
 
 // Function to show the top Layout
     $("#showTopLayout").click(function(){

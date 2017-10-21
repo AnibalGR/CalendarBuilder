@@ -9,6 +9,26 @@ use App\User;
 class SubscriptionsController extends Controller
 {
     //
+    
+    public function index()
+    {
+        return view('subscriptions.index');
+    }
+    
+    public function cancel(Request $request)
+    {
+        $request->user()->subscription('main')->cancel();
+
+        return redirect()->back()->with('success', 'You have successfully cancelled your subscription');
+    }
+    
+    public function resume(Request $request)
+    {
+        $request->user()->subscription('main')->resume();
+
+        return redirect()->back()->with('success', 'You have successfully resumed your subscription');
+    }
+    
     public function store(Request $request)
     {
         // get the plan after submitting the form

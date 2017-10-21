@@ -57,6 +57,16 @@ Route::group(['middleware' => 'auth'], function () {
     
     // Route to edit the calendars
     Route::get('/edit_calendar/{id}', 'CalendarController@editCalendar')->name('editCalendar');
+    
+    // Route to manage subscriptions
+    Route::get('/subscriptions', 'SubscriptionsController@index');
+    
+    // Route to cancel subscriptions
+    Route::post('/subscription/cancel', 'SubscriptionsController@cancel');
+    
+    // Route to resume subscriptions
+    Route::post('/subscription/resume', 'SubscriptionsController@resume');
+    
 });
 
 // Routes for the user´s autentication

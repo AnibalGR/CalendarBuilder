@@ -27,10 +27,16 @@
     <div class="row">
         <div class="col-md-12 head-calendar">
             <button id="removeObject" type="button" class="btn btn-primary" style="width: 100%">Remove Object</button>
+            @if (Auth::user()->subscribed('main'))
             <button id="generateVideo">Generate Calendar Video</button>
             <button id="saveCalendar">Save Calendar</button>
+            @endif
             <label for="calendarColor">Calendar color:</label>
             <input type="color" value="" id="calendarColor" size="5">
+            <label for="calendarBackColor">Calendar back:</label>
+            <input type="color" value="" id="calendarBackColor" size="5">
+            <label for="text-font-size">Font size:</label>
+            <input type="range" value="" min="0" max="1" step="0.1" id="background-color-opacity">
         </div>
     </div>
     <div class="row">
@@ -481,19 +487,17 @@
                                 </div>
                             </div>
 
-                            <div class="panel-body prueba" id="calendarPanel" style="height:auto">
-                                <div id='calendarBackground' style="z-index: 1; position: absolute"></div>
-                                <div id="imagePrev" class="prueba box" style="border: 5px">
-                                    <canvas id="c"></canvas>
-                                </div>
-                                <div class="panel-body bg-right prueba full-width">
-                                    <div class="panel-body prueba" id="calendarCont" style="overflow: auto">
+                            <div class="panel-body prueba" id="calendarPanel" style="height:100%;overflow: auto;">
+                                <div class="panel-body bg-right prueba full-width" id="calendarCont" style="position: absolute">
+                                    <div id='calendarBackground' style="width: 100%;height: 100%;position: absolute"></div>
                                         <p id="topLayout" class="prueba" style="visibility: hidden;  width: 100%; height: 130px; border: 2px solid; z-index: 3">Put your image here!</p>
                                         <p id="leftLayout" class="prueba" style="visibility: hidden;  width: 0px; height: 0px; float: left; margin-bottom: 0px;">Put your image here!</p>
                                         <p id="rightLayout" class="prueba" style="visibility: hidden;  width: 0px; height: 0px; float: right">Put your image here!</p>
-                                        <div id="calendar" class="prueba"></div>
+                                        <div id="calendar" class="prueba" style="z-index: 2"></div>
                                         <p id="bottomLayout" class="prueba" style="visibility: hidden;  width: 100%; height: 130px; border: 2px solid; z-index: 3">Put your image here!</p>
-                                    </div>
+                                </div>
+                                <div id="imagePrev" class="prueba box">
+                                    <canvas id="c"></canvas>
                                 </div>
                             </div>
                         </div>
@@ -541,6 +545,7 @@
 <script src="{{ asset('js/bootstrap-waitingfor.min.js') }}"></script>
 <script src="{{ asset('js/fabric.js') }}"></script>
 <script src="{{ asset('js/calendarBuilder.js') }}"></script>
+<script src="{{ asset('js/layouts.js') }}"></script>
 <script>
 // Asociative function to call the Input File buton
     $("#addVideo").click(function () {
@@ -612,10 +617,10 @@
     });
     // Cancel Upload Video button
     $("#cancelUpload").click(function () {
-    if ($request) {
-    $request.abort();
-    $("#dialog").dialog("close");
-    }
+        if ($request) {
+            $request.abort();
+            $("#dialog").dialog("close");
+        }
     });
     }
 
@@ -642,9 +647,6 @@
             data: fd,
             success: function (data) {
             var img = $('<div class="erasable imageContainer"><input type="text" class="closebtn" value="X"><img class="resis" src=" ../../' + data + '"></div>');
-            $('#imagePrev').append(img);
-            $('#imagePrev').droppable();
-            $(".resis").resizable();
             $(".imageContainer").draggable({ revert: 'invalid' });
             },
             error: function (data) {
@@ -726,151 +728,6 @@ function changeVideo(id) {
     }
 }
 
-// Function to show the top Layout
-    $("#showTopLayout").click(function(){
-
-    showTopLayout();
-    });
-// Function to show the left Layout
-    $("#showLeftLayout").click(function(){
-
-    showLeftLayout();
-    });
-    function setObjectsProperties(){
-
-    // Image properties
-//    $('.resis').resizable("destroy");
-    $(".resis").resizable();
-    $(".imageContainer").draggable({ revert: 'invalid' });
-    $('#imagePrev').droppable();
-    // Text properties
-//    $('.CalTxt1').resizable();
-
-    $(".erasable").draggable();
-    $(".erasable").click(function () {
-    $(this).draggable({disabled: false, revert: 'invalid'});
-    });
-    $(".erasable").dblclick(function () {
-    $(this).draggable({disabled: true, revert: 'invalid'});
-    $('.CalTxt1').attr('contenteditable', true);
-    $(this).setAttribute('contenteditable', true);
-    });
-    }
-
-// Function to show the right Layout
-    $("#showRightLayout").click(function(){
-
-    showRightLayout();
-    });
-// Function to show the bottom Layout
-    $("#showBottomLayout").click(function(){
-
-    showBottomLayout();
-    });
-    function showBottomLayout(){
-    // Clean any previous layout
-    cleanLayout();
-    // Must see if is already visible
-    $("#bottomLayout").css('visibility', 'visible');
-    $("#bottomLayout").css('border-color', 'black');
-    $("#bottomLayout").css('border-style', 'solid');
-    // Show top Layout
-    $("#bottomLayout").show();
-    }
-
-    function showTopLayout(){
-    // Clean any previous layout
-    cleanLayout();
-    // Must see if is already visible
-    $("#topLayout").css('visibility', 'visible');
-    $("#topLayout").css('border-color', 'black');
-    $("#topLayout").css('border-style', 'solid');
-    // Show top Layout
-    $("#topLayout").show();
-    }
-
-    function showLeftLayout(){
-    cleanLayout();
-    $("#leftLayout").css('visibility', 'visible');
-    $("#leftLayout").css('height', $("#calendarCont").height());
-    $("#leftLayout").css('width', '25%');
-    $("#leftLayout").css('border-color', 'black');
-    $("#leftLayout").css('border-style', 'solid');
-    $("#calendar").css('max-width', '75%');
-    $("#calendar").css('float', 'right');
-    $("#leftLayout").show();
-    }
-
-    function resizeLayout(){
-    if ($("#leftLayout").is(":visible")){
-    $("#leftLayout").css('height', $("#calendarCont").height());
-    }
-    if ($("#rightLayout").is(":visible")){
-    $("#rightLayout").css('height', $("#calendarCont").height());
-    }
-    }
-
-    function showRightLayout(){
-
-    cleanLayout();
-    $("#rightLayout").css('visibility', 'visible');
-    $("#rightLayout").css('height', $("#calendarCont").height());
-    $("#rightLayout").css('width', '25%');
-    $("#rightLayout").css('border-color', 'black');
-    $("#rightLayout").css('border-style', 'solid');
-    $("#calendar").css('max-width', '75%');
-    $("#calendar").css('float', 'left');
-    $("#rightLayout").show();
-    }
-
-    function cleanLayout(){
-    $("#topLayout").hide();
-    $("#bottomLayout").hide();
-    $("#leftLayout").hide();
-    $("#rightLayout").hide();
-    $("#calendar").css('max-width', '100%');
-    $("#calendar").css('float', 'none');
-    };
-    $("#noneLayout").click(function(){
-    cleanLayout();
-    });
-    function getLayout(){
-    if ($("#bottomLayout").is(":visible")){
-    return 'bottom';
-    }
-    if ($("#rightLayout").is(":visible")){
-    return 'right';
-    }
-    if ($("#leftLayout").is(":visible")){
-    return 'left';
-    }
-    if ($("#topLayout").is(":visible")){
-    return 'top';
-    }
-    return 'none';
-    }
-
-    function loadLayout(){
-    $actualLayout = '{{ $layout }}';
-    switch ($actualLayout){
-    case "none":
-            cleanLayout();
-    break;
-    case "top":
-            showTopLayout();
-    break;
-    case "bottom":
-            showBottomLayout();
-    break;
-    case "left":
-            showLeftLayout();
-    break;
-    case "right":
-            showRightLayout();
-    break;
-    }
-    }
-
     function loadVideo(){
     var url = '{{ $video }}'
             if (url != 'none'){
@@ -929,6 +786,10 @@ function changeVideo(id) {
     });
     function getContent(){
     return '{{ $content }}';
+    }
+
+    function getLayout(){
+        return '{{ $layout }}';
     }
 
     function getUserID(){

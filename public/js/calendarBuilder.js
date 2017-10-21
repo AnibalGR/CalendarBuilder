@@ -4,8 +4,6 @@
  * and open the template in the editor.
  */
 
-
-
 // Add "Video 1" event listener
 $("#addVideo1").click(function () {
     changeVideo(1);
@@ -66,39 +64,6 @@ $("#addVideo12").click(function () {
     changeVideo(12);
 });
 
-
-
-// We configure the button whose create a new text object
-    $("#addButton").click(function () {
-        $('#imagePrev').append('<div class="erasable"><input type="text" class="closebtn" value="X"><p class="CalTxt1" contenteditable="true">Double click here</p></div>');
-
-        $('.CalTxt1').resizable();
-
-        $(".erasable").click(function () {
-            $(this).draggable({disabled: false, revert: 'invalid'});
-        });
-
-        $(".erasable").dblclick(function () {
-            $(this).draggable({disabled: true, revert: 'invalid'});
-            $('.CalTxt1').setAttribute('contenteditable', true);
-            $(this).setAttribute('contenteditable', true);
-        });
-    });
-
-    $('#delObject').change(function () {
-        if ($("#delObject").is(':checked')) {
-            $('.erasable').addClass('erasable-2').removeClass('erasable');
-            $('.closebtn').addClass('closebtn-2').removeClass('closebtn');
-        } else {
-            $('.erasable-2').addClass('erasable').removeClass('erasable-2');
-            $('.closebtn-2').addClass('closebtn').removeClass('closebtn-2');
-        }
-    });
-
-    $("#imagePrev").on("click", "input.closebtn-2", function () {
-        $(this).parent().remove();
-    });
-
 // Initialize all the functions and variables
     $(document).ready(function () {
 
@@ -113,9 +78,6 @@ $("#addVideo12").click(function () {
 
         // Load video if present
         loadVideo();
-
-        // Give element properties
-        setObjectsProperties();
 
         // Load theme from calendar
         updateTheme();
@@ -140,7 +102,7 @@ $("#addVideo12").click(function () {
                 });
 
                 resizeLayout();
-
+                
             },
             change: function (themeSystem) {
                 $('#calendar').fullCalendar('option', 'themeSystem', themeSystem);
@@ -150,8 +112,6 @@ $("#addVideo12").click(function () {
         // Initialize canvas
         var canvas = this.__canvas = new fabric.Canvas('c');
         canvas.loadFromJSON(getContent().replace(/&quot;/g, '"'), canvas.renderAll.bind(canvas));
-//    canvas.setHeight(500);
-//    canvas.setWidth(500);
 
         // Resize canvas
         window.addEventListener('resize', resizeCanvas, false);
@@ -161,11 +121,7 @@ $("#addVideo12").click(function () {
             canvas.setWidth($("#c").parent().parent().width());
             canvas.renderAll();
         }
-        setTimeout(function () {
-            // resize on init
-            resizeCanvas();
-            loadColor();
-        }, 400);
+        
         // Add text to canvas
         $('#addText').click(function () {
 
@@ -432,8 +388,7 @@ $("#addVideo12").click(function () {
         }
 
 
-    }
-    );
+    
     
     $("#addBg1").click(function(){
         var image = "<img class='img-responsive' src='../../img/backgrounds/april_showers.jpg'>";
@@ -442,8 +397,27 @@ $("#addVideo12").click(function () {
         
     });
     $("#addBg2").click(function(){
-        var image = "<img class='img-responsive' src='../../img/backgrounds/autumn_leaves.jpg'>";
+        var image = "<img class='img-responsive' style='height: 100%; width:auto;' src='../../img/backgrounds/autumn_leaves.jpg'>";
         $("#calendarBackground").empty();
         $("#calendarBackground").append(image);
         
     });
+    
+    $("#removeBg").click(function(){
+        $("#calendarBackground").empty();
+    });
+
+$('#calendarBackColor').change(function () {
+    $(".fc-month-view").css("background-color", this.value);
+});
+
+$('#background-color-opacity').change(function () {
+    $(".fc-month-view").css("opacity", this.value);
+});
+
+setTimeout(function () {
+            // resize on init
+            resizeCanvas();
+            loadColor();
+        }, 200);
+});

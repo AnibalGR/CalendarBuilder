@@ -219,8 +219,8 @@ $("#addVideo12").click(function () {
                 left: 100,
                 top: 100,
                 fill: 'red',
-                width: 50,
-                height: 50
+                width: 75,
+                height: 75
             });
 
             canvas.add(rect);
@@ -234,7 +234,7 @@ $("#addVideo12").click(function () {
 
             // create a rectangle object
             var circle = new fabric.Circle({
-                radius: 20, fill: 'green', left: 100, top: 100
+                radius: 40, fill: 'green', left: 100, top: 100
             });
 
             canvas.add(circle);
@@ -356,7 +356,7 @@ $("#addVideo12").click(function () {
                     fabric.Image.fromURL(myImg, function (oImg) {
                         var l = Math.random() * (500 - 0) + 0;
                         var t = Math.random() * (500 - 0) + 0;
-                        oImg.scale(0.2);
+                        oImg.scale(0.5);
                         oImg.set({'left': l});
                         oImg.set({'top': t});
                         canvas.add(oImg);
@@ -581,6 +581,7 @@ $("#addVideo12").click(function () {
     
     $("#removeBg").click(function(){
         $("#calendarBack").removeClass();
+        $("#calendarBack").attr('class', 'bgimg-none');
     });
 
 $('#calendarBackColor').change(function () {

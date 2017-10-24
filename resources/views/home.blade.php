@@ -560,9 +560,9 @@
                                     <canvas id="c"></canvas>
                                 </div>
                             </div>
-                            
-                        </div>
                             -->
+                        </div>
+                            
                     </div>
                     <div id="tabs-2">
                         <div id="videoDiv" style="visibility: hidden"></div>

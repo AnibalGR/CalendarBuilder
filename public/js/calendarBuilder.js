@@ -419,5 +419,5 @@ setTimeout(function () {
             // resize on init
             resizeCanvas();
             loadColor();
-        }, 200);
+        }, 1000);
 });

@@ -35,7 +35,7 @@
             <input type="color" value="" id="calendarColor" size="5">
             <label for="calendarBackColor">Calendar back:</label>
             <input type="color" value="" id="calendarBackColor" size="5">
-            <label for="text-font-size">Font size:</label>
+            <label for="text-font-size">Calendar background color:</label>
             <input type="range" value="" min="0" max="1" step="0.1" id="background-color-opacity">
         </div>
     </div>
@@ -487,7 +487,7 @@
                                 </div>
                             </div>
 
-                            <div class="panel-body prueba" id="calendarPanel" style="height:100%;overflow: auto;">
+                            <div class="panel-body prueba" id="calendarPanel" >
                                 <div class="panel-body bg-right prueba full-width" id="calendarCont" style="position: absolute">
                                     <div id='calendarBackground' style="width: 100%;height: 100%;position: absolute"></div>
                                         <p id="topLayout" class="prueba" style="visibility: hidden;  width: 100%; height: 130px; border: 2px solid; z-index: 3">Put your image here!</p>

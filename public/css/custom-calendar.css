@@ -236,7 +236,7 @@ border-radius: 5px;
     padding-left: 0;
     display: block;
     overflow: auto;
-    /*position: absolute;*/
+    position: absolute;
     z-index: 15;
 }
         
@@ -268,6 +268,7 @@ border-radius: 5px;
             padding-bottom: 0;
             padding-left: 0;
             padding-right: 0;
+            overflow: auto;
             height: auto !important;
         }
         

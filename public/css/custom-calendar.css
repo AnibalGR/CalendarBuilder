@@ -320,6 +320,20 @@
      cursor:pointer;
      margin: 10px 3px 10px 0px;
 }
+
+.layoutType img, .addVideoBox img, .addImgBox img, .addBgBox img{
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+}
+.addImgBox{
+    cursor: pointer;
+    margin: 20px 3px 20px 0px;
+   /* border: 2px #ffffff solid; */
+}
+.addImgBox img{
+    height: 35px; 
+}
 .Layout-text-1{
 text-align: center;
 /*background-color: #;*/

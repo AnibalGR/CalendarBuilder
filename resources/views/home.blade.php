@@ -233,42 +233,43 @@
                                         <div class="row">
                                             <div class="col-xs-6 col-sm-6 zeropdg-2">
                                                 <div class="addImgBox">
-                                                    <img id="addImg1" src="{{ asset('img/thumb/video-1.jpg') }}" class="img-responsive" height="75px" width="150px">
+                                                    <img id="addImg1" src="{{ asset('img/headers/header-1.jpg') }}" class="img-responsive" height="55px" width="150px">
                                                 </div>
                                                 <div class="addImgBox">
-                                                    <img id="addImg2" src="{{ asset('img/thumb/video-2.jpg') }}" class="img-responsive" height="75px" width="150px">
+                                                    <img id="addImg2" src="{{ asset('img/headers/header-2.jpg') }}" class="img-responsive" height="55px" width="150px">
                                                 </div>
                                                 <div class="addImgBox">
-                                                    <img id="addImg3" src="{{ asset('img/thumb/video-3.jpg') }}" class="img-responsive" height="75px" width="150px">
+                                                    <img id="addImg3" src="{{ asset('img/headers/header-3.jpg') }}" class="img-responsive" height="55px" width="150px">
                                                 </div>
                                                 <div class="addImgBox">
-                                                    <img id="addImg4" src="{{ asset('img/thumb/video-4.jpg') }}" class="img-responsive" height="75px" width="150px">
+                                                    <img id="addImg4" src="{{ asset('img/headers/header-4.jpg') }}" class="img-responsive" height="55px" width="150px">
                                                 </div>
                                                 <div class="addImgBox">
-                                                    <img id="addImg5" src="{{ asset('img/thumb/video-5.jpg') }}" class="img-responsive" height="75px" width="150px">
+                                                    <img id="addImg5" src="{{ asset('img/headers/header-5.jpg') }}" class="img-responsive" height="55px" width="150px">
                                                 </div>
                                                 <div class="addImgBox">
-                                                    <img id="addImg6" src="{{ asset('img/thumb/video-6.jpg') }}" class="img-responsive" height="75px" width="150px">
+                                                    <img id="addImg6" src="{{ asset('img/headers/header-6.jpg') }}" class="img-responsive" height="55px" width="150px">
                                                 </div>
                                             </div>
                                             <div class="col-xs-6 col-sm-6 zeropdg-2">
                                                 <div class="addImgBox">
-                                                    <img id="addImg7" src="{{ asset('img/thumb/video-7.jpg') }}" class="img-responsive" height="75px" width="150px">
+                                                    <img id="addImg7" src="{{ asset('img/headers/header-7.jpg') }}" class="img-responsive" height="55px" width="150px">
                                                 </div>
                                                 <div class="addImgBox">
-                                                    <img id="addImg8" src="{{ asset('img/thumb/video-8.jpg') }}" class="img-responsive" height="75px" width="150px">
+                                                    <img id="addImg8" src="{{ asset('img/headers/header-8.jpg') }}" class="img-responsive" height="55px" width="150px">
                                                 </div>
                                                 <div class="addImgBox">
-                                                    <img id="addImg9" src="{{ asset('img/thumb/video-9.jpg') }}" class="img-responsive" height="75px" width="150px">
+                                                    <img id="addImg9" src="{{ asset('img/headers/header-9.jpg') }}" class="img-responsive" height="55px" width="150px">
                                                 </div>
                                                 <div class="addImgBox">
-                                                    <img id="addImg10" src="{{ asset('img/thumb/video-10.jpg') }}" class="img-responsive" height="75px" width="150px">
+                                                    <img id="addImg10" src="{{ asset('img/headers/header-10.jpg') }}" class="img-responsive" height="55px" width="150px">
+                                                </div>
+                                                
+                                                <div class="addImgBox">
+                                                    <img id="addImg11" src="{{ asset('img/headers/header-11.jpg') }}" class="img-responsive" height="55px" width="150px">
                                                 </div>
                                                 <div class="addImgBox">
-                                                    <img id="addImg11" src="{{ asset('img/thumb/video-11.jpg') }}" class="img-responsive" height="75px" width="150px">
-                                                </div>
-                                                <div class="addImgBox">
-                                                    <img id="addImg12" src="{{ asset('img/thumb/video-12.jpg') }}" class="img-responsive" height="75px" width="150px">
+                                                    <img id="addImg12" src="{{ asset('img/headers/header-12.jpg') }}" class="img-responsive" height="55px" width="150px">
                                                 </div>
                                             </div>
                                         </div>

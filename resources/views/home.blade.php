@@ -438,7 +438,7 @@
                                                     <img id="addBg20" src="{{ asset('img/backgrounds/thumbs/st_patrick_thumb.jpg') }}" class="img-responsive" height="75px" width="150px">
                                                 </div>
                                                 <div class="addBgBox">
-                                                    <img id="addBg21" src="{{ asset('img/backgrounds/thumbs/tulip_thumb .jpg') }}" class="img-responsive" height="75px" width="150px">
+                                                    <img id="addBg21" src="{{ asset('img/backgrounds/thumbs/tulip_thumb.jpg') }}" class="img-responsive" height="75px" width="150px">
                                                 </div>
                                                 <div class="addBgBox">
                                                     <img id="addBg22" src="{{ asset('img/backgrounds/thumbs/vacation_thumb.jpg') }}" class="img-responsive" height="75px" width="150px">

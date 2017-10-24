@@ -118,6 +118,7 @@ $("#addVideo12").click(function () {
         
         $("#imagePrev").resize(function (e) {
             resizeCanvas();
+            $("#calendarBack").attr('class', $("#calendarBack").attr('class'));
         });
                 
         function resizeCanvas() {

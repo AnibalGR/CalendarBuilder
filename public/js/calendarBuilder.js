@@ -350,7 +350,6 @@ $("#addVideo12").click(function () {
                     processData: false,
                     data: fd,
                     success: function (data) {
-                        alert('Success');
                     var myImg = '../../' + data;
                     
                     fabric.Image.fromURL(myImg, function (oImg) {
@@ -364,8 +363,6 @@ $("#addVideo12").click(function () {
                         
                     },
                     error: function (data) {
-                        alert('Error');
-                        alert(data.responseJSON.message);
                         if (!$('#imageError').html().length) {
                             $('#imageError').append("<p>" + data.responseJSON.message + "</p>");
                         }
@@ -439,20 +436,150 @@ $("#addVideo12").click(function () {
         }
         
     $("#addBg1").click(function(){
-        var image = "<img class='img-responsive' src='../../img/backgrounds/april_showers.jpg'>";
-        $("#calendarBackground").empty();
-        $("#calendarBackground").append(image);
+        $("#calendarBack").removeClass();
+        $("#calendarBack").attr('class', 'bgimg-1');
         
     });
     $("#addBg2").click(function(){
-        var image = "<img class='img-responsive' style='height: 100%; width:auto;' src='../../img/backgrounds/autumn_leaves.jpg'>";
-        $("#calendarBackground").empty();
-        $("#calendarBackground").append(image);
+        $("#calendarBack").removeClass();
+        $("#calendarBack").attr('class', 'bgimg-2');
+        
+    });
+    
+    $("#addBg3").click(function(){
+        $("#calendarBack").removeClass();
+        $("#calendarBack").attr('class', 'bgimg-3');
+        
+    });
+    
+    $("#addBg4").click(function(){
+        $("#calendarBack").removeClass();
+        $("#calendarBack").attr('class', 'bgimg-4');
+        
+    });
+    
+    $("#addBg5").click(function(){
+        $("#calendarBack").removeClass();
+        $("#calendarBack").attr('class', 'bgimg-5');
+        
+    });
+    
+    $("#addBg6").click(function(){
+        $("#calendarBack").removeClass();
+        $("#calendarBack").attr('class', 'bgimg-6');
+        
+    });
+    
+    $("#addBg7").click(function(){
+        $("#calendarBack").removeClass();
+        $("#calendarBack").attr('class', 'bgimg-7');
+        
+    });
+    
+    $("#addBg8").click(function(){
+        $("#calendarBack").removeClass();
+        $("#calendarBack").attr('class', 'bgimg-8');
+        
+    });
+    
+    $("#addBg9").click(function(){
+        $("#calendarBack").removeClass();
+        $("#calendarBack").attr('class', 'bgimg-9');
+        
+    });
+    
+    $("#addBg10").click(function(){
+        $("#calendarBack").removeClass();
+        $("#calendarBack").attr('class', 'bgimg-10');
+        
+    });
+    
+    $("#addBg11").click(function(){
+        $("#calendarBack").removeClass();
+        $("#calendarBack").attr('class', 'bgimg-11');
+        
+    });
+    
+    $("#addBg12").click(function(){
+        $("#calendarBack").removeClass();
+        $("#calendarBack").attr('class', 'bgimg-12');
+        
+    });
+    
+    $("#addBg13").click(function(){
+        $("#calendarBack").removeClass();
+        $("#calendarBack").attr('class', 'bgimg-13');
+        
+    });
+    
+    $("#addBg14").click(function(){
+        $("#calendarBack").removeClass();
+        $("#calendarBack").attr('class', 'bgimg-14');
+        
+    });
+    
+    $("#addBg15").click(function(){
+        $("#calendarBack").removeClass();
+        $("#calendarBack").attr('class', 'bgimg-15');
+        
+    });
+    
+    $("#addBg16").click(function(){
+        $("#calendarBack").removeClass();
+        $("#calendarBack").attr('class', 'bgimg-16');
+        
+    });
+    
+    $("#addBg17").click(function(){
+        $("#calendarBack").removeClass();
+        $("#calendarBack").attr('class', 'bgimg-17');
+        
+    });
+    
+    $("#addBg18").click(function(){
+        $("#calendarBack").removeClass();
+        $("#calendarBack").attr('class', 'bgimg-18');
+        
+    });
+    
+    $("#addBg19").click(function(){
+        $("#calendarBack").removeClass();
+        $("#calendarBack").attr('class', 'bgimg-19');
+        
+    });
+    
+    $("#addBg20").click(function(){
+        $("#calendarBack").removeClass();
+        $("#calendarBack").attr('class', 'bgimg-20');
+        
+    });
+    
+    $("#addBg21").click(function(){
+        $("#calendarBack").removeClass();
+        $("#calendarBack").attr('class', 'bgimg-21');
+        
+    });
+    
+    $("#addBg22").click(function(){
+        $("#calendarBack").removeClass();
+        $("#calendarBack").attr('class', 'bgimg-22');
+        
+    });
+    
+    $("#addBg23").click(function(){
+        $("#calendarBack").removeClass();
+        $("#calendarBack").attr('class', 'bgimg-23');
+        
+    });
+    
+    $("#addBg24").click(function(){
+        $("#calendarBack").removeClass();
+        $("#calendarBack").attr('class', 'bgimg-24');
         
     });
     
     $("#removeBg").click(function(){
-        $("#calendarBackground").empty();
+        $("#calendarBack").removeClass();
     });
 
 $('#calendarBackColor').change(function () {

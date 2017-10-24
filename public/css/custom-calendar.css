@@ -131,15 +131,14 @@
 .BacGrd{
     
 }
-.bgimg-1, .bgimg-2, .bgimg-3 {
+.bgimg-1, .bgimg-2, .bgimg-3, .bgimg-4, .bgimg-5, .bgimg-6, .bgimg-7, .bgimg-8, .bgimg-9, .bgimg-10, .bgimg-11, .bgimg-12, .bgimg-13, .bgimg-14, .bgimg-15, .bgimg-16, .bgimg-17, .bgimg-18, .bgimg-19, .bgimg-20, .bgimg-21, .bgimg-22, .bgimg-23, .bgimg-24, .bgimg-25{
   position: relative;
   opacity: 0.9;
   background-attachment: initial;
   background-position: left;
   background-repeat: no-repeat;
   background-size: 100%;
-  /*box-shadow:inset 0 0 0 2000px rgba(0,0,0,0.3);*/    
-
+  box-shadow:inset 0 0 0 2000px rgba(0,0,0,0.1);    
 }
 .bgimg-1 {
   background-image: url('../img/backgrounds/april_showers.jpg');
@@ -147,6 +146,94 @@
 }
 .bgimg-2 {
   background-image: url('../img/backgrounds/autumn_leaves.jpg');
+  min-height: 100%;
+}
+.bgimg-3 {
+  background-image: url('../img/backgrounds/balloons.jpg');
+  min-height: 100%;
+}
+.bgimg-4 {
+  background-image: url('../img/backgrounds/christmas.jpg');
+  min-height: 100%;
+}
+.bgimg-5 {
+  background-image: url('../img/backgrounds/cornucopia.jpg');
+  min-height: 100%;
+}
+.bgimg-6 {
+  background-image: url('../img/backgrounds/early-autumn.jpg');
+  min-height: 100%;
+}
+.bgimg-7 {
+  background-image: url('../img/backgrounds/easter.jpg');
+  min-height: 100%;
+}
+.bgimg-8 {
+  background-image: url('../img/backgrounds/fireplace.jpg');
+  min-height: 100%;
+}
+.bgimg-9 {
+  background-image: url('../img/backgrounds/football_autumn.jpg');
+  min-height: 100%;
+}
+.bgimg-10 {
+  background-image: url('../img/backgrounds/grain.jpg');
+  min-height: 100%;
+}
+.bgimg-11 {
+  background-image: url('../img/backgrounds/halloween.jpg');
+  min-height: 100%;
+}
+.bgimg-12 {
+  background-image: url('../img/backgrounds/hanukkah.jpg');
+  min-height: 100%;
+}
+.bgimg-13 {
+  background-image: url('../img/backgrounds/harvest.jpg');
+  min-height: 100%;
+}
+.bgimg-15 {
+  background-image: url('../img/backgrounds/ice_cream.jpg');
+  min-height: 100%;
+}
+.bgimg-16 {
+  background-image: url('../img/backgrounds/icecle.jpg');
+  min-height: 100%;
+}
+.bgimg-17 {
+  background-image: url('../img/backgrounds/independence_day.jpg');
+  min-height: 100%;
+}
+.bgimg-18 {
+  background-image: url('../img/backgrounds/may_flowers.jpg');
+  min-height: 100%;
+}
+.bgimg-19 {
+  background-image: url('../img/backgrounds/pumpkin.jpg');
+  min-height: 100%;
+}
+.bgimg-20 {
+  background-image: url('../img/backgrounds/spring_buds.jpg');
+  min-height: 100%;
+}
+.bgimg-21 {
+  background-image: url('../img/backgrounds/st_patrick.jpg');
+  min-height: 100%;
+}
+.bgimg-22 {
+  background-image: url('../img/backgrounds/tulip.jpg');
+  min-height: 100%;
+}
+.bgimg-23 {
+  background-image: url('../img/backgrounds/vacation.jpg');
+  min-height: 100%;
+}
+.bgimg-24 {
+  background-image: url('../img/backgrounds/valentines_day.jpg');
+  min-height: 100%;
+}
+.bgimg-25 {
+  background-image: url('../img/backgrounds/winter_river.jpg');
   min-height: 100%;
 }
 

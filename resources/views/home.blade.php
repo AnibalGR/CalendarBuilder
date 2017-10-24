@@ -372,7 +372,7 @@
                                     </div>
                                     <div class="container-fluid">
                                         <div class="row">
-                                            <div class="col-xs-6 col-sm-6 zeropdg-2">
+                                            <div class="col-xs-4 col-sm-4 zeropdg-2">
                                                 <div class="addBgBox">
                                                     <img id="addBg1" src="{{ asset('img/backgrounds/thumbs/april_showers_thumb.jpg') }}" class="img-responsive" height="75px" width="150px">
                                                 </div>
@@ -391,14 +391,14 @@
                                                 <div class="addBgBox">
                                                     <img id="addBg6" src="{{ asset('img/backgrounds/thumbs/early_autumn.jpg') }}" class="img-responsive" height="75px" width="150px">
                                                 </div>
-                                            </div>
-                                            <div class="col-xs-6 col-sm-6 zeropdg-2">
                                                 <div class="addBgBox">
                                                     <img id="addBg7" src="{{ asset('img/backgrounds/thumbs/easter_thumb.jpg') }}" class="img-responsive" height="75px" width="150px">
                                                 </div>
                                                 <div class="addBgBox">
                                                     <img id="addBg8" src="{{ asset('img/backgrounds/thumbs/fireplace_thumb.jpg') }}" class="img-responsive" height="75px" width="150px">
                                                 </div>
+                                            </div>
+                                            <div class="col-xs-4 col-sm-4 zeropdg-2">
                                                 <div class="addBgBox">
                                                     <img id="addBg9" src="{{ asset('img/backgrounds/thumbs/football_autumn_thumb.jpg') }}" class="img-responsive" height="75px" width="150px">
                                                 </div>
@@ -410,6 +410,47 @@
                                                 </div>
                                                 <div class="addBgBox">
                                                     <img id="addBg12" src="{{ asset('img/backgrounds/thumbs/hanukkah_thumb.jpg') }}" class="img-responsive" height="75px" width="150px">
+                                                </div>
+                                                <div class="addBgBox">
+                                                    <img id="addBg13" src="{{ asset('img/backgrounds/thumbs/harvest_thumb.jpg') }}" class="img-responsive" height="75px" width="150px">
+                                                </div>
+                                                <div class="addBgBox">
+                                                    <img id="addBg14" src="{{ asset('img/backgrounds/thumbs/ice_cream_thumb.jpg') }}" class="img-responsive" height="75px" width="150px">
+                                                </div>
+                                                <div class="addBgBox">
+                                                    <img id="addBg15" src="{{ asset('img/backgrounds/thumbs/icecle_thumb.jpg') }}" class="img-responsive" height="75px" width="150px">
+                                                </div>
+                                                <div class="addBgBox">
+                                                    <img id="addBg16" src="{{ asset('img/backgrounds/thumbs/independence_day_thumb.jpg') }}" class="img-responsive" height="75px" width="150px">
+                                                </div>
+                                            </div>
+                                            <div class="col-xs-4 col-sm-4 zeropdg-2">
+                                                <div class="addBgBox">
+                                                    <img id="addBg17" src="{{ asset('img/backgrounds/thumbs/may_flowers_thumb.jpg') }}" class="img-responsive" height="75px" width="150px">
+                                                </div>
+                                                <div class="addBgBox">
+                                                    <img id="addBg18" src="{{ asset('img/backgrounds/thumbs/pumpkin_thumb.jpg') }}" class="img-responsive" height="75px" width="150px">
+                                                </div>
+                                                <div class="addBgBox">
+                                                    <img id="addBg19" src="{{ asset('img/backgrounds/thumbs/spring_buds_thumb.jpg') }}" class="img-responsive" height="75px" width="150px">
+                                                </div>
+                                                <div class="addBgBox">
+                                                    <img id="addBg20" src="{{ asset('img/backgrounds/thumbs/st_patrick_thumb.jpg') }}" class="img-responsive" height="75px" width="150px">
+                                                </div>
+                                                <div class="addBgBox">
+                                                    <img id="addBg21" src="{{ asset('img/backgrounds/thumbs/tulip_thumb .jpg') }}" class="img-responsive" height="75px" width="150px">
+                                                </div>
+                                                <div class="addBgBox">
+                                                    <img id="addBg22" src="{{ asset('img/backgrounds/thumbs/vacation_thumb.jpg') }}" class="img-responsive" height="75px" width="150px">
+                                                </div>
+                                                <div class="addBgBox">
+                                                    <img id="addBg23" src="{{ asset('img/backgrounds/thumbs/valentines_day_thumb.jpg') }}" class="img-responsive" height="75px" width="150px">
+                                                </div>
+                                                <div class="addBgBox">
+                                                    <img id="addBg24" src="{{ asset('img/backgrounds/thumbs/winter_river_thumb.jpg') }}" class="img-responsive" height="75px" width="150px">
+                                                </div>
+                                                <div class="addBgBox">
+                                                    <img id="addBg25" src="{{ asset('img/backgrounds/thumbs/winter_trees_thumb.jpg') }}" class="img-responsive" height="75px" width="150px">
                                                 </div>
                                             </div>
                                         </div>

@@ -386,10 +386,7 @@ $("#addVideo12").click(function () {
             $('#colorCal').val(String(color));
             $('#calendarColor').val(color);
         }
-
-
-    
-    
+        
     $("#addBg1").click(function(){
         var image = "<img class='img-responsive' src='../../img/backgrounds/april_showers.jpg'>";
         $("#calendarBackground").empty();

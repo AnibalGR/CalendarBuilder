@@ -116,6 +116,61 @@
         }   
 
 /*******Custom Calendar View********/
+.CalendarContent1{
+    width: 100%;
+    height: auto;
+    z-index: 3;
+    position: relative;
+}
+#calendarBackground{
+    width: 100%;
+    height: auto;
+    z-index: -9;
+    position: absolute;
+}
+.BacGrd{
+    
+}
+.bgimg-1, .bgimg-2, .bgimg-3 {
+  position: relative;
+  opacity: 0.9;
+  background-attachment: initial;
+  background-position: left;
+  background-repeat: no-repeat;
+  background-size: 100%;
+  /*box-shadow:inset 0 0 0 2000px rgba(0,0,0,0.3);*/    
+
+}
+.bgimg-1 {
+  background-image: url('../img/backgrounds/april_showers.jpg');
+  min-height: auto;
+}
+.bgimg-2 {
+  background-image: url('../img/backgrounds/autumn_leaves.jpg');
+  min-height: 100%;
+}
+
+#calendarCont{
+    width: 100%;
+    height: auto;
+    z-index: 3;
+    /*position: absolute;*/
+}
+#imagePrev{
+    width: 100%;
+    height: auto;
+    z-index: 6;
+    position: absolute;
+}
+#c{
+    width: 100%;
+    height: auto;
+    z-index: 15;
+    position: absolute;
+}
+.calendar-ini{
+    height: auto;
+}
         .zeropdg{
             padding-right: 0px;
             padding-left: 0px;
@@ -139,9 +194,9 @@
                 height: 100%;
                 padding: 0px 0px !important;
         }
-        .bg-right{
+       /* .bg-right{
                 background-color: #e5e5e5;
-        }
+        }*/
         #left-menu li a{
                 color:#ffffff;
                 background-color: #444444;
@@ -236,7 +291,7 @@ border-radius: 5px;
     padding-left: 0;
     display: block;
     overflow: auto;
-    /*position: absolute;*/
+    position: absolute !important;
     z-index: 15;
 }
         

@@ -139,7 +139,7 @@
 }
 .bgimg-1 {
   background-image: url('../img/backgrounds/april_showers.jpg');
-  min-height: auto;
+  min-height: 100%;
 }
 .bgimg-2 {
   background-image: url('../img/backgrounds/autumn_leaves.jpg');

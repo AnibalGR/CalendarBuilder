@@ -529,31 +529,24 @@
                             </div>
                             
                             <div class="CalendarContent1" id="calendarPanel">
-                                <!--<div class="bgimg-1">-->
-                                <div class="bgimg-1">
+                                <div class="bgimg-none">
                                 <div class="panel-body bg-right prueba full-width">
-                                    <div id="calendarCont">
-                                    
+                                    <div id="calendarCont">                                    
                                     </div>
-                                    
-                                
                                         <p id="topLayout" class="prueba" style="visibility: hidden;  width: 100%; height: 130px; border: 2px solid; z-index: 3">Put your image here!</p>
                                         <p id="leftLayout" class="prueba" style="visibility: hidden;  width: 0px; height: 0px; float: left; margin-bottom: 0px;">Put your image here!</p>
                                         <p id="rightLayout" class="prueba" style="visibility: hidden;  width: 0px; height: 0px; float: right">Put your image here!</p>
                                         <div id="calendar" class="prueba" style="z-index: 2"></div>
                                         <p id="bottomLayout" class="prueba" style="visibility: hidden;  width: 100%; height: 130px; border: 2px solid; z-index: 3">Put your image here!</p>
-                                <!--</div>-->
                                 </div>
                                 <div id="imagePrev" class="prueba box">
                                     <canvas id="c"></canvas>
                                 </div>
                                 </div>
                             </div>
-                            
 <!--
-                            <div class="panel-body prueba">
-                                <div id='calendarBackground' style="width: 100%;height: 100%;position: absolute"></div>
-
+                        <div class="CalendarContent1" id="calendarPanel">
+                            <div id='calendarBackground' style="width: 100%;height: 100%;position: absolute"></div>
 
                             <div class="panel-body prueba" id="calendarPanel" >
                                 <div class="panel-body bg-right prueba full-width" id="calendarCont" style="position: absolute">
@@ -567,8 +560,9 @@
                                     <canvas id="c"></canvas>
                                 </div>
                             </div>
-                            -->
+                            
                         </div>
+                            -->
                     </div>
                     <div id="tabs-2">
                         <div id="videoDiv" style="visibility: hidden"></div>

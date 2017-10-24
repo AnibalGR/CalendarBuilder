@@ -3,7 +3,6 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-<<<<<<< HEAD
             <file>file:/C:/xampp/htdocs/jeff/CalendarBuilder/resources/views/home.blade.php</file>
             <file>file:/C:/xampp/htdocs/jeff/CalendarBuilder/resources/views/dash.blade.php</file>
             <file>file:/C:/xampp/htdocs/jeff/CalendarBuilder/public/css/custom-calendar.css</file>
@@ -12,13 +11,11 @@
             <file>file:/C:/xampp/htdocs/jeff/CalendarBuilder/app/Http/Controllers/HomeController.php</file>
             <file>file:/C:/xampp/htdocs/jeff/CalendarBuilder/public/css/custom-home.css</file>
             <file>file:/C:/xampp/htdocs/jeff/CalendarBuilder/public/css/custom.css</file>
-=======
             <file>file:/C:/xampp/htdocs/jeff/CalendarBuilder/public/js/calendarBuilder.js</file>
             <file>file:/C:/xampp/htdocs/jeff/CalendarBuilder/public/css/custom-calendar.css</file>
             <file>file:/C:/xampp/htdocs/jeff/CalendarBuilder/resources/views/home.blade.php</file>
             <file>file:/C:/xampp/htdocs/jeff/CalendarBuilder/routes/web.php</file>
             <file>file:/C:/xampp/htdocs/jeff/CalendarBuilder/public/js/layouts.js</file>
->>>>>>> 1800bf08a7aaeda97f4eb063399f676191548281
         </group>
     </open-files>
 </project-private>

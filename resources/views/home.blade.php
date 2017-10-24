@@ -486,7 +486,6 @@
                                     <div class='clear'></div>
                                 </div>
                             </div>
-<<<<<<< HEAD
                             
                             <div class="CalendarContent1" id="calendarPanel">
                                 <!--<div class="bgimg-1">-->
@@ -513,10 +512,9 @@
 <!--
                             <div class="panel-body prueba">
                                 <div id='calendarBackground' style="width: 100%;height: 100%;position: absolute"></div>
-=======
+
 
                             <div class="panel-body prueba" id="calendarPanel" >
->>>>>>> 1800bf08a7aaeda97f4eb063399f676191548281
                                 <div class="panel-body bg-right prueba full-width" id="calendarCont" style="position: absolute">
                                         <p id="topLayout" class="prueba" style="visibility: hidden;  width: 100%; height: 130px; border: 2px solid; z-index: 3">Put your image here!</p>
                                         <p id="leftLayout" class="prueba" style="visibility: hidden;  width: 0px; height: 0px; float: left; margin-bottom: 0px;">Put your image here!</p>

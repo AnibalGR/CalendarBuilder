@@ -291,11 +291,8 @@ border-radius: 5px;
     padding-left: 0;
     display: block;
     overflow: auto;
-<<<<<<< HEAD
     position: absolute !important;
-=======
     position: absolute;
->>>>>>> 1800bf08a7aaeda97f4eb063399f676191548281
     z-index: 15;
 }
         

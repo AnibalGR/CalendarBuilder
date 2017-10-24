@@ -690,40 +690,7 @@
     $("#upVideo").val(null);
     $("#addVideo").focus();
     });
-// Asociative function to call the Input File buton
-    $("#addImage").click(function () {
-    document.getElementById('upImage').click();
-    });
-// Input Image File function
-    $("#upImage").change(function () {
 
-    if (this.files && this.files[0]) {
-
-    var fd = new FormData();
-    fd.append('file', this.files[0]);
-    $.ajax({
-    type: "POST",
-            headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
-            url: "{{ route('uploadImage') }}",
-            contentType: false,
-            processData: false,
-            data: fd,
-            success: function (data) {
-            var img = $('<div class="erasable imageContainer"><input type="text" class="closebtn" value="X"><img class="resis" src=" ../../' + data + '"></div>');
-            $(".imageContainer").draggable({ revert: 'invalid' });
-            },
-            error: function (data) {
-            alert(data.responseJSON.message);
-            if (!$('#imageError').html().length) {
-            $('#imageError').append("<p>" + data.responseJSON.message + "</p>");
-            }
-            var salida = JSON.stringify(data);
-            alert(salida);
-            }
-    });
-    }
-    $("#upImage").val(null);
-    });
     
 
     
@@ -854,7 +821,11 @@ function changeVideo(id) {
     function getLayout(){
         return '{{ $layout }}';
     }
-
+    
+    function getUploadImageRoute(){
+        return "{{ route('uploadImage') }}";
+    }
+    
     function getUserID(){
     return '{{$id}}';
     }

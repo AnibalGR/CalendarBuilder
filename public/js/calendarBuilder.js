@@ -330,6 +330,53 @@ $("#addVideo12").click(function () {
             return (points);
         }
 
+        // Asociative function to call the Input File buton
+        $("#addImage").click(function () {
+            document.getElementById('upImage').click();
+        });
+    
+        // Input Image File function
+        $("#upImage").change(function () {
+
+            if (this.files && this.files[0]) {
+
+                var fd = new FormData();
+                fd.append('file', this.files[0]);
+                $.ajax({
+                    type: "POST",
+                    headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
+                    url: getUploadImageRoute(),
+                    contentType: false,
+                    processData: false,
+                    data: fd,
+                    success: function (data) {
+                        alert('Success');
+                    var myImg = '../../' + data;
+                    
+                    fabric.Image.fromURL(myImg, function (oImg) {
+                        var l = Math.random() * (500 - 0) + 0;
+                        var t = Math.random() * (500 - 0) + 0;
+                        oImg.scale(0.2);
+                        oImg.set({'left': l});
+                        oImg.set({'top': t});
+                        canvas.add(oImg);
+                    });
+                        
+                    },
+                    error: function (data) {
+                        alert('Error');
+                        alert(data.responseJSON.message);
+                        if (!$('#imageError').html().length) {
+                            $('#imageError').append("<p>" + data.responseJSON.message + "</p>");
+                        }
+                        var salida = JSON.stringify(data);
+                        alert(salida);
+                    }
+                });
+            }
+            $("#upImage").val(null);
+        });
+
         $('#saveCalendar').click(function () {
 
             var $themeCategory = $('#themeCategory').val();

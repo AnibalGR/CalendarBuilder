@@ -41,6 +41,17 @@ class SubscriptionsController extends Controller
         }
 
         // redirect to home after a successful subscription
-        return redirect('home')->with('success', 'Subscribed to '.$plan->braintree_plan.' successfully');
+        return redirect('dashboard')->with('success', 'Subscribed to '.$plan->braintree_plan.' successfully');
     }
+    
+    public function updateCard(Request $request) {
+        
+        $user = $request->user();
+        
+        $temp = $user->updateCard($request->payment_method_nonce);
+        
+        return redirect('subscriptions')->with('success', 'Your payment method have been changed successfully');
+        
+    }
+
 }

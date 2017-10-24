@@ -31,6 +31,9 @@ Route::group(['middleware' => 'auth'], function () {
     // The registration for a subscription route
     Route::post('/subscribe', 'SubscriptionsController@store');
     
+    // The update of the payment method
+    Route::post('/update_card', 'SubscriptionsController@updateCard');
+    
     // The main user interface (Dashboard)
     Route::get('/dashboard', 'HomeController@showDashboard')->name('dash');
     

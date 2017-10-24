@@ -606,6 +606,7 @@
 <script src="{{ asset('js/progressBar.js') }}"></script>
 <script src="{{ asset('js/bootstrap-waitingfor.min.js') }}"></script>
 <script src="{{ asset('js/fabric.js') }}"></script>
+<script src="{{ asset('js/jquery.ba-resize.min.js') }}"></script>
 <script src="{{ asset('js/calendarBuilder.js') }}"></script>
 <script src="{{ asset('js/layouts.js') }}"></script>
 <script>

@@ -115,7 +115,11 @@ $("#addVideo12").click(function () {
 
         // Resize canvas
         window.addEventListener('resize', resizeCanvas, false);
-
+        
+        $("#imagePrev").resize(function (e) {
+            resizeCanvas();
+        });
+                
         function resizeCanvas() {
             canvas.setHeight($("#c").parent().parent().height());
             canvas.setWidth($("#c").parent().parent().width());

@@ -284,6 +284,13 @@
                 height: 100%;
                 padding: 0px 0px !important;
         }
+        .panel-header1{
+            background-color: #5e5e5e;
+            padding-bottom: 30px;
+            padding-top: 30px;
+            padding-left: 30px;
+            padding-right: 30px;
+        }
        /* .bg-right{
                 background-color: #e5e5e5;
         }*/

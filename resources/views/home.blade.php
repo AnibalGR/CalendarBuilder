@@ -24,8 +24,8 @@
 
 @section('content')
 <div class="container-fluid" id="Background-body">
-    <div class="row">
-        <div class="col-md-12 head-calendar">
+    <div class="row panel-header1">
+        <div class="col-md-4 head-calendar">
             <button id="removeObject" type="button" class="btn btn-primary" style="width: 100%">Remove Object</button>
             @if (Auth::user()->subscribed('main'))
             <button id="generateVideo">Generate Calendar Video</button>
@@ -38,12 +38,15 @@
             <label for="text-font-size">Calendar background color:</label>
             <input type="range" value="" min="0" max="1" step="0.1" id="background-color-opacity">
         </div>
+        <div class="col-md-8 head-calendar">
+            
+        </div>
     </div>
     <div class="row">
         <div class="col-md-12">
             <div class="col-md-4" >
                 <div class="panel panel-default">
-                    <div class="panel-heading" id='toolsPanel'>Tools</div>
+                    <!--<div class="panel-heading" id='toolsPanel'>Tools</div>-->
                     <div class="panel-body panel-left" id="toolsCont">
                         <div class="col-xs-3"> <!-- required for floating -->
                             <!-- Nav tabs -->

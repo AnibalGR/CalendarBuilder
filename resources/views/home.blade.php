@@ -229,7 +229,7 @@
 
 
                                                             <label for="text-stroke-width">Stroke width:</label>
-                                                            <input type="range" value="1" min="1" max="5" step="0.01" id="text-stroke-width">
+                                                            <input type="range" value="1" min="1" max="5" id="text-stroke-width">
                                                         </div>
                                                         <div>
                                                             <label for="text-font-size">Font size:</label>

@@ -461,18 +461,74 @@ border-radius: 5px;
     border: 1px solid transparent;
     border-radius: 4px;
 }
+/**************Select and text*****************/
+.styled-select {
+   background: url(http://i62.tinypic.com/15xvbd5.png) no-repeat 96% 0;
+   height: 29px;
+   overflow: hidden;
+   width: 240px;
+}
+
+.styled-select select {
+   background: transparent;
+   border: none;
+   font-size: 14px;
+   height: 29px;
+   padding: 5px; /* If you add too much padding here, the options won't show in IE */
+   width: 268px;
+}
+.styled-select.slats {
+   background: url(http://i62.tinypic.com/2e3ybe1.jpg) no-repeat right center;
+   height: 34px;
+   width: 240px;
+}
+
+.styled-select.slate select {
+   border: 1px solid #ccc;
+   font-size: 16px;
+   height: 34px;
+   width: 268px;
+}
+
+/* -------------------- Rounded Corners */
+.rounded {
+   -webkit-border-radius: 20px;
+   -moz-border-radius: 20px;
+   border-radius: 20px;
+}
+
+.semi-square {
+   -webkit-border-radius: 5px;
+   -moz-border-radius: 5px;
+   border-radius: 5px;
+}
+
+.slate   { background-color: #ddd; }
+.green   { background-color: #779126; }
+.blue    { background-color: #23b7e5; }
+.yellow  { background-color: #eec111; }
+.black   { background-color: #000; }
+
+/* -------------------- Colors: Text */
+.slate select   { color: #000; }
+.green select   { color: #fff; }
+.blue select    { color: #fff; }
+.yellow select  { color: #000; }
+.black select   { color: #fff; }
+
+
 /***************Texto*******************/
 .tab-pane{
-    color:#ffffff;
+    color:#2a58ad;
     line-height: 1.5;
     font-family: 'Open Sans', sans-serif;
     padding-bottom: 40px;
 }
 .tab-pane label{
-    color:#333333;
-    line-height: 2.5;
+    color:#2a58ad;
+    line-height: 3;
     font-family: 'Open Sans', sans-serif;
-    font-weight: 400;
+    font-weight: 700;
 }
 /*************Anibal CSS*****************/        
         

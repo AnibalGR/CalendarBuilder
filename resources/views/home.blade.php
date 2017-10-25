@@ -33,21 +33,22 @@
         <div class="col-md-8 head-calendar">
             <div class="col-md-12">
             <div class="col-md-3">
-            <button id="removeObject" type="button" class="btn btn-labeled btn-default2">
-                                                        <span class="btn-label"><i class="glyphicon glyphicon-erase sb-icons-4"></i></span><span class="text-whiteBG">REMOVE OBJECT</span></button>        
-            <!--<button id="removeObject" type="button" class="btn btn-primary" style="width: 100%">Remove Object</button>-->
             @if (Auth::user()->subscribed('main'))
-            </div>
-            <div class="col-md-3">
             <button id="generateVideo" type="button" class="btn btn-labeled btn-default">
                                                         <span class="btn-label"><i class="glyphicon glyphicon-facetime-video sb-icons-3"></i></span><span class="text-whiteBG">GENERATE VIDEO</span></button>
-            <!--<button id="generateVideo">Generate Calendar Video</button>-->
             </div>
             <div class="col-md-3">
             <button id="saveCalendar" type="button" class="btn btn-labeled btn-default">
                                                         <span class="btn-label"><i class="glyphicon glyphicon-floppy-disk sb-icons-3"></i></span><span class="text-whiteBG">SAVE CALENDAR</span></button>
-            <!--<button id="saveCalendar">Save Calendar</button>-->
             @endif
+            </div>
+            <div class="col-md-4">
+            
+                <div id="actionsAlerts" class="aAlerts">
+                    
+                </div>
+            
+            
             </div>
                 
             </div>
@@ -296,7 +297,7 @@
                                                 <div id='imageError'></div>
                                             </div>
                                             <div class="col-xs-6">
-                                                    <button id="removeImage" type="button" class="btn btn-labeled btn-default2">
+                                                    <button id="removeObject" type="button" class="btn btn-labeled btn-default2">
                                                         <span  class="btn-label"><i class="glyphicon glyphicon-erase sb-icons-4"></i></span><span class="text-whiteBG">REMOVE</span></button>
                                             </div>
                                         </div>

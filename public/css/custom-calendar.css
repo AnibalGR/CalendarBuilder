@@ -320,6 +320,9 @@
         #left-menu li a{
             padding: 8px 15px;
         }
+        .fa{
+            font-size: 17px !important;
+        }
         
         .sb-icons{
                 width:100%; 
@@ -354,8 +357,13 @@
             background-color: #ffffff;
         }
         .text-whiteBG}{
-            color: 1c2b36;
+            color: #1c2b36;
             font-weight: 800;
+        }
+        .aAlerts{
+            color: #ffffff;
+            font-weight: 600;
+            font-size: 14px;
         }
         .btn{
             padding: 6px 9px;

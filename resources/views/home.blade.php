@@ -678,6 +678,10 @@
         <input id="layoutCal" name="layoutCal" type="text" style="visibility: hidden">
         <input id="backgroundCal" name="backgroundCal" type="text" style="visibility: hidden">
         <input id="colorCal" name="colorCal" type="text" style="visibility: hidden">
+        <input id="colorYearCal" name="colorYearCal" type="text" style="visibility: hidden">
+        <input id="colorWeekCal" name="colorWeekCal" type="text" style="visibility: hidden">
+        <input id="colorDayCal" name="colorDayCal" type="text" style="visibility: hidden">
+        <input id="opacityCal" name="opacityCal" type="text" style="visibility: hidden">
         <input id="videoCal" name="videoCal" type="text" style="visibility: hidden">
         <textarea id="contentCal" name="contentCal" form="form-save" maxlength="50000" style="visibility: hidden"></textarea>
         {{ csrf_field() }}
@@ -963,7 +967,7 @@ function changeVideo(id) {
     
     // Remove video function
     $("#removeVideo").click(function () {
-        if ($("#video").is(":visible")) {
+        if ($("#video").length) {
             $('#idVideo').val("{{ $id }}");
             var form = $('#del_video');
             var url = form.attr('action');

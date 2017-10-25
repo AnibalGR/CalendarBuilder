@@ -382,6 +382,12 @@ $("#addVideo12").click(function () {
 
         function saveCalendar(){
             
+            var $color = $("#calendarBackColor").val();
+            var $colorYear = $("#calendarYearColor").val();
+            var $colorWeek = $("#calendarWeekColor").val();
+            var $colorDay = $("#calendarDayColor").val();
+            var $opacity = $("#background-color-opacity").val();
+            var $background = $("#calendarBack").css('background-image');
             var $themeCategory = $('#themeCategory').val();
             var $theme = $('#theme').val();
             var $layout = getCurrentLayout();
@@ -398,8 +404,12 @@ $("#addVideo12").click(function () {
             $('#themeCCal').val($themeCategory);
             $('#themeCal').val($theme);
             $('#layoutCal').val($layout);
-            $('#backgroundCal').val("none");
-//        $('#colorCal').val("none");
+            $('#backgroundCal').val($background);
+            $('#colorCal').val($color);
+            $('#colorYearCal').val($colorYear);
+            $('#colorWeekCal').val($colorWeek);
+            $('#colorDayCal').val($colorDay);
+            $('#opacityCal').val($opacity);
             $('#videoCal').val($src);
             $('#contentCal').val(JSON.stringify(canvas));
             var form = $('#form-save');

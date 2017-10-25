@@ -407,8 +407,9 @@ $("#addVideo12").click(function () {
             var data = form.serialize();
             $.post(url, data, function (result) {
                 //alert(result);
+                var currentdate = new Date();
                 $("#actionsAlerts").empty();
-                $("#actionsAlerts").append("<p id = 'message'>The calendar have been saved!</p>");
+                $("#actionsAlerts").append("<p>Saved at " + currentdate.getHours() + ":" + currentdate.getMinutes() + ":" + currentdate.getSeconds() + "</p>");
             }).fail(function (e) {
                 alert(JSON.stringify(e));
             });

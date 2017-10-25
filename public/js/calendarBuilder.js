@@ -402,6 +402,8 @@ $("#addVideo12").click(function () {
             var data = form.serialize();
             $.post(url, data, function (result) {
                 //alert(result);
+                
+                $("#actionsAlerts").append("<p id = 'message'>The calendar have been saved!</p>");
             }).fail(function (e) {
                 alert(JSON.stringify(e));
             });
@@ -421,10 +423,16 @@ $("#addVideo12").click(function () {
 
         });
 
-        $('#calendarColor').change(function () {
+        $('#calendarYearColor').change(function () {
             $(".fc-center h2").css("color", this.value);
+        });
+        
+        $('#calendarWeekColor').change(function () {
             $(".fc-day-header span").css("color", this.value);
             $(".fc-day-header").css("color", this.value);
+        });
+        
+        $('#calendarDayColor').change(function () {
             $(".fc-widget-content a").css("color", this.value);
             $(".fc-future a").css("color", this.value);
             $(".fc-past a").css("color", this.value);

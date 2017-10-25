@@ -755,10 +755,13 @@ function changeVideo(id) {
         video.appendTo($('#videoDiv'));
         $("#video").css('width', '100%');
         $("#video").css('height', '100%');
+        $("#saveCalendar").trigger("click");
         $("#videoTab").trigger("click");
     } else {
         $('#video').attr('src', url);
         $("#video")[0].load();
+        $("#saveCalendar").trigger("click");
+        $("#videoTab").trigger("click");
     }
 }
 
@@ -850,21 +853,21 @@ function changeVideo(id) {
         return '{{ $color }}';
     }
 
-// Remove video function
+    // Remove video function
     $("#removeVideo").click(function () {
-    if ($("#video").is(":visible")) {
-    $('#idVideo').val("{{ $id }}");
-    var form = $('#del_video');
-    var url = form.attr('action');
-    var data = form.serialize();
-    $.post(url, data, function(result){
-    $("#video").remove();
-    $("#calendarTab").trigger("click");
-    $("#saveCalendar").trigger("click");
-    }).fail(function(e){
-    alert (e.message);
-    });
-    }
+        if ($("#video").is(":visible")) {
+            $('#idVideo').val("{{ $id }}");
+            var form = $('#del_video');
+            var url = form.attr('action');
+            var data = form.serialize();
+            $.post(url, data, function(result){
+                $("#video").remove();
+                $("#calendarTab").trigger("click");
+                $("#saveCalendar").trigger("click");
+            }).fail(function(e){
+                alert (JSON.stringify(e));
+            });
+        }
     });
 
 </script>

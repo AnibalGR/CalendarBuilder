@@ -24,7 +24,7 @@ class VideoController extends Controller
                 ends_with($video, "007.mp4")||ends_with($video, "008.mp4")||ends_with($video, "009.mp4")||
                 ends_with($video, "010.mp4")||ends_with($video, "011.mp4")||ends_with($video, "012.mp4")){
             
-            
+                return "El video ha sido eliminado exitosamente!";
             
         }else{
             $videoName = substr("$video", -11);

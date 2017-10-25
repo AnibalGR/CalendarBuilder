@@ -592,6 +592,138 @@ $('#background-color-opacity').change(function () {
     $(".fc-month-view").css("opacity", this.value);
 });
 
+    $("#addImg1").click(function () {
+
+        var myImg = '../../img/headers/header-1.jpg';
+
+        fabric.Image.fromURL(myImg, function (oImg) {
+            oImg.scale(0.5);
+            canvas.add(oImg);
+        });
+
+    });
+    
+    $("#addImg2").click(function () {
+
+        var myImg = '../../img/headers/header-2.jpg';
+
+        fabric.Image.fromURL(myImg, function (oImg) {
+            oImg.scale(0.5);
+            canvas.add(oImg);
+        });
+
+    });
+    
+    $("#addImg3").click(function () {
+
+        var myImg = '../../img/headers/header-3.jpg';
+
+        fabric.Image.fromURL(myImg, function (oImg) {
+            oImg.scale(0.5);
+            canvas.add(oImg);
+        });
+
+    });
+    
+    $("#addImg4").click(function () {
+
+        var myImg = '../../img/headers/header-4.jpg';
+
+        fabric.Image.fromURL(myImg, function (oImg) {
+            oImg.scale(0.5);
+            canvas.add(oImg);
+        });
+
+    });
+    
+    $("#addImg5").click(function () {
+
+        var myImg = '../../img/headers/header-5.jpg';
+
+        fabric.Image.fromURL(myImg, function (oImg) {
+            oImg.scale(0.5);
+            canvas.add(oImg);
+        });
+
+    });
+    
+    $("#addImg6").click(function () {
+
+        var myImg = '../../img/headers/header-6.jpg';
+
+        fabric.Image.fromURL(myImg, function (oImg) {
+            oImg.scale(0.5);
+            canvas.add(oImg);
+        });
+
+    });
+    
+    $("#addImg7").click(function () {
+
+        var myImg = '../../img/headers/header-7.jpg';
+
+        fabric.Image.fromURL(myImg, function (oImg) {
+            oImg.scale(0.5);
+            canvas.add(oImg);
+        });
+
+    });
+    
+    $("#addImg8").click(function () {
+
+        var myImg = '../../img/headers/header-8.jpg';
+
+        fabric.Image.fromURL(myImg, function (oImg) {
+            oImg.scale(0.5);
+            canvas.add(oImg);
+        });
+
+    });
+    
+    $("#addImg9").click(function () {
+
+        var myImg = '../../img/headers/header-9.jpg';
+
+        fabric.Image.fromURL(myImg, function (oImg) {
+            oImg.scale(0.5);
+            canvas.add(oImg);
+        });
+
+    });
+    
+    $("#addImg10").click(function () {
+
+        var myImg = '../../img/headers/header-10.jpg';
+
+        fabric.Image.fromURL(myImg, function (oImg) {
+            oImg.scale(0.5);
+            canvas.add(oImg);
+        });
+
+    });
+    
+    $("#addImg11").click(function () {
+
+        var myImg = '../../img/headers/header-11.jpg';
+
+        fabric.Image.fromURL(myImg, function (oImg) {
+            oImg.scale(0.5);
+            canvas.add(oImg);
+        });
+
+    });
+    
+    $("#addImg12").click(function () {
+
+        var myImg = '../../img/headers/header-12.jpg';
+
+        fabric.Image.fromURL(myImg, function (oImg) {
+            oImg.scale(0.5);
+            canvas.add(oImg);
+        });
+
+    });
+
 setTimeout(function () {
             // resize on init
             resizeCanvas();

@@ -24,8 +24,13 @@
 
 @section('content')
 <div class="container-fluid" id="Background-body">
-    <div class="row panel-header1">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="col-md-12 panel-header1 padd-20">
         <div class="col-md-4 head-calendar">
+            
+        </div>
+        <div class="col-md-8 head-calendar">
             <button id="removeObject" type="button" class="btn btn-primary" style="width: 100%">Remove Object</button>
             @if (Auth::user()->subscribed('main'))
             <button id="generateVideo">Generate Calendar Video</button>
@@ -38,8 +43,7 @@
             <label for="text-font-size">Calendar background color:</label>
             <input type="range" value="" min="0" max="1" step="0.1" id="background-color-opacity">
         </div>
-        <div class="col-md-8 head-calendar">
-            
+            </div>
         </div>
     </div>
     <div class="row">
@@ -48,28 +52,28 @@
                 <div class="panel panel-default">
                     <!--<div class="panel-heading" id='toolsPanel'>Tools</div>-->
                     <div class="panel-body panel-left" id="toolsCont">
-                        <div class="col-xs-3"> <!-- required for floating -->
+                        <div class="col-xs-3 BGapp1"> <!-- required for floating -->
                             <!-- Nav tabs -->
                             <ul class="nav nav-tabs tabs-left" id="left-menu">
                                 <li class="active"><a href="#home" data-toggle="tab">
                                         <span class="glyphicon glyphicon-th sb-icons" aria-hidden="true"></span>
-                                        Layout</a>
+                                        LAYOUT</a>
                                 </li>
                                 <li><a href="#profile" data-toggle="tab">
                                         <span class="glyphicon glyphicon-text-width sb-icons" aria-hidden="true"></span>
-                                        Text</a>
+                                        TEXT</a>
                                 </li>
                                 <li><a href="#shapes" data-toggle="tab">
                                         <span class="glyphicon glyphicon-stop sb-icons" aria-hidden="true"></span>
-                                        Shapes</a>
+                                        SHAPES</a>
                                 </li>
                                 <li><a href="#messages" data-toggle="tab">
                                         <span class="glyphicon glyphicon-picture sb-icons" aria-hidden="true"></span>
-                                        Image</a>
+                                        IMAGE</a>
                                 </li>
                                 <li><a href="#settings" data-toggle="tab">
                                         <span class="glyphicon glyphicon-film sb-icons" aria-hidden="true"></span>
-                                        Video</a>
+                                        VIDEO</a>
                                 </li>
                                 <li><a href="#Background" data-toggle="tab">
                                         <span class="glyphicon glyphicon-picture sb-icons" aria-hidden="true"></span>
@@ -79,7 +83,7 @@
                             </ul>
                         </div>
 
-                        <div class="col-xs-9">
+                        <div class="col-xs-9 BGapp">
                             <!-- Tab panes -->
                             <div class="tab-content">
                                 <div id="contenedor"></div>
@@ -218,13 +222,15 @@
                                 </div>
                                 <div class="tab-pane" id="messages">
                                     <div class="container-fluid">
-                                        <div class="row">
+                                        <div class="row space-20">
                                             <div class="col-xs-6">
                                                 <!--Upload Image Form-->
                                                 <form method="POST" action="{{ route('uploadImage') }}" id="form-upload" enctype="multipart/form-data">
                                                     <input id="upImage" name="upImage" type="file" style="display:none;" accept=".jpg,.jpeg,.png,.svg,.gif"/>
                                                     {{ csrf_field() }}
-                                                    <button id="addImage" type="button" class="btn btn-success btn-custom"><span class="glyphicon glyphicon-upload" aria-hidden="true"></span> Upload</button>
+                                                    <button id="addImage" type="button" class="btn btn-labeled btn-default">
+                                                        <span class="btn-label"><i class="glyphicon glyphicon-upload sb-icons-3"></i></span><span class="text-whiteBG">UPLOAD</span></button>
+                                                    <!--<button id="addImage" type="button" class="btn btn-success btn-custom"><span class="glyphicon glyphicon-upload" aria-hidden="true"></span> Upload</button>-->
                                                 </form>
                                                 <div id='imageError'></div>
                                             </div>
@@ -280,20 +286,24 @@
                                 </div>
                                 <div class="tab-pane" id="settings">
                                     <div class="container-fluid">
-                                        <div class="row">
+                                        <div class="row space-20">
                                             <div class="col-xs-6">
                                                 <!--Upload Video Form-->
                                                 <form method="POST" action="{{ route('uploadVideo') }}" id="form-uploadV" enctype="multipart/form-data">
                                                     <input id="upVideo" name="upVideo" type="file" style="display:none;" accept=".mpg,.avi,.flv,.mkv,.mov,.mp4,.ogv,.webm,.wmv"/>
                                                     {{ csrf_field() }}
-                                                    <button id="addVideo" type="button" class="btn btn-success btn-custom"><span class="glyphicon glyphicon-upload" aria-hidden="true"></span> Upload</button>
+                                                    <button id="addVideo" type="button" class="btn btn-labeled btn-default">
+                                                        <span class="btn-label"><i class="glyphicon glyphicon-upload sb-icons-3"></i></span><span class="text-whiteBG">UPLOAD</span></button>
+                                                    <!--<button id="addVideo" type="button" class="btn btn-success btn-custom"><span class="glyphicon glyphicon-upload" aria-hidden="true"></span> Upload</button>-->
                                                 </form>
                                             </div>
                                             <div class="col-xs-6">
                                                 <form method="POST" action="{{ route('delVideo') }}" id="del_video">
                                                     <input id="idVideo" name="idVideo" type="hidden"/>
                                                     {{ csrf_field() }}
-                                                    <button id="removeVideo" type="button" class="btn-danger btn-custom"><span class="glyphicon glyphicon-erase" aria-hidden="true"></span> Remove</button>
+                                                    <button id="removeBg" type="button" class="btn btn-labeled btn-default2">
+                                                        <span id="removeVideo" class="btn-label"><i class="glyphicon glyphicon-erase sb-icons-4"></i></span><span class="text-whiteBG">REMOVE</span></button>
+                                                   <!--<button id="removeVideo" type="button" class="btn-danger btn-custom"><span class="glyphicon glyphicon-erase" aria-hidden="true"></span> Remove</button>-->
                                                 </form>
                                             </div>
                                         </div>
@@ -356,20 +366,28 @@
                                 <div class="tab-pane" id="Background">
                                     <div class="container-fluid">
                                         <div class="row">
-                                            <div class="col-xs-6">
+                                            <!--
+                                            <div class="col-xs-6 zeropdg-2">
                                                 <!--Upload Image Form-->
+                                                <!--
                                                 <form method="POST" action="{{ route('uploadImage') }}" id="form-upload" enctype="multipart/form-data">
                                                     <input id="upBgImg" name="upImage" type="file" style="display:none;" accept=".jpg,.jpeg,.png,.svg,.gif"/>
                                                     {{ csrf_field() }}
-                                                    <button id="addBgImg" type="button" class="btn btn-success btn-custom"><span class="glyphicon glyphicon-upload" aria-hidden="true"></span> Upload</button>
+                                                    <button id="addBgImg" type="button" class="btn btn-labeled btn-default">
+                                                        <span class="btn-label"><i class="glyphicon glyphicon-upload sb-icons-3"></i></span><span class="text-whiteBG">UPLOAD</span></button>
+                                                    <button id="addBgImg" type="button" class="btn btn-success btn-custom"><span class="glyphicon glyphicon-upload sb-icons-3" aria-hidden="true"></span> Upload</button>
                                                 </form>
+                                                
                                                 <div id='imageError'></div>
                                             </div>
-                                            <div class="col-xs-6">
+                                            -->
+                                            <div class="col-xs-12 zeropdg-2 space-20">
                                                 <form method="POST" action="{{ route('uploadImage') }}" id="form-upload" enctype="multipart/form-data">
                                                     <input id="upBgImg" name="upImage" type="file" style="display:none;" accept=".jpg,.jpeg,.png,.svg,.gif"/>
                                                     {{ csrf_field() }}
-                                                    <button id="removeBg" type="button" class="btn-danger btn-custom"><span class="glyphicon glyphicon-erase" aria-hidden="true"></span> Remove</button>
+                                                    <button id="removeBg" type="button" class="btn btn-labeled btn-default2">
+                                                        <span class="btn-label"><i class="glyphicon glyphicon-erase sb-icons-4"></i></span><span class="text-whiteBG">REMOVE</span></button>
+                                                    <!--<button id="removeBg" type="button" class="btn-danger btn-custom"><span class="glyphicon glyphicon-erase" aria-hidden="true"></span> Remove</button>-->
                                                 </form>
                                             </div>
                                         </div>
@@ -453,9 +471,6 @@
                                                 <div class="addBgBox">
                                                     <img id="addBg24" src="{{ asset('img/backgrounds/thumbs/winter_river_thumb.jpg') }}" class="img-responsive" height="75px" width="150px">
                                                 </div>
-                                                <div class="addBgBox">
-                                                    <img id="addBg25" src="{{ asset('img/backgrounds/thumbs/winter_trees_thumb.jpg') }}" class="img-responsive" height="75px" width="150px">
-                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -469,8 +484,8 @@
             <div class="col-md-8 calendar-ini">
                 <div id="tabs" style="padding: 0px;">
                     <ul>
-                        <li><a href="#tabs-1"><span id="calendarTab" class="glyphicon glyphicon-calendar sb-icons" aria-hidden="true" style="text-align: left; width: 20%; margin-right: 5px"></span>Calendar</a></li>
-                        <li><a href="#tabs-2"><span id="videoTab" class="glyphicon glyphicon-film sb-icons" aria-hidden="true" style="text-align: left; width: 20%; margin-right: 10px"></span>Video</a></li>
+                        <li><a href="#tabs-1"><span id="calendarTab" class="glyphicon glyphicon-calendar sb-icons-2" aria-hidden="true" style="text-align: left; width: 20%; margin-right: 5px"></span>Calendar</a></li>
+                        <li><a href="#tabs-2"><span id="videoTab" class="glyphicon glyphicon-film sb-icons-2" aria-hidden="true" style="text-align: left; width: 20%; margin-right: 10px"></span>Video</a></li>
                     </ul>
                     <div id="tabs-1" style="padding-left: 0px; padding-right: 0px; padding-bottom: 0px; padding-top: 0px">
                         <div class="panel panel-default" style="margin-bottom: 0px">

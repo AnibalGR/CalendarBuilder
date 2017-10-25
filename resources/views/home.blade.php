@@ -111,14 +111,20 @@
                                         </div>
                                         <div class="row">
                                             <div class="col-xs-12 panel-header-text">
-                                                <label for="calendarColor">F Color:</label>
-                                                <input type="color" value="" id="calendarColor" size="5">
+                                                <label for="calendarYearColor">Year Color:</label>
+                                                <input type="color" value="" id="calendarYearColor" size="5">
+                                                <br/>
+                                                <label for="calendarWeekColor">Week Color:</label>
+                                                <input type="color" value="" id="calendarWeekColor" size="5">
+                                                <br/>
+                                                <label for="calendarDayColor">Day Color:</label>
+                                                <input type="color" value="" id="calendarDayColor" size="5">
                                                 <br/>
                                                 <label for="calendarBackColor">C color:</label>
                                                 <input type="color" value="" id="calendarBackColor" size="5">
                                                 <br/>
                                                 <label for="text-font-size">Opacity:</label>
-                                                <input type="range" value="" min="0" max="1" step="0.1" id="background-color-opacity">
+                                                <input type="range" value="1" min="0" max="1" step="0.001" id="background-color-opacity">
                                             </div>
                                         </div>
                                     </div>
@@ -279,6 +285,14 @@
                                             <div class="col-xs-6">
                                                 <button id="addStar5" type="button" class="btn btn-primary btn-custom">Add Star (5 edges)</button>    
                                             </div>
+                                        </div>
+                                        <div class="row">
+                                            <label for="shapeColor" style="display:inline-block">Shape color:</label>
+                                            <input type="color" value="" id="shapeColor" size="10">
+                                            <br>
+                                            <label for="shapeBorderColor" style="display:inline-block">Border color:</label>
+                                            <input type="color" value="" id="shapeBorderColor" size="10">
+                                            <br>
                                         </div>
                                     </div>
                                 </div>

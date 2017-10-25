@@ -31,17 +31,36 @@
             
         </div>
         <div class="col-md-8 head-calendar">
-            <button id="removeObject" type="button" class="btn btn-primary" style="width: 100%">Remove Object</button>
+            <div class="col-md-12">
+            <div class="col-md-3">
+            <button id="removeObject" type="button" class="btn btn-labeled btn-default2">
+                                                        <span class="btn-label"><i class="glyphicon glyphicon-erase sb-icons-4"></i></span><span class="text-whiteBG">REMOVE OBJECT</span></button>        
+            <!--<button id="removeObject" type="button" class="btn btn-primary" style="width: 100%">Remove Object</button>-->
             @if (Auth::user()->subscribed('main'))
-            <button id="generateVideo">Generate Calendar Video</button>
-            <button id="saveCalendar">Save Calendar</button>
+            </div>
+            <div class="col-md-3">
+            <button id="generateVideo" type="button" class="btn btn-labeled btn-default">
+                                                        <span class="btn-label"><i class="glyphicon glyphicon-facetime-video sb-icons-3"></i></span><span class="text-whiteBG">GENERATE VIDEO</span></button>
+            <!--<button id="generateVideo">Generate Calendar Video</button>-->
+            </div>
+            <div class="col-md-3">
+            <button id="saveCalendar" type="button" class="btn btn-labeled btn-default">
+                                                        <span class="btn-label"><i class="glyphicon glyphicon-floppy-disk sb-icons-3"></i></span><span class="text-whiteBG">SAVE CALENDAR</span></button>
+            <!--<button id="saveCalendar">Save Calendar</button>-->
             @endif
-            <label for="calendarColor">Calendar color:</label>
+            </div>
+            
+            <div class="col-md-3 panel-header-text">
+            <label for="calendarColor">F Color:</label>
             <input type="color" value="" id="calendarColor" size="5">
-            <label for="calendarBackColor">Calendar back:</label>
+            <br/>
+            <label for="calendarBackColor">C color:</label>
             <input type="color" value="" id="calendarBackColor" size="5">
-            <label for="text-font-size">Calendar background color:</label>
+            <br/>
+            <label for="text-font-size">Opacity:</label>
             <input type="range" value="" min="0" max="1" step="0.1" id="background-color-opacity">
+            </div>
+            </div>
         </div>
             </div>
         </div>
@@ -90,12 +109,19 @@
                                 <div class="tab-pane active" id="home">
                                     <div class="container-fluid">
                                         <div class="row">
+                                            <div class="col-xs-12 space-20">
+                                                    <button id="noneLayout" type="button" class="btn btn-labeled btn-default2">
+                                                        <span class="btn-label"><i class="glyphicon glyphicon-erase sb-icons-4"></i></span><span class="text-whiteBG">REMOVE</span></button>
+                                            </div>
+                                            <!--
                                             <div class="col-xs-12 text-center">
                                                 <div class="layoutType">
                                                     <button id="noneLayout" type="button" class="btn-danger btn-custom"><span class="glyphicon glyphicon-erase" aria-hidden="true"></span>Remove Layout</button>
                                                     <!--<img id="noneLayout" src="{{ asset('img/thumb/layout-1.jpg') }}" class="img-responsive" height="100px" width="150px">-->
+                                        <!--        
                                                 </div>
                                             </div>
+                                            -->
                                         </div>
                                         <div class="row">
                                             <div class="col-xs-6">
@@ -301,8 +327,8 @@
                                                 <form method="POST" action="{{ route('delVideo') }}" id="del_video">
                                                     <input id="idVideo" name="idVideo" type="hidden"/>
                                                     {{ csrf_field() }}
-                                                    <button id="removeBg" type="button" class="btn btn-labeled btn-default2">
-                                                        <span id="removeVideo" class="btn-label"><i class="glyphicon glyphicon-erase sb-icons-4"></i></span><span class="text-whiteBG">REMOVE</span></button>
+                                                    <button id="removeVideo" type="button" class="btn btn-labeled btn-default2">
+                                                        <span  class="btn-label"><i class="glyphicon glyphicon-erase sb-icons-4"></i></span><span class="text-whiteBG">REMOVE</span></button>
                                                    <!--<button id="removeVideo" type="button" class="btn-danger btn-custom"><span class="glyphicon glyphicon-erase" aria-hidden="true"></span> Remove</button>-->
                                                 </form>
                                             </div>
@@ -381,7 +407,7 @@
                                                 <div id='imageError'></div>
                                             </div>
                                             -->
-                                            <div class="col-xs-12 zeropdg-2 space-20">
+                                            <div class="col-xs-12 space-20">
                                                 <form method="POST" action="{{ route('uploadImage') }}" id="form-upload" enctype="multipart/form-data">
                                                     <input id="upBgImg" name="upImage" type="file" style="display:none;" accept=".jpg,.jpeg,.png,.svg,.gif"/>
                                                     {{ csrf_field() }}

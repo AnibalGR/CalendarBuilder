@@ -422,6 +422,20 @@ $("#addVideo12").click(function () {
             canvas.remove(activeObject);
 
         });
+        
+        $("#removeText").click(function () {
+
+            var activeObject = canvas.getActiveObject();
+            canvas.remove(activeObject);
+
+        });
+        
+        $("#removeShape").click(function () {
+
+            var activeObject = canvas.getActiveObject();
+            canvas.remove(activeObject);
+
+        });
 
         $('#calendarYearColor').change(function () {
             $(".fc-center h2").css("color", this.value);

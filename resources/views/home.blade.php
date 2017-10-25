@@ -258,7 +258,7 @@
                                     <div class="container-fluid">
                                         <div class="row space-20">
                                             <div class="col-xs-12">
-                                                    <button id="removeText" type="button" class="btn btn-labeled btn-default2">
+                                                    <button id="removeShape" type="button" class="btn btn-labeled btn-default2">
                                                         <span  class="btn-label"><i class="glyphicon glyphicon-erase sb-icons-4"></i></span><span class="text-whiteBG">REMOVE</span></button>
                                             </div>
                                         </div>
@@ -767,7 +767,7 @@
             $("#video").css('width', '100%');
             $("#video").css('height', '100%');
             $("#videoTab").trigger("click");
-            saveCalendar();
+            $("#saveCalendar").trigger("click");
             },
             error: function (data) {
             try {
@@ -853,12 +853,12 @@ function changeVideo(id) {
         video.appendTo($('#videoDiv'));
         $("#video").css('width', '100%');
         $("#video").css('height', '100%');
-        saveCalendar();
+        $("#saveCalendar").trigger("click");
         $("#videoTab").trigger("click");
     } else {
         $('#video').attr('src', url);
         $("#video")[0].load();
-        saveCalendar();
+        $("#saveCalendar").trigger("click");
         $("#videoTab").trigger("click");
     }
 }
@@ -961,7 +961,7 @@ function changeVideo(id) {
             $.post(url, data, function(result){
                 $("#video").remove();
                 $("#calendarTab").trigger("click");
-                saveCalendar();
+                $("#saveCalendar").trigger("click");
             }).fail(function(e){
                 alert (JSON.stringify(e));
             });

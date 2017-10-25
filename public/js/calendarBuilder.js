@@ -409,7 +409,10 @@ $("#addVideo12").click(function () {
                 //alert(result);
                 var currentdate = new Date();
                 $("#actionsAlerts").empty();
-                $("#actionsAlerts").append("<p>Saved at " + currentdate.getHours() + ":" + currentdate.getMinutes() + ":" + currentdate.getSeconds() + "</p>");
+                $("#actionsAlerts").append("<p id='savedTime'>Saved at " + currentdate.getHours() + ":" + currentdate.getMinutes() + ":" + currentdate.getSeconds() + "</p>");
+                setTimeout(function(){
+                    $("#savedTime").fadeOut("slow");
+                },5000);
             }).fail(function (e) {
                 alert(JSON.stringify(e));
             });

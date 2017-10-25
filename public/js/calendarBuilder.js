@@ -603,6 +603,10 @@ $('#calendarBackColor').change(function () {
     $(".fc-month-view").css("background-color", this.value);
 });
 
+$('#removeCalendarBackColor').click(function () {
+    $(".fc-month-view").css("background-color", "transparent");
+});
+
 $('#background-color-opacity').change(function () {
     $(".fc-month-view").css("opacity", this.value);
 });

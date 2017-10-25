@@ -105,7 +105,7 @@
                                     <div class="container-fluid">
                                         <div class="row">
                                             <div class="col-xs-12 space-20">
-                                                    <button id="RemoveColors" type="button" class="btn btn-labeled btn-default2">
+                                                    <button id="removeCalendarBackColor" type="button" class="btn btn-labeled btn-default2">
                                                         <span class="btn-label"><i class="glyphicon glyphicon-erase sb-icons-4"></i></span><span class="text-whiteBG">REMOVE</span></button>
                                             </div>
                                         </div>
@@ -293,6 +293,8 @@
                                             <label for="shapeBorderColor" style="display:inline-block">Border color:</label>
                                             <input type="color" value="" id="shapeBorderColor" size="10">
                                             <br>
+                                            <label for="shapeBorderColor" style="display:inline-block">Border color:</label>
+                                            <button id="addStar5" type="button" class="btn btn-primary btn-custom">Remove str</button>    
                                         </div>
                                     </div>
                                 </div>

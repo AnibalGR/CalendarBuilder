@@ -111,16 +111,16 @@
                                         </div>
                                         <div class="row">
                                             <div class="col-xs-12 panel-header-text">
-                                                <label for="calendarYearColor">Year Color:</label>
+                                                <label for="calendarYearColor">Y Color:</label>
                                                 <input type="color" value="" id="calendarYearColor" size="5">
                                                 <br/>
-                                                <label for="calendarWeekColor">Week Color:</label>
+                                                <label for="calendarWeekColor">W Color:</label>
                                                 <input type="color" value="" id="calendarWeekColor" size="5">
                                                 <br/>
-                                                <label for="calendarDayColor">Day Color:</label>
+                                                <label for="calendarDayColor">D Color:</label>
                                                 <input type="color" value="" id="calendarDayColor" size="5">
                                                 <br/>
-                                                <label for="calendarBackColor">C color:</label>
+                                                <label for="calendarBackColor">BG color:</label>
                                                 <input type="color" value="" id="calendarBackColor" size="5">
                                                 <br/>
                                                 <label for="text-font-size">Opacity:</label>
@@ -189,22 +189,24 @@
                                                     <div id="text-controls">
                                                         <input type="color" value="" id="text-color" size="10">
                                                         <label for="font-family" style="display:inline-block">Font family:</label>
-                                                        <select id="font-family">
-                                                            <option value="arial">Arial</option>
-                                                            <option value="helvetica" selected>Helvetica</option>
-                                                            <option value="myriad pro">Myriad Pro</option>
-                                                            <option value="delicious">Delicious</option>
-                                                            <option value="verdana">Verdana</option>
-                                                            <option value="georgia">Georgia</option>
-                                                            <option value="courier">Courier</option>
-                                                            <option value="comic sans ms">Comic Sans MS</option>
-                                                            <option value="impact">Impact</option>
-                                                            <option value="monaco">Monaco</option>
-                                                            <option value="optima">Optima</option>
-                                                            <option value="hoefler text">Hoefler Text</option>
-                                                            <option value="plaster">Plaster</option>
-                                                            <option value="engagement">Engagement</option>
-                                                        </select>
+                                                            <div class="styled-select blue semi-square">
+                                                                <select id="font-family">
+                                                                    <option value="arial">Arial</option>
+                                                                    <option value="helvetica" selected>Helvetica</option>
+                                                                    <option value="myriad pro">Myriad Pro</option>
+                                                                    <option value="delicious">Delicious</option>
+                                                                    <option value="verdana">Verdana</option>
+                                                                    <option value="georgia">Georgia</option>
+                                                                    <option value="courier">Courier</option>
+                                                                    <option value="comic sans ms">Comic Sans MS</option>
+                                                                    <option value="impact">Impact</option>
+                                                                    <option value="monaco">Monaco</option>
+                                                                    <option value="optima">Optima</option>
+                                                                    <option value="hoefler text">Hoefler Text</option>
+                                                                    <option value="plaster">Plaster</option>
+                                                                    <option value="engagement">Engagement</option>
+                                                                </select>
+                                                            </div>
                                                         <br>
                                                         <label for="text-align" style="display:inline-block">Text align:</label>
                                                         <select id="text-align">

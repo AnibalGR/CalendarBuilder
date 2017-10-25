@@ -161,12 +161,17 @@ $("#addVideo12").click(function () {
             canvas.getActiveObject().setStroke(this.value);
             canvas.renderAll();
         });
+        
+        $('#shapeColor').change(function () {
+            canvas.getActiveObject().setFill(this.value);
+            canvas.renderAll();
+        });
 
         $('#text-stroke-width').change(function () {
             canvas.getActiveObject().setStrokeWidth(this.value);
             canvas.renderAll();
         });
-
+        
         $('#font-family').change(function () {
             canvas.getActiveObject().setFontFamily(this.value);
             canvas.renderAll();
@@ -402,7 +407,7 @@ $("#addVideo12").click(function () {
             var data = form.serialize();
             $.post(url, data, function (result) {
                 //alert(result);
-                
+                $("#actionsAlerts").empty();
                 $("#actionsAlerts").append("<p id = 'message'>The calendar have been saved!</p>");
             }).fail(function (e) {
                 alert(JSON.stringify(e));

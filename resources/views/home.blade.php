@@ -289,12 +289,6 @@
                                         <div class="row">
                                             <label for="shapeColor" style="display:inline-block">Shape color:</label>
                                             <input type="color" value="" id="shapeColor" size="10">
-                                            <br>
-                                            <label for="shapeBorderColor" style="display:inline-block">Border color:</label>
-                                            <input type="color" value="" id="shapeBorderColor" size="10">
-                                            <br>
-                                            <label for="shapeBorderColor" style="display:inline-block">Border color:</label>
-                                            <button id="addStar5" type="button" class="btn btn-primary btn-custom">Remove str</button>    
                                         </div>
                                     </div>
                                 </div>
@@ -950,7 +944,7 @@ function changeVideo(id) {
     function getColor(){
         return '{{ $color }}';
     }
-
+    
     // Remove video function
     $("#removeVideo").click(function () {
         if ($("#video").is(":visible")) {

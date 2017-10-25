@@ -375,8 +375,8 @@ $("#addVideo12").click(function () {
             $("#upImage").val(null);
         });
 
-        $('#saveCalendar').click(function () {
-
+        function saveCalendar(){
+            
             var $themeCategory = $('#themeCategory').val();
             var $theme = $('#theme').val();
             var $layout = getLayout();
@@ -401,10 +401,17 @@ $("#addVideo12").click(function () {
             var url = form.attr('action');
             var data = form.serialize();
             $.post(url, data, function (result) {
-                alert(result);
+                //alert(result);
             }).fail(function (e) {
                 alert(JSON.stringify(e));
             });
+            
+        }
+
+        $('#saveCalendar').click(function () {
+
+            saveCalendar();
+            
         });
 
         $("#removeObject").click(function () {

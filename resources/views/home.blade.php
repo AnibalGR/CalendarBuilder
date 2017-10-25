@@ -684,7 +684,7 @@
             $("#video").css('width', '100%');
             $("#video").css('height', '100%');
             $("#videoTab").trigger("click");
-            $("#saveCalendar").trigger("click");
+            saveCalendar();
             },
             error: function (data) {
             try {
@@ -770,12 +770,12 @@ function changeVideo(id) {
         video.appendTo($('#videoDiv'));
         $("#video").css('width', '100%');
         $("#video").css('height', '100%');
-        $("#saveCalendar").trigger("click");
+        saveCalendar();
         $("#videoTab").trigger("click");
     } else {
         $('#video').attr('src', url);
         $("#video")[0].load();
-        $("#saveCalendar").trigger("click");
+        saveCalendar();
         $("#videoTab").trigger("click");
     }
 }
@@ -878,7 +878,7 @@ function changeVideo(id) {
             $.post(url, data, function(result){
                 $("#video").remove();
                 $("#calendarTab").trigger("click");
-                $("#saveCalendar").trigger("click");
+                saveCalendar();
             }).fail(function(e){
                 alert (JSON.stringify(e));
             });

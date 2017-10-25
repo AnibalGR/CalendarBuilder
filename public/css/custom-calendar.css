@@ -463,19 +463,19 @@ border-radius: 5px;
 }
 /**************Select and text*****************/
 .styled-select {
-   background: url(http://i62.tinypic.com/15xvbd5.png) no-repeat 96% 0;
-   height: 29px;
+   /*background: url('../img/other/15xvbd5.png') no-repeat 96% 0;*/
+   height: 35px;
    overflow: hidden;
-   width: 240px;
+   width: 70%;
 }
 
 .styled-select select {
    background: transparent;
    border: none;
    font-size: 14px;
-   height: 29px;
+   height: 35px;
    padding: 5px; /* If you add too much padding here, the options won't show in IE */
-   width: 268px;
+   width: 100%;
 }
 .styled-select.slats {
    background: url(http://i62.tinypic.com/2e3ybe1.jpg) no-repeat right center;
@@ -505,14 +505,14 @@ border-radius: 5px;
 
 .slate   { background-color: #ddd; }
 .green   { background-color: #779126; }
-.blue    { background-color: #23b7e5; }
+.blue    { background-color: #ffffff; }
 .yellow  { background-color: #eec111; }
 .black   { background-color: #000; }
 
 /* -------------------- Colors: Text */
 .slate select   { color: #000; }
 .green select   { color: #fff; }
-.blue select    { color: #fff; }
+.blue select    { color: #1d4c9e; }
 .yellow select  { color: #000; }
 .black select   { color: #fff; }
 

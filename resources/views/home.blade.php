@@ -175,21 +175,29 @@
                                 <div class="tab-pane" id="profile">
                                     <div class="container-fluid">
                                         <div class="row space-20">
-                                            <div class="col-xs-12">
+                                            <div class="col-xs-6">
+                                                    <button id="addText" type="button" class="btn btn-labeled btn-default">
+                                                        <span  class="btn-label"><i class="glyphicon glyphicon-erase sb-icons-3"></i></span><span class="text-whiteBG">ADD TEXT</span></button>
+                                            </div>
+                                            <div class="col-xs-6">
                                                     <button id="removeText" type="button" class="btn btn-labeled btn-default2">
                                                         <span  class="btn-label"><i class="glyphicon glyphicon-erase sb-icons-4"></i></span><span class="text-whiteBG">REMOVE</span></button>
                                             </div>
                                         </div>
                                         <div class="row">
                                             <div class="col-xs-12">
-                                                <button id="addText" type="button" class="btn btn-primary btn-custom"><span class="fa fa-text-width" aria-hidden="true"></span> Add Text</button>
+                                                <!--<button id="addText" type="button" class="btn btn-primary btn-custom"><span class="fa fa-text-width" aria-hidden="true"></span> Add Text</button>-->
                                                
                                                 <div id="text-wrapper" style="margin-top: 10px" ng-show="getText()">
 
                                                     <div id="text-controls">
-                                                        <input type="color" value="" id="text-color" size="10">
-                                                        <label for="font-family" style="display:inline-block">Font family:</label>
-                                                            <div class="styled-select blue semi-square">
+
+                                                        <div class="row space-20">
+                                                            <div class="col-xs-5 col-md-4">
+                                                                <span class="fa fa-font"></span>
+                                                            </div>
+                                                            <div class="col-xs-7 col-md-8">
+                                                                <div class="styled-select blue semi-square">
                                                                 <select id="font-family">
                                                                     <option value="arial">Arial</option>
                                                                     <option value="helvetica" selected>Helvetica</option>
@@ -207,47 +215,105 @@
                                                                     <option value="engagement">Engagement</option>
                                                                 </select>
                                                             </div>
-                                                        <br>
-                                                        <label for="text-align" style="display:inline-block">Text align:</label>
-                                                        <select id="text-align">
-                                                            <option value="left">Left</option>
-                                                            <option value="center">Center</option>
-                                                            <option value="right">Right</option>
-                                                            <option value="justify">Justify</option>
-                                                        </select>
-                                                        <div>
-                                                            <label for="text-bg-color">Background color:</label>
-                                                            <input type="color" value="" id="text-bg-color" size="10">
+                                                            </div>
                                                         </div>
-                                                        <div>
-                                                            <label for="text-lines-bg-color">Background text color:</label>
-                                                            <input type="color" value="" id="text-lines-bg-color" size="10">
+                                                        <div class="row space-20">
+                                                            <div class="col-xs-5 col-md-4">
+                                                                <span class="fa fa-align-center"></span>
+                                                            </div>
+                                                            <div class="col-xs-7 col-md-8">
+                                                                <div class="styled-select blue semi-square">
+                                                                    <select id="text-align">
+                                                                        <option value="left">Left</option>
+                                                                        <option value="center">Center</option>
+                                                                        <option value="right">Right</option>
+                                                                        <option value="justify">Justify</option>
+                                                                    </select>
+                                                                </div>
+                                                            </div>
                                                         </div>
-                                                        <div>
-                                                            <label for="text-stroke-color">Stroke color:</label>
-                                                            <input type="color" value="" id="text-stroke-color">
+                                                        
+                                                        <div class="row space-20">
+                                                            <div class="col-xs-5 col-md-4">
+                                                                <span class="fa fa-bold"></span>
+                                                            </div>
+                                                            <div class="col-xs-7 col-md-8">
+                                                                <input type='checkbox' name='fonttype' id="text-cmd-bold">
+                                                            </div>
                                                         </div>
-                                                        <div>
+                                                        
+                                                        <div class="row space-20">
+                                                            <div class="col-xs-5 col-md-4">
+                                                                <span class="fa fa-italic"></span>
+                                                            </div>
+                                                            <div class="col-xs-7 col-md-8">
+                                                                <input type='checkbox' name='fonttype' id="text-cmd-italic">
+                                                            </div>
+                                                        </div>
+                                                        
+                                                        <div class="row space-20">
+                                                            <div class="col-xs-5 col-md-4">
+                                                                Text Color:
+                                                            </div>
+                                                            <div class="col-xs-7 col-md-8">
+                                                                <input type="color" value="" id="text-color" size="10">
+                                                            </div>
+                                                        </div>
+                                                        
+                                                        <div class="row space-20">
+                                                            <div class="col-xs-5 col-md-4">
+                                                                BG text color:
+                                                            </div>
+                                                            <div class="col-xs-7 col-md-8">
+                                                                <input type="color" value="" id="text-lines-bg-color" size="10">
+                                                            </div>
+                                                        </div>
+                                                        
+                                                        <div class="row space-20">
+                                                            <div class="col-xs-5 col-md-4">
+                                                                Box color:
+                                                            </div>
+                                                            <div class="col-xs-7 col-md-8">
+                                                                <input type="color" value="" id="text-bg-color" size="10">
+                                                            </div>
+                                                        </div>
+                                                        
+                                                        <div class="row space-20">
+                                                            <div class="col-xs-5 col-md-4">
+                                                                Stroke color:
+                                                            </div>
+                                                            <div class="col-xs-7 col-md-8">
+                                                                <input type="color" value="" id="text-stroke-color">
+                                                            </div>
+                                                        </div>
+                                                        
+                                                        <div class="row space-20">
+                                                            <div class="col-xs-5 col-md-4">
+                                                                Stroke width:
+                                                            </div>
+                                                            <div class="col-xs-7 col-md-8">
+                                                                <input type="range" value="1" min="1" max="5" id="text-stroke-width">
+                                                            </div>
+                                                        </div>
+                                                        
+                                                        <div class="row space-20">
+                                                            <div class="col-xs-5 col-md-4">
+                                                                Font size:
+                                                            </div>
+                                                            <div class="col-xs-7 col-md-8">
+                                                                <input type="range" value="" min="1" max="120" step="1" id="text-font-size">
+                                                            </div>
+                                                        </div>
+                                                        
+                                                        <div class="row space-20">
+                                                            <div class="col-xs-5 col-md-4">
+                                                                Line height:
+                                                            </div>
+                                                            <div class="col-xs-7 col-md-8">
+                                                                <input type="range" value="" min="0" max="10" step="0.1" id="text-line-height">
+                                                            </div>
+                                                        </div>
 
-
-                                                            <label for="text-stroke-width">Stroke width:</label>
-                                                            <input type="range" value="1" min="1" max="5" id="text-stroke-width">
-                                                        </div>
-                                                        <div>
-                                                            <label for="text-font-size">Font size:</label>
-                                                            <input type="range" value="" min="1" max="120" step="1" id="text-font-size">
-                                                        </div>
-                                                        <div>
-                                                            <label for="text-line-height">Line height:</label>
-                                                            <input type="range" value="" min="0" max="10" step="0.1" id="text-line-height">
-                                                        </div>
-                                                    </div>
-                                                    <div id="text-controls-additional">
-                                                        <input type='checkbox' name='fonttype' id="text-cmd-bold">
-                                                        Bold
-
-                                                        <input type='checkbox' name='fonttype' id="text-cmd-italic">
-                                                        Italic
 
                                                     </div>
                                                 </div>

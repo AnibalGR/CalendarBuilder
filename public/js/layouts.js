@@ -107,7 +107,7 @@ function resizeLayout() {
 }
 
 // Function to get actual Layout
-function getLayout() {
+function getLayout2() {
     if ($("#bottomLayout").is(":visible")) {
         return 'bottom';
     }

@@ -384,7 +384,7 @@ $("#addVideo12").click(function () {
             
             var $themeCategory = $('#themeCategory').val();
             var $theme = $('#theme').val();
-            var $layout = getLayout();
+            var $layout = getCurrentLayout();
             var video = $('#video').length;
             var $src = "none";
             if (video) {

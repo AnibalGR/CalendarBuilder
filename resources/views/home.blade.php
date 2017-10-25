@@ -834,7 +834,7 @@ function changeVideo(id) {
             break;
     }
 
-    if (!$("#video").is(":visible")) {
+    if (!$("#video").length) {
         $("#videoDiv").css('visibility', 'visible');
         var video = $('<video />', {
             id: 'video',
@@ -919,6 +919,22 @@ function changeVideo(id) {
 
     function getLayout(){
         return '{{ $layout }}';
+    }
+    
+    function getCurrentLayout(){
+        if ($("#bottomLayout").is(":visible")) {
+            return 'bottom';
+        }
+        if ($("#rightLayout").is(":visible")) {
+            return 'right';
+        }
+        if ($("#leftLayout").is(":visible")) {
+            return 'left';
+        }
+        if ($("#topLayout").is(":visible")) {
+            return 'top';
+        }
+        return 'none';
     }
     
     function getUploadImageRoute(){

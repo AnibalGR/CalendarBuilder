@@ -120,7 +120,7 @@
                                     </div>
                                 </div>
                                 <div class="tab-pane" id="profile">
-                                    <button id="addText" type="button" class="btn btn-primary btn-custom"><span class="fa fa-text-width" aria-hidden="true"></span> Add Texto</button>
+                                    <button id="addText" type="button" class="btn btn-primary btn-custom"><span class="fa fa-text-width" aria-hidden="true"></span> Add Text</button>
                                     <div id="text-wrapper" style="margin-top: 10px" ng-show="getText()">
 
                                         <div id="text-controls">

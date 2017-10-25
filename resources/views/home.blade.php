@@ -90,12 +90,19 @@
                                 <div class="tab-pane active" id="home">
                                     <div class="container-fluid">
                                         <div class="row">
+                                            <div class="col-xs-12 space-20">
+                                                    <button id="noneLayout" type="button" class="btn btn-labeled btn-default2">
+                                                        <span class="btn-label"><i class="glyphicon glyphicon-erase sb-icons-4"></i></span><span class="text-whiteBG">REMOVE</span></button>
+                                            </div>
+                                            <!--
                                             <div class="col-xs-12 text-center">
                                                 <div class="layoutType">
                                                     <button id="noneLayout" type="button" class="btn-danger btn-custom"><span class="glyphicon glyphicon-erase" aria-hidden="true"></span>Remove Layout</button>
                                                     <!--<img id="noneLayout" src="{{ asset('img/thumb/layout-1.jpg') }}" class="img-responsive" height="100px" width="150px">-->
+                                        <!--        
                                                 </div>
                                             </div>
+                                            -->
                                         </div>
                                         <div class="row">
                                             <div class="col-xs-6">
@@ -381,7 +388,7 @@
                                                 <div id='imageError'></div>
                                             </div>
                                             -->
-                                            <div class="col-xs-12 zeropdg-2 space-20">
+                                            <div class="col-xs-12 space-20">
                                                 <form method="POST" action="{{ route('uploadImage') }}" id="form-upload" enctype="multipart/form-data">
                                                     <input id="upBgImg" name="upImage" type="file" style="display:none;" accept=".jpg,.jpeg,.png,.svg,.gif"/>
                                                     {{ csrf_field() }}

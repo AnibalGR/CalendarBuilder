@@ -97,9 +97,6 @@ use Carbon\Carbon;
                 </div>
             </div>
             -->
-
-
-       <div class="col-md-8 col-md-offset-2">
            <div class="panel panel-default">
                <div class="panel-heading">Choose your plan</div>
 
@@ -127,7 +124,7 @@ use Carbon\Carbon;
                    </ul>
                </div>
            </div>
-       </div>
+       
 
                  
         </div>

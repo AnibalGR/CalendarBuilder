@@ -28,6 +28,14 @@ a{
 h1{
     font-weight:800; 
 }
+.space-5{
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+.space-10{
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
 .space-20{
     margin-top: 20px;
     margin-bottom: 20px;

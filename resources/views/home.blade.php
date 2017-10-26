@@ -1114,6 +1114,26 @@ function changeVideo(id) {
         return '{{ $color }}';
     }
     
+    function getColorYear(){
+        return '{{ $colorYear }}';
+    }
+    
+    function getColorWeek(){
+        return '{{ $colorWeek }}';
+    }
+    
+    function getColorDay(){
+        return '{{ $colorDay }}';
+    }
+    
+    function getOpacity(){
+        return '{{ $opacity }}';
+    }
+    
+    function getBackground(){
+        return '{{ $background }}';
+    }
+    
     // Remove video function
     $("#removeVideo").click(function () {
         if ($("#video").length) {

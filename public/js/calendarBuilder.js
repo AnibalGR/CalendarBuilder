@@ -387,7 +387,7 @@ $("#addVideo12").click(function () {
             var $colorWeek = $("#calendarWeekColor").val();
             var $colorDay = $("#calendarDayColor").val();
             var $opacity = $("#background-color-opacity").val();
-            var $background = $("#calendarBack").css('background-image');
+            var $background = $("#calendarBack").attr('class');
             var $themeCategory = $('#themeCategory').val();
             var $theme = $('#theme').val();
             var $layout = getCurrentLayout();
@@ -474,14 +474,46 @@ $("#addVideo12").click(function () {
 
         function loadColor() {
             var color = getColor();
+            $(".fc-month-view").css("background-color", color);
+            $('#colorCal').val(color);
+            $('#calendarBackColor').val(color);
+        }
+        
+        function loadColorYear(){
+            var color = getColorYear();
             $(".fc-center h2").css("color", color);
+            $('#colorYearCal').val(color);
+            $('#calendarYearColor').val(color);
+        }
+        
+        function loadColorWeek(){
+            var color = getColorWeek();
             $(".fc-day-header span").css("color", color);
             $(".fc-day-header").css("color", color);
+            $('#colorWeekCal').val(color);
+            $('#calendarWeekColor').val(color);
+        }
+        
+        function loadColorDay(){
+            var color = getColorDay();
             $(".fc-widget-content a").css("color", color);
             $(".fc-future a").css("color", color);
             $(".fc-past a").css("color", color);
-            $('#colorCal').val(String(color));
-            $('#calendarColor').val(color);
+            $('#colorDayCal').val(color);
+            $('#calendarDayColor').val(color);
+        }
+        
+        function loadOpacity(){
+            var opacity = getOpacity();
+            $(".fc-month-view").css("opacity", opacity);
+            $('#background-color-opacity').val(opacity);
+            $('#opacityCal').val(opacity);
+        }
+        
+        function loadBackground(){
+            var background = getBackground();
+            $("#calendarBack").addClass(background);
+            $('#backgroundCal').val(background);
         }
         
     $("#addBg1").click(function(){
@@ -780,5 +812,12 @@ setTimeout(function () {
             // resize on init
             resizeCanvas();
             loadColor();
+            loadColorYear();
+            loadColorWeek();
+            loadColorDay();
+            loadOpacity();
+            loadBackground();
+            resizeCanvas();
+            $("#calendarBack").css("background-size", $("#imagePrev").width() + "px " + $("#imagePrev").height() + "px");
         }, 500);
 });

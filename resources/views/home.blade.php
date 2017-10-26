@@ -109,21 +109,47 @@
                                                         <span class="btn-label"><i class="glyphicon glyphicon-erase sb-icons-4"></i></span><span class="text-whiteBG">REMOVE</span></button>
                                             </div>
                                         </div>
-                                        <div class="row">
-                                            <div class="col-xs-12 panel-header-text">
-                                                <label for="calendarYearColor">Y Color:</label>
+                                        <div class="row space-20">
+                                            <div class="col-xs-5 col-md-4">
+                                                Year color:
+                                            </div>
+                                            <div class="col-xs-7 col-md-8">
                                                 <input type="color" value="" id="calendarYearColor" size="5">
-                                                <br/>
-                                                <label for="calendarWeekColor">W Color:</label>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="row space-20">
+                                            <div class="col-xs-5 col-md-4">
+                                                Week color:
+                                            </div>
+                                            <div class="col-xs-7 col-md-8">
                                                 <input type="color" value="" id="calendarWeekColor" size="5">
-                                                <br/>
-                                                <label for="calendarDayColor">D Color:</label>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="row space-20">
+                                            <div class="col-xs-5 col-md-4">
+                                                Day color:
+                                            </div>
+                                            <div class="col-xs-7 col-md-8">
                                                 <input type="color" value="" id="calendarDayColor" size="5">
-                                                <br/>
-                                                <label for="calendarBackColor">BG color:</label>
+                                            </div>
+                                        </div>
+
+                                        <div class="row space-20">
+                                            <div class="col-xs-5 col-md-4">
+                                                BG color:
+                                            </div>
+                                            <div class="col-xs-7 col-md-8">
                                                 <input type="color" value="" id="calendarBackColor" size="5">
-                                                <br/>
-                                                <label for="text-font-size">Opacity:</label>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="row space-20">
+                                            <div class="col-xs-5 col-md-4">
+                                                Opacity:
+                                            </div>
+                                            <div class="col-xs-7 col-md-8">
                                                 <input type="range" value="1" min="0" max="1" step="0.001" id="background-color-opacity">
                                             </div>
                                         </div>
@@ -330,6 +356,57 @@
                                                         <span  class="btn-label"><i class="glyphicon glyphicon-erase sb-icons-4"></i></span><span class="text-whiteBG">REMOVE</span></button>
                                             </div>
                                         </div>
+                                        
+                                        <div class="row space-20">
+                                            <div class="col-xs-5 col-md-4">
+                                                Shape color:
+                                            </div>
+                                            <div class="col-xs-7 col-md-8">
+                                                <input type="color" value="" id="shapeColor" size="10">
+                                            </div>
+                                        </div>
+                                        
+                                        
+                                        <div class="row">
+                                            <div class="col-xs-6">
+                                                <div class="layoutType">
+                                                    <img id="addRect" src="{{ asset('img/shapes/square.jpg') }}" class="img-responsive" height="100px" width="150px">
+                                                </div>
+                                            </div>
+                                            <div class="col-xs-6">
+                                                <div class="layoutType">
+                                                    <img id="addLine" src="{{ asset('img/shapes/line.jpg') }}" class="img-responsive" height="100px" width="150px">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="row">
+                                            <div class="col-xs-6">
+                                                <div class="layoutType">
+                                                    <img id="addCircle" src="{{ asset('img/shapes/circle.jpg') }}" class="img-responsive" height="100px" width="150px">
+                                                </div>
+                                            </div>
+                                            <div class="col-xs-6">
+                                                <div class="layoutType">
+                                                    <img id="addTriangle" src="{{ asset('img/shapes/triangle.jpg') }}" class="img-responsive" height="100px" width="150px">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="row">
+                                            <div class="col-xs-6">
+                                                <div class="layoutType">
+                                                    <img id="addStar5" src="{{ asset('img/shapes/star.jpg') }}" class="img-responsive" height="100px" width="150px">
+                                                </div>
+                                            </div>
+                                            <div class="col-xs-6">
+                                                <div class="layoutType">
+                                                    <img id="addStar4" src="{{ asset('img/shapes/star-2.jpg') }}" class="img-responsive" height="100px" width="150px">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                        <!--
                                         <div class="row">
                                             <div class="col-xs-6">
                                                 <button id="addRect" type="button" class="btn btn-primary btn-custom">Add Rectangle</button>
@@ -358,6 +435,10 @@
                                             <label for="shapeColor" style="display:inline-block">Shape color:</label>
                                             <input type="color" value="" id="shapeColor" size="10">
                                         </div>
+                                        
+                                        -->
+                                        
+                                        
                                     </div>
                                 </div>
                                 <div class="tab-pane" id="messages">

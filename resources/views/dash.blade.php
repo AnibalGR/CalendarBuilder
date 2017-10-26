@@ -47,8 +47,8 @@ use Carbon\Carbon;
             <div class="panel panel-default">
                 <div class="panel-heading">My Subscription</div>
                 <div class="panel-body">
-                    @if(!$plans->isEmpty())
-                        @foreach ($plans as $plan)
+                    @if(!$planes->isEmpty())
+                        @foreach ($planes as $plan)
                         <p>You are subscribed to the <br>{{ $plan->braintree_plan }} plan</p>
                         @endforeach
                     @else

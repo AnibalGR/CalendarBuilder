@@ -9,6 +9,7 @@ use App\Calendar;
 use App\Subscription;
 use Validator;
 use File;
+use App\Plan;
 use Symfony\Component\Process\ProcessBuilder;
 
 class HomeController extends Controller {
@@ -276,7 +277,7 @@ class HomeController extends Controller {
         $calendars = Calendar::where('user_id', Auth::id())->get();
         $plans = Subscription::where('user_id', Auth::id())->where('ends_at', null)->get();
 
-        return view('dash')->with(['calendars' => $calendars, 'plans' => $plans, 'videos' => $files]);
+        return view('dash')->with(['calendars' => $calendars, 'planes' => $plans, 'videos' => $files, 'plans' => Plan::get()]);
     }
 
     public function endsWith($haystack, $needle) {

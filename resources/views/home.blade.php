@@ -1066,7 +1066,7 @@ function changeVideo(id) {
     $.post(url, data, function(result){
     waitingDialog.hide();
     $("#actionsAlerts").empty();
-    $("#actionsAlerts").append("<p id='savedTime'>The video was successfully created. You can find it on the <a href='{{ route('dash') }}'>Dashboard</a></p>");
+    $("#actionsAlerts").append("<p id='savedTime'>The video was successfully created. <br>You can find it on the <a href='{{ route('dash') }}'>Dashboard</a></p>");
     setTimeout(function(){
         $("#savedTime").fadeOut("slow");
     },5000);

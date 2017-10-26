@@ -1047,13 +1047,18 @@ function changeVideo(id) {
     $('#generateVideo').click(function () {
     waitingDialog.show('Please wait while your video is created!', {dialogSize: 'sm', progressType: 'danger'});
     $("#calendarTab").trigger("click");
-    html2canvas($('#calendarPanel'), {
-    scale: 4,
+    setTimeout(function(){
+        
+        html2canvas($('#calendarPanel'), {
+            scale: 4,
             onrendered: function (canvas) {
             $('#img_val').val(canvas.toDataURL("image/png"));
             $('#cal_val').val("{{ $id }}");
             }
     });
+        
+    },1000);
+    
     setTimeout(function(){
     var form = $('#myForm');
     var url = form.attr('action');

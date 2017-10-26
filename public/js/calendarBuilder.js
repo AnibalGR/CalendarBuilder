@@ -382,7 +382,7 @@ $("#addVideo12").click(function () {
 
         function saveCalendar(){
             
-            var $color = $("#calendarBackColor").val();
+            var $color = $("#colorCal").val();
             var $colorYear = $("#calendarYearColor").val();
             var $colorWeek = $("#calendarWeekColor").val();
             var $colorDay = $("#calendarDayColor").val();
@@ -674,11 +674,13 @@ $("#addVideo12").click(function () {
 
 $('#calendarBackColor').change(function () {
     $(".fc-month-view").css("background-color", this.value);
+    $("#colorCal").val(this.value);
 });
 
 $('#removeCalendarBackColor').click(function () {
     $(".fc-month-view").css("background-color", "transparent");
     $("#colorCal").val("null");
+    $('#calendarBackColor').val("null");
 });
 
 $('#background-color-opacity').change(function () {

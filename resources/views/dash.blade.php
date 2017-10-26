@@ -49,11 +49,7 @@ use Carbon\Carbon;
                 <div class="panel-body">
                     @if(!$plans->isEmpty())
                         @foreach ($plans as $plan)
-                        <p>You are subscribed to the <br>{{ $plan->braintree_plan }} plan
-                        @if($plan->braintree_plan == "Monthly")
-                        Why don´t you <a href="">Upgrade</a> your account?
-                        @endif
-                        </p>
+                        <p>You are subscribed to the <br>{{ $plan->braintree_plan }} plan</p>
                         @endforeach
                     @else
                         <p>You are not subscribed to any plan. Why don´t you <a href="">Subscribe</a>?
@@ -75,8 +71,8 @@ use Carbon\Carbon;
                             <tr>
                                 <td>{{ $video->getBasename() }}</td>
                                 <td><a href='{{ asset("") }}calendars/{{Auth::id()}}/{{$video->getBasename()}}' target="_blank" download>Download</a></td>
-                                <td><a href="" >Share</a></td>
-                                <td><a href="#!" >Delete</a></td>
+<!--                                <td><a href="" >Share</a></td>
+                                <td><a href="#!" >Delete</a></td>-->
                             </tr>
                             @endforeach
 

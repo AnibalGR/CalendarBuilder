@@ -1065,13 +1065,18 @@ function changeVideo(id) {
     var data = form.serialize();
     $.post(url, data, function(result){
     waitingDialog.hide();
-    alert(result);
+    $("#actionsAlerts").empty();
+    $("#actionsAlerts").append("<p id='savedTime'>The video was successfully created. You can find it on the <a href='{{ route('dash') }}'>Dashboard</a></p>");
+    setTimeout(function(){
+        $("#savedTime").fadeOut("slow");
+    },5000);
     }).fail(function(e){
     waitingDialog.hide();
     alert (JSON.stringify(e));
     });
     }, 4500);
     });
+    
     function getContent(){
     return '{{ $content }}';
     }

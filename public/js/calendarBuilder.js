@@ -474,9 +474,16 @@ $("#addVideo12").click(function () {
 
         function loadColor() {
             var color = getColor();
-            $(".fc-month-view").css("background-color", color);
-            $('#colorCal').val(color);
-            $('#calendarBackColor').val(color);
+            if(color != "null"){
+                $(".fc-month-view").css("background-color", color);
+                $('#colorCal').val(color);
+                $('#calendarBackColor').val(color);
+            }else{
+                $(".fc-month-view").css("background-color", "transparent");
+                $('#calendarBackColor').val(color);
+                $('#colorCal').val(color);
+            }
+            
         }
         
         function loadColorYear(){
@@ -512,6 +519,7 @@ $("#addVideo12").click(function () {
         
         function loadBackground(){
             var background = getBackground();
+            $("#calendarBack").removeClass();
             $("#calendarBack").addClass(background);
             $('#backgroundCal').val(background);
         }
@@ -670,6 +678,7 @@ $('#calendarBackColor').change(function () {
 
 $('#removeCalendarBackColor').click(function () {
     $(".fc-month-view").css("background-color", "transparent");
+    $("#colorCal").val("null");
 });
 
 $('#background-color-opacity').change(function () {

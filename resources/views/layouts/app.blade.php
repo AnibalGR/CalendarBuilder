@@ -19,6 +19,7 @@
         <link href="{{ asset('css/bootstrap.css') }}" rel="stylesheet">
         <link href="{{ asset('css/jquery-ui.css') }}" rel="stylesheet" >
         <link href="{{ asset('css/custom.css') }}" rel="stylesheet" >
+        <link rel="shortcut icon" type="image" href="{{ asset('img/favico.ico') }}"/>
         @yield('styles')
         
     </head>

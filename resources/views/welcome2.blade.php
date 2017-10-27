@@ -65,7 +65,7 @@
                 </div>
                 <div class="col-sm-6 testimonial-2 space-40">
                 <p>We are so exited to have signed up for this service. Digital Activity Clendars has helped our business
-                save time and money, and our facility looks better than over. This service has everything I need.<p>
+                save time and money, and our facility looks better than ever. This service has everything I need.<p>
                 </div>
                 <div class="col-sm-2"></div>
             </div>
@@ -91,7 +91,7 @@
                 <div class="col-sm-4 hIcons-2 space-40">
                     <img src="{{ asset('img/home/home-6.png') }}" class="img-responsive">
                     <div class="full-width space-40"></div>
-                    <h3>Patient rooms</h3>
+                    <h3>Patient Rooms</h3>
                 </div>
             </div>
         </div>

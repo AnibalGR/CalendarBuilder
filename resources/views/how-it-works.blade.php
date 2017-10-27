@@ -26,17 +26,17 @@
                 <div class="col-sm-4 space-40 hIcons-1 linebox-right">
                     <img src="{{ asset('img/home/home-1.png') }}" class="img-responsive">
                     <h3>Select Your Template</h3>
-                    <p>Use our standar 12-month calendar or build your own.</p>
+                    <p>Use our standard 12-month calendar or build your own.</p>
                 </div>
                 <div class="col-sm-4 space-40 hIcons-1">
                 <img src="{{ asset('img/home/home-2.png') }}" class="img-responsive">
                 <h3>Customize Your Calendar</h3>
-                    <p>Add your logo, images and text.<br/>Choose from our video library to highlight special events.</p>
+                    <p>Add your logo, images, and text.<br/>Choose from our video library to highlight special events.</p>
                 </div>
                 <div class="col-sm-4 space-40 hIcons-1 linebox-left">
                 <img src="{{ asset('img/home/home-3.png') }}" class="img-responsive">
-                <h3>Publish & Downloads</h3>
-                    <p>Finalize your file and upload it to any screen at your facility</p>
+                <h3>Publish & Download</h3>
+                    <p>Finalize your file and upload it to any screen at your facility.</p>
                 </div>
             </div>
         </div>

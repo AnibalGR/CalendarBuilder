@@ -52,7 +52,7 @@
                         <!-- Right Side Of Navbar -->
                         <ul class="nav navbar-nav navbar-right">
                             <!-- Authentication Links -->
-                            <li><a href="{{ route('how-it-works') }}">How it works</a></li>
+                            <li><a href="{{ route('how-it-works') }}">How It Works</a></li>
                             <li><a href="{{ route('plans') }}">Pricing</a></li>
                             <li><a href="#">Blog</a></li>
                             @guest
@@ -106,7 +106,7 @@
                 <div class="full-width space-20"></div>
                     <div class="col-xs-12 col-sm-7 copyright">
                         <div class="full-width space-40"></div>
-                        © 2017 Digital Activity Calendars, Inc. - All Right Reserved
+                        © 2017 Digital Activity Calendars, Inc. - All Rights Reserved
                     </div>
                     <div class="col-xs-12 col-sm-4 copyright">
                         <a href="{{ url('/') }}">

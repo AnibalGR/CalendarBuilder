@@ -11,7 +11,7 @@
         <div class="row">
             <div class="col-xs-12 text-center">
                 <div class="mt-40"></div>
-                    <h1>Pricing Title Here</h1>
+                    <h1>Pricing Options Include</h1>
             </div>
         </div>
     </div>

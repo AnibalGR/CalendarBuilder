@@ -92,7 +92,7 @@
                                 </li>
                                 <li><a href="#Background" data-toggle="tab">
                                         <span class="glyphicon glyphicon-picture sb-icons" aria-hidden="true"></span>
-                                        BG
+                                        BACKGROUND <br/>IMAGES
                                     </a>
                                 </li>
                             </ul>

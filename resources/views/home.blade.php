@@ -4,6 +4,7 @@
 <link href="{{ asset('css/fullcalendar.min.css') }}" rel='stylesheet' />
 <link href="{{ asset('css/fullcalendar.print.min.css') }}" rel="stylesheet" media="print" />
 <link href="{{ asset('css/bootstrap.vertical-tabs.css') }}" rel="stylesheet" >
+<link href="{{ asset('css/bootstrap-colorpicker.css') }}" rel="stylesheet" >
 <link href="{{ asset('css/custom-calendar.css') }}" rel="stylesheet" >
 <link href="{{ asset('css/switchButton.css') }}" rel="stylesheet" >
 <style>
@@ -111,12 +112,13 @@
                                             </div>
                                         </div>
                                         <div class="row space-20">
-                                            <div class="col-xs-5 col-md-4">
+                                            <a href="#" class="btn btn-default" id="cp4">Change year color</a>
+<!--                                            <div class="col-xs-5 col-md-4">
                                                 Year color:
                                             </div>
                                             <div class="col-xs-7 col-md-8">
                                                 <input type="color" value="" id="calendarYearColor" size="5">
-                                            </div>
+                                            </div>-->
                                         </div>
                                         
                                         <div class="row space-20">
@@ -444,6 +446,14 @@
                                 </div>
                                 <div class="tab-pane" id="messages">
                                     <div class="container-fluid">
+                                        <div class="row space-20">
+                                            <div class="col-xs-5 col-md-4">
+                                                Opacity:
+                                            </div>
+                                            <div class="col-xs-7 col-md-8">
+                                                <input type="range" value="1" min="0" max="1" step="0.001" id="image-color-opacity">
+                                            </div>
+                                        </div>
                                         <div class="row space-20">
                                             <div class="col-xs-6">
                                                 <!--Upload Image Form-->
@@ -857,6 +867,7 @@
 <script src="{{ asset('js/bootstrap-waitingfor.min.js') }}"></script>
 <script src="{{ asset('js/fabric.js') }}"></script>
 <script src="{{ asset('js/jquery.ba-resize.min.js') }}"></script>
+<script src="{{ asset('js/bootstrap-colorpicker.js') }}"></script>
 <script src="{{ asset('js/calendarBuilder.js') }}"></script>
 <script src="{{ asset('js/layouts.js') }}"></script>
 <script>

@@ -460,6 +460,12 @@ $("#addVideo12").click(function () {
             $(".fc-center h2").css("color", this.value);
         });
         
+        $('#cp4').colorpicker().on('changeColor', function(e) {
+            $(".fc-center h2").css("color", e.color.toString('rgba'));
+//            $('body')[0].style.backgroundColor = e.color.toString(
+//                'rgba');
+        });
+        
         $('#calendarWeekColor').change(function () {
             $(".fc-day-header span").css("color", this.value);
             $(".fc-day-header").css("color", this.value);
@@ -685,6 +691,12 @@ $('#removeCalendarBackColor').click(function () {
 
 $('#background-color-opacity').change(function () {
     $(".fc-month-view").css("opacity", this.value);
+});
+
+$('#image-opacity').change(function () {
+    canvas.getActiveObject().
+    canvas.getActiveObject().setFontSize(this.value);
+    canvas.renderAll();
 });
 
     $("#addImg1").click(function () {

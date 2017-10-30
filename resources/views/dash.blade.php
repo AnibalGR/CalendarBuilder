@@ -37,11 +37,11 @@ use Carbon\Carbon;
                         </table>
                     </div>
                     @else
-                    You don´t have any calendar created
+                    You haven't created any calendars
                     @endif
                     </div>
                     <br>
-                    <button class="panel-default" id='onclick'>Create new Calendar</button>
+                    <button class="panel-default" id='onclick'>Create New Calendar</button>
                 </div>
             </div>
             <div class="panel panel-default">
@@ -52,7 +52,7 @@ use Carbon\Carbon;
                         <p>You are subscribed to the <br>{{ $plan->braintree_plan }} plan</p>
                         @endforeach
                     @else
-                        <p>You are not subscribed to any plan. Why don´t you <a href="">Subscribe</a>?
+                        <p>You are not subscribed to any plan. Why don´t you <a href="">subscribe</a>?
                     @endif
                 </div>
             </div>
@@ -79,7 +79,7 @@ use Carbon\Carbon;
                         </table>
                     </div>
                     @else
-                    You don´t have any video created
+                    You don't have any videos created
                     @endif
                     <br>
                 </div>

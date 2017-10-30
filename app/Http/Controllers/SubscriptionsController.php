@@ -41,7 +41,7 @@ class SubscriptionsController extends Controller
         }
 
         // redirect to home after a successful subscription
-        return redirect('dashboard')->with('success', 'Subscribed to '.$plan->braintree_plan.' successfully');
+        return redirect('dashboard')->with('success', 'Subscribed to ' . strtolower($plan->braintree_plan) . ' successfully');
     }
     
     public function updateCard(Request $request) {

@@ -9,8 +9,12 @@
             <file>file:/C:/xampp/htdocs/jeff/CalendarBuilder/resources/views/welcome2.blade.php</file>
             <file>file:/C:/xampp/htdocs/jeff/CalendarBuilder/resources/views/layouts/app.blade.php</file>
             <file>file:/C:/xampp/htdocs/jeff/CalendarBuilder/app/Http/Controllers/HomeController.php</file>
+<<<<<<< HEAD
             <file>file:/C:/xampp/htdocs/jeff/CalendarBuilder/public/css/custom-home.css</file>
             <file>file:/C:/xampp/htdocs/jeff/CalendarBuilder/public/css/custom.css</file>
+=======
+            <file>file:/C:/xampp/htdocs/jeff/CalendarBuilder/.env</file>
+>>>>>>> a3adf2cc75c5e29dd813d1ac04a27f0fdb9b34a1
         </group>
     </open-files>
 </project-private>

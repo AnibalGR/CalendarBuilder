@@ -64,8 +64,8 @@
                     </div>                    
                 </div>
                 <div class="col-sm-6 testimonial-2 space-40">
-                <p>We are so exited to have signed up for this service. Digital Activity Clendars has helped our business
-                save time and money, and our facility looks better than ever. This service has everything I need.<p>
+                <p>"We are so exited to have signed up for this service. Digital Activity Clendars has helped our business
+                save time and money, and our facility looks better than ever. This service has everything I need." John Stewart - Nursing Homes Plus<p>
                 </div>
                 <div class="col-sm-2"></div>
             </div>

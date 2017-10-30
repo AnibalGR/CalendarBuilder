@@ -406,7 +406,7 @@ $("#addVideo12").click(function () {
             $('#layoutCal').val($layout);
             $('#backgroundCal').val($background);
             $('#colorCal').val($color);
-            $('#colorYearCal').val($colorYear);
+            //$('#colorYearCal').val($colorYear);
             $('#colorWeekCal').val($colorWeek);
             $('#colorDayCal').val($colorDay);
             $('#opacityCal').val($opacity);
@@ -460,6 +460,13 @@ $("#addVideo12").click(function () {
             $(".fc-center h2").css("color", this.value);
         });
         
+        $('#cp1').colorpicker().on('changeColor', function(e) {
+            $(".fc-center h2").css("color", e.color.toString('rgba'));
+            $("#colorYearCal").val(e.color.toString('rgba'));
+//            $('body')[0].style.backgroundColor = e.color.toString(
+//                'rgba');
+        });
+        
         $('#calendarWeekColor').change(function () {
             $(".fc-day-header span").css("color", this.value);
             $(".fc-day-header").css("color", this.value);
@@ -490,7 +497,7 @@ $("#addVideo12").click(function () {
             var color = getColorYear();
             $(".fc-center h2").css("color", color);
             $('#colorYearCal').val(color);
-            $('#calendarYearColor').val(color);
+            //$('#calendarYearColor').val(color);
         }
         
         function loadColorWeek(){
@@ -685,6 +692,12 @@ $('#removeCalendarBackColor').click(function () {
 
 $('#background-color-opacity').change(function () {
     $(".fc-month-view").css("opacity", this.value);
+});
+
+$('#image-opacity').change(function () {
+    canvas.getActiveObject().
+    canvas.getActiveObject().setFontSize(this.value);
+    canvas.renderAll();
 });
 
     $("#addImg1").click(function () {

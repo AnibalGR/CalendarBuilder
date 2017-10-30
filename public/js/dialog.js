@@ -46,7 +46,7 @@
             
             if(rowCount == 2){
                 $("#calendarsTable").remove();
-                $("#calendarsShow").append("You don´t have any calendar created");
+                $("#calendarsShow").append("You haven't created any calendars");
             }
             
         }).fail(function(e){

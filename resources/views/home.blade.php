@@ -112,7 +112,7 @@
                                             </div>
                                         </div>
                                         <div class="row space-20">
-                                            <a href="#" class="btn btn-default" id="cp4">Change year color</a>
+                                            <a href="#" class="btn btn-default" id="cp1">Change year color</a>
 <!--                                            <div class="col-xs-5 col-md-4">
                                                 Year color:
                                             </div>

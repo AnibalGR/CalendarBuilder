@@ -382,11 +382,6 @@ $("#addVideo12").click(function () {
 
         function saveCalendar(){
             
-            var $color = $("#colorCal").val();
-            var $colorYear = $("#calendarYearColor").val();
-            var $colorWeek = $("#calendarWeekColor").val();
-            var $colorDay = $("#calendarDayColor").val();
-            var $opacity = $("#background-color-opacity").val();
             var $background = $("#calendarBack").attr('class');
             var $themeCategory = $('#themeCategory').val();
             var $theme = $('#theme').val();
@@ -405,11 +400,7 @@ $("#addVideo12").click(function () {
             $('#themeCal').val($theme);
             $('#layoutCal').val($layout);
             $('#backgroundCal').val($background);
-            $('#colorCal').val($color);
-            //$('#colorYearCal').val($colorYear);
-            $('#colorWeekCal').val($colorWeek);
-            $('#colorDayCal').val($colorDay);
-            $('#opacityCal').val($opacity);
+            $('#opacityCal').val("1");
             $('#videoCal').val($src);
             $('#contentCal').val(JSON.stringify(canvas));
             var form = $('#form-save');
@@ -456,29 +447,25 @@ $("#addVideo12").click(function () {
 
         });
 
-        $('#calendarYearColor').change(function () {
-            $(".fc-center h2").css("color", this.value);
-        });
         
-        $('#cp1').colorpicker().on('changeColor', function(e) {
+        $('#cp1').colorpicker({"color":getColorYear()}).on('changeColor', function(e) {
             $(".fc-center h2").css("color", e.color.toString('rgba'));
             $("#colorYearCal").val(e.color.toString('rgba'));
-//            $('body')[0].style.backgroundColor = e.color.toString(
-//                'rgba');
         });
         
-        $('#calendarWeekColor').change(function () {
-            $(".fc-day-header span").css("color", this.value);
-            $(".fc-day-header").css("color", this.value);
+        $('#cp2').colorpicker({"color":getColorWeek()}).on('changeColor', function(e) {
+            $(".fc-day-header span").css("color", e.color.toString('rgba'));
+            $(".fc-day-header").css("color", e.color.toString('rgba'));
+            $("#colorWeekCal").val(e.color.toString('rgba'));
         });
         
-        $('#calendarDayColor').change(function () {
-            $(".fc-widget-content a").css("color", this.value);
-            $(".fc-future a").css("color", this.value);
-            $(".fc-past a").css("color", this.value);
-            $('#colorCal').val(String(this.value));
+        $('#cp3').colorpicker({"color":getColorDay()}).on('changeColor', function(e) {
+            $(".fc-widget-content a").css("color", e.color.toString('rgba'));
+            $(".fc-future a").css("color", e.color.toString('rgba'));
+            $(".fc-past a").css("color", e.color.toString('rgba'));
+            $("#colorDayCal").val(e.color.toString('rgba'));
         });
-
+                
         function loadColor() {
             var color = getColor();
             if(color != "null"){
@@ -496,8 +483,8 @@ $("#addVideo12").click(function () {
         function loadColorYear(){
             var color = getColorYear();
             $(".fc-center h2").css("color", color);
+            $('#inputYearColor').val(color);
             $('#colorYearCal').val(color);
-            //$('#calendarYearColor').val(color);
         }
         
         function loadColorWeek(){
@@ -678,21 +665,19 @@ $("#addVideo12").click(function () {
         $("#calendarBack").removeClass();
         $("#calendarBack").attr('class', 'bgimg-none');
     });
+    
+    $('body').keydown(function (event) {
+        if (event.keyCode == 46) {
+            var activeObject = canvas.getActiveObject();
+            canvas.remove(activeObject);
+        }
+    });
 
-$('#calendarBackColor').change(function () {
-    $(".fc-month-view").css("background-color", this.value);
-    $("#colorCal").val(this.value);
-});
+    $('#cp4').colorpicker({"color":getColor()}).on('changeColor', function (e) {
+        $(".fc-month-view").css("background-color", e.color.toString('rgba'));
+        $("#colorCal").val(e.color.toString('rgba'));
 
-$('#removeCalendarBackColor').click(function () {
-    $(".fc-month-view").css("background-color", "transparent");
-    $("#colorCal").val("null");
-    $('#calendarBackColor').val("null");
-});
-
-$('#background-color-opacity').change(function () {
-    $(".fc-month-view").css("opacity", this.value);
-});
+    });
 
 $('#image-opacity').change(function () {
     canvas.getActiveObject().

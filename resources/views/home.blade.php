@@ -28,7 +28,7 @@
     <div class="row">
         <div class="col-md-12">
             <div class="col-md-12 panel-header1 padd-20">
-        <div class="col-md-4 head-calendar">
+        <div class="col-md-4 head-calendar" id="headerRow">
             
         </div>
         <div class="col-md-8 head-calendar">
@@ -112,21 +112,22 @@
                                             </div>
                                         </div>
                                         <div class="row space-20">
-                                            <a href="#" class="btn btn-default" id="cp1">Change year color</a>
-<!--                                            <div class="col-xs-5 col-md-4">
+                                            <div class="col-xs-5 col-md-4">
                                                 Year color:
                                             </div>
-                                            <div class="col-xs-7 col-md-8">
-                                                <input type="color" value="" id="calendarYearColor" size="5">
-                                            </div>-->
+                                            <div id="cp1" class="input-group colorpicker-component">
+                                                <input id="inputYearColor" type="text" value="#00AABB" class="form-control"/>
+                                                <span class="input-group-addon"><i></i></span>
+                                            </div>
                                         </div>
                                         
                                         <div class="row space-20">
                                             <div class="col-xs-5 col-md-4">
                                                 Week color:
                                             </div>
-                                            <div class="col-xs-7 col-md-8">
-                                                <input type="color" value="" id="calendarWeekColor" size="5">
+                                            <div id="cp2" class="input-group colorpicker-component">
+                                                <input type="text" value="#00AABB" class="form-control"/>
+                                                <span class="input-group-addon"><i></i></span>
                                             </div>
                                         </div>
                                         
@@ -134,8 +135,9 @@
                                             <div class="col-xs-5 col-md-4">
                                                 Day color:
                                             </div>
-                                            <div class="col-xs-7 col-md-8">
-                                                <input type="color" value="" id="calendarDayColor" size="5">
+                                            <div id="cp3" class="input-group colorpicker-component">
+                                                <input type="text" value="#00AABB" class="form-control"/>
+                                                <span class="input-group-addon"><i></i></span>
                                             </div>
                                         </div>
 
@@ -143,19 +145,13 @@
                                             <div class="col-xs-5 col-md-4">
                                                 BG color:
                                             </div>
-                                            <div class="col-xs-7 col-md-8">
-                                                <input type="color" value="" id="calendarBackColor" size="5">
+                                            <div id="cp4" class="input-group colorpicker-component">
+                                                <input type="text" value="#00AABB" class="form-control"/>
+                                                <span class="input-group-addon"><i></i></span>
                                             </div>
                                         </div>
                                         
-                                        <div class="row space-20">
-                                            <div class="col-xs-5 col-md-4">
-                                                Opacity:
-                                            </div>
-                                            <div class="col-xs-7 col-md-8">
-                                                <input type="range" value="1" min="0" max="1" step="0.001" id="background-color-opacity">
-                                            </div>
-                                        </div>
+                                        
                                     </div>
                                 </div>
                                 <div class="tab-pane" id="home">
@@ -165,15 +161,7 @@
                                                     <button id="noneLayout" type="button" class="btn btn-labeled btn-default2">
                                                         <span class="btn-label"><i class="glyphicon glyphicon-erase sb-icons-4"></i></span><span class="text-whiteBG">REMOVE</span></button>
                                             </div>
-                                            <!--
-                                            <div class="col-xs-12 text-center">
-                                                <div class="layoutType">
-                                                    <button id="noneLayout" type="button" class="btn-danger btn-custom"><span class="glyphicon glyphicon-erase" aria-hidden="true"></span>Remove Layout</button>
-                                                    <!--<img id="noneLayout" src="{{ asset('img/thumb/layout-1.jpg') }}" class="img-responsive" height="100px" width="150px">-->
-                                        <!--        
-                                                </div>
-                                            </div>
-                                            -->
+                                           
                                         </div>
                                         <div class="row">
                                             <div class="col-xs-6">
@@ -408,40 +396,6 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        
-                                        <!--
-                                        <div class="row">
-                                            <div class="col-xs-6">
-                                                <button id="addRect" type="button" class="btn btn-primary btn-custom">Add Rectangle</button>
-                                            </div>
-                                            <div class="col-xs-6">
-                                                <button id="addLine" type="button" class="btn btn-primary btn-custom">Add Line</button>    
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-xs-6">
-                                                <button id="addCircle" type="button" class="btn btn-primary btn-custom">Add Circle</button>
-                                            </div>
-                                            <div class="col-xs-6">
-                                                <button id="addStar4" type="button" class="btn btn-primary btn-custom">Add Star (4 edges)</button>    
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-xs-6">
-                                                <button id="addTriangle" type="button" class="btn btn-primary btn-custom">Add Triangle</button>
-                                            </div>
-                                            <div class="col-xs-6">
-                                                <button id="addStar5" type="button" class="btn btn-primary btn-custom">Add Star (5 edges)</button>    
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <label for="shapeColor" style="display:inline-block">Shape color:</label>
-                                            <input type="color" value="" id="shapeColor" size="10">
-                                        </div>
-                                        
-                                        -->
-                                        
-                                        
                                     </div>
                                 </div>
                                 <div class="tab-pane" id="messages">
@@ -600,22 +554,7 @@
                                 <div class="tab-pane" id="Background">
                                     <div class="container-fluid">
                                         <div class="row">
-                                            <!--
-                                            <div class="col-xs-6 zeropdg-2">
-                                                <!--Upload Image Form-->
-                                                <!--
-                                                <form method="POST" action="{{ route('uploadImage') }}" id="form-upload" enctype="multipart/form-data">
-                                                    <input id="upBgImg" name="upImage" type="file" style="display:none;" accept=".jpg,.jpeg,.png,.svg,.gif"/>
-                                                    {{ csrf_field() }}
-                                                    <button id="addBgImg" type="button" class="btn btn-labeled btn-default">
-                                                        <span class="btn-label"><i class="glyphicon glyphicon-upload sb-icons-3"></i></span><span class="text-whiteBG">UPLOAD</span></button>
-                                                    <button id="addBgImg" type="button" class="btn btn-success btn-custom"><span class="glyphicon glyphicon-upload sb-icons-3" aria-hidden="true"></span> Upload</button>
-                                                </form>
-                                                
-                                                <div id='imageError'></div>
-                                            </div>
-                                            -->
-                                            <div class="col-xs-12 space-20">
+                                             <div class="col-xs-12 space-20">
                                                 <form method="POST" action="{{ route('uploadImage') }}" id="form-upload" enctype="multipart/form-data">
                                                     <input id="upBgImg" name="upImage" type="file" style="display:none;" accept=".jpg,.jpeg,.png,.svg,.gif"/>
                                                     {{ csrf_field() }}

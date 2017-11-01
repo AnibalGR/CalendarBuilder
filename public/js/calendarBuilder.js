@@ -66,7 +66,7 @@ $("#addVideo12").click(function () {
 
 // Initialize all the functions and variables
     $(document).ready(function () {
-
+        
         // Initialize the tabs panel
         $("#tabs").tabs();
 
@@ -134,56 +134,16 @@ $("#addVideo12").click(function () {
                 left: 50,
                 top: 100,
                 fontFamily: 'arial black',
-                fill: '#333',
+                fill: '#000',
                 fontSize: 50
             }));
 
             canvas.renderAll();
 
         });
-
-        $('#text-color').change(function () {
-            canvas.getActiveObject().setFill(this.value);
-            canvas.renderAll();
-        });
-
-        $('#text-bg-color').change(function () {
-            canvas.getActiveObject().setBackgroundColor(this.value);
-            canvas.renderAll();
-        });
-
-        $('#text-lines-bg-color').change(function () {
-            canvas.getActiveObject().setTextBackgroundColor(this.value);
-            canvas.renderAll();
-        });
-
-        $('#text-stroke-color').change(function () {
-            canvas.getActiveObject().setStroke(this.value);
-            canvas.renderAll();
-        });
-        
-        $('#shapeColor').change(function () {
-            canvas.getActiveObject().setFill(this.value);
-            canvas.renderAll();
-        });
-
-        $('#text-stroke-width').change(function () {
-            canvas.getActiveObject().setStrokeWidth(this.value);
-            canvas.renderAll();
-        });
         
         $('#font-family').change(function () {
             canvas.getActiveObject().setFontFamily(this.value);
-            canvas.renderAll();
-        });
-
-        $('#text-font-size').change(function () {
-            canvas.getActiveObject().setFontSize(this.value);
-            canvas.renderAll();
-        });
-
-        $('#text-line-height').change(function () {
-            canvas.getActiveObject().setLineHeight(this.value);
             canvas.renderAll();
         });
 
@@ -465,6 +425,92 @@ $("#addVideo12").click(function () {
             $(".fc-past a").css("color", e.color.toString('rgba'));
             $("#colorDayCal").val(e.color.toString('rgba'));
         });
+
+        $('#cp4').colorpicker({"color": getColor()}).on('changeColor', function (e) {
+            $(".fc-month-view").css("background-color", e.color.toString('rgba'));
+            $("#colorCal").val(e.color.toString('rgba'));
+        });
+
+        $('#cp5').colorpicker({"color": "#000000"}).on('changeColor', function (e) {
+            canvas.getActiveObject().setFill(e.color.toString('rgba'));
+            canvas.renderAll();
+        });
+        
+        $('#cp6').colorpicker({"color": "#000000"}).on('changeColor', function (e) {
+            canvas.getActiveObject().setTextBackgroundColor(e.color.toString('rgba'));
+            canvas.renderAll();
+        });
+        
+        $('#cp7').colorpicker({"color": "#000000"}).on('changeColor', function (e) {
+            canvas.getActiveObject().setBackgroundColor(e.color.toString('rgba'));
+            canvas.renderAll();
+        });
+        
+        $('#cp8').colorpicker({"color": "#000000"}).on('changeColor', function (e) {
+            canvas.getActiveObject().setStroke(e.color.toString('rgba'));
+            canvas.renderAll();
+        });
+        
+        $('#cp9').colorpicker({"color": "#000000"}).on('changeColor', function (e) {
+            canvas.getActiveObject().setFill(e.color.toString('rgba'));
+            canvas.renderAll();
+        });
+        
+        function myDrag(e) {   // funciton on drag (moving)
+            e.target.bringToFront();
+        }
+        
+        canvas.on({
+            'object:moving': myDrag,
+        });
+        
+        $('#text-stroke-width').slider({
+            range: "max",
+            min: 0,
+            max: 5,
+            step: 0.1,
+            value: 0.5,
+            slide: function (event, ui) {
+                canvas.getActiveObject().setStrokeWidth(ui.value);
+                canvas.renderAll();
+            }
+        });
+        
+        $('#image-color-opacity').slider({
+            range: "max",
+            min: 0,
+            max: 1,
+            step: 0.01,
+            value: 1,
+            slide: function (event, ui) {
+                canvas.getActiveObject().setOpacity(ui.value)
+                canvas.renderAll();
+            }
+        });
+        
+        $('#text-font-size').slider({
+            range: "max",
+            min: 10,
+            max: 120,
+            step: 2,
+            value: 50,
+            slide: function (event, ui) {
+                canvas.getActiveObject().setFontSize(ui.value);
+                canvas.renderAll();
+            }
+        });
+        
+        $('#text-line-height').slider({
+            range: "max",
+            min: 1,
+            max: 5,
+            step: 1,
+            value: 1,
+            slide: function (event, ui) {
+                canvas.getActiveObject().setLineHeight(ui.value);
+                canvas.renderAll();
+            }
+        });
                 
         function loadColor() {
             var color = getColor();
@@ -673,18 +719,6 @@ $("#addVideo12").click(function () {
         }
     });
 
-    $('#cp4').colorpicker({"color":getColor()}).on('changeColor', function (e) {
-        $(".fc-month-view").css("background-color", e.color.toString('rgba'));
-        $("#colorCal").val(e.color.toString('rgba'));
-
-    });
-
-$('#image-opacity').change(function () {
-    canvas.getActiveObject().
-    canvas.getActiveObject().setFontSize(this.value);
-    canvas.renderAll();
-});
-
     $("#addImg1").click(function () {
 
         var myImg = '../../img/headers/header-1.jpg';
@@ -816,7 +850,7 @@ $('#image-opacity').change(function () {
         });
 
     });
-
+    
 setTimeout(function () {
             // resize on init
             resizeCanvas();
@@ -828,5 +862,5 @@ setTimeout(function () {
             loadBackground();
             resizeCanvas();
             $("#calendarBack").css("background-size", $("#imagePrev").width() + "px " + $("#imagePrev").height() + "px");
-        }, 500);
+    }, 500);
 });

@@ -59,7 +59,7 @@ class HomeController extends Controller {
             $builder->setPrefix('ffmpeg');
             try{
             $builder
-                    ->setArguments(array('-f', 'lavfi', '-i', 'anullsrc', '-loop', '1', '-i', $absoluteImagePath, '-c:v', 'libx264', '-strict', '-2', '-t', '15', '-pix_fmt', 'yuv420p', '-vf', 'scale=1920:1080', $path . '/input1.mp4'))
+                    ->setArguments(array('-f', 'lavfi', '-i', 'anullsrc', '-loop', '1', '-i', $absoluteImagePath, '-c:v', 'libx264', '-strict', '-2', '-t', $request->cal_length, '-pix_fmt', 'yuv420p', '-vf', 'scale=1920:1080', $path . '/input1.mp4'))
                     ->getProcess()
                     ->setTimeout(500)
             ->run();}

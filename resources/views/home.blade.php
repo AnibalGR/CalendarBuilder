@@ -24,6 +24,15 @@
     .ui-dialog-titlebar-close {
         display: none;
     }
+    
+    #custom-handle {
+    width: 3em;
+    height: 1.6em;
+    top: 50%;
+    margin-top: -.8em;
+    text-align: center;
+    line-height: 1.6em;
+  }
 </style>
 @endsection
 
@@ -149,7 +158,14 @@
                                                 <span class="input-group-addon"><i></i></span>
                                             </div>
                                         </div>
-
+                                        <div class="row space-20">
+                                            <div class="col-xs-5 col-md-6">
+                                                Calendar video length (seconds):
+                                            </div>
+                                            <div class="col-xs-7 col-md-6">
+                                                <div id="calendar-video-length"><div id="custom-handle" class="ui-slider-handle"></div></div>
+                                            </div>
+                                        </div>
 
                                     </div>
                                 </div>
@@ -768,6 +784,7 @@
     <!--Save Calendar Form-->
     <form method="POST" enctype="multipart/form-data" action="{{ route('saveImage')}}" id="myForm">
         <input type="hidden" name="img_val" id="img_val" value="" />
+        <input type="hidden" name="cal_length" id="cal_length" value="" />
         <input type="hidden" name="cal_val" id="cal_val" value="" />
         {{ csrf_field()}}
     </form>

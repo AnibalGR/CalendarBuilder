@@ -475,6 +475,22 @@ $("#addVideo12").click(function () {
                 canvas.renderAll();
             }
         });
+        var handle = $( "#custom-handle" );
+        $('#calendar-video-length').slider({
+            range: "max",
+            min: 15,
+            max: 60,
+            step: 1,
+            value: 15,
+            create: function () {
+                handle.text($(this).slider("value"));
+                $("#cal_length").val($(this).slider("value"));
+            },
+            slide: function (event, ui) {
+                handle.text(ui.value);
+                $("#cal_length").val(ui.value)
+            }
+        });
         
         $('#image-color-opacity').slider({
             range: "max",

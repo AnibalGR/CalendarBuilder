@@ -20,7 +20,13 @@ class CreateCalendarsTable extends Migration
             $table->integer('year')->unsigned();
             $table->integer('month')->unsigned();
             $table->string('theme');
-            $table->string('video')->nullable(true);
+            $table->string('themeC');
+            $table->string('layout');
+            $table->string('background');
+            $table->string('color');
+            $table->string('colorYear');
+            $table->string('colorWeek');
+            $table->string('colorDay');
             $table->text('content');
             $table->timestamps();
             

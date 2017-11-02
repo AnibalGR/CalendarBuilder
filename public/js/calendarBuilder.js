@@ -76,9 +76,6 @@ $("#addVideo12").click(function () {
         // Load layout
         loadLayout();
 
-        // Load video if present
-        loadVideo();
-
         // Load theme from calendar
         updateTheme();
 
@@ -342,32 +339,16 @@ $("#addVideo12").click(function () {
 
         function saveCalendar(){
             
-            var $background = $("#calendarBack").attr('class');
-            var $themeCategory = $('#themeCategory').val();
-            var $theme = $('#theme').val();
-            var $layout = getCurrentLayout();
-            var video = $('#video').length;
-            var $src = "none";
-            if (video) {
-                $src = $('#video').attr('src');
-            }
-            ;
-            $('#idCal').val(getUserID());
-            $('#nameCal').val(getName());
-            $('#yearCal').val(getYear());
-            $('#monthCal').val(getMonth());
-            $('#themeCCal').val($themeCategory);
-            $('#themeCal').val($theme);
-            $('#layoutCal').val($layout);
-            $('#backgroundCal').val($background);
-            $('#opacityCal').val("1");
-            $('#videoCal').val($src);
+            $('#idCal').val(getCalendarID());
+            $('#themeCCal').val($('#themeCategory').val());
+            $('#themeCal').val($('#theme').val());
+            $('#layoutCal').val(getCurrentLayout());
+            $('#backgroundCal').val($("#calendarBack").attr('class'));
             $('#contentCal').val(JSON.stringify(canvas));
             var form = $('#form-save');
             var url = form.attr('action');
             var data = form.serialize();
             $.post(url, data, function (result) {
-                //alert(result);
                 var currentdate = new Date();
                 $("#actionsAlerts").empty();
                 $("#actionsAlerts").append("<p id='savedTime'>Saved at " + currentdate.getHours() + ":" + currentdate.getMinutes() + ":" + currentdate.getSeconds() + "</p>");
@@ -481,14 +462,14 @@ $("#addVideo12").click(function () {
             min: 15,
             max: 60,
             step: 1,
-            value: 15,
+            value: getVideoLength(),
             create: function () {
                 handle.text($(this).slider("value"));
                 $("#cal_length").val($(this).slider("value"));
             },
             slide: function (event, ui) {
                 handle.text(ui.value);
-                $("#cal_length").val(ui.value)
+                $("#cal_length").val(ui.value);
             }
         });
         
@@ -527,7 +508,7 @@ $("#addVideo12").click(function () {
                 canvas.renderAll();
             }
         });
-                
+        
         function loadColor() {
             var color = getColor();
             if(color != "null"){
@@ -565,14 +546,7 @@ $("#addVideo12").click(function () {
             $('#colorDayCal').val(color);
             $('#calendarDayColor').val(color);
         }
-        
-        function loadOpacity(){
-            var opacity = getOpacity();
-            $(".fc-month-view").css("opacity", opacity);
-            $('#background-color-opacity').val(opacity);
-            $('#opacityCal').val(opacity);
-        }
-        
+                
         function loadBackground(){
             var background = getBackground();
             $("#calendarBack").removeClass();
@@ -874,8 +848,8 @@ setTimeout(function () {
             loadColorYear();
             loadColorWeek();
             loadColorDay();
-            loadOpacity();
             loadBackground();
+            loadVideoLength();
             resizeCanvas();
             $("#calendarBack").css("background-size", $("#imagePrev").width() + "px " + $("#imagePrev").height() + "px");
     }, 500);

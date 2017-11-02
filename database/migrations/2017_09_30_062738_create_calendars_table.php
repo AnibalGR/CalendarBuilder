@@ -27,6 +27,7 @@ class CreateCalendarsTable extends Migration
             $table->string('colorYear');
             $table->string('colorWeek');
             $table->string('colorDay');
+            $table->integer('videoLength');
             $table->text('content');
             $table->timestamps();
             

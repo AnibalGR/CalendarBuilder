@@ -59,16 +59,14 @@ class CalendarController extends Controller {
             $calendar->colorYear = $request->colorYearCal;
             $calendar->colorWeek = $request->colorWeekCal;
             $calendar->colorDay = $request->colorDayCal;
-            $calendar->opacity = $request->opacityCal;
-            $calendar->video = $request->videoCal;
+            $calendar->videoLength = $request->cal_length;
             $calendar->content = $request->contentCal;
             if ($calendar->save()) {
-                return "The Calendar have been saved!";
+                return response("The calendar has been saved successfully!", 200);
             }
-            return "The Calendar could not been saved!";
+            return response("The Calendar could not been saved!", 500);
         }
-
-        return "You can not save this Calendar!";
+        return response("You can not save this Calendar!", 500);
     }
 
     public function editCalendar($calendar_id, Request $request) {
@@ -77,11 +75,11 @@ class CalendarController extends Controller {
 
         if ($calendar) {
             if ($calendar->user_id == Auth::id()) {
-                return view('home', ['id' => $calendar->id, 'name' => $calendar->name, 'year' => $calendar->year, 'month' => $calendar->month, 
-                    'themeC' => $calendar->themeC, 'theme' => $calendar->theme, 'layout' => $calendar->layout, 
-                    'background' => $calendar->background, 'color' => $calendar->color, 
+                return view('home', ['id' => $calendar->id, 'name' => $calendar->name, 'year' => $calendar->year, 
+                    'month' => $calendar->month, 'themeC' => $calendar->themeC, 'theme' => $calendar->theme, 
+                    'layout' => $calendar->layout, 'background' => $calendar->background, 'color' => $calendar->color, 
                     'colorYear' => $calendar->colorYear, 'colorWeek' => $calendar->colorWeek, 
-                    'colorDay' => $calendar->colorDay, 'opacity' => $calendar->opacity, 'video' => $calendar->video, 'content' => $calendar->content]);
+                    'colorDay' => $calendar->colorDay,'videoLength' => $calendar->videoLength, 'content' => $calendar->content]);
             }
         }
         return redirect()->back();
@@ -102,17 +100,14 @@ class CalendarController extends Controller {
         $calendar->themeC = 'standard';
         $calendar->layout = 'none';
         $calendar->background = 'none';
-        $calendar->color = 'null';
+        $calendar->color = 'none';
         $calendar->colorYear = '#000000';
         $calendar->colorWeek = '#000000';
         $calendar->colorDay = '#000000';
-        $calendar->opacity = '1';
-        $calendar->video = 'none';
+        $calendar->videoLength = '15';
         $calendar->content = '{"version":"2.0.0-beta7","objects":[]}';
         if ($calendar->save()) {
-            return redirect()->route('editCalendar', ['id' => $calendar->id, 'name' => $calendar->name, 'year' => $calendar->year, 'month' => $calendar->month, 'themeC' => $calendar->themeC, 'theme' => $calendar->theme, 'layout' => $calendar->layout,'background' => $calendar->background,'color' =>$calendar->color,
-                'colorYear' => $calendar->colorYear,'colorWeek' => $calendar->colorWeek,'colorDay' => $calendar->colorDay,
-                'opacity' => $calendar->opacity,'video' => $calendar->video, 'content' => $calendar->content]);
+            return redirect()->route('editCalendar', ['id' => $calendar->id]);
         }
     }
 

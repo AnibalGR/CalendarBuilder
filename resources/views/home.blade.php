@@ -674,7 +674,7 @@
                 <div id="tabs" style="padding: 0px;">
                     <ul>
                         <li><a href="#tabs-1"><span id="calendarTab" class="glyphicon glyphicon-calendar sb-icons-2" aria-hidden="true" style="text-align: left; width: 20%; margin-right: 5px"></span>Calendar</a></li>
-                        <li><a href="#tabs-2"><span id="videoTab" class="glyphicon glyphicon-film sb-icons-2" aria-hidden="true" style="text-align: left; width: 20%; margin-right: 10px"></span>Video</a></li>
+                        <!--<li><a href="#tabs-2"><span id="videoTab" class="glyphicon glyphicon-film sb-icons-2" aria-hidden="true" style="text-align: left; width: 20%; margin-right: 10px"></span>Video</a></li>-->
                     </ul>
                     <div id="tabs-1" style="padding-left: 0px; padding-right: 0px; padding-bottom: 0px; padding-top: 0px">
                         <div class="panel panel-default" style="margin-bottom: 0px">
@@ -765,26 +765,21 @@
     <!--Save Calendar Form-->
     <form method="POST" action="{{ route('saveCalendar')}}" id="form-save">
         <input id="idCal" name="idCal" type="text" style="visibility: hidden">
-        <input id="nameCal" name="nameCal" type="text" style="visibility: hidden">
-        <input id="yearCal" name="yearCal" type="text" style="visibility: hidden">
-        <input id="monthCal" name="monthCal" type="text" style="visibility: hidden">
-        <input id="themeCCal" name="themeCCal" type="text" style="visibility: hidden">
         <input id="themeCal" name="themeCal" type="text" style="visibility: hidden">
+        <input id="themeCCal" name="themeCCal" type="text" style="visibility: hidden">
         <input id="layoutCal" name="layoutCal" type="text" style="visibility: hidden">
         <input id="backgroundCal" name="backgroundCal" type="text" style="visibility: hidden">
         <input id="colorCal" name="colorCal" type="text" style="visibility: hidden">
         <input id="colorYearCal" name="colorYearCal" type="text" style="visibility: hidden">
         <input id="colorWeekCal" name="colorWeekCal" type="text" style="visibility: hidden">
         <input id="colorDayCal" name="colorDayCal" type="text" style="visibility: hidden">
-        <input id="opacityCal" name="opacityCal" type="text" style="visibility: hidden">
-        <input id="videoCal" name="videoCal" type="text" style="visibility: hidden">
+        <input id="cal_length" name="cal_length" type="hidden" value="" />
         <textarea id="contentCal" name="contentCal" form="form-save" maxlength="50000" style="visibility: hidden"></textarea>
         {{ csrf_field()}}
     </form>
-    <!--Save Calendar Form-->
+    <!--Generate Video Form-->
     <form method="POST" enctype="multipart/form-data" action="{{ route('saveImage')}}" id="myForm">
         <input type="hidden" name="img_val" id="img_val" value="" />
-        <input type="hidden" name="cal_length" id="cal_length" value="" />
         <input type="hidden" name="cal_val" id="cal_val" value="" />
         {{ csrf_field()}}
     </form>
@@ -890,10 +885,6 @@
         $("#addVideo").focus();
     });
 
-
-
-
-
     // Function to setup a predeterminated video
     function changeVideo(id) {
 
@@ -959,26 +950,6 @@
             $("#videoTab").trigger("click");
         }
     }
-
-    function loadVideo() {
-        var url = '{{ $video }}'
-        if (url != 'none') {
-            $("#videoDiv").css('visibility', 'visible');
-            var video = $('<video />', {
-                id: 'video',
-                src: url,
-                autoplay: false,
-                type: 'video/mp4',
-                loop: false,
-                controls: true
-            });
-            video.appendTo($('#videoDiv'));
-            $("#video").css('width', '100%');
-            $("#video").css('height', '100%');
-            $("#videoDiv").show();
-        }
-    }
-
 
     function updateTheme() {
         $actualThemeC = '{{ $themeC }}'
@@ -1062,7 +1033,7 @@
         return "{{ route('uploadImage') }}";
     }
 
-    function getUserID() {
+    function getCalendarID() {
         return '{{$id}}';
     }
 
@@ -1094,12 +1065,12 @@
         return '{{ $colorDay }}';
     }
 
-    function getOpacity() {
-        return '{{ $opacity }}';
-    }
-
     function getBackground() {
         return '{{ $background }}';
+    }
+    
+    function getVideoLength(){
+        return '{{ $videoLength }}'
     }
 
     // Remove video function

@@ -16,7 +16,7 @@ class CalendarController extends Controller {
         $calendar = Calendar::find($calendar_id);
 
         // Look for the videos to remove
-        $videos = Video::where('calendar_id', $calendar_id);
+        $videos = Video::where('calendar_id', $calendar_id)->get();
 
         // Check if there is any video
         if (count($videos) > 0) {
@@ -24,17 +24,17 @@ class CalendarController extends Controller {
             // Analize each video
             foreach ($videos as $video) {
 
-                if ($video != "none") {
+                if ($video->url != "none") {
 
                     // Check if it is a local video
-                    if (ends_with($video, "001.mp4") || ends_with($video, "002.mp4") || ends_with($video, "003.mp4") ||
-                            ends_with($video, "004.mp4") || ends_with($video, "005.mp4") || ends_with($video, "006.mp4") ||
-                            ends_with($video, "007.mp4") || ends_with($video, "008.mp4") || ends_with($video, "009.mp4") ||
-                            ends_with($video, "010.mp4") || ends_with($video, "011.mp4") || ends_with($video, "012.mp4")) {
+                    if (ends_with($video->url, "001.mp4") || ends_with($video->url, "002.mp4") || ends_with($video->url, "003.mp4") ||
+                            ends_with($video->url, "004.mp4") || ends_with($video->url, "005.mp4") || ends_with($video->url, "006.mp4") ||
+                            ends_with($video->url, "007.mp4") || ends_with($video->url, "008.mp4") || ends_with($video->url, "009.mp4") ||
+                            ends_with($video->url, "010.mp4") || ends_with($video->url, "011.mp4") || ends_with($video->url, "012.mp4")) {
                         
                     } else {
                         // It is not a local video, let´s get the name
-                        $videoName = substr("$video", -11);
+                        $videoName = substr("$video->url", -11);
 
                         // Absolute path to video
                         $videoPath = public_path() . "/videos/" . Auth::id() . "/" . $videoName;

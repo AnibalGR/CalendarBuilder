@@ -17,10 +17,11 @@ class CreateVideosTable extends Migration
             $table->increments('id');
             $table->integer('calendar_id')->unsigned();
             $table->string('url');
+            $table->string('type');
             $table->timestamps();
             
             // Foreign key to calendar´s id
-            $table->foreign('calendar_id')->references('id')->on('calendars');
+            $table->foreign('calendar_id')->references('id')->on('calendars')->onDelete('cascade');
         });
     }
 

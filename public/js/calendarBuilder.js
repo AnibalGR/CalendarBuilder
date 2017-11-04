@@ -64,12 +64,27 @@ $("#addVideo12").click(function () {
     changeVideo(12);
 });
 
+$(document).on('click', ".ui-closable-tab", function () {
+    var panelId = $(this).closest("li").remove().attr("aria-controls");
+    $("#videoID").val(panelId);
+    var form = $('#deleteVideoForm');
+    var url = form.attr('action');
+    var data = form.serialize();
+
+    $.post(url, data, function (result) {
+        $("#" + panelId).remove();
+        $("#tabs").tabs("refresh");
+    }).fail(function (e) {
+        alert(JSON.stringify(e));
+    });
+});
+
 // Initialize all the functions and variables
     $(document).ready(function () {
         
         // Initialize the tabs panel
         $("#tabs").tabs();
-
+        
         // Clean layout
         cleanLayout();
 
@@ -849,7 +864,6 @@ setTimeout(function () {
             loadColorWeek();
             loadColorDay();
             loadBackground();
-            loadVideoLength();
             resizeCanvas();
             $("#calendarBack").css("background-size", $("#imagePrev").width() + "px " + $("#imagePrev").height() + "px");
     }, 500);

@@ -10,6 +10,7 @@ use App\Subscription;
 use Validator;
 use File;
 use App\Plan;
+use App\Video;
 use Symfony\Component\Process\ProcessBuilder;
 
 class HomeController extends Controller {
@@ -189,7 +190,7 @@ class HomeController extends Controller {
      */
     public function uploadVideo(Request $request) {
 
-        ini_set('max_execution_time', 300);
+        ini_set('max_execution_time', 1300);
 
         $file = $request->file;
 
@@ -198,6 +199,10 @@ class HomeController extends Controller {
                         'file' => 'required|mimetypes:video/webm,video/quicktime,video/mp4,video/x-flv,video/x-msvideo,video/x-ms-asf,video/x-matroska,video/mpeg,video/ogg',
             ]);
             if ($validator->passes()) {
+                
+                $video = new Video();
+                $video->calendar_id = $request->calendarID;
+                $video->type = 'custom';
 
                 $userPath = public_path() . '/videos/' . Auth::id();
 
@@ -223,11 +228,17 @@ class HomeController extends Controller {
                 if (ends_with($path, "mp4") || ends_with($path, "MP4")) {
                     
                     // Change the name
-                    if(rename(public_path() . "/" . $path, $storePath)){
+                    if (rename(public_path() . "/" . $path, $storePath)) {
                         
-                        return $videoURL;
+                        $video->url = asset($videoURL);
+                        $video->save();
+                        $returnData = array(
+                            'message' => 'The video has been successfuly created!',
+                            'url' => $video->url,
+                            'videoID' => $video->id
+                        );
+                        return response($returnData, 200);
                     }
-                    
                 }
 
                 // Absolute path to uploaded video
@@ -242,7 +253,14 @@ class HomeController extends Controller {
                         ->run();
                 unlink($path);
 
-                return $videoURL;
+                $video->url = asset($videoURL);
+                $video->save();
+                $returnData = array(
+                    'message' => 'The video has been successfuly created!',
+                    'url' => $video->url,
+                    'videoID' => $video->id
+                );
+                return response($returnData, 200);
             } else {
                 $returnData = array(
                     'message' => 'The file must be a webm, mp4, mov, flv, avi, wmv, mkv, mpeg or ogg video!'

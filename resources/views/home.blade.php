@@ -33,6 +33,11 @@
     text-align: center;
     line-height: 1.6em;
   }
+  
+  .ui-icon-circle-close {
+    cursor:pointer;
+  }
+  
 </style>
 @endsection
 
@@ -488,7 +493,7 @@
                                 <div class="tab-pane" id="settings">
                                     <div class="container-fluid">
                                         <div class="row space-20">
-                                            <div class="col-xs-6">
+                                            <div class="col-xs-12">
                                                 <!--Upload Video Form-->
                                                 <form method="POST" action="{{ route('uploadVideo')}}" id="form-uploadV" enctype="multipart/form-data">
                                                     <input id="upVideo" name="upVideo" type="file" style="display:none;" accept=".mpg,.avi,.flv,.mkv,.mov,.mp4,.ogv,.webm,.wmv"/>
@@ -496,15 +501,6 @@
                                                     <button id="addVideo" type="button" class="btn btn-labeled btn-default">
                                                         <span class="btn-label"><i class="glyphicon glyphicon-upload sb-icons-3"></i></span><span class="text-whiteBG">UPLOAD</span></button>
                                                     <!--<button id="addVideo" type="button" class="btn btn-success btn-custom"><span class="glyphicon glyphicon-upload" aria-hidden="true"></span> Upload</button>-->
-                                                </form>
-                                            </div>
-                                            <div class="col-xs-6">
-                                                <form method="POST" action="{{ route('delVideo')}}" id="del_video">
-                                                    <input id="idVideo" name="idVideo" type="hidden"/>
-                                                    {{ csrf_field()}}
-                                                    <button id="removeVideo" type="button" class="btn btn-labeled btn-default2">
-                                                        <span  class="btn-label"><i class="glyphicon glyphicon-erase sb-icons-4"></i></span><span class="text-whiteBG">REMOVE</span></button>
-                                                   <!--<button id="removeVideo" type="button" class="btn-danger btn-custom"><span class="glyphicon glyphicon-erase" aria-hidden="true"></span> Remove</button>-->
                                                 </form>
                                             </div>
                                         </div>
@@ -673,10 +669,14 @@
             <div class="col-md-8 calendar-ini">
                 <div id="tabs" style="padding: 0px;">
                     <ul>
-                        <li><a href="#tabs-1"><span id="calendarTab" class="glyphicon glyphicon-calendar sb-icons-2" aria-hidden="true" style="text-align: left; width: 20%; margin-right: 5px"></span>Calendar</a></li>
-                        <!--<li><a href="#tabs-2"><span id="videoTab" class="glyphicon glyphicon-film sb-icons-2" aria-hidden="true" style="text-align: left; width: 20%; margin-right: 10px"></span>Video</a></li>-->
+                        <li><a href="#tabs-0"><span id="calendarTab" class="glyphicon glyphicon-calendar sb-icons-2" aria-hidden="true" style="text-align: left; width: 20%; margin-right: 5px"></span>Calendar</a></li>
+                        @if(count($videos) > 0)
+                            @foreach($videos as $video)
+                            <li><a href="#tabs-{{ $video->id }}"><span class="glyphicon glyphicon-film sb-icons-2" aria-hidden="true" style="text-align: left; width: 20%; margin-right: 10px"></span>Video</a><span class="ui-icon ui-icon-circle-close ui-closable-tab"></span></li>
+                            @endforeach
+                        @endif
                     </ul>
-                    <div id="tabs-1" style="padding-left: 0px; padding-right: 0px; padding-bottom: 0px; padding-top: 0px">
+                    <div id="tabs-0" style="padding-left: 0px; padding-right: 0px; padding-bottom: 0px; padding-top: 0px">
                         <div class="panel panel-default" style="margin-bottom: 0px">
                             <div class="panel-heading">
 
@@ -753,11 +753,14 @@
                                 </div>
                             </div>
                         </div>
-
                     </div>
-                    <div id="tabs-2">
-                        <div id="videoDiv" style="visibility: hidden"></div>
-                    </div>
+                    @if(count($videos) > 0)
+                        @foreach($videos as $video)
+                        <div id='tabs-{{ $video->id }}' style='padding-left: 0px; padding-right: 0px; padding-bottom: 0px; padding-top: 0px'>
+                            <video id="video{{ $video->id }}}}" src="{{ $video->url }}" type="video/mp4" controls="controls" style="width: 100%; height: 100%;"></video>
+                        </div>
+                        @endforeach
+                    @endif
                 </div>
             </div>
         </div>
@@ -783,6 +786,21 @@
         <input type="hidden" name="cal_val" id="cal_val" value="" />
         {{ csrf_field()}}
     </form>
+    
+    <!--Store Video Form-->
+    <form method="POST" action="{{ route('storeVideo')}}" id="videoForm">
+        <input type="hidden" name="calendarID" id="calendarID" value="" />
+        <input type="hidden" name="videoURL" id="videoURL" value="" />
+        <input type="hidden" name="videoType" id="videoType" value="" />
+        {{ csrf_field()}}
+    </form>
+    
+    <!--Delete Video Form-->
+    <form method="POST" action="{{ route('delVideo')}}" id="deleteVideoForm">
+        <input type="hidden" name="videoID" id="videoID" value="" />
+        {{ csrf_field()}}
+    </form>
+    
 </div>
 @endsection
 
@@ -815,6 +833,7 @@
 
             var fd = new FormData();
             fd.append('file', this.files[0]);
+            fd.append('calendarID', '{{ $id }}');
             $("#dialog").dialog("open");
             progressbar = $("#progressbar");
             var $request;
@@ -841,25 +860,46 @@
                 contentType: false,
                 processData: false,
                 data: fd,
-                success: function (url) {
+                success: function (response) {
                     waitingDialog.hide();
-                    if ($("#video")) {
-                        $("#video").remove();
+                    
+                    var videosCount = $("#tabs").find(".ui-closable-tab").length;
+        
+                    if(videosCount >= 5){
+                        BootstrapDialog.show({
+                        title: 'Maximun amount of videos reached',
+                        message: 'You can only add a maximun of 5 videos to each calendar.',
+                        buttons: [{label: 'Accept',
+                            action: function(dialogItself){
+                                dialogItself.close();
+                            }}],
+                        type: BootstrapDialog.TYPE_DANGER,
+                        });
+                    }else{
+                        $("div#tabs ul").append(
+                            '<li><a href="#tabs-' + response.videoID + '"><span class="glyphicon glyphicon-film sb-icons-2" aria-hidden="true" style="text-align: left; width: 20%; margin-right: 10px"></span>Video</a><span class="ui-icon ui-icon-circle-close ui-closable-tab"></span></li>'
+                        );
+                        $("div#tabs").append(
+                            "<div id='tabs-" + response.videoID + "' style='padding-left: 0px; padding-right: 0px; padding-bottom: 0px; padding-top: 0px'></div>"
+                        );
+                
+                        $("div#tabs").tabs("refresh");
+                
+                        var video = $('<video />', {
+                            id: 'video' + response.videoID,
+                            src: response.url,
+                            autoplay: false,
+                            type: 'video/mp4',
+                            loop: false,
+                            controls: true
+                        });
+                
+                        video.appendTo($('#tabs-' + response.videoID));
+                
+                        $("#video" + response.videoID).css('width', '100%');
+                        $("#video" + response.videoID).css('height', '100%');
+                        $("#tabs-" + response.videoID).trigger("click");
                     }
-                    $("#videoDiv").css('visibility', 'visible');
-                    var video = $('<video />', {
-                        id: 'video',
-                        src: '{{ asset("") }}' + url,
-                        autoplay: false,
-                        type: 'video/mp4',
-                        loop: false,
-                        controls: true
-                    });
-                    video.appendTo($('#videoDiv'));
-                    $("#video").css('width', '100%');
-                    $("#video").css('height', '100%');
-                    $("#videoTab").trigger("click");
-                    $("#saveCalendar").trigger("click");
                 },
                 error: function (data) {
                     try {
@@ -927,28 +967,59 @@
                 url = "{{ asset('vid/012.mp4') }}";
                 break;
         }
-
-        if (!$("#video").length) {
-            $("#videoDiv").css('visibility', 'visible');
-            var video = $('<video />', {
-                id: 'video',
-                src: url,
-                autoplay: true,
-                type: 'video/mp4',
-                loop: false,
-                controls: true
+        var videosCount = $("#tabs").find(".ui-closable-tab").length;
+        
+        if(videosCount >= 5){
+            BootstrapDialog.show({
+                    title: 'Maximun amount of videos reached',
+                    message: 'You can only add a maximun of 5 videos to each calendar.',
+                    buttons: [{label: 'Accept',
+                        action: function(dialogItself){
+                            dialogItself.close();
+                        }}],
+                    type: BootstrapDialog.TYPE_DANGER,
+                });
+        }else{
+            $("#calendarID").val("{{ $id }}")
+            $("#videoURL").val(url);
+            $("#videoType").val("local");
+            
+            var form = $('#videoForm');
+            var url2 = form.attr('action');
+            var data = form.serialize();
+            
+            $.post(url2, data, function (result) {
+                $("div#tabs ul").append(
+                    '<li><a href="#tabs-' + result + '"><span class="glyphicon glyphicon-film sb-icons-2" aria-hidden="true" style="text-align: left; width: 20%; margin-right: 10px"></span>Video</a><span class="ui-icon ui-icon-circle-close ui-closable-tab"></span></li>'
+                );
+                $("div#tabs").append(
+                    "<div id='tabs-" + result + "' style='padding-left: 0px; padding-right: 0px; padding-bottom: 0px; padding-top: 0px'></div>"
+                );
+                
+                $("div#tabs").tabs("refresh");
+                
+                var video = $('<video />', {
+                    id: 'video' + result,
+                    src: url,
+                    autoplay: false,
+                    type: 'video/mp4',
+                    loop: false,
+                    controls: true
+                });
+                
+                video.appendTo($('#tabs-' + result));
+                
+                $("#video" + result).css('width', '100%');
+                $("#video" + result).css('height', '100%');
+                $("#tabs-" + result).trigger("click");
+                
+                
+            }).fail(function (e) {
+                
+                alert(JSON.stringify(e));
             });
-            video.appendTo($('#videoDiv'));
-            $("#video").css('width', '100%');
-            $("#video").css('height', '100%');
-            $("#saveCalendar").trigger("click");
-            $("#videoTab").trigger("click");
-        } else {
-            $('#video').attr('src', url);
-            $("#video")[0].load();
-            $("#saveCalendar").trigger("click");
-            $("#videoTab").trigger("click");
-        }
+            
+        }        
     }
 
     function updateTheme() {
@@ -1032,7 +1103,11 @@
     function getUploadImageRoute() {
         return "{{ route('uploadImage') }}";
     }
-
+    
+    function getDeleteVideoRoute(){
+        return "{{ route('delVideo') }}";
+    }
+    
     function getCalendarID() {
         return '{{$id}}';
     }
@@ -1072,23 +1147,5 @@
     function getVideoLength(){
         return '{{ $videoLength }}'
     }
-
-    // Remove video function
-    $("#removeVideo").click(function () {
-        if ($("#video").length) {
-            $('#idVideo').val("{{ $id }}");
-            var form = $('#del_video');
-            var url = form.attr('action');
-            var data = form.serialize();
-            $.post(url, data, function (result) {
-                $("#video").remove();
-                $("#calendarTab").trigger("click");
-                $("#saveCalendar").trigger("click");
-            }).fail(function (e) {
-                alert(JSON.stringify(e));
-            });
-        }
-    });
-
 </script>
 @endsection

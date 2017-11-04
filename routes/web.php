@@ -70,6 +70,9 @@ Route::group(['middleware' => 'auth'], function () {
     // Route to resume subscriptions
     Route::post('/subscription/resume', 'SubscriptionsController@resume');
     
+    // Route to store video in database
+    Route::post('/storeVideo', 'VideoController@store')->name('storeVideo');
+    
 });
 
 // Routes for the user´s autentication

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Calendar;
+use App\Video;
 
 class CalendarController extends Controller {
 
@@ -14,27 +15,35 @@ class CalendarController extends Controller {
         // Look for the calendar in the db
         $calendar = Calendar::find($calendar_id);
 
-        // Look for the video to remove
-        $video = $calendar->video;
+        // Look for the videos to remove
+        $videos = Video::where('calendar_id', $calendar_id);
 
-        if ($video != "none") {
+        // Check if there is any video
+        if (count($videos) > 0) {
 
-            // Check if it is a local video
-            if (ends_with($video, "001.mp4") || ends_with($video, "002.mp4") || ends_with($video, "003.mp4") ||
-                    ends_with($video, "004.mp4") || ends_with($video, "005.mp4") || ends_with($video, "006.mp4") ||
-                    ends_with($video, "007.mp4") || ends_with($video, "008.mp4") || ends_with($video, "009.mp4") ||
-                    ends_with($video, "010.mp4") || ends_with($video, "011.mp4") || ends_with($video, "012.mp4")) {
-                
-            } else {
-                // It is not a local video, let´s get the name
-                $videoName = substr("$video", -11);
+            // Analize each video
+            foreach ($videos as $video) {
 
-                // Absolute path to video
-                $videoPath = public_path() . "/videos/" . Auth::id() . "/" . $videoName;
+                if ($video != "none") {
 
-                // Delete the video
-                if (!unlink($videoPath)) {
-                    return response()->json(['error' => 'The video could not be removed'], 500);
+                    // Check if it is a local video
+                    if (ends_with($video, "001.mp4") || ends_with($video, "002.mp4") || ends_with($video, "003.mp4") ||
+                            ends_with($video, "004.mp4") || ends_with($video, "005.mp4") || ends_with($video, "006.mp4") ||
+                            ends_with($video, "007.mp4") || ends_with($video, "008.mp4") || ends_with($video, "009.mp4") ||
+                            ends_with($video, "010.mp4") || ends_with($video, "011.mp4") || ends_with($video, "012.mp4")) {
+                        
+                    } else {
+                        // It is not a local video, let´s get the name
+                        $videoName = substr("$video", -11);
+
+                        // Absolute path to video
+                        $videoPath = public_path() . "/videos/" . Auth::id() . "/" . $videoName;
+
+                        // Delete the video
+                        if (!unlink($videoPath)) {
+                            return response()->json(['error' => 'The video could not be removed'], 500);
+                        }
+                    }
                 }
             }
         }
@@ -72,14 +81,17 @@ class CalendarController extends Controller {
     public function editCalendar($calendar_id, Request $request) {
 
         $calendar = Calendar::find($calendar_id);
-
+        
+        $videos = Video::where("calendar_id", $calendar_id)->get();
+        
         if ($calendar) {
             if ($calendar->user_id == Auth::id()) {
                 return view('home', ['id' => $calendar->id, 'name' => $calendar->name, 'year' => $calendar->year, 
                     'month' => $calendar->month, 'themeC' => $calendar->themeC, 'theme' => $calendar->theme, 
                     'layout' => $calendar->layout, 'background' => $calendar->background, 'color' => $calendar->color, 
                     'colorYear' => $calendar->colorYear, 'colorWeek' => $calendar->colorWeek, 
-                    'colorDay' => $calendar->colorDay,'videoLength' => $calendar->videoLength, 'content' => $calendar->content]);
+                    'colorDay' => $calendar->colorDay,'videoLength' => $calendar->videoLength, 'content' => $calendar->content,
+                    'videos' => $videos]);
             }
         }
         return redirect()->back();

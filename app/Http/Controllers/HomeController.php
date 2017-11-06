@@ -25,15 +25,14 @@ class HomeController extends Controller {
     public function saveImage(Request $request) {
 
         try {
-            set_time_limit(300);
+            set_time_limit(0);
 
             //Clean Temp Directory
-            
             // Retrieve all the files
-            $files = glob(public_path() . '/temp/' . Auth::id().'/*');
-            foreach($files as $file){
+            $files = glob(public_path() . '/temp/' . Auth::id() . '/*');
+            foreach ($files as $file) {
                 // We delete it if is file
-                if(is_file($file)){
+                if (is_file($file)) {
                     unlink($file);
                 }
             }
@@ -55,77 +54,117 @@ class HomeController extends Controller {
 
             //Save the image
             file_put_contents($absoluteImagePath, $unencodedData);
-            
-            $builder = new ProcessBuilder();
-            $builder->setPrefix('ffmpeg');
-            try{
-            $builder
-                    ->setArguments(array('-f', 'lavfi', '-i', 'anullsrc', '-loop', '1', '-i', $absoluteImagePath, '-c:v', 'libx264', '-strict', '-2', '-t', $request->cal_length, '-pix_fmt', 'yuv420p', '-vf', 'scale=1920:1080', $path . '/input1.mp4'))
-                    ->getProcess()
-                    ->setTimeout(500)
-            ->run();}
-            catch(Exception $e) {
-                return 'Message: ' .$e->getMessage();
-            }
-            // At this point we have the calendar video ready
-            // We need to retrieve the other video
-            
+
+            // Retrieve the calendar
             $calendar = Calendar::find($request->cal_val);
 
-            if ($calendar->video != "none") {
+            $builder = new ProcessBuilder();
+            $builder->setPrefix('ffmpeg');
+            $builder
+                    ->setArguments(array('-f', 'lavfi', '-i', 'anullsrc', '-loop', '1', '-i', $absoluteImagePath, '-c:v', 'libx264', '-strict', '-2', '-t', $calendar->videoLength, '-pix_fmt', 'yuv420p', '-vf', 'scale=1920:1080', $path . '/input1.mp4'))
+                    ->getProcess()
+                    ->run();
 
-                // Copy the Calendar video
-                file_put_contents($path . "/input2.mp4", fopen("$calendar->video", 'r'));
+            // At this point we have the calendar video ready
+            // We need to retrieve the other videos
+            $videos = Video::where("calendar_id", $request->cal_val)->get();
 
-                // Process to generate intermediate video 1
-                $builder
-                        ->setArguments(array('-i', $path . '/input1.mp4', '-c', 'copy', '-bsf:v', 'h264_mp4toannexb', '-f', 'mpegts', $path . '/intermediate1.ts'))
-                        ->getProcess()
-                        ->run();
+            // See if there are videos
+            if (count($videos) > 0) {
 
-                // Process to generate intermediate video 2
-                $builder
-                        ->setArguments(array('-i', $path . '/input2.mp4', '-c', 'copy', '-bsf:v', 'h264_mp4toannexb', '-f', 'mpegts', $path . '/intermediate2.ts'))
-                        ->getProcess()
-                        ->run();
+                // Temp counter
+                $contador = 2;
 
-                // String to concatenate both videos
-                $cadena = 'concat:' . $path . '/intermediate1.ts|' . $path . '/intermediate2.ts';
+                // Temp path
+                $tempPath = public_path() . "/temp/" . Auth::id() . "/";
+
+                if (!is_dir($tempPath)) {
+                    // User temp dir doesn't exists, create it
+                    mkdir($tempPath);
+                }
+
+                // There is at least one video
+                foreach ($videos as $video) {
+
+                    if ($video->type == "local") {
+
+                        // It is a pre-determinated video, get the path
+                        $videoPath = public_path() . "/vid/" . substr("$video->url", -7);
+
+                        // Copy the Calendar video
+                        file_put_contents($tempPath . "/input$contador.mp4", fopen("$videoPath", 'r'));
+                    } else {
+
+                        // It is a custom video
+                        $videoPath = public_path() . "/videos/" . Auth::id() . "/" . substr("$video->url", -11);
+
+                        // Copy the Calendar video
+                        file_put_contents($tempPath . "/input$contador.mp4", fopen("$videoPath", 'r'));
+                    }
+
+                    $contador++;
+                }
+
+                // String to store the concat command
+                $tempString = "";
+
+                // Convert every video o an intermediate format
+                for ($tempCont = 1; $tempCont <= count($videos) + 1; $tempCont++) {
+
+                    $builder
+                            ->setArguments(array('-i', $tempPath . "/input$tempCont.mp4", '-c', 'copy', '-bsf:v', 'h264_mp4toannexb', '-f', 'mpegts', $tempPath . "/intermediate$tempCont.ts"))
+                            ->getProcess()
+                            ->run();
+                }
+
+                // Build the create-video command
+                for ($videoCounter = 2; $videoCounter <= count($videos) + 1; $videoCounter++) {
+
+                    $tempString = $tempString . "|$tempPath" . "intermediate1.ts|$path/intermediate$videoCounter.ts";
+                }
+
+                // Clean the string from the first character
+                $videosConcatString = substr($tempString, 1);
+
+                // Add concat clausule to string
+                $videosConcatString = 'concat:' . $videosConcatString;
 
                 //New name for the video
                 $newName = str_replace(" ", "", $calendar->name);
-                
-                // Process to concatenate both videos
+
+                // Process to concatenate all videos
                 $builder
                         ->setArguments(array())
                         ->add('-i')
-                        ->add($cadena)
+                        ->add($videosConcatString)
                         ->add('-c')
                         ->add('copy')
                         ->add('-bsf:a')
                         ->add('aac_adtstoasc')
-                        ->add($path . '/' . $newName . '.mp4')
+                        ->add($tempPath . $newName . '.mp4')
                         ->getProcess()
                         ->run();
 
-                // Delete temporary files
-                unlink($absoluteImagePath);
-                unlink($path . '/input1.mp4');
-                unlink($path . '/input2.mp4');
-                unlink($path . '/intermediate1.ts');
-                unlink($path . '/intermediate2.ts');
-
+                // Path to store the generated video
                 $calendarPath = public_path() . '/calendars/' . Auth::id();
 
+                // Check if the directory exits
                 if (!is_dir($calendarPath)) {
+
                     // dir doesn't exist, make it
                     mkdir($calendarPath);
                 }
 
-                rename($path . '/' . $newName . '.mp4', $calendarPath . '/' . $newName . '.mp4');
+                // Move generated video to calendars path
+                rename($tempPath . $newName . '.mp4', $calendarPath . '/' . $newName . '.mp4');
 
-                return 'El video ha sido generado exitosamente!';
+                $returnData = array(
+                    'message' => "The video was successfully created!"
+                );
+                return response($returnData, 200);
+                
             } else {
+
                 // Path to store the generated video
                 $calendarPath = public_path() . '/calendars/' . Auth::id();
 
@@ -145,14 +184,18 @@ class HomeController extends Controller {
 
                 //Save the image video
                 rename($path . '/input1.mp4', $calendarPath . '/' . $newName . '.mp4');
-                unlink($absoluteImagePath);
 
-                return 'El video ha sido generado exitosamente!';
+                // There is no video
+                $returnData = array(
+                    'message' => 'The video was successfully created!'
+                );
+                return response($returnData, 200);
             }
         } catch (\Exception $e) {
             return $e->getMessage();
         }
     }
+
     /**
      * Upload the file to the hard drive
      *
@@ -199,7 +242,7 @@ class HomeController extends Controller {
                         'file' => 'required|mimetypes:video/webm,video/quicktime,video/mp4,video/x-flv,video/x-msvideo,video/x-ms-asf,video/x-matroska,video/mpeg,video/ogg',
             ]);
             if ($validator->passes()) {
-                
+
                 $video = new Video();
                 $video->calendar_id = $request->calendarID;
                 $video->type = 'custom';
@@ -217,19 +260,19 @@ class HomeController extends Controller {
 
                 // Generate random name
                 $name = substr(md5(microtime()), rand(0, 26), 7);
-                
+
                 // Video URL
                 $videoURL = '/videos/' . Auth::id() . "/" . $name . '.mp4';
-                
+
                 // Absolute path to store video
                 $storePath = public_path() . $videoURL;
-                
+
                 // Let´s see if it is a MP4 video
                 if (ends_with($path, "mp4") || ends_with($path, "MP4")) {
-                    
+
                     // Change the name
                     if (rename(public_path() . "/" . $path, $storePath)) {
-                        
+
                         $video->url = asset($videoURL);
                         $video->save();
                         $returnData = array(
@@ -283,8 +326,6 @@ class HomeController extends Controller {
      *
      * @return \Illuminate\Http\Response
      */
-    
-
     public function showDashboard() {
         $videosPath = public_path() . '/calendars/' . Auth::id();
         if (!is_dir($videosPath)) {
@@ -296,12 +337,6 @@ class HomeController extends Controller {
         $plans = Subscription::where('user_id', Auth::id())->where('ends_at', null)->get();
 
         return view('dash')->with(['calendars' => $calendars, 'planes' => $plans, 'videos' => $files, 'plans' => Plan::get()]);
-    }
-
-    public function endsWith($haystack, $needle) {
-        $length = strlen($needle);
-
-        return $length === 0 || (substr($haystack, -$length) === $needle);
     }
 
 }

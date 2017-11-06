@@ -89,12 +89,4 @@ class VideoController extends Controller {
             return $e->getMessage();
         }
     }
-
-    public function endsWith2($haystack, $needle) {
-
-        $lenght = strlen($needle);
-
-        return substr($haystack, -$lenght, $lenght) === $needle;
-    }
-
 }

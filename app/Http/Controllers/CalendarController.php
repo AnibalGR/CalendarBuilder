@@ -111,7 +111,7 @@ class CalendarController extends Controller {
         $calendar->theme = 'none';
         $calendar->themeC = 'standard';
         $calendar->layout = 'none';
-        $calendar->background = 'none';
+        $calendar->background = 'bgimg-none';
         $calendar->color = 'none';
         $calendar->colorYear = '#000000';
         $calendar->colorWeek = '#000000';

@@ -1070,6 +1070,7 @@
                     type: BootstrapDialog.TYPE_PRIMARY,
                 });
             }).fail(function (e) {
+                alert("hay error");
                 waitingDialog.hide();
                 alert(JSON.stringify(e));
             });

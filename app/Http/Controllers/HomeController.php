@@ -25,7 +25,7 @@ class HomeController extends Controller {
     public function saveImage(Request $request) {
 
         try {
-            set_time_limit(0);
+            set_time_limit(5000);
 
             //Clean Temp Directory
             // Retrieve all the files
@@ -57,13 +57,14 @@ class HomeController extends Controller {
 
             // Retrieve the calendar
             $calendar = Calendar::find($request->cal_val);
-
+            
             $builder = new ProcessBuilder();
             $builder->setPrefix('ffmpeg');
             $builder
                     ->setArguments(array('-f', 'lavfi', '-i', 'anullsrc', '-loop', '1', '-i', $absoluteImagePath, '-c:v', 'libx264', '-strict', '-2', '-t', $calendar->videoLength, '-pix_fmt', 'yuv420p', '-vf', 'scale=1920:1080', $path . '/input1.mp4'))
                     ->getProcess()
-                    ->run();
+                    ->setTimeout(3600)
+                      ->run();
 
             // At this point we have the calendar video ready
             // We need to retrieve the other videos
@@ -158,11 +159,20 @@ class HomeController extends Controller {
                 // Move generated video to calendars path
                 rename($tempPath . $newName . '.mp4', $calendarPath . '/' . $newName . '.mp4');
 
+                //Clean Temp Directory
+                // Retrieve all the files
+                $files = glob(public_path() . '/temp/' . Auth::id() . '/*');
+                foreach ($files as $file) {
+                    // We delete it if is file
+                    if (is_file($file)) {
+                        unlink($file);
+                    }
+                }
+
                 $returnData = array(
                     'message' => "The video was successfully created!"
                 );
                 return response($returnData, 200);
-                
             } else {
 
                 // Path to store the generated video
@@ -184,6 +194,16 @@ class HomeController extends Controller {
 
                 //Save the image video
                 rename($path . '/input1.mp4', $calendarPath . '/' . $newName . '.mp4');
+
+                //Clean Temp Directory
+                // Retrieve all the files
+                $files = glob(public_path() . '/temp/' . Auth::id() . '/*');
+                foreach ($files as $file) {
+                    // We delete it if is file
+                    if (is_file($file)) {
+                        unlink($file);
+                    }
+                }
 
                 // There is no video
                 $returnData = array(

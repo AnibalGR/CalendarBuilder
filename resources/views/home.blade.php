@@ -1056,7 +1056,7 @@
             var data = form.serialize();
             $.post(url, data, function (result) {
                 waitingDialog.hide();
-                BootstrapDialog.show({
+                  BootstrapDialog.show({
                     title: 'Video created',
                     message: 'Your video has been created successfully. <br> You can find it in your <a href="{{ route("dash") }}">dashboard</a> under the "My Videos" section.',
                     buttons: [{label: 'Take me to the video',

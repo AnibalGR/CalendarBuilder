@@ -17,10 +17,9 @@ use Carbon\Carbon;
         <div class="col-md-7 col-md-offset-3">
             <div id="tabs" style="padding: 0px;">
                 <ul>
-                    <li><a href="#tabs-0"><span id="plansTab" class="glyphicon glyphicon-calendar sb-icons-2" aria-hidden="true" style="text-align: left; width: 20%; margin-right: 5px"></span>Choose a plan</a></li>
-                    <li><a href="#tabs-1"><span id="subscriptionTab" class="glyphicon glyphicon-calendar sb-icons-2" aria-hidden="true" style="text-align: left; width: 20%; margin-right: 5px"></span>Subscription</a></li>
-                    <li><a href="#tabs-2"><span id="calendarTab" class="glyphicon glyphicon-calendar sb-icons-2" aria-hidden="true" style="text-align: left; width: 20%; margin-right: 5px"></span>Calendars</a></li>
-                    <li><a href="#tabs-3"><span id="videoTab" class="glyphicon glyphicon-calendar sb-icons-2" aria-hidden="true" style="text-align: left; width: 20%; margin-right: 5px"></span>Videos</a></li>
+                    <li><a href="#tabs-0"><span id="plansTab" class="glyphicon glyphicon-calendar sb-icons-2" aria-hidden="true" style="text-align: left; width: 20%; margin-right: 5px"></span>Premium Plans</a></li>
+                    <li><a href="#tabs-1"><span id="subscriptionTab" class="glyphicon glyphicon-calendar sb-icons-2" aria-hidden="true" style="text-align: left; width: 20%; margin-right: 5px"></span>Calendars</a></li>
+                    <li><a href="#tabs-2"><span id="calendarTab" class="glyphicon glyphicon-calendar sb-icons-2" aria-hidden="true" style="text-align: left; width: 20%; margin-right: 5px"></span>Videos</a></li>
                 </ul>
                 <div id='tabs-0' style='padding-left: 0px; padding-right: 0px; padding-bottom: 0px; padding-top: 0px'>
                 <div class="panel-body">
@@ -48,64 +47,6 @@ use Carbon\Carbon;
                         </div>
             </div>
             <div id='tabs-1' style='padding-left: 0px; padding-right: 0px; padding-bottom: 0px; padding-top: 0px'>
-                <div class="row">
-        <div class="col-md-12">
-            <div class="panel panel-primary">
-                <div class="panel-heading">Manage Subscriptions</div>
-
-                <div class="panel-body">
-                    @if (Auth::user()->subscription('main')->cancelled())
-                    <p>Your subscription ends on {{ Auth::user()->subscription('main')->ends_at->format('M dS Y') }}</p>
-                    <form action="{{ url('subscription/resume') }}" method="post">
-                        <button type="submit" class="btn btn-default">Resume subscription</button>
-                        {{ csrf_field() }}
-                    </form>
-                    @else
-                    <p>You are currently subscribed to {{ Auth::user()->subscription('main')->braintree_plan }} plan</p>
-                    <form action="{{ url('subscription/cancel') }}" method="post">
-                        <button type="submit" class="btn btn-default">Cancel subscription</button>
-                        {{ csrf_field() }}
-                    </form>
-                    @endif
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-md-12">
-            <div class="panel panel-primary">
-                <div class="panel-heading">My payment method</div>
-
-                <div class="panel-body">
-                    <p>This is your current payment method:</p>
-                    @if(Auth::user()->paypal_email)
-                    <p>Paypal email: {{ Auth::user()->paypal_email }}</p>
-                    @else
-                    <p>Card brand: {{ Auth::user()->card_brand }}</p>
-                    <p>Last 4 numbers: {{ Auth::user()->card_last_four }}</p>
-                    @endif
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-md-12">
-            <div class="panel panel-primary">
-                <div class="panel-heading">Change payment method</div>
-
-                <div class="panel-body">
-                    <form action="{{ url('/update_card') }}" method="post">
-                        <div id="dropin-container"></div>
-                        {{ csrf_field() }}
-                        <hr>
-                        <button id="payment-button" class="btn btn-primary btn-flat hidden" type="submit">Update payment method</button>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
-            </div>
-            <div id='tabs-2' style='padding-left: 0px; padding-right: 0px; padding-bottom: 0px; padding-top: 0px'>
                 <div class="panel-body">
                             <div id='calendarsShow'>
                                 @if (!$calendars->isEmpty())
@@ -133,7 +74,7 @@ use Carbon\Carbon;
                         </div>
             </div>
             
-            <div id='tabs-3' style='padding-left: 0px; padding-right: 0px; padding-bottom: 0px; padding-top: 0px'>
+            <div id='tabs-2' style='padding-left: 0px; padding-right: 0px; padding-bottom: 0px; padding-top: 0px'>
                 <div class="panel-body">
                             @if (count($videos) > 0)
                             <div class="table-responsive">

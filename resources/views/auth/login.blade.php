@@ -5,7 +5,7 @@
     <div class="row">
         <div class="full-width space-60" style="margin-top: 200px"></div>
         <div class="col-md-8 col-md-offset-2">
-            <div class="panel panel-default">
+            <div class="panel panel-primary">
                 <div class="panel-heading">Login</div>
 
                 <div class="panel-body">

@@ -1,4 +1,8 @@
-
+$(document).ready(function(){
+    
+    $("#tabs").tabs();
+    
+})
     $("#onclick").click(function () {
         $("#contactdiv").css("display", "block");
         $("#year").val($("#year option:first").val());

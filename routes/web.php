@@ -14,7 +14,7 @@
 // Home page
 Route::get('/', function () {
     return view('welcome2');
-});
+})->name('start');
 
 // A non-registered user can see the plans
 Route::get('/plans', 'PlansController@index')->name('plans');

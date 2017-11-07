@@ -52,6 +52,7 @@
                         <!-- Right Side Of Navbar -->
                         <ul class="nav navbar-nav navbar-right">
                             <!-- Authentication Links -->
+                            <li><a href="{{ route('start') }}">Home</a></li>
                             <li><a href="{{ route('how-it-works') }}">How It Works</a></li>
                             <li><a href="{{ route('plans') }}">Pricing</a></li>
                             <li><a href="#">Blog</a></li>

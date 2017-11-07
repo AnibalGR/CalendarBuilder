@@ -51,16 +51,20 @@
                 </div>
                 <div class="col-md-8 head-calendar">
                     <div class="col-md-12">
+                        @if (Auth::user()->subscribed('main'))
                         <div class="col-md-3">
-                            @if (Auth::user()->subscribed('main'))
                             <button id="generateVideo" type="button" class="btn btn-labeled btn-default">
                                 <span class="btn-label"><i class="glyphicon glyphicon-facetime-video sb-icons-3"></i></span><span class="text-whiteBG">GENERATE VIDEO</span></button>
                         </div>
+                        @endif
                         <div class="col-md-1 space-5"></div>
                         <div class="col-md-3">
                             <button id="saveCalendar" type="button" class="btn btn-labeled btn-default">
-                                <span class="btn-label"><i class="glyphicon glyphicon-floppy-disk sb-icons-3"></i></span><span class="text-whiteBG">SAVE CALENDAR</span></button>
-                            @endif
+                                <span class="btn-label">
+                                    <i class="glyphicon glyphicon-floppy-disk sb-icons-3"></i>
+                                </span>
+                                <span class="text-whiteBG">SAVE CALENDAR</span>
+                            </button>
                         </div>
                         <div class="col-md-3">
 

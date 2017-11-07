@@ -9,7 +9,7 @@
 
                 <div class="panel-body">
                     @if (Auth::user()->subscription('main')->cancelled())
-                    <p>Your subscription ends on {{ Auth::user()->subscription('main')->ends_at->format('dS M Y') }}</p>
+                    <p>Your subscription ends on {{ Auth::user()->subscription('main')->ends_at->format('M dS Y') }}</p>
                     <form action="{{ url('subscription/resume') }}" method="post">
                         <button type="submit" class="btn btn-default">Resume subscription</button>
                         {{ csrf_field() }}

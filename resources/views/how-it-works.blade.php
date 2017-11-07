@@ -114,7 +114,13 @@
     <div class="full-width space-60"></div>
     <h2>Start designing your display!</h2>
     <div class="full-width space-60"></div>
-    <div class="button-1"><a href="">SIGN UP NOW</a></div>
+    <div class="button-1">
+        @if(!Auth::user())
+        <a href="{{ route('plans') }}">SIGN UP NOW</a>
+        @else
+        <a href="{{ route('dash') }}">START NOW</a>
+        @endif
+    </div>
     <div class="full-width space-60"></div>
     </div>
 </div>

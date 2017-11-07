@@ -22,7 +22,11 @@
                                     on upcoming events and activities in your facility</h3>
                             </hgroup>
                             <div class="space-20">
-                            <button class="btn btn-hero btn-lg" role="button">CREATE</button>
+                                @if(Auth::user())
+                                <a href="{{ route('dash') }}"><button class="btn btn-hero btn-lg" role="button">CREATE</button></a>
+                                @else
+                                <a href="{{ route('plans') }}"><button class="btn btn-hero btn-lg" role="button">CREATE</button></a>
+                                @endif
                             </div>
                         </div>
                     </div>
@@ -41,7 +45,7 @@
                 <div class="col-sm-4 space-40 hIcons-1 linebox-right">
                     <img src="{{ asset('img/home/home-1.png') }}" class="img-responsive">
                     <h3>Select Your Template</h3>
-                    <p>Use our standar 12-month calendar or build your own.</p>
+                    <p>Use our standard 12-month calendar or build your own.</p>
                 </div>
                 <div class="col-sm-4 space-40 hIcons-1">
                 <img src="{{ asset('img/home/home-2.png') }}" class="img-responsive">
@@ -101,7 +105,13 @@
     <div class="full-width space-60"></div>
     <h2>Start designing your display!</h2>
     <div class="full-width space-60"></div>
-    <div class="button-1"><a href="">SIGN UP NOW</a></div>
+    <div class="button-1">
+        @if(!Auth::user())
+        <a href="{{ route('plans') }}">SIGN UP NOW</a>
+        @else
+        <a href="{{ route('dash') }}">START NOW</a>
+        @endif
+    </div>
     <div class="full-width space-60"></div>
     </div>
 </div>

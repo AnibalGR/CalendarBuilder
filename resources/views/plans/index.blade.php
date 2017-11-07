@@ -34,8 +34,8 @@
                             <ul>
                                 <li><p><strong><i class="fa fa-check-circle list-green" aria-hidden="true"></i></strong></p></li>
                                 <li><p><strong><i class="fa fa-check-circle list-green" aria-hidden="true"></i></strong></p></li>
-                                <li><p><strong><i class="fa fa-times-circle list-green" aria-hidden="true"></i></strong></p></li>
-                                <li><p><strong><i class="fa fa-times-circle list-green" aria-hidden="true"></i></strong></p></li>
+                                <li><p><strong><i class="fa fa-check-circle list-green" aria-hidden="true"></i></strong></p></li>
+                                <li><p><strong><i class="fa fa-times-circle list-red" aria-hidden="true"></i></strong></p></li>
                             </ul>
                         </div>
                         <div class="col-xs-6" style="text-align: left; margin-left: 0px !important; padding-left: 0px;">
@@ -49,7 +49,11 @@
                     </div>
                 </div>
                 <div class="button-sign-up">
-                    <a href="#">SIGN UP</a>
+                    @if(!Auth::user())
+                    <a href="{{ route('register') }}">SIGN UP</a>
+                    @else
+                    <a style="background-color: white"></a>
+                    @endif
                 </div>
                 <div class="pricing-table-bottom"></div>
             </div>
@@ -85,7 +89,12 @@
                     </div>
                 </div>
                 <div class="button-sign-up">
-                    <a href="#">SIGN UP</a>
+                    @if (Auth::user()->subscribedToPlan('Monthly', 'main'))
+                    <a href="#">Subscribed</a>
+                    @else
+                    <a href="{{ url('/plan', 'monthly-plan') }}">Change Plan</a>
+                    @endif
+                    
                 </div>
                 <div class="pricing-table-bottom"></div>
             </div>
@@ -121,7 +130,11 @@
                     </div>
                 </div>
                 <div class="button-sign-up">
-                    <a href="#">SIGN UP</a>
+                    @if (Auth::user()->subscribedToPlan('Yearly', 'main'))
+                    <a href="#">Subscribed</a>
+                    @else
+                    <a href="{{ url('/plan', 'yearly-plan') }}">Upgrade Plan</a>
+                    @endif
                 </div>
                 <div class="pricing-table-bottom"></div>
             </div>

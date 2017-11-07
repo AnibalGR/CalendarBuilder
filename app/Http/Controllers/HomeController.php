@@ -310,7 +310,7 @@ class HomeController extends Controller {
                 $builder = new ProcessBuilder();
                 $builder->setPrefix('ffmpeg');
                 $builder
-                        ->setArguments(array('-i', $path, '-strict', '-2', $storePath, '-hide_banner', '-strict', '-2'))
+                        ->setArguments(array('-i', $path, '-s', '1920x1080', '-strict', '-2', $storePath, '-hide_banner', '-strict', '-2'))
                         ->getProcess()
                         ->setTimeout(5000)
                         ->run();

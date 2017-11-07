@@ -92,6 +92,9 @@ margin: 0px 0px 0px 0px;
 .list-green{
     color: #1abc9c;
 }
+.list-red{
+    color: #ee1515;
+}
 .button-sign-up{
     margin: 30px 10px;
     color: #ffffff;

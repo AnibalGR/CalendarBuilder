@@ -65,7 +65,7 @@
         </style>
     </head>
     <body>
-        <div class="flex-center position-ref full-height">
+<!--        <div class="flex-center position-ref full-height">
             @if (Route::has('login'))
                 <div class="top-right links">
                     @auth
@@ -83,14 +83,23 @@
                     Calendar Builder
                 </div>
 
-<!--                <div class="links">
+                <div class="links">
                     <a href="https://laravel.com/docs">Documentation</a>
                     <a href="https://laracasts.com">Laracasts</a>
                     <a href="https://laravel-news.com">News</a>
                     <a href="https://forge.laravel.com">Forge</a>
                     <a href="https://github.com/laravel/laravel">GitHub</a>
-                </div>-->
+                </div>
             </div>
-        </div>
+        </div>-->
+<div class="container-fluid">
+  <div class="row">
+      <div class="col-md-12">
+<div style="width:100%; height:100%;">
+<iframe src="{{ asset('/blog-content') }}" width="100%" height="auto" frameborder="0" marginwidth="0" marginheight="0">Test of Blog</iframe>
+</div>
+</div>
+</div>
+</div>
     </body>
 </html>

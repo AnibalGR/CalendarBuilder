@@ -19,6 +19,11 @@ Route::get('/', function () {
 // A non-registered user can see the plans
 Route::get('/plans', 'PlansController@index')->name('plans');
 
+// A non-registered user can see the plans
+Route::get('/blog', function () {
+    return view('blog');
+})->name('blog');
+
 // Private routes to show only to subscribed members
 Route::group(['middleware' => 'auth'], function () {
     

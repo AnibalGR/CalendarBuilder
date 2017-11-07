@@ -55,7 +55,7 @@
                             <li><a href="{{ route('start') }}">Home</a></li>
                             <li><a href="{{ route('how-it-works') }}">How It Works</a></li>
                             <li><a href="{{ route('plans') }}">Pricing</a></li>
-                            <li><a href="#">Blog</a></li>
+                            <li><a href="{{ asset('blog') }}">Blog</a></li>
                             @guest
                             <li class="menuNavBarButton colorB-W"><a href="{{ route('login') }}" >Login</a></li>
                             <li class="menuNavBarButton2 colorW-B"><a href="{{ route('register') }}">Register</a></li>

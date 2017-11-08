@@ -60,7 +60,7 @@
                             <li class="menuNavBarButton colorB-W"><a href="{{ route('login') }}" >Login</a></li>
                             <li class="menuNavBarButton2 colorW-B"><a href="{{ route('register') }}">Register</a></li>
                             @else
-                            <li><a href="{{ route('dash') }}">Dashboard</a></li>
+                            <li><a href="{{ route('dash') }}">My Calendars</a></li>
                             
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">

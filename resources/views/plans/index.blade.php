@@ -22,7 +22,7 @@
             <div class="table-pricing">
                 <div class="pricing-group">
                     <h2>FREE</h2>
-                    <p>Edit and view only</p>
+                    <p>Edit, view and save only</p>
                 </div>
                 <div class="princint-1">
                     <span>FREE</span>
@@ -62,7 +62,7 @@
             <div class="table-pricing">
                 <div class="pricing-group">
                     <h2>Monthly Plan</h2>
-                    <p>Edit and view, save and export</p>
+                    <p>Edit, view, save and export</p>
                 </div>
                 <div class="princint-1">
                     <span>$39.99</span>
@@ -106,7 +106,7 @@
             <div class="table-pricing">
                 <div class="pricing-group">
                     <h2>Yearly Plan</h2>
-                    <p>Edit and view, save and export</p>
+                    <p>Edit, view, save and export</p>
                 </div>
                 <div class="princint-1">
                     <span>$400.00</span>

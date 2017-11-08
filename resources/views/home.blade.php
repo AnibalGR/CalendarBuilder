@@ -685,13 +685,13 @@
                             <div class="panel-heading">
 
                                 <div id='top'>
-                                    <div class='left'>Calendar: {{ $name}} </div>
-                                    <div class='right'>
+                                    <div class='right'><h4><b>Calendar Name: {{ $name}}</b></h4></div>
+                                    <div class='left'>
 
                                         <div id='theme-system-selector' class='selector' >
-                                            Theme System:
+                                            <h4 style="display: inline"><b>Select your theme:</b></h4>
 
-                                            <select id='themeCategory'>
+                                            <select id='themeCategory' style="display: inline">
                                                 @if($themeC == 'standard')
                                                 <option value='standard' selected>Without theme</option>
                                                 <option value='jquery-ui'>With theme</option>
@@ -901,7 +901,7 @@
                 
                         $("#video" + response.videoID).css('width', '100%');
                         $("#video" + response.videoID).css('height', '100%');
-                        $("#tabs-" + response.videoID).trigger("click");
+                        $("#tabs").tabs("option", "active", "#tabs-" + response.videoID);
                     }
                 },
                 error: function (data) {

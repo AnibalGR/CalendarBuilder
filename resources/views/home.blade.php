@@ -688,7 +688,7 @@
                                     <div class='left'>Calendar: {{ $name}} </div>
                                     <div class='right'>
 
-                                        <div id='theme-system-selector'class='selector' >
+                                        <div id='theme-system-selector' class='selector' >
                                             Theme System:
 
                                             <select id='themeCategory'>
@@ -809,7 +809,6 @@
 @endsection
 
 @section('scripts')
-<script src="{{ asset('js/bootstrap-slider.js')}}"></script>
 <script src="{{ asset('js/moment.min.js')}}"></script>
 <script src="{{ asset('js/fullcalendar.min.js')}}"></script>
 <script src="{{ asset('js/theme-chooser.js')}}"></script>

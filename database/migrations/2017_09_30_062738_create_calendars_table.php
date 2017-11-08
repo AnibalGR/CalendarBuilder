@@ -17,8 +17,8 @@ class CreateCalendarsTable extends Migration
             $table->increments('id');
             $table->integer('user_id')->unsigned();
             $table->string('name');
-            $table->integer('year')->unsigned();
-            $table->integer('month')->unsigned();
+            $table->string('year');
+            $table->string('month');
             $table->string('theme');
             $table->string('themeC');
             $table->string('layout');

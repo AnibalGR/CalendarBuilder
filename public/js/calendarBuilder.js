@@ -726,7 +726,7 @@ $(document).on('click', ".ui-closable-tab", function () {
 
     $("#addImg1").click(function () {
 
-        var myImg = '../../img/headers/header-1.jpg';
+        var myImg = '../../img/headers/header-1.png';
 
         fabric.Image.fromURL(myImg, function (oImg) {
             oImg.scale(0.5);
@@ -737,7 +737,7 @@ $(document).on('click', ".ui-closable-tab", function () {
     
     $("#addImg2").click(function () {
 
-        var myImg = '../../img/headers/header-2.jpg';
+        var myImg = '../../img/headers/header-2.png';
 
         fabric.Image.fromURL(myImg, function (oImg) {
             oImg.scale(0.5);
@@ -748,7 +748,7 @@ $(document).on('click', ".ui-closable-tab", function () {
     
     $("#addImg3").click(function () {
 
-        var myImg = '../../img/headers/header-3.jpg';
+        var myImg = '../../img/headers/header-3.png';
 
         fabric.Image.fromURL(myImg, function (oImg) {
             oImg.scale(0.5);
@@ -759,7 +759,7 @@ $(document).on('click', ".ui-closable-tab", function () {
     
     $("#addImg4").click(function () {
 
-        var myImg = '../../img/headers/header-4.jpg';
+        var myImg = '../../img/headers/header-4.png';
 
         fabric.Image.fromURL(myImg, function (oImg) {
             oImg.scale(0.5);
@@ -770,7 +770,7 @@ $(document).on('click', ".ui-closable-tab", function () {
     
     $("#addImg5").click(function () {
 
-        var myImg = '../../img/headers/header-5.jpg';
+        var myImg = '../../img/headers/header-5.png';
 
         fabric.Image.fromURL(myImg, function (oImg) {
             oImg.scale(0.5);
@@ -781,7 +781,7 @@ $(document).on('click', ".ui-closable-tab", function () {
     
     $("#addImg6").click(function () {
 
-        var myImg = '../../img/headers/header-6.jpg';
+        var myImg = '../../img/headers/header-6.png';
 
         fabric.Image.fromURL(myImg, function (oImg) {
             oImg.scale(0.5);
@@ -792,7 +792,7 @@ $(document).on('click', ".ui-closable-tab", function () {
     
     $("#addImg7").click(function () {
 
-        var myImg = '../../img/headers/header-7.jpg';
+        var myImg = '../../img/headers/header-7.png';
 
         fabric.Image.fromURL(myImg, function (oImg) {
             oImg.scale(0.5);
@@ -803,7 +803,7 @@ $(document).on('click', ".ui-closable-tab", function () {
     
     $("#addImg8").click(function () {
 
-        var myImg = '../../img/headers/header-8.jpg';
+        var myImg = '../../img/headers/header-8.png';
 
         fabric.Image.fromURL(myImg, function (oImg) {
             oImg.scale(0.5);
@@ -814,7 +814,7 @@ $(document).on('click', ".ui-closable-tab", function () {
     
     $("#addImg9").click(function () {
 
-        var myImg = '../../img/headers/header-9.jpg';
+        var myImg = '../../img/headers/header-9.png';
 
         fabric.Image.fromURL(myImg, function (oImg) {
             oImg.scale(0.5);
@@ -825,7 +825,7 @@ $(document).on('click', ".ui-closable-tab", function () {
     
     $("#addImg10").click(function () {
 
-        var myImg = '../../img/headers/header-10.jpg';
+        var myImg = '../../img/headers/header-10.png';
 
         fabric.Image.fromURL(myImg, function (oImg) {
             oImg.scale(0.5);
@@ -836,7 +836,7 @@ $(document).on('click', ".ui-closable-tab", function () {
     
     $("#addImg11").click(function () {
 
-        var myImg = '../../img/headers/header-11.jpg';
+        var myImg = '../../img/headers/header-11.png';
 
         fabric.Image.fromURL(myImg, function (oImg) {
             oImg.scale(0.5);
@@ -847,7 +847,51 @@ $(document).on('click', ".ui-closable-tab", function () {
     
     $("#addImg12").click(function () {
 
-        var myImg = '../../img/headers/header-12.jpg';
+        var myImg = '../../img/headers/header-12.png';
+
+        fabric.Image.fromURL(myImg, function (oImg) {
+            oImg.scale(0.5);
+            canvas.add(oImg);
+        });
+
+    });
+    
+    $("#addImg13").click(function () {
+
+        var myImg = '../../img/headers/header-13.png';
+
+        fabric.Image.fromURL(myImg, function (oImg) {
+            oImg.scale(0.5);
+            canvas.add(oImg);
+        });
+
+    });
+    
+    $("#addImg14").click(function () {
+
+        var myImg = '../../img/headers/header-14.png';
+
+        fabric.Image.fromURL(myImg, function (oImg) {
+            oImg.scale(0.5);
+            canvas.add(oImg);
+        });
+
+    });
+    
+    $("#addImg15").click(function () {
+
+        var myImg = '../../img/headers/header-15.png';
+
+        fabric.Image.fromURL(myImg, function (oImg) {
+            oImg.scale(0.5);
+            canvas.add(oImg);
+        });
+
+    });
+    
+    $("#addImg16").click(function () {
+
+        var myImg = '../../img/headers/header-16.png';
 
         fabric.Image.fromURL(myImg, function (oImg) {
             oImg.scale(0.5);

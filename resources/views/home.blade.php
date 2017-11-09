@@ -437,43 +437,55 @@
                                         <div class="row">
                                             <div class="col-xs-6 col-sm-6 zeropdg-2">
                                                 <div class="addImgBox">
-                                                    <img id="addImg1" src="{{ asset('img/headers/header-1.jpg')}}" class="img-responsive" height="55px" width="150px">
+                                                    <img id="addImg1" src="{{ asset('img/headers/header-1.png')}}" class="img-responsive" height="55px" width="150px">
                                                 </div>
                                                 <div class="addImgBox">
-                                                    <img id="addImg2" src="{{ asset('img/headers/header-2.jpg')}}" class="img-responsive" height="55px" width="150px">
+                                                    <img id="addImg2" src="{{ asset('img/headers/header-2.png')}}" class="img-responsive" height="55px" width="150px">
                                                 </div>
                                                 <div class="addImgBox">
-                                                    <img id="addImg3" src="{{ asset('img/headers/header-3.jpg')}}" class="img-responsive" height="55px" width="150px">
+                                                    <img id="addImg3" src="{{ asset('img/headers/header-3.png')}}" class="img-responsive" height="55px" width="150px">
                                                 </div>
                                                 <div class="addImgBox">
-                                                    <img id="addImg4" src="{{ asset('img/headers/header-4.jpg')}}" class="img-responsive" height="55px" width="150px">
+                                                    <img id="addImg4" src="{{ asset('img/headers/header-4.png')}}" class="img-responsive" height="55px" width="150px">
                                                 </div>
                                                 <div class="addImgBox">
-                                                    <img id="addImg5" src="{{ asset('img/headers/header-5.jpg')}}" class="img-responsive" height="55px" width="150px">
+                                                    <img id="addImg5" src="{{ asset('img/headers/header-5.png')}}" class="img-responsive" height="55px" width="150px">
                                                 </div>
                                                 <div class="addImgBox">
-                                                    <img id="addImg6" src="{{ asset('img/headers/header-6.jpg')}}" class="img-responsive" height="55px" width="150px">
+                                                    <img id="addImg6" src="{{ asset('img/headers/header-6.png')}}" class="img-responsive" height="55px" width="150px">
+                                                </div>
+                                                <div class="addImgBox">
+                                                    <img id="addImg7" src="{{ asset('img/headers/header-7.png')}}" class="img-responsive" height="55px" width="150px">
+                                                </div>
+                                                <div class="addImgBox">
+                                                    <img id="addImg8" src="{{ asset('img/headers/header-8.png')}}" class="img-responsive" height="55px" width="150px">
                                                 </div>
                                             </div>
                                             <div class="col-xs-6 col-sm-6 zeropdg-2">
                                                 <div class="addImgBox">
-                                                    <img id="addImg7" src="{{ asset('img/headers/header-7.jpg')}}" class="img-responsive" height="55px" width="150px">
+                                                    <img id="addImg9" src="{{ asset('img/headers/header-9.png')}}" class="img-responsive" height="55px" width="150px">
                                                 </div>
                                                 <div class="addImgBox">
-                                                    <img id="addImg8" src="{{ asset('img/headers/header-8.jpg')}}" class="img-responsive" height="55px" width="150px">
+                                                    <img id="addImg10" src="{{ asset('img/headers/header-10.png')}}" class="img-responsive" height="55px" width="150px">
                                                 </div>
                                                 <div class="addImgBox">
-                                                    <img id="addImg9" src="{{ asset('img/headers/header-9.jpg')}}" class="img-responsive" height="55px" width="150px">
+                                                    <img id="addImg11" src="{{ asset('img/headers/header-11.png')}}" class="img-responsive" height="55px" width="150px">
                                                 </div>
                                                 <div class="addImgBox">
-                                                    <img id="addImg10" src="{{ asset('img/headers/header-10.jpg')}}" class="img-responsive" height="55px" width="150px">
+                                                    <img id="addImg12" src="{{ asset('img/headers/header-12.png')}}" class="img-responsive" height="55px" width="150px">
                                                 </div>
 
                                                 <div class="addImgBox">
-                                                    <img id="addImg11" src="{{ asset('img/headers/header-11.jpg')}}" class="img-responsive" height="55px" width="150px">
+                                                    <img id="addImg13" src="{{ asset('img/headers/header-13.png')}}" class="img-responsive" height="55px" width="150px">
                                                 </div>
                                                 <div class="addImgBox">
-                                                    <img id="addImg12" src="{{ asset('img/headers/header-12.jpg')}}" class="img-responsive" height="55px" width="150px">
+                                                    <img id="addImg14" src="{{ asset('img/headers/header-14.png')}}" class="img-responsive" height="55px" width="150px">
+                                                </div>
+                                                <div class="addImgBox">
+                                                    <img id="addImg15" src="{{ asset('img/headers/header-15.png')}}" class="img-responsive" height="55px" width="150px">
+                                                </div>
+                                                <div class="addImgBox">
+                                                    <img id="addImg16" src="{{ asset('img/headers/header-16.png')}}" class="img-responsive" height="55px" width="150px">
                                                 </div>
                                             </div>
                                         </div>

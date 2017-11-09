@@ -85,11 +85,11 @@ $(document).on('click', ".ui-closable-tab", function () {
         // Initialize the tabs panel
         $("#tabs").tabs();
         
+        // Initialize the image tab
+        $( "#tabs23" ).tabs();
+        
         // Clean layout
         cleanLayout();
-
-        // Load layout
-        loadLayout();
 
         // Load theme from calendar
         updateTheme();
@@ -909,6 +909,8 @@ setTimeout(function () {
             loadColorDay();
             loadBackground();
             resizeCanvas();
+            // Load layout
+            loadLayout();
             $("#calendarBack").css("background-size", $("#imagePrev").width() + "px " + $("#imagePrev").height() + "px");
     }, 500);
 });

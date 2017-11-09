@@ -4,8 +4,12 @@ function showTopLayout() {
     cleanLayout();
     // Must see if is already visible
     $("#topLayout").css('visibility', 'visible');
-    $("#topLayout").css('border-color', 'black');
+    $("#topLayout").css('border-color', '#999');
     $("#topLayout").css('border-style', 'solid');
+    $("#topLayout").css('border-width', '2px');
+    $("#topLayout").css('text-align', 'center');
+    $("#topLayout").css('vertical-align', 'middle');
+    $("#topLayout").css('line-height', $('#topLayout').height() + "px");
     // Show top Layout
     $("#topLayout").show();
     // Resize the canvas
@@ -18,8 +22,12 @@ function showBottomLayout() {
     cleanLayout();
     // Must see if is already visible
     $("#bottomLayout").css('visibility', 'visible');
-    $("#bottomLayout").css('border-color', 'black');
+    $("#bottomLayout").css('border-color', '#999');
     $("#bottomLayout").css('border-style', 'solid');
+    $("#bottomLayout").css('border-width', '2px');
+    $("#bottomLayout").css('text-align', 'center');
+    $("#bottomLayout").css('vertical-align', 'middle');
+    $("#bottomLayout").css('line-height', $('#topLayout').height() + "px");
     // Show top Layout
     $("#bottomLayout").show();
     // Resize the canvas
@@ -30,12 +38,16 @@ function showBottomLayout() {
 function showLeftLayout() {
     cleanLayout();
     $("#leftLayout").css('visibility', 'visible');
-    $("#leftLayout").css('height', $("#calendarCont").height());
+    $("#leftLayout").css('height', $("#calendar").height());
     $("#leftLayout").css('width', '25%');
-    $("#leftLayout").css('border-color', 'black');
+    $("#leftLayout").css('border-color', '#999');
     $("#leftLayout").css('border-style', 'solid');
+    $("#leftLayout").css('border-width', '2px');
     $("#calendar").css('max-width', '75%');
     $("#calendar").css('float', 'right');
+    $("#leftLayout").css('text-align', 'center');
+    $("#leftLayout").css('vertical-align', 'middle');
+    $("#leftLayout").css('line-height', $('#calendar').height() + "px");
     $("#leftLayout").show();
 }
 
@@ -43,12 +55,16 @@ function showLeftLayout() {
 function showRightLayout() {
     cleanLayout();
     $("#rightLayout").css('visibility', 'visible');
-    $("#rightLayout").css('height', $("#calendarCont").height());
+    $("#rightLayout").css('height', $("#calendar").height());
     $("#rightLayout").css('width', '25%');
-    $("#rightLayout").css('border-color', 'black');
+    $("#rightLayout").css('border-color', '#999');
     $("#rightLayout").css('border-style', 'solid');
+    $("#rightLayout").css('border-width', '2px');
     $("#calendar").css('max-width', '75%');
     $("#calendar").css('float', 'left');
+    $("#rightLayout").css('text-align', 'center');
+    $("#rightLayout").css('vertical-align', 'middle');
+    $("#rightLayout").css('line-height', $('#calendar').height() + "px");
     $("#rightLayout").show();
 }
 

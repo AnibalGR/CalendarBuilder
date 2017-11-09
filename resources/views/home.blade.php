@@ -24,20 +24,20 @@
     .ui-dialog-titlebar-close {
         display: none;
     }
-    
+
     #custom-handle {
-    width: 3em;
-    height: 1.6em;
-    top: 50%;
-    margin-top: -.8em;
-    text-align: center;
-    line-height: 1.6em;
-  }
-  
-  .ui-icon-circle-close {
-    cursor:pointer;
-  }
-  
+        width: 3em;
+        height: 1.6em;
+        top: 50%;
+        margin-top: -.8em;
+        text-align: center;
+        line-height: 1.6em;
+    }
+
+    .ui-icon-circle-close {
+        cursor:pointer;
+    }
+
 </style>
 @endsection
 
@@ -432,63 +432,6 @@
                                                     <span  class="btn-label"><i class="glyphicon glyphicon-erase sb-icons-4"></i></span><span class="text-whiteBG">REMOVE</span></button>
                                             </div>
                                         </div>
-                                    </div>
-                                    <div class="container-fluid">
-                                        <div class="row">
-                                            <div class="col-xs-6 col-sm-6 zeropdg-2">
-                                                <div class="addImgBox">
-                                                    <img id="addImg1" src="{{ asset('img/headers/header-1.png')}}" class="img-responsive" height="55px" width="150px">
-                                                </div>
-                                                <div class="addImgBox">
-                                                    <img id="addImg2" src="{{ asset('img/headers/header-2.png')}}" class="img-responsive" height="55px" width="150px">
-                                                </div>
-                                                <div class="addImgBox">
-                                                    <img id="addImg3" src="{{ asset('img/headers/header-3.png')}}" class="img-responsive" height="55px" width="150px">
-                                                </div>
-                                                <div class="addImgBox">
-                                                    <img id="addImg4" src="{{ asset('img/headers/header-4.png')}}" class="img-responsive" height="55px" width="150px">
-                                                </div>
-                                                <div class="addImgBox">
-                                                    <img id="addImg5" src="{{ asset('img/headers/header-5.png')}}" class="img-responsive" height="55px" width="150px">
-                                                </div>
-                                                <div class="addImgBox">
-                                                    <img id="addImg6" src="{{ asset('img/headers/header-6.png')}}" class="img-responsive" height="55px" width="150px">
-                                                </div>
-                                                <div class="addImgBox">
-                                                    <img id="addImg7" src="{{ asset('img/headers/header-7.png')}}" class="img-responsive" height="55px" width="150px">
-                                                </div>
-                                                <div class="addImgBox">
-                                                    <img id="addImg8" src="{{ asset('img/headers/header-8.png')}}" class="img-responsive" height="55px" width="150px">
-                                                </div>
-                                            </div>
-                                            <div class="col-xs-6 col-sm-6 zeropdg-2">
-                                                <div class="addImgBox">
-                                                    <img id="addImg9" src="{{ asset('img/headers/header-9.png')}}" class="img-responsive" height="55px" width="150px">
-                                                </div>
-                                                <div class="addImgBox">
-                                                    <img id="addImg10" src="{{ asset('img/headers/header-10.png')}}" class="img-responsive" height="55px" width="150px">
-                                                </div>
-                                                <div class="addImgBox">
-                                                    <img id="addImg11" src="{{ asset('img/headers/header-11.png')}}" class="img-responsive" height="55px" width="150px">
-                                                </div>
-                                                <div class="addImgBox">
-                                                    <img id="addImg12" src="{{ asset('img/headers/header-12.png')}}" class="img-responsive" height="55px" width="150px">
-                                                </div>
-
-                                                <div class="addImgBox">
-                                                    <img id="addImg13" src="{{ asset('img/headers/header-13.png')}}" class="img-responsive" height="55px" width="150px">
-                                                </div>
-                                                <div class="addImgBox">
-                                                    <img id="addImg14" src="{{ asset('img/headers/header-14.png')}}" class="img-responsive" height="55px" width="150px">
-                                                </div>
-                                                <div class="addImgBox">
-                                                    <img id="addImg15" src="{{ asset('img/headers/header-15.png')}}" class="img-responsive" height="55px" width="150px">
-                                                </div>
-                                                <div class="addImgBox">
-                                                    <img id="addImg16" src="{{ asset('img/headers/header-16.png')}}" class="img-responsive" height="55px" width="150px">
-                                                </div>
-                                            </div>
-                                        </div>
                                         <div class="row space-20">
                                             <div class="col-xs-5 col-md-4">
                                                 Opacity:
@@ -497,7 +440,75 @@
                                                 <div id="image-color-opacity"></div>
                                             </div>
                                         </div>
-                                        
+                                    </div>
+                                    <div class="container-fluid">
+                                        <div class="row">
+                                            <div id="tabs23">
+                                                <ul>
+                                                    <li><a href="#tabs-horizontal">Top - Bottom</a></li>
+                                                    <li><a href="#tabs-vertical">Left - Right</a></li>
+                                                </ul>
+                                                <div id="tabs-horizontal">
+                                                    <div class="col-xs-6 col-sm-6 zeropdg-2">
+                                                        <div class="addImgBox">
+                                                            <img id="addImg1" src="{{ asset('img/headers/header-1.png')}}" class="img-responsive" height="55px" width="150px">
+                                                        </div>
+                                                        <div class="addImgBox">
+                                                            <img id="addImg2" src="{{ asset('img/headers/header-2.png')}}" class="img-responsive" height="55px" width="150px">
+                                                        </div>
+                                                        <div class="addImgBox">
+                                                            <img id="addImg3" src="{{ asset('img/headers/header-3.png')}}" class="img-responsive" height="55px" width="150px">
+                                                        </div>
+                                                        <div class="addImgBox">
+                                                            <img id="addImg4" src="{{ asset('img/headers/header-4.png')}}" class="img-responsive" height="55px" width="150px">
+                                                        </div>
+                                                        <div class="addImgBox">
+                                                            <img id="addImg5" src="{{ asset('img/headers/header-5.png')}}" class="img-responsive" height="55px" width="150px">
+                                                        </div>
+                                                        <div class="addImgBox">
+                                                            <img id="addImg6" src="{{ asset('img/headers/header-6.png')}}" class="img-responsive" height="55px" width="150px">
+                                                        </div>
+                                                        <div class="addImgBox">
+                                                            <img id="addImg7" src="{{ asset('img/headers/header-7.png')}}" class="img-responsive" height="55px" width="150px">
+                                                        </div>
+                                                        <div class="addImgBox">
+                                                            <img id="addImg8" src="{{ asset('img/headers/header-8.png')}}" class="img-responsive" height="55px" width="150px">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-xs-6 col-sm-6 zeropdg-2">
+                                                        <div class="addImgBox">
+                                                            <img id="addImg9" src="{{ asset('img/headers/header-9.png')}}" class="img-responsive" height="55px" width="150px">
+                                                        </div>
+                                                        <div class="addImgBox">
+                                                            <img id="addImg10" src="{{ asset('img/headers/header-10.png')}}" class="img-responsive" height="55px" width="150px">
+                                                        </div>
+                                                        <div class="addImgBox">
+                                                            <img id="addImg11" src="{{ asset('img/headers/header-11.png')}}" class="img-responsive" height="55px" width="150px">
+                                                        </div>
+                                                        <div class="addImgBox">
+                                                            <img id="addImg12" src="{{ asset('img/headers/header-12.png')}}" class="img-responsive" height="55px" width="150px">
+                                                        </div>
+
+                                                        <div class="addImgBox">
+                                                            <img id="addImg13" src="{{ asset('img/headers/header-13.png')}}" class="img-responsive" height="55px" width="150px">
+                                                        </div>
+                                                        <div class="addImgBox">
+                                                            <img id="addImg14" src="{{ asset('img/headers/header-14.png')}}" class="img-responsive" height="55px" width="150px">
+                                                        </div>
+                                                        <div class="addImgBox">
+                                                            <img id="addImg15" src="{{ asset('img/headers/header-15.png')}}" class="img-responsive" height="55px" width="150px">
+                                                        </div>
+                                                        <div class="addImgBox">
+                                                            <img id="addImg16" src="{{ asset('img/headers/header-16.png')}}" class="img-responsive" height="55px" width="150px">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div id="tabs-vertical">
+                                                    <p>Morbi tincidunt, dui sit amet facilisis feugiat, odio metus gravida ante, ut pharetra massa metus id nunc. Duis scelerisque molestie turpis. Sed fringilla, massa eget luctus malesuada, metus eros molestie lectus, ut tempus eros massa ut dolor. Aenean aliquet fringilla sem. Suspendisse sed ligula in ligula suscipit aliquam. Praesent in eros vestibulum mi adipiscing adipiscing. Morbi facilisis. Curabitur ornare consequat nunc. Aenean vel metus. Ut posuere viverra nulla. Aliquam erat volutpat. Pellentesque convallis. Maecenas feugiat, tellus pellentesque pretium posuere, felis lorem euismod felis, eu ornare leo nisi vel felis. Mauris consectetur tortor et purus.</p>
+                                                </div>
+                                            </div>
+
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="tab-pane" id="settings">
@@ -681,9 +692,9 @@
                     <ul>
                         <li><a href="#tabs-0"><span id="calendarTab" class="glyphicon glyphicon-calendar sb-icons-2" aria-hidden="true" style="text-align: left; width: 20%; margin-right: 5px"></span>Calendar</a></li>
                         @if(count($videos) > 0)
-                            @foreach($videos as $video)
-                            <li><a href="#tabs-{{ $video->id }}"><span class="glyphicon glyphicon-film sb-icons-2" aria-hidden="true" style="text-align: left; width: 20%; margin-right: 10px"></span>Video</a><span class="ui-icon ui-icon-circle-close ui-closable-tab"></span></li>
-                            @endforeach
+                        @foreach($videos as $video)
+                        <li><a href="#tabs-{{ $video->id}}"><span class="glyphicon glyphicon-film sb-icons-2" aria-hidden="true" style="text-align: left; width: 20%; margin-right: 10px"></span>Video</a><span class="ui-icon ui-icon-circle-close ui-closable-tab"></span></li>
+                        @endforeach
                         @endif
                     </ul>
                     <div id="tabs-0" style="padding-left: 0px; padding-right: 0px; padding-bottom: 0px; padding-top: 0px">
@@ -765,11 +776,11 @@
                         </div>
                     </div>
                     @if(count($videos) > 0)
-                        @foreach($videos as $video)
-                        <div id='tabs-{{ $video->id }}' style='padding-left: 0px; padding-right: 0px; padding-bottom: 0px; padding-top: 0px'>
-                            <video id="video{{ $video->id }}}}" src="{{ $video->url }}" type="video/mp4" controls="controls" style="width: 100%; height: 100%;"></video>
-                        </div>
-                        @endforeach
+                    @foreach($videos as $video)
+                    <div id='tabs-{{ $video-> id}}' style='padding-left: 0px; padding-right: 0px; padding-bottom: 0px; padding-top: 0px'>
+                        <video id="video{{ $video-> id}}}}" src="{{ $video-> url}}" type="video/mp4" controls="controls" style="width: 100%; height: 100%;"></video>
+                    </div>
+                    @endforeach
                     @endif
                 </div>
             </div>
@@ -796,7 +807,7 @@
         <input type="hidden" name="cal_val" id="cal_val" value="" />
         {{ csrf_field()}}
     </form>
-    
+
     <!--Store Video Form-->
     <form method="POST" action="{{ route('storeVideo')}}" id="videoForm">
         <input type="hidden" name="calendarID" id="calendarID" value="" />
@@ -804,13 +815,13 @@
         <input type="hidden" name="videoType" id="videoType" value="" />
         {{ csrf_field()}}
     </form>
-    
+
     <!--Delete Video Form-->
     <form method="POST" action="{{ route('delVideo')}}" id="deleteVideoForm">
         <input type="hidden" name="videoID" id="videoID" value="" />
         {{ csrf_field()}}
     </form>
-    
+
 </div>
 @endsection
 
@@ -871,29 +882,29 @@
                 data: fd,
                 success: function (response) {
                     waitingDialog.hide();
-                    
+
                     var videosCount = $("#tabs").find(".ui-closable-tab").length;
-        
-                    if(videosCount >= 5){
+
+                    if (videosCount >= 5) {
                         BootstrapDialog.show({
-                        title: 'Maximun amount of videos reached',
-                        message: 'You can only add a maximun of 5 videos to each calendar.',
-                        buttons: [{label: 'Accept',
-                            action: function(dialogItself){
-                                dialogItself.close();
-                            }}],
-                        type: BootstrapDialog.TYPE_DANGER,
+                            title: 'Maximun amount of videos reached',
+                            message: 'You can only add a maximun of 5 videos to each calendar.',
+                            buttons: [{label: 'Accept',
+                                    action: function (dialogItself) {
+                                        dialogItself.close();
+                                    }}],
+                            type: BootstrapDialog.TYPE_DANGER,
                         });
-                    }else{
+                    } else {
                         $("div#tabs ul").append(
-                            '<li><a href="#tabs-' + response.videoID + '"><span class="glyphicon glyphicon-film sb-icons-2" aria-hidden="true" style="text-align: left; width: 20%; margin-right: 10px"></span>Video</a><span class="ui-icon ui-icon-circle-close ui-closable-tab"></span></li>'
-                        );
+                                '<li><a href="#tabs-' + response.videoID + '"><span class="glyphicon glyphicon-film sb-icons-2" aria-hidden="true" style="text-align: left; width: 20%; margin-right: 10px"></span>Video</a><span class="ui-icon ui-icon-circle-close ui-closable-tab"></span></li>'
+                                );
                         $("div#tabs").append(
-                            "<div id='tabs-" + response.videoID + "' style='padding-left: 0px; padding-right: 0px; padding-bottom: 0px; padding-top: 0px'></div>"
-                        );
-                
+                                "<div id='tabs-" + response.videoID + "' style='padding-left: 0px; padding-right: 0px; padding-bottom: 0px; padding-top: 0px'></div>"
+                                );
+
                         $("div#tabs").tabs("refresh");
-                
+
                         var video = $('<video />', {
                             id: 'video' + response.videoID,
                             src: response.url,
@@ -902,9 +913,9 @@
                             loop: false,
                             controls: true
                         });
-                
+
                         video.appendTo($('#tabs-' + response.videoID));
-                
+
                         $("#video" + response.videoID).css('width', '100%');
                         $("#video" + response.videoID).css('height', '100%');
                         $("#tabs").tabs("option", "active", "#tabs-" + response.videoID);
@@ -977,36 +988,36 @@
                 break;
         }
         var videosCount = $("#tabs").find(".ui-closable-tab").length;
-        
-        if(videosCount >= 5){
+
+        if (videosCount >= 5) {
             BootstrapDialog.show({
-                    title: 'Maximun amount of videos reached',
-                    message: 'You can only add a maximun of 5 videos to each calendar.',
-                    buttons: [{label: 'Accept',
-                        action: function(dialogItself){
+                title: 'Maximun amount of videos reached',
+                message: 'You can only add a maximun of 5 videos to each calendar.',
+                buttons: [{label: 'Accept',
+                        action: function (dialogItself) {
                             dialogItself.close();
                         }}],
-                    type: BootstrapDialog.TYPE_DANGER,
-                });
-        }else{
+                type: BootstrapDialog.TYPE_DANGER,
+            });
+        } else {
             $("#calendarID").val("{{ $id }}")
             $("#videoURL").val(url);
             $("#videoType").val("local");
-            
+
             var form = $('#videoForm');
             var url2 = form.attr('action');
             var data = form.serialize();
-            
+
             $.post(url2, data, function (result) {
                 $("div#tabs ul").append(
-                    '<li><a href="#tabs-' + result + '"><span class="glyphicon glyphicon-film sb-icons-2" aria-hidden="true" style="text-align: left; width: 20%; margin-right: 10px"></span>Video</a><span class="ui-icon ui-icon-circle-close ui-closable-tab"></span></li>'
-                );
+                        '<li><a href="#tabs-' + result + '"><span class="glyphicon glyphicon-film sb-icons-2" aria-hidden="true" style="text-align: left; width: 20%; margin-right: 10px"></span>Video</a><span class="ui-icon ui-icon-circle-close ui-closable-tab"></span></li>'
+                        );
                 $("div#tabs").append(
-                    "<div id='tabs-" + result + "' style='padding-left: 0px; padding-right: 0px; padding-bottom: 0px; padding-top: 0px'></div>"
-                );
-                
+                        "<div id='tabs-" + result + "' style='padding-left: 0px; padding-right: 0px; padding-bottom: 0px; padding-top: 0px'></div>"
+                        );
+
                 $("div#tabs").tabs("refresh");
-                
+
                 var video = $('<video />', {
                     id: 'video' + result,
                     src: url,
@@ -1015,20 +1026,20 @@
                     loop: false,
                     controls: true
                 });
-                
+
                 video.appendTo($('#tabs-' + result));
-                
+
                 $("#video" + result).css('width', '100%');
                 $("#video" + result).css('height', '100%');
                 $("#tabs-" + result).trigger("click");
-                
-                
+
+
             }).fail(function (e) {
-                
+
                 alert(JSON.stringify(e));
             });
-            
-        }        
+
+        }
     }
 
     function updateTheme() {
@@ -1065,17 +1076,17 @@
             var data = form.serialize();
             $.post(url, data, function (result) {
                 waitingDialog.hide();
-                  BootstrapDialog.show({
+                BootstrapDialog.show({
                     title: 'Video created',
                     message: 'Your video has been created successfully. <br> You can find it in your <a href="{{ route("dash") }}">dashboard</a> under the "My Videos" section.',
                     buttons: [{label: 'Take me to the video',
-                        action: function(dialogItself){
-                            window.location.replace("{{ route('dash') }}");
-                        }},
+                            action: function (dialogItself) {
+                                window.location.replace("{{ route('dash') }}");
+                            }},
                         {label: 'Dismiss',
-                            action: function(dialogItself){
+                            action: function (dialogItself) {
                                 dialogItself.close();
-                    }}],
+                            }}],
                     type: BootstrapDialog.TYPE_PRIMARY,
                 });
             }).fail(function (e) {
@@ -1113,11 +1124,11 @@
     function getUploadImageRoute() {
         return "{{ route('uploadImage') }}";
     }
-    
-    function getDeleteVideoRoute(){
+
+    function getDeleteVideoRoute() {
         return "{{ route('delVideo') }}";
     }
-    
+
     function getCalendarID() {
         return '{{$id}}';
     }
@@ -1153,8 +1164,8 @@
     function getBackground() {
         return '{{ $background }}';
     }
-    
-    function getVideoLength(){
+
+    function getVideoLength() {
         return '{{ $videoLength }}'
     }
 </script>

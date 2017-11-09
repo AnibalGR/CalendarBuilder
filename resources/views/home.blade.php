@@ -160,7 +160,7 @@
 
                                         <div class="row space-20">
                                             <div class="col-xs-5 col-md-4">
-                                                BG color:
+                                                Background color:
                                             </div>
                                             <div id="cp4" class="input-group colorpicker-component">
                                                 <input type="text" value="#00AABB" class="form-control"/>
@@ -240,19 +240,13 @@
                                                                 <div class="styled-select blue semi-square">
                                                                     <select id="font-family">
                                                                         <option value="arial">Arial</option>
-                                                                        <option value="helvetica" selected>Helvetica</option>
                                                                         <option value="myriad pro">Myriad Pro</option>
-                                                                        <option value="delicious">Delicious</option>
                                                                         <option value="verdana">Verdana</option>
                                                                         <option value="georgia">Georgia</option>
                                                                         <option value="courier">Courier</option>
                                                                         <option value="comic sans ms">Comic Sans MS</option>
                                                                         <option value="impact">Impact</option>
                                                                         <option value="monaco">Monaco</option>
-                                                                        <option value="optima">Optima</option>
-                                                                        <option value="hoefler text">Hoefler Text</option>
-                                                                        <option value="plaster">Plaster</option>
-                                                                        <option value="engagement">Engagement</option>
                                                                     </select>
                                                                 </div>
                                                             </div>
@@ -293,7 +287,7 @@
 
                                                         <div class="row space-20">
                                                             <div class="col-xs-5 col-md-4">
-                                                                Text Color:
+                                                                Text color:
                                                             </div>
                                                             <div id="cp5" class="input-group colorpicker-component">
                                                                 <input type="text" value="#000000" class="form-control"/>
@@ -303,7 +297,7 @@
 
                                                         <div class="row space-20">
                                                             <div class="col-xs-5 col-md-4">
-                                                                BG text color:
+                                                                Background text color:
                                                             </div>
                                                             <div id="cp6" class="input-group colorpicker-component">
                                                                 <input type="text" value="#000000" class="form-control"/>
@@ -323,7 +317,7 @@
 
                                                         <div class="row space-20">
                                                             <div class="col-xs-5 col-md-4">
-                                                                Stroke color:
+                                                                Border color:
                                                             </div>
                                                             <div id="cp8" class="input-group colorpicker-component">
                                                                 <input type="text" value="#000000" class="form-control"/>
@@ -332,7 +326,7 @@
                                                         </div>
                                                         <div class="row space-20">
                                                             <div class="col-xs-5 col-md-4">
-                                                                Stroke width:
+                                                                Border width:
                                                             </div>
                                                             <div class="col-xs-7 col-md-8">
                                                                 <div id="text-stroke-width"></div>
@@ -348,7 +342,7 @@
                                                         </div>
                                                         <div class="row space-20">
                                                             <div class="col-xs-5 col-md-4">
-                                                                Line height:
+                                                                Line space:
                                                             </div>
                                                             <div class="col-xs-7 col-md-8">
                                                                 <div id="text-line-height"></div>

@@ -423,7 +423,6 @@
                                                     {{ csrf_field()}}
                                                     <button id="addImage" type="button" class="btn btn-labeled btn-default">
                                                         <span class="btn-label"><i class="glyphicon glyphicon-upload sb-icons-3"></i></span><span class="text-whiteBG">UPLOAD</span></button>
-                                                    <!--<button id="addImage" type="button" class="btn btn-success btn-custom"><span class="glyphicon glyphicon-upload" aria-hidden="true"></span> Upload</button>-->
                                                 </form>
                                                 <div id='imageError'></div>
                                             </div>
@@ -445,8 +444,8 @@
                                         <div class="row">
                                             <div id="tabs23">
                                                 <ul>
-                                                    <li><a href="#tabs-horizontal">Top - Bottom</a></li>
-                                                    <li><a href="#tabs-vertical">Left - Right</a></li>
+                                                    <li><a href="#tabs-horizontal">Horizontal</a></li>
+                                                    <li><a href="#tabs-vertical">Vertical</a></li>
                                                 </ul>
                                                 <div id="tabs-horizontal">
                                                     <div class="col-xs-6 col-sm-6 zeropdg-2">

@@ -6,20 +6,19 @@ use Carbon\Carbon;
 @extends('layouts.app')
 
 @section('styles')
-<!--<link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.9.2/themes/ui-darkness/jquery-ui.css" rel="stylesheet">-->
 <link href="{{ asset('css/dialog.css') }}" rel="stylesheet">
 @endsection
 
 @section('content')
 
-<div class="container">
+<div id="mainContainer" class="container">
     <div class="row">
         <div class="col-md-7 col-md-offset-3">
             <div id="tabs" style="padding: 0px;">
                 <ul>
-                    <li><a href="#tabs-0"><span id="plansTab" class="glyphicon glyphicon-calendar sb-icons-2" aria-hidden="true" style="text-align: left; width: 20%; margin-right: 5px"></span>Premium Plans</a></li>
+                    <li><a href="#tabs-0"><span id="plansTab" class="glyphicon glyphicon-star sb-icons-2" aria-hidden="true" style="text-align: left; width: 20%; margin-right: 5px"></span>Premium Plans</a></li>
                     <li><a href="#tabs-1"><span id="subscriptionTab" class="glyphicon glyphicon-calendar sb-icons-2" aria-hidden="true" style="text-align: left; width: 20%; margin-right: 5px"></span>Calendars</a></li>
-                    <li><a href="#tabs-2"><span id="calendarTab" class="glyphicon glyphicon-calendar sb-icons-2" aria-hidden="true" style="text-align: left; width: 20%; margin-right: 5px"></span>Videos</a></li>
+                    <li><a href="#tabs-2"><span id="calendarTab" class="glyphicon glyphicon-film sb-icons-2" aria-hidden="true" style="text-align: left; width: 20%; margin-right: 5px"></span>Videos</a></li>
                 </ul>
                 <div id='tabs-0' style='padding-left: 0px; padding-right: 0px; padding-bottom: 0px; padding-top: 0px'>
                 <div class="panel-body">
@@ -165,22 +164,10 @@ use Carbon\Carbon;
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.9.2/jquery-ui.min.js"></script>
 <script type="text/javascript" src="{{ asset('js/dialog.js') }}"></script>
+<script>
+$(document).ready(function(){
+    $('#mainContainer').height($(window).height() - $('footer').height() - $('.navbar').height() - 11);
+})
+</script>
 
-@endsection
-
-@section('braintree')
-    <script src="https://js.braintreegateway.com/js/braintree-2.30.0.min.js"></script>
-
-    <script>
-        $.ajax({
-            url: '{{ url('braintree/token') }}'
-        }).done(function (response) {
-            braintree.setup(response.data.token, 'dropin', {
-                container: 'dropin-container',
-                onReady: function () {
-                    $('#payment-button').removeClass('hidden');
-                }
-            });
-        });
-    </script>
 @endsection

@@ -1,11 +1,18 @@
 @extends('layouts.app')
-
+@section('styles')
+<style>
+    .row {
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%); /* or try 50% */
+}
+</style>
+@endsection
 @section('content')
-<div class="container">
+<div class="container" id="mainContainer">
     <div class="row">
-        <div class="full-width space-60" style="margin-top: 200px"></div>
         <div class="col-md-8 col-md-offset-2">
-            <div class="panel panel-primary">
+            <div class="panel panel-primary" style="margin-bottom: 0px">
                 <div class="panel-heading">Login</div>
 
                 <div class="panel-body">
@@ -66,6 +73,11 @@
         </div>
     </div>
 </div>
-<div class="full-width space-60" style="margin-top: 300px"></div>
-
 @endsection
+
+@section('scripts')
+<script>
+$(document).ready(function(){
+    $('#mainContainer').height($(window).height() - $('#notifications').height() - $('footer').height() - $('.navbar').height() - 10);
+});
+</script>@endsection

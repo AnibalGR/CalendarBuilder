@@ -57,7 +57,7 @@
     padding-left: 0px;
     padding-top: 0px;
     border: 0px;
-    background: #0267cf;
+    background: #2a58ad;
 }
 
 /*
@@ -78,7 +78,7 @@
 *   The tabs inner container
 */
 #tabs .ui-tabs-panel.ui-widget-content.ui-corner-bottom {
-    height: 326px;
+    height: 380px;
     overflow: auto;
 }
 
@@ -92,47 +92,64 @@
 /*
 *   The main container
 */
+/*
 #app {
-    background-image: url('../img/bg-6.jpg');
+    background-image: url('../img/bg-5.jpg');
+    box-shadow:inset 0 0 0 2000px rgba(0,0,0,0.3);
+}
+*/
+#app{
+background: #56CCF2;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to top, #2F80ED, #56CCF2);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to top, #2F80ED, #56CCF2); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 
 /*
 *   Inactive tab
 */
+/*
 .ui-state-default.ui-corner-top{
     background-color: #014282;
     border-left: 0px;
     border-right: 0px;
     border-top-width: 0px;
 }
-
+*/
 /*
 *   Inactive tab a
 */
+/*
 .ui-state-default.ui-corner-top a{
     color: #ffffff;
 }
-
+*/
 /*
 *   The active tab
 */
+/*
 .ui-state-default.ui-corner-top.ui-tabs-active.ui-state-active{
     border-left: 0px;
     border-right: 0px;
     background-color: #FFFFFF;
     font-weight: bold;
 }
-
+*/
+/*
 .ui-state-default.ui-corner-top.ui-tabs-active.ui-state-active.ui-state-focus a:focus{
     outline-width: 0;
 }
-
+*/
 /*
 *   The content of the tab header
 */
+/*
 .ui-state-default.ui-corner-top.ui-tabs-active.ui-state-active a{
     color: #2a58ad;
 }
+*/
+
+
+
 
 h2{
     margin-left: 65px;
@@ -215,4 +232,143 @@ textarea{
     top: 50%;
     margin-left:-210px;
     margin-top:-255px;
+}
+
+
+/*************Tabs***************/
+.ui-tabs .ui-tabs-panel {
+    padding: 0em 0.4em;
+}
+.ui-tabs .ui-tabs-nav .ui-tabs-anchor {
+    float: left;
+    padding: .9em 2em;
+    text-decoration: none;
+}
+
+.ui-tabs .ui-tabs-nav{
+    padding:0px 0px !important;
+}
+#tabs23{
+    padding:0px 0px !important;
+}
+.customize-tabs {
+    border: 0px solid #dddddd;
+    background: #2a58ad;
+    color: #333333;
+    font-weight: 400;
+}
+.ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default, .ui-button, html .ui-button.ui-state-disabled:hover, html .ui-button.ui-state-disabled:active {
+    border: 0px solid #c5c5c5;
+    background: #2a58ad;
+    font-weight: normal;
+    color: #bfcae0;
+}
+.ui-state-default a, .ui-state-default a:link, .ui-state-default a:visited, a.ui-button, a:link.ui-button, a:visited.ui-button, .ui-button{
+    color:#bfcae0;
+}
+.ui-state-active, .ui-widget-content .ui-state-active, .ui-widget-header .ui-state-active, a.ui-button:active, .ui-button:active, .ui-button.ui-state-active:hover {
+    border: 0px solid #2a58ad;
+    background: #1d4c9e;
+    font-weight: bold;
+    color: #ffffff;
+}
+
+.ui-state-active a, .ui-state-active a:link, .ui-state-active a:visited {
+    color: #ffffff;
+    text-decoration: none;
+}
+@media screen and (max-width: 991px){
+    .ui-tabs .ui-tabs-nav .ui-tabs-anchor {
+    float: left;
+    padding: .9em 1em;
+    text-decoration: none;
+    }
+}
+
+/*********Tabs ends here*********/
+
+/*********Table*********/
+.table-responsive{
+    width: 100%;
+}
+.table-bordered{
+    width: 100%;
+}
+.td-heads{
+    background: #d2d9df;
+    color: #2a58ad;
+    font-weight: 700; 
+}
+.td-center{
+    text-align: center;
+}
+.td-size1{
+    width: 50%;
+}
+.td-size2{
+    width: 35%;
+    text-align: center;
+}
+.td-size3{
+    width: 15%;
+    text-align: center;
+}
+
+.links-1{
+    background: #23b7e5;
+}
+.links-1:hover{
+    background: #11a2cf;
+}
+.links-1 a{
+    color: #ffffff;
+}
+.links-1 a:hover{
+    text-decoration: none;
+}
+.edit-button{
+    width: 100%;
+    height: auto;
+}
+
+.links-2{
+    background: #d83f46;
+}
+.links-2:hover{
+    background: #c72931;
+}
+.links-2 a{
+    color: #ffffff;
+}
+.links-2 a:hover{
+    text-decoration: none;
+}
+.delete-button{
+    width: 100%;
+    height: auto;
+}
+
+
+.links-3{
+    background: #5bc763;
+}
+.links-3:hover{
+    background: #3ab743;
+}
+.links-3 a{
+    color: #ffffff;
+}
+.links-3 a:hover{
+    text-decoration: none;
+}
+.download-button{
+    width: 100%;
+    height: auto;
+}
+
+.create-vid{
+    padding: 20px 30px;
+    cursor: pointer;
+    color: #ffffff;
+    max-width: 210px;
 }

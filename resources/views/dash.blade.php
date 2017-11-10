@@ -6,6 +6,7 @@ use Carbon\Carbon;
 @extends('layouts.app')
 
 @section('styles')
+<link href="{{ asset('css/custom.css') }}" rel="stylesheet">
 <link href="{{ asset('css/dialog.css') }}" rel="stylesheet">
 <link href="{{ asset('css/bootstrap-dialog.css')}}" rel="stylesheet" >
 @endsection
@@ -14,7 +15,7 @@ use Carbon\Carbon;
 
 <div id="mainContainer" class="container">
     <div class="row">
-        <div class="col-md-7 col-md-offset-3">
+        <div class="col-md-12">
             <div id="tabs" style="padding: 0px;">
                 <ul>
                     <li class="customLi"><a href="#tabs-0"><span id="plansTab" class="glyphicon glyphicon-star sb-icons-2" aria-hidden="true" style="text-align: left; width: 20%; margin-right: -3px"></span>Premium Plans</a></li>
@@ -26,14 +27,14 @@ use Carbon\Carbon;
                             <ul class="list-group">
                                 @foreach ($plans as $plan)
                                 <li class="list-group-item clearfix">
-                                    <div class="pull-left">
+                                    <div class="col-md-6 separated-item">
                                         <h4><b>{{ $plan->name }}</b></h4>
                                         <h4>${{ number_format($plan->cost, 2) }}</h4>
                                         @if ($plan->description)
                                         <p class="planDescription">{{ $plan->description }}</p>
                                         @endif
                                     </div>
-                                    <div class="pull-right" style="width: 50%; text-align: center;">
+                                    <div class="col-md-6 pull-right separated-item" style="width: 50%; text-align: center;">
                                         @if(Auth::user())
                                             @if (!Auth::user()->subscribedToPlan($plan->braintree_plan, 'main'))
                                                 <a href="{{ url('/plan', $plan->slug) }}" class="btn btn-default">Choose this plan</a>
@@ -49,19 +50,24 @@ use Carbon\Carbon;
             </div>
             <div id='tabs-1' style='padding-left: 0px; padding-right: 0px; padding-bottom: 0px; padding-top: 0px'>
                 <div class="panel-body">
+                            <div class="space-10">
+                            </div>
+                            <div class="create-vid links-3" id='onclick'>Create New Calendar</div>
+                            <div class="space-20">
+                            </div>
                             <div id='calendarsShow'>
                                 @if (!$calendars->isEmpty())
                                 <div class="table-responsive">
-                                    <table class="table-bordered table-striped" id="calendarsTable">
+                                    <table class="table table-bordered table-striped" id="calendarsTable">
                                         <tr>
-                                            <td>Name</td>
-                                            <td colspan="2">Actions</td>
+                                            <td class="td-size1 td-heads td-center">Name</td>
+                                            <td class="td-size1 td-heads td-center" colspan="2">Actions</td>
                                         </tr>
                                         @foreach ($calendars as $calendar)
                                         <tr data-id="{{ $calendar->id }}">
-                                            <td>{{ $calendar->name }}</td>
-                                            <td><a href="{{ route('editCalendar', $calendar->id) }}" >Continue editing</a></td>
-                                            <td><a href="#!" class="btn-delete">Delete</a></td>
+                                            <td class="td-size1">{{ $calendar->name }}</td>
+                                            <td class="td-size2 links-1 td-center"><a href="{{ route('editCalendar', $calendar->id) }}" ><div class="edit-button">Continue editing</div></a></td>
+                                            <td class="td-size1 links-2 td-center"><a href="#!" class="btn-delete"><div class="delete-button">Delete</div></a></td>
                                         </tr>
                                         @endforeach
                                     </table>
@@ -70,8 +76,6 @@ use Carbon\Carbon;
                                 You haven't created any calendars
                                 @endif
                             </div>
-                            <br>
-                            <button class="panel-default" id='onclick'>Create New Calendar</button>
                         </div>
             </div>
             
@@ -79,15 +83,15 @@ use Carbon\Carbon;
                 <div class="panel-body">
                             @if (count($videos) > 0)
                             <div class="table-responsive">
-                                <table class="table-bordered table-striped">
+                                <table class=" table table-bordered table-striped">
                                     <tr>
-                                        <td>Name</td>
-                                        <td colspan="3">Actions</td>
+                                        <td class="td-size1 td-heads td-center">Name</td>
+                                        <td class="td-size1 td-heads td-center" colspan="3">Actions</td>
                                     </tr>
                                     @foreach ($videos as $video)
                                     <tr>
-                                        <td>{{ $video->getBasename() }}</td>
-                                        <td><a href='{{ asset("") }}calendars/{{Auth::id()}}/{{$video->getBasename()}}' target="_blank" download>Download</a></td>
+                                        <td class="td-size1">{{ $video->getBasename() }}</td>
+                                        <td class="td-size1 links-3 td-center"><a href='{{ asset("") }}calendars/{{Auth::id()}}/{{$video->getBasename()}}' target="_blank" download><div class="download-button">Download</div></a></td>
         <!--                                <td><a href="" >Share</a></td>
                                         <td><a href="#!" >Delete</a></td>-->
                                     </tr>

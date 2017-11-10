@@ -17,9 +17,9 @@ use Carbon\Carbon;
         <div class="col-md-7 col-md-offset-3">
             <div id="tabs" style="padding: 0px;">
                 <ul>
-                    <li><a href="#tabs-0"><span id="plansTab" class="glyphicon glyphicon-star sb-icons-2" aria-hidden="true" style="text-align: left; width: 20%; margin-right: -3px"></span>Premium Plans</a></li>
-                    <li><a href="#tabs-1"><span id="subscriptionTab" class="glyphicon glyphicon-calendar sb-icons-2" aria-hidden="true" style="text-align: left; width: 20%; margin-right: 5px"></span>Calendars</a></li>
-                    <li><a href="#tabs-2"><span id="calendarTab" class="glyphicon glyphicon-film sb-icons-2" aria-hidden="true" style="text-align: left; width: 20%; margin-right: 5px"></span>Videos</a></li>
+                    <li class="customLi"><a href="#tabs-0"><span id="plansTab" class="glyphicon glyphicon-star sb-icons-2" aria-hidden="true" style="text-align: left; width: 20%; margin-right: -3px"></span>Premium Plans</a></li>
+                    <li class="customLi"><a href="#tabs-1"><span id="subscriptionTab" class="glyphicon glyphicon-calendar sb-icons-2" aria-hidden="true" style="text-align: left; width: 20%; margin-right: 5px"></span>Calendars</a></li>
+                    <li class="customLi"><a href="#tabs-2"><span id="calendarTab" class="glyphicon glyphicon-film sb-icons-2" aria-hidden="true" style="text-align: left; width: 20%; margin-right: 5px"></span>Videos</a></li>
                 </ul>
                 <div id='tabs-0' style='padding-left: 0px; padding-right: 0px; padding-bottom: 0px; padding-top: 0px'>
                 <div class="panel-body">
@@ -27,23 +27,21 @@ use Carbon\Carbon;
                                 @foreach ($plans as $plan)
                                 <li class="list-group-item clearfix">
                                     <div class="pull-left">
-                                        <h4>{{ $plan->name }}</h4>
+                                        <h4><b>{{ $plan->name }}</b></h4>
                                         <h4>${{ number_format($plan->cost, 2) }}</h4>
                                         @if ($plan->description)
-                                        <p>{{ $plan->description }}</p>
+                                        <p class="planDescription">{{ $plan->description }}</p>
                                         @endif
                                     </div>
-                                    <div class="pull-right right-button">
+                                    <div class="pull-right" style="width: 50%; text-align: center;">
                                         @if(Auth::user())
                                             @if (!Auth::user()->subscribedToPlan($plan->braintree_plan, 'main'))
-                                                <a href="{{ url('/plan', $plan->slug) }}" class="btn btn-default">Choose Plan</a>
+                                                <a href="{{ url('/plan', $plan->slug) }}" class="btn btn-default">Choose this plan</a>
                                             @else
-                                                <a href="" class="btn btn-default">You are already subscribed to this plan</a>
+                                            <div style="width: auto">You have this plan</div>
                                             @endif
                                         @endif
                                     </div>
-                                    
-
                                 </li>
                                 @endforeach
                             </ul>

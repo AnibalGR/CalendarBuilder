@@ -9,10 +9,44 @@
     transform: translateY(-50%); /* or try 50% */
 }
 
-.right-button{
+/*
+*   Tab header elements
+*/
+
+.customLi{
+    line-height: 2.3;
+}
+
+.customLi a{
+    font-size: 17px;
+}
+
+.planDescription{
+    font-size: 13px;
+}
+
+.pull-left{
+    width: 50%;
+    text-align: center;
+}
+
+.pull-right{
+    width: 50%;
+    text-align: center;
     position: relative;
-    top: 90%;
-    transform: translateY(90%); /* or try 50% */
+    top: 50%;
+    transform: translateY(50%); /* or try 50% */
+}
+
+.pull-right a, .pull-right div{
+    background-color: #26b8ea;
+    border: 2px solid #ffffff;
+    color: #ffffff;
+    font-size: 14px;
+    padding: 10px 20px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
 }
 /* 
 *  The tabs row
@@ -111,7 +145,7 @@ h3{
 }
 b{
     font-size:18px;
-    text-shadow:1px 0px 3px gray;
+/*    text-shadow:1px 0px 3px gray;*/
 }
 #popup{
     padding-top:80px;

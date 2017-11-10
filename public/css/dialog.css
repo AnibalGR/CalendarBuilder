@@ -1,6 +1,99 @@
 @import url(http://fonts.googleapis.com/css?family=Fauna+One|Muli);
 
+/*
+*    The container of the main div
+*/
+.row {
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%); /* or try 50% */
+}
 
+
+/* 
+*  The tabs row
+*/
+.ui-tabs-nav.ui-helper-reset.ui-helper-clearfix.ui-widget-header.ui-corner-all{
+    border-top-left-radius: 4px;
+    border-top-right-radius: 8px;
+    padding-left: 0px;
+    padding-top: 0px;
+    border: 0px;
+    background: #0267cf;
+}
+
+/*
+*   The tabs container
+*/
+#tabs{
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    border-top-left-radius: 7px;
+    border-top-right-radius: 10px;
+    border-top: 0px;
+    border-left: 0px;
+    border-right: 0px;
+    border-bottom: 0px;
+}
+
+/*
+*   The tabs inner container
+*/
+#tabs .ui-tabs-panel.ui-widget-content.ui-corner-bottom {
+    height: 325px;
+    overflow: auto;
+}
+
+/*
+*   The tabs
+*/
+#tabs-0, #tabs-1, #tabs-2{
+   
+    
+}
+/*
+*   The main container
+*/
+#app {
+    background-image: url('../img/bg-6.jpg');
+}
+
+/*
+*   Inactive tab
+*/
+.ui-state-default.ui-corner-top{
+    background-color: #014282;
+    border-left: 0px;
+    border-right: 0px;
+    border-top-width: 0px;
+}
+
+/*
+*   Inactive tab a
+*/
+.ui-state-default.ui-corner-top a{
+    color: #ffffff;
+}
+
+/*
+*   The active tab
+*/
+.ui-state-default.ui-corner-top.ui-tabs-active.ui-state-active{
+    border-left: 0px;
+    border-right: 0px;
+    background-color: #FFFFFF;
+}
+
+.ui-state-default.ui-corner-top.ui-tabs-active.ui-state-active.ui-state-focus a:focus{
+    outline-width: 0;
+}
+
+/*
+*   The content of the tab header
+*/
+.ui-state-default.ui-corner-top.ui-tabs-active.ui-state-active a{
+    color: #2a58ad;
+}
 
 h2{
     margin-left: 65px;

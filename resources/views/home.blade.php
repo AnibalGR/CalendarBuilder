@@ -503,7 +503,7 @@
                                                     </div>
                                                 </div>
                                                 <div class="container-fluid" id="tabs-vertical">
-                                                    <div class="col-xs-12 col-sm-12 zeropdg-2">
+                                                    <div class="col-xs-12 col-sm-12 zeropdg">
                                                         <div class="addImgBox2">
                                                             <img id="addImg17" src="{{ asset('img/headers-vertical/vertical-1.png')}}" class="img-responsive" height="100px" width="35px">
                                                         </div>
@@ -530,7 +530,7 @@
                                                         </div>
                                                         
                                                     </div>
-                                                    <div class="col-xs-12 col-sm-12 zeropdg-2">
+                                                    <div class="col-xs-12 col-sm-12 zeropdg">
                                                         <div class="addImgBox2">
                                                             <img id="addImg25" src="{{ asset('img/headers-vertical/vertical-9.png')}}" class="img-responsive" height="100px" width="35px">
                                                         </div>

@@ -78,7 +78,6 @@
 @section('scripts')
 <script>
 $(document).ready(function(){
-    $('#mainContainer').height($(window).height() - $('#notifications').height() - $('footer').height() - $('.navbar').height() - 30);
+    $('#mainContainer').height($(window).height() - $('#notifications').height() - $('footer').height() - $('.navbar').height() - 10);
 });
-</script>`
-@endsection
+</script>@endsection

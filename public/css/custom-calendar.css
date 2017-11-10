@@ -705,3 +705,45 @@ border-radius: 5px;
     margin-right: -7px;
     display: block !important;
 }
+
+/*************Header Images tabs***************/
+.ui-tabs .ui-tabs-nav .ui-tabs-anchor {
+    float: left;
+    padding: .9em 2em;
+    text-decoration: none;
+}
+
+.ui-tabs .ui-tabs-nav{
+    padding:0px 0px !important;
+}
+#tabs23{
+    padding:0px 0px !important;
+}
+.customize-tabs {
+    border: 0px solid #dddddd;
+    background: #2a58ad;
+    color: #333333;
+    font-weight: 400;
+}
+.ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default, .ui-button, html .ui-button.ui-state-disabled:hover, html .ui-button.ui-state-disabled:active {
+    border: 0px solid #c5c5c5;
+    background: #2a58ad;
+    font-weight: normal;
+    color: #bfcae0;
+}
+.ui-state-default a, .ui-state-default a:link, .ui-state-default a:visited, a.ui-button, a:link.ui-button, a:visited.ui-button, .ui-button{
+    color:#bfcae0;
+}
+.ui-state-active, .ui-widget-content .ui-state-active, .ui-widget-header .ui-state-active, a.ui-button:active, .ui-button:active, .ui-button.ui-state-active:hover {
+    border: 0px solid #2a58ad;
+    background: #1d4c9e;
+    font-weight: bold;
+    color: #ffffff;
+}
+
+.ui-state-active a, .ui-state-active a:link, .ui-state-active a:visited {
+    color: #ffffff;
+    text-decoration: none;
+}
+
+/*********Header Images ends here*********/

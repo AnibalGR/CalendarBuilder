@@ -443,11 +443,11 @@
                                     <div class="container-fluid">
                                         <div class="row">
                                             <div id="tabs23">
-                                                <ul>
+                                                <ul class="customize-tabs">
                                                     <li><a href="#tabs-horizontal">Horizontal</a></li>
                                                     <li><a href="#tabs-vertical">Vertical</a></li>
                                                 </ul>
-                                                <div id="tabs-horizontal">
+                                                <div class="container-fluid" id="tabs-horizontal">
                                                     <div class="col-xs-6 col-sm-6 zeropdg-2">
                                                         <div class="addImgBox">
                                                             <img id="addImg1" src="{{ asset('img/headers/header-1.png')}}" class="img-responsive" height="55px" width="150px">
@@ -502,8 +502,8 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div id="tabs-vertical">
-                                                    <p>Morbi tincidunt, dui sit amet facilisis feugiat, odio metus gravida ante, ut pharetra massa metus id nunc. Duis scelerisque molestie turpis. Sed fringilla, massa eget luctus malesuada, metus eros molestie lectus, ut tempus eros massa ut dolor. Aenean aliquet fringilla sem. Suspendisse sed ligula in ligula suscipit aliquam. Praesent in eros vestibulum mi adipiscing adipiscing. Morbi facilisis. Curabitur ornare consequat nunc. Aenean vel metus. Ut posuere viverra nulla. Aliquam erat volutpat. Pellentesque convallis. Maecenas feugiat, tellus pellentesque pretium posuere, felis lorem euismod felis, eu ornare leo nisi vel felis. Mauris consectetur tortor et purus.</p>
+                                                <div class="container-fluid" id="tabs-vertical">
+                                                    
                                                 </div>
                                             </div>
 

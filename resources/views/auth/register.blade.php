@@ -1,7 +1,15 @@
 @extends('layouts.app')
-
+@section('styles')
+<style>
+    .row {
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%); /* or try 50% */
+}
+</style>
+@endsection
 @section('content')
-<div class="container">
+<div class="container" id="mainContainer">
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-primary">
@@ -74,4 +82,11 @@
         </div>
     </div>
 </div>
+@endsection
+@section('scripts')
+<script>
+$(document).ready(function(){
+    $('#mainContainer').height($(window).height() - $('#notifications').height() - $('footer').height() - $('.navbar.navbar-default.navbar-fixed-top').height());
+});
+</script>`
 @endsection

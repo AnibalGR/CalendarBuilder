@@ -1,10 +1,14 @@
 @extends('layouts.app')
 
+@section('styles')
+<link href="{{ asset('css/bootstrap-dialog.css')}}" rel="stylesheet" >
+@endsection
+
 @section('content')
 <div class="container">
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
-            <div class="panel panel-default">
+            <div class="panel panel-primary">
                 <div class="panel-heading">Manage Subscriptions</div>
 
                 <div class="panel-body">
@@ -15,7 +19,7 @@
                         {{ csrf_field() }}
                     </form>
                     @else
-                    <p>You are currently subscribed to {{ Auth::user()->subscription('main')->braintree_plan }} plan</p>
+                    <p>You are currently subscribed to {{ strtolower(Auth::user()->subscription('main')->braintree_plan) }} plan</p>
                     <form action="{{ url('subscription/cancel') }}" method="post">
                         <button type="submit" class="btn btn-default">Cancel subscription</button>
                         {{ csrf_field() }}
@@ -27,7 +31,7 @@
     </div>
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
-            <div class="panel panel-default">
+            <div class="panel panel-primary">
                 <div class="panel-heading">My payment method</div>
 
                 <div class="panel-body">
@@ -44,7 +48,7 @@
     </div>
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
-            <div class="panel panel-default">
+            <div class="panel panel-primary">
                 <div class="panel-heading">Change payment method</div>
 
                 <div class="panel-body">
@@ -63,8 +67,39 @@
 
 @section('braintree')
     <script src="https://js.braintreegateway.com/js/braintree-2.30.0.min.js"></script>
+    <script src="{{ asset('js/bootstrap-dialog.js')}}"></script>
+    
+    <script>
+$(document).ready(function(){
+    @if (session('success'))
+    BootstrapDialog.show({
+                            title: 'Success',
+                            message: "{{ session('success') }}",
+                            buttons: [{label: 'Accept',
+                                    action: function (dialogItself) {
+                                        dialogItself.close();
+                                    }}],
+                            type: BootstrapDialog.TYPE_SUCCESS,
+                        });
+    @endif
+    @if (session('error'))
+    BootstrapDialog.show({
+                            title: 'Error',
+                            message: "{{ session('error') }}",
+                            buttons: [{label: 'Accept',
+                                    action: function (dialogItself) {
+                                        dialogItself.close();
+                                    }}],
+                            type: BootstrapDialog.TYPE_DANGER,
+                        });
+    @endif
+})
+    </script>
 
     <script>
+        
+        
+        
         $.ajax({
             url: '{{ url('braintree/token') }}'
         }).done(function (response) {

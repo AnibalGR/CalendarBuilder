@@ -7,6 +7,7 @@ use Carbon\Carbon;
 
 @section('styles')
 <link href="{{ asset('css/dialog.css') }}" rel="stylesheet">
+<link href="{{ asset('css/bootstrap-dialog.css')}}" rel="stylesheet" >
 @endsection
 
 @section('content')
@@ -164,12 +165,34 @@ use Carbon\Carbon;
 @endsection
 
 @section('scripts')
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.9.2/jquery-ui.min.js"></script>
 <script type="text/javascript" src="{{ asset('js/dialog.js') }}"></script>
+<script src="{{ asset('js/bootstrap-dialog.js')}}"></script>
 <script>
 $(document).ready(function(){
-    $('#mainContainer').height($(window).height() - $('footer').height() - $('.navbar').height() - 11);
+    $('#mainContainer').height($(window).height() - $('#notifications').height() - $('footer').height() - $('.navbar').height() - 11);
+    
+    @if (session('success'))
+    BootstrapDialog.show({
+                            title: 'Success',
+                            message: "{{ session('success') }}",
+                            buttons: [{label: 'Accept',
+                                    action: function (dialogItself) {
+                                        dialogItself.close();
+                                    }}],
+                            type: BootstrapDialog.TYPE_SUCCESS,
+                        });
+    @endif
+    @if (session('error'))
+    BootstrapDialog.show({
+                            title: 'Error',
+                            message: "{{ session('error') }}",
+                            buttons: [{label: 'Accept',
+                                    action: function (dialogItself) {
+                                        dialogItself.close();
+                                    }}],
+                            type: BootstrapDialog.TYPE_DANGER,
+                        });
+    @endif
 })
 </script>
 

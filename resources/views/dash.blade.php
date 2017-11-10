@@ -170,8 +170,12 @@ use Carbon\Carbon;
 <script type="text/javascript" src="{{ asset('js/dialog.js') }}"></script>
 <script src="{{ asset('js/bootstrap-dialog.js')}}"></script>
 <script>
+//window.addEventListener('resize', resizeContainer, false);
+//function resizeContainer(){
+//    $('#mainContainer').height($(window).height() - $('#notifications').height() - $('footer').height() - $('.navbar').height() - 10);
+//}
 $(document).ready(function(){
-    $('#mainContainer').height($(window).height() - $('#notifications').height() - $('footer').height() - $('.navbar').height() - 11);
+//    $('#mainContainer').height($(window).height() - $('#notifications').height() - $('footer').height() - $('.navbar').height() - 10);
     
     @if (session('success'))
     BootstrapDialog.show({
@@ -196,6 +200,4 @@ $(document).ready(function(){
                         });
     @endif
 })
-</script>
-
-@endsection
+</script>@endsection

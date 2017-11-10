@@ -4,9 +4,9 @@
 *    The container of the main div
 */
 .row {
-    position: relative;
+/*    position: relative;
     top: 50%;
-    transform: translateY(-50%); /* or try 50% */
+    transform: translateY(-50%);  or try 50% */
 }
 
 /*
@@ -78,7 +78,7 @@
 *   The tabs inner container
 */
 #tabs .ui-tabs-panel.ui-widget-content.ui-corner-bottom {
-    height: 380px;
+    /*height: 380px;*/
     overflow: auto;
 }
 

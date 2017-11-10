@@ -406,7 +406,7 @@
             }
         }  
 
-/*************Video and Layout******************/
+/*************Images and Video and Layout******************/
 .layoutType, .addVideoBox, .addImgBox, .addBgBox{
      cursor:pointer;
      margin: 10px 3px 10px 0px;
@@ -425,6 +425,24 @@
 .addImgBox img{
     height: 35px; 
 }
+.addImgBox2{
+    cursor: pointer;
+    margin: 20px 10px 20px 0px;
+    border: 1px #e9e9e9 solid;
+    height: 150px; 
+    width: auto;
+    float: left;
+}
+.addImgBox2 img{
+    height: 148px; 
+    max-width: 35px;
+}
+@media screen and (max-width: 991px){
+    .addImgBox2{
+        margin: 15px 5px 15px 0px;
+    }
+}
+
 .Layout-text-1{
 text-align: center;
 /*background-color: #;*/
@@ -744,6 +762,13 @@ border-radius: 5px;
 .ui-state-active a, .ui-state-active a:link, .ui-state-active a:visited {
     color: #ffffff;
     text-decoration: none;
+}
+@media screen and (max-width: 991px){
+    .ui-tabs .ui-tabs-nav .ui-tabs-anchor {
+    float: left;
+    padding: .9em 1em;
+    text-decoration: none;
+    }
 }
 
 /*********Header Images ends here*********/

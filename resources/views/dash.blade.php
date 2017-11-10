@@ -16,7 +16,7 @@ use Carbon\Carbon;
         <div class="col-md-7 col-md-offset-3">
             <div id="tabs" style="padding: 0px;">
                 <ul>
-                    <li><a href="#tabs-0"><span id="plansTab" class="glyphicon glyphicon-star sb-icons-2" aria-hidden="true" style="text-align: left; width: 20%; margin-right: 5px"></span>Premium Plans</a></li>
+                    <li><a href="#tabs-0"><span id="plansTab" class="glyphicon glyphicon-star sb-icons-2" aria-hidden="true" style="text-align: left; width: 20%; margin-right: -3px"></span>Premium Plans</a></li>
                     <li><a href="#tabs-1"><span id="subscriptionTab" class="glyphicon glyphicon-calendar sb-icons-2" aria-hidden="true" style="text-align: left; width: 20%; margin-right: 5px"></span>Calendars</a></li>
                     <li><a href="#tabs-2"><span id="calendarTab" class="glyphicon glyphicon-film sb-icons-2" aria-hidden="true" style="text-align: left; width: 20%; margin-right: 5px"></span>Videos</a></li>
                 </ul>
@@ -32,13 +32,16 @@ use Carbon\Carbon;
                                         <p>{{ $plan->description }}</p>
                                         @endif
                                     </div>
-                                    @if(Auth::user())
-                                    @if (!Auth::user()->subscribedToPlan($plan->braintree_plan, 'main'))
-                                    <a href="{{ url('/plan', $plan->slug) }}" class="btn btn-default pull-right">Choose Plan</a>
-                                    @else
-                                    <a href="" class="btn btn-default pull-right">You are already subscribed to this plan</a>
-                                    @endif
-                                    @endif
+                                    <div class="pull-right right-button">
+                                        @if(Auth::user())
+                                            @if (!Auth::user()->subscribedToPlan($plan->braintree_plan, 'main'))
+                                                <a href="{{ url('/plan', $plan->slug) }}" class="btn btn-default">Choose Plan</a>
+                                            @else
+                                                <a href="" class="btn btn-default">You are already subscribed to this plan</a>
+                                            @endif
+                                        @endif
+                                    </div>
+                                    
 
                                 </li>
                                 @endforeach

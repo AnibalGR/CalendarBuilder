@@ -358,5 +358,27 @@ class HomeController extends Controller {
 
         return view('dash')->with(['calendars' => $calendars, 'planes' => $plans, 'videos' => $files, 'plans' => Plan::get()]);
     }
+    
+    /**
+     * Delete an already generated video.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function deleteGeneratedVideo(Request $request){
+        
+        $files = glob(public_path() . '/calendars/' . Auth::id() . '/*');
+            foreach ($files as $file) {
+                // We delete it if is file
+                if (is_file($file)) {
+                    if(basename($file) == $request->video_name){
+                        unlink($file);
+                    $returnData = array(
+                        'message' => 'The video has been successfuly deleted!',
+                    );
+                    return response($returnData, 200);
+                }
+            }
+        }
+    }
 
 }

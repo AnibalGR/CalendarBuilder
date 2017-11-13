@@ -288,21 +288,21 @@ class HomeController extends Controller {
                 $storePath = public_path() . $videoURL;
 
                 // Let´s see if it is a MP4 video
-                if (ends_with($path, "mp4") || ends_with($path, "MP4")) {
-
-                    // Change the name
-                    if (rename(public_path() . "/" . $path, $storePath)) {
-
-                        $video->url = asset($videoURL);
-                        $video->save();
-                        $returnData = array(
-                            'message' => 'The video has been successfuly created!',
-                            'url' => $video->url,
-                            'videoID' => $video->id
-                        );
-                        return response($returnData, 200);
-                    }
-                }
+//                if (ends_with($path, "mp4") || ends_with($path, "MP4")) {
+//
+//                    // Change the name
+//                    if (rename(public_path() . "/" . $path, $storePath)) {
+//
+//                        $video->url = asset($videoURL);
+//                        $video->save();
+//                        $returnData = array(
+//                            'message' => 'The video has been successfuly created!',
+//                            'url' => $video->url,
+//                            'videoID' => $video->id
+//                        );
+//                        return response($returnData, 200);
+//                    }
+//                }
 
                 // Absolute path to uploaded video
                 $path = public_path() . "/" . $path;

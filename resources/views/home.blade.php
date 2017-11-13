@@ -970,7 +970,7 @@
 
                         $("#video" + response.videoID).css('width', '100%');
                         $("#video" + response.videoID).css('height', '100%');
-                        $("#tabs").tabs("option", "active", "#tabs-" + response.videoID);
+                        $( "#tabs" ).tabs({ active:  $("#tabs").find(".ui-closable-tab").length});
                     }
                 },
                 error: function (data) {

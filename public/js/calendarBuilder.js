@@ -900,6 +900,182 @@ $(document).on('click', ".ui-closable-tab", function () {
 
     });
     
+    $("#addImg17").click(function () {
+
+        var myImg = '../../img/headers-vertical/vertical-1.png';
+
+        fabric.Image.fromURL(myImg, function (oImg) {
+            oImg.scale(0.5);
+            canvas.add(oImg);
+        });
+
+    });
+    
+    $("#addImg18").click(function () {
+
+        var myImg = '../../img/headers-vertical/vertical-2.png';
+
+        fabric.Image.fromURL(myImg, function (oImg) {
+            oImg.scale(0.5);
+            canvas.add(oImg);
+        });
+
+    });
+    
+    $("#addImg19").click(function () {
+
+        var myImg = '../../img/headers-vertical/vertical-3.png';
+
+        fabric.Image.fromURL(myImg, function (oImg) {
+            oImg.scale(0.5);
+            canvas.add(oImg);
+        });
+
+    });
+    
+    $("#addImg20").click(function () {
+
+        var myImg = '../../img/headers-vertical/vertical-4.png';
+
+        fabric.Image.fromURL(myImg, function (oImg) {
+            oImg.scale(0.5);
+            canvas.add(oImg);
+        });
+
+    });
+    
+    $("#addImg21").click(function () {
+
+        var myImg = '../../img/headers-vertical/vertical-5.png';
+
+        fabric.Image.fromURL(myImg, function (oImg) {
+            oImg.scale(0.5);
+            canvas.add(oImg);
+        });
+
+    });
+    
+    $("#addImg22").click(function () {
+
+        var myImg = '../../img/headers-vertical/vertical-6.png';
+
+        fabric.Image.fromURL(myImg, function (oImg) {
+            oImg.scale(0.5);
+            canvas.add(oImg);
+        });
+
+    });
+    
+    $("#addImg23").click(function () {
+
+        var myImg = '../../img/headers-vertical/vertical-7.png';
+
+        fabric.Image.fromURL(myImg, function (oImg) {
+            oImg.scale(0.5);
+            canvas.add(oImg);
+        });
+
+    });
+    
+    $("#addImg24").click(function () {
+
+        var myImg = '../../img/headers-vertical/vertical-8.png';
+
+        fabric.Image.fromURL(myImg, function (oImg) {
+            oImg.scale(0.5);
+            canvas.add(oImg);
+        });
+
+    });
+    
+    $("#addImg25").click(function () {
+
+        var myImg = '../../img/headers-vertical/vertical-9.png';
+
+        fabric.Image.fromURL(myImg, function (oImg) {
+            oImg.scale(0.5);
+            canvas.add(oImg);
+        });
+
+    });
+    
+    $("#addImg26").click(function () {
+
+        var myImg = '../../img/headers-vertical/vertical-10.png';
+
+        fabric.Image.fromURL(myImg, function (oImg) {
+            oImg.scale(0.5);
+            canvas.add(oImg);
+        });
+
+    });
+    
+    $("#addImg27").click(function () {
+
+        var myImg = '../../img/headers-vertical/vertical-11.png';
+
+        fabric.Image.fromURL(myImg, function (oImg) {
+            oImg.scale(0.5);
+            canvas.add(oImg);
+        });
+
+    });
+    
+    $("#addImg28").click(function () {
+
+        var myImg = '../../img/headers-vertical/vertical-12.png';
+
+        fabric.Image.fromURL(myImg, function (oImg) {
+            oImg.scale(0.5);
+            canvas.add(oImg);
+        });
+
+    });
+    
+    $("#addImg29").click(function () {
+
+        var myImg = '../../img/headers-vertical/vertical-13.png';
+
+        fabric.Image.fromURL(myImg, function (oImg) {
+            oImg.scale(0.5);
+            canvas.add(oImg);
+        });
+
+    });
+    
+    $("#addImg30").click(function () {
+
+        var myImg = '../../img/headers-vertical/vertical-14.png';
+
+        fabric.Image.fromURL(myImg, function (oImg) {
+            oImg.scale(0.5);
+            canvas.add(oImg);
+        });
+
+    });
+    
+    $("#addImg31").click(function () {
+
+        var myImg = '../../img/headers-vertical/vertical-15.png';
+
+        fabric.Image.fromURL(myImg, function (oImg) {
+            oImg.scale(0.5);
+            canvas.add(oImg);
+        });
+
+    });
+    
+    $("#addImg32").click(function () {
+
+        var myImg = '../../img/headers-vertical/vertical-16.png';
+
+        fabric.Image.fromURL(myImg, function (oImg) {
+            oImg.scale(0.5);
+            canvas.add(oImg);
+        });
+
+    });
+    
 setTimeout(function () {
             // resize on init
             resizeCanvas();

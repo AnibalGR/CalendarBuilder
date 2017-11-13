@@ -1081,10 +1081,10 @@
 
                 video.appendTo($('#tabs-' + result));
 
-                $("#video" + result).css('width', '100%');
-                $("#video" + result).css('height', '100%');
-                $("#tabs-" + result).trigger("click");
-
+                $( "#video" + result ).css('width', '100%');
+                $( "#video" + result ).css('height', '100%');
+                $( "#liTab-" + result ).trigger("click");
+                $( "#tabs" ).tabs({ active:  $("#tabs").find(".ui-closable-tab").length});
 
             }).fail(function (e) {
 

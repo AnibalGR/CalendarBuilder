@@ -45,6 +45,9 @@ Route::group(['middleware' => 'auth'], function () {
     // Route to the delete calendar
     Route::delete('/delete_calendar/{id}', 'CalendarController@deleteCalendar')->name('deleteCalendar');
     
+    // Route to the delete generated video
+    Route::post('/delete_generated_video', 'HomeController@deleteGeneratedVideo')->name('deleteGeneratedVideo');
+    
     // Route to the save calendar
     Route::post('/save_calendar', 'CalendarController@saveCalendar')->name('saveCalendar');
     

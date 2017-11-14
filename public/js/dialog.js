@@ -58,3 +58,30 @@ $(document).ready(function(){
         });
         
     });
+    
+    $('.btn-delete-video').click(function(e){
+        
+        e.preventDefault();
+        
+        var row = $(this).parents('tr');
+        var rowCount = $('#videosTable tr').length;
+        var id = row.data('id');
+        $("#video_name").val(id);
+        var form = $('#del-video-form');
+        var url = form.attr('action');
+        var data = form.serialize();
+        
+        $.post(url, data, function(result){
+            row.fadeOut();
+            row.remove();
+            
+            if(rowCount == 2){
+                $("#videosTable").remove();
+                $("#videosShow").append("You don't have any videos created");
+            }
+            
+        }).fail(function(e){
+            alert (JSON.stringify(e));
+        });
+        
+    });

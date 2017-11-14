@@ -82,20 +82,19 @@ use Carbon\Carbon;
             </div>
             
             <div id='tabs-2' style='padding-left: 0px; padding-right: 0px; padding-bottom: 0px; padding-top: 0px'>
-                <div class="panel-body">
+                <div class="panel-body" id="videosShow">
                             @if (count($videos) > 0)
                             <div class="table-responsive">
-                                <table class=" table table-bordered table-striped">
+                                <table class=" table table-bordered table-striped" id="videosTable">
                                     <tr>
                                         <td class="td-size1 td-heads td-center">Name</td>
                                         <td class="td-size1 td-heads td-center" colspan="3">Actions</td>
                                     </tr>
                                     @foreach ($videos as $video)
-                                    <tr>
+                                    <tr data-id="{{ $video->getBasename() }}">
                                         <td class="td-size1">{{ $video->getBasename() }}</td>
                                         <td class="td-size1 links-3 td-center"><a href='{{ asset("") }}calendars/{{Auth::id()}}/{{$video->getBasename()}}' target="_blank" download><div class="download-button">Download</div></a></td>
-        <!--                                <td><a href="" >Share</a></td>
-                                        <td><a href="#!" >Delete</a></td>-->
+                                        <td class="td-size1 links-2 td-center"><a href="#!" class="btn-delete-video"><div class="delete-button">Delete</div></a></td>
                                     </tr>
                                     @endforeach
                                 </table>
@@ -166,6 +165,12 @@ use Carbon\Carbon;
 <!--Delete Calendar Form-->
 <form method="POST" action="{{ route('deleteCalendar', ':USER_ID') }}" id="form-delete">
     <input name="_method" type="hidden" value="DELETE">
+    {{ csrf_field() }}
+</form>
+
+<!--Delete Video Form-->
+<form method="POST" action="{{ route('deleteGeneratedVideo') }}" id="del-video-form">
+    <input name="video_name" id="video_name" type="hidden" value="">
     {{ csrf_field() }}
 </form>
 

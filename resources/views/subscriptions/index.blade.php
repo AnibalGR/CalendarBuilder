@@ -2,9 +2,14 @@
 
 @section('styles')
 <link href="{{ asset('css/bootstrap-dialog.css')}}" rel="stylesheet" >
+<link href="{{ asset('css/custom.css') }}" rel="stylesheet">
 @endsection
 
 @section('content')
+<div  class="app-bg">
+<div id="mainContainer" class="container-fluid">
+    <div class="top-space-2"></div>
+</div>
 <div class="container">
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
@@ -62,6 +67,10 @@
             </div>
         </div>
     </div>
+</div>
+<div id="mainContainer" class="container-fluid">
+    <div class="bottom-space-2"></div>
+</div>
 </div>
 @endsection
 

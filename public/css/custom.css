@@ -229,3 +229,35 @@ h1{
         .marginContent{
             margin-top: 100px;
         }
+
+/******Custom BG******/   
+.app-bg{
+background: #56CCF2;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to top, #2F80ED, #56CCF2);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to top, #2F80ED, #56CCF2); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+        
+        .top-space-1{
+            padding:110px;
+        }
+        .bottom-space-1{
+            padding:120px;
+        }
+        .top-space-2{
+            padding:50px;
+        }
+        .bottom-space-2{
+            padding:50px;
+        }
+        .top-space-3{
+            padding:150px;
+        }
+        .bottom-space-3{
+            padding:100px;
+        }
+        .top-space-4{
+            padding:180px;
+        }
+        .bottom-space-4{
+            padding:35px;
+        }

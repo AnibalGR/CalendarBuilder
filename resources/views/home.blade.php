@@ -127,7 +127,7 @@
                                 <div id="contenedor"></div>
                                 <div class="tab-pane active" id="color">
                                     <div class="container-fluid">
-
+                                        <a href="../dashboard#tabs-2">dashboard</a>
                                         <div class="row space-20">
                                             <div class="col-xs-5 col-md-4">
                                                 Year color:
@@ -1130,10 +1130,10 @@
                 waitingDialog.hide();
                 BootstrapDialog.show({
                     title: 'Video created',
-                    message: 'Your video has been created successfully. <br> You can find it in your <a href="{{ route("dash") }}">dashboard</a> under the "My Videos" section.',
+                    message: 'Your video has been created successfully. <br> You can find it in your dashboard under the "My Videos" section.',
                     buttons: [{label: 'Take me to the video',
                             action: function (dialogItself) {
-                                window.location.replace("{{ route('dash') }}");
+                                window.location.replace("../dashboard#tabs-2");
                             }},
                         {label: 'Dismiss',
                             action: function (dialogItself) {

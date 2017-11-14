@@ -1,4 +1,5 @@
 @extends('layouts.app')
+<link href="{{ asset('css/custom.css') }}" rel="stylesheet">
 @section('styles')
 <style>
     .row {
@@ -9,6 +10,10 @@
 </style>
 @endsection
 @section('content')
+<div  class="app-bg">
+<div id="mainContainer" class="container-fluid">
+    <div class="top-space-4"></div>
+</div>
 <div class="container" id="mainContainer">
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
@@ -82,10 +87,17 @@
         </div>
     </div>
 </div>
+<div id="mainContainer" class="container-fluid">
+    <div class="bottom-space-4"></div>
+</div>
+</div>
 @endsection
 @section('scripts')
+<!--
 <script>
 $(document).ready(function(){
     $('#mainContainer').height($(window).height() - $('#notifications').height() - $('footer').height() - $('.navbar.navbar-default.navbar-fixed-top').height()-10);
 });
-</script>@endsection
+</script>
+-->
+@endsection

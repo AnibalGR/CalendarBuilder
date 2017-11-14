@@ -100,7 +100,7 @@ use Carbon\Carbon;
                                 </table>
                             </div>
                             @else
-                            You don't have any videos created
+                            <p class="txtcenter space-40 format">You don't have any videos created</p>
                             @endif
                             <br>
                         </div>
@@ -118,7 +118,8 @@ use Carbon\Carbon;
 <div id="contactdiv">
     <form class="form" method="POST" action="{{ route('calendarBuilder') }}" id="contact">
         {{ csrf_field() }}
-        <img src="{{ asset('img/delete-element.png') }}" class="img" id="cancel"/>
+        <div class="close-form-1" id="cancel">X</div>
+       <!-- <img src="{{ asset('img/delete-element.png') }}" class="img" id="cancel"/>-->
         <h3>Create New Calendar</h3>
         <hr/><br/>
         <label>Name:</label>
@@ -156,8 +157,8 @@ use Carbon\Carbon;
             </select>
         </div>
         <br/>
-        <input type="button" id="send" value="Create"/>
-        <input type="button" id="cancel" value="Cancel"/>
+        <input type="button" id="send" class="links-1" value="Create"/>
+        <input type="button" id="cancel" class="links-2" value="Cancel"/>
         <br/>
     </form>
 </div>

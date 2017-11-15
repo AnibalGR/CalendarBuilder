@@ -127,7 +127,6 @@
                                 <div id="contenedor"></div>
                                 <div class="tab-pane active" id="color">
                                     <div class="container-fluid">
-                                        <a href="../dashboard#tabs-2">dashboard</a>
                                         <div class="row space-20">
                                             <div class="col-xs-5 col-md-4">
                                                 Year color:

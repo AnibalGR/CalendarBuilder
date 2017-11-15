@@ -167,10 +167,12 @@
                                             </div>
                                         </div>
                                         <div class="row space-20">
-                                            <div class="col-xs-5 col-md-6">
+                                            <div class="col-xs-12 col-md-12 noPadding">
                                                 Calendar video length (seconds):
                                             </div>
-                                            <div class="col-xs-7 col-md-6">
+                                        </div>
+                                        <div class="row space-20">
+                                            <div class="col-xs-12 col-md-12 noPadding">
                                                 <div id="calendar-video-length"><div id="custom-handle" class="ui-slider-handle"></div></div>
                                             </div>
                                         </div>

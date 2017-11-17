@@ -4,9 +4,9 @@ function showTopLayout() {
     cleanLayout();
     // Must see if is already visible
     $("#topLayout").css('visibility', 'visible');
-    $("#topLayout").css('border-color', '#999');
-    $("#topLayout").css('border-style', 'solid');
-    $("#topLayout").css('border-width', '2px');
+    //$("#topLayout").css('border-color', '#999');
+    //$("#topLayout").css('border-style', 'solid');
+    //$("#topLayout").css('border-width', '0px');
     $("#topLayout").css('text-align', 'center');
     $("#topLayout").css('vertical-align', 'middle');
     $("#topLayout").css('line-height', $('#topLayout').height() + "px");
@@ -22,9 +22,9 @@ function showBottomLayout() {
     cleanLayout();
     // Must see if is already visible
     $("#bottomLayout").css('visibility', 'visible');
-    $("#bottomLayout").css('border-color', '#999');
-    $("#bottomLayout").css('border-style', 'solid');
-    $("#bottomLayout").css('border-width', '2px');
+   //$("#bottomLayout").css('border-color', '#999');
+   //$("#bottomLayout").css('border-style', 'solid');
+   //$("#bottomLayout").css('border-width', '0px');
     $("#bottomLayout").css('text-align', 'center');
     $("#bottomLayout").css('vertical-align', 'middle');
     $("#bottomLayout").css('line-height', $('#topLayout').height() + "px");
@@ -40,9 +40,9 @@ function showLeftLayout() {
     $("#leftLayout").css('visibility', 'visible');
     $("#leftLayout").css('height', $("#calendar").height());
     $("#leftLayout").css('width', '25%');
-    $("#leftLayout").css('border-color', '#999');
-    $("#leftLayout").css('border-style', 'solid');
-    $("#leftLayout").css('border-width', '2px');
+    //$("#leftLayout").css('border-color', '#999');
+    //$("#leftLayout").css('border-style', 'solid');
+    //$("#leftLayout").css('border-width', '0px');
     $("#calendar").css('max-width', '75%');
     $("#calendar").css('float', 'right');
     $("#leftLayout").css('text-align', 'center');
@@ -57,9 +57,9 @@ function showRightLayout() {
     $("#rightLayout").css('visibility', 'visible');
     $("#rightLayout").css('height', $("#calendar").height());
     $("#rightLayout").css('width', '25%');
-    $("#rightLayout").css('border-color', '#999');
-    $("#rightLayout").css('border-style', 'solid');
-    $("#rightLayout").css('border-width', '2px');
+    //$("#rightLayout").css('border-color', '#999');
+    //$("#rightLayout").css('border-style', 'solid');
+    //$("#rightLayout").css('border-width', '0px');
     $("#calendar").css('max-width', '75%');
     $("#calendar").css('float', 'left');
     $("#rightLayout").css('text-align', 'center');

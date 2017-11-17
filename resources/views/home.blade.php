@@ -740,7 +740,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-8 calendar-ini">
+            <div class="col-md-7 offset-col-md-1 calendar-ini">
                 <div id="tabs" style="padding: 0px;">
                     <ul>
                         <li><a href="#tabs-0"><span id="calendarTab" class="glyphicon glyphicon-calendar sb-icons-2" aria-hidden="true" style="text-align: left; width: 20%; margin-right: 5px"></span>Calendar</a></li>

@@ -30,6 +30,12 @@ Route::group(['middleware' => 'auth'], function () {
     //This is the route to subscribe to a plan
     Route::get('/plan/{plan}', 'PlansController@show');
     
+    //This is the route to manage the user profile
+    Route::get('/profile', 'ProfileController@show')->name('profile');
+    
+    //This is the route to edit a user profile
+    Route::post('/editProfile', 'ProfileController@edit')->name('editProfile');
+    
     // Internal route to generate a token for the user credit card
     Route::get('/braintree/token', 'BraintreeTokenController@token');
     

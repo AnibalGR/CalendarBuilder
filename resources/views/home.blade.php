@@ -1114,14 +1114,14 @@
         setTimeout(function () {
 
             html2canvas($('#calendarPanel'), {
-                scale: 4,
+                scale: 2,
                 onrendered: function (canvas) {
                     $('#img_val').val(canvas.toDataURL("image/png"));
                     $('#cal_val').val("{{ $id }}");
                 }
             });
 
-        }, 1500);
+        }, 3500);
 
         setTimeout(function () {
             var form = $('#myForm');

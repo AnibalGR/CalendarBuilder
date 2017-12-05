@@ -49,11 +49,18 @@ class HomeController extends Controller {
                 // dir doesn't exist, make it
                 mkdir($path);
             }
-
+            
             $absoluteImagePath = $path . '/img.png';
-
+            
             //Save the image
-            file_put_contents($absoluteImagePath, $unencodedData);
+            //file_put_contents($absoluteImagePath, $unencodedData);
+
+            // Create the image
+            $antigua = umask(0);
+            $fp = fopen($absoluteImagePath, 'w');
+            fwrite($fp, $unencodedData);
+            fclose($fp);
+            umask($antigua);
 
             // Retrieve the calendar
             $calendar = Calendar::find($request->cal_val);
@@ -155,7 +162,12 @@ class HomeController extends Controller {
                     // dir doesn't exist, make it
                     mkdir($calendarPath);
                 }
-
+                
+                // Remove video if it is already created
+                if (file_exists($calendarPath . '/' . $newName . '.mp4')) {
+                    unlink($calendarPath . '/' . $newName . '.mp4');
+                }
+                
                 // Move generated video to calendars path
                 rename($tempPath . $newName . '.mp4', $calendarPath . '/' . $newName . '.mp4');
 

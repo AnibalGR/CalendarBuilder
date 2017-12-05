@@ -261,3 +261,21 @@ background: linear-gradient(to top, #2F80ED, #56CCF2); /* W3C, IE 10+/ Edge, Fir
         .bottom-space-4{
             padding:35px;
         }
+ 
+        .profileForm{
+            float: left;
+            width: 50%;
+            padding: 10px;
+        }
+        
+        .profileForm input{
+            text-align: center;
+        }
+        
+        @media screen and (max-width: 431px){
+            .profileForm{
+                float: none;
+                width: 100%;
+                padding: 10px;
+            }
+        }

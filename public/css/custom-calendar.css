@@ -356,7 +356,7 @@
             height: 53px;
             background-color: #ffffff;
         }
-        .text-whiteBG}{
+        .text-whiteBG{
             color: #1c2b36;
             font-weight: 800;
         }
@@ -775,3 +775,12 @@ border-radius: 5px;
 }
 
 /*********Header Images ends here*********/
+
+/*********Responsive calendar start here*********/
+.smallCal{
+    width: 800px !important;
+    min-height: 450px !important;
+    max-height: 450px !important;
+}
+
+/*********Responsive calendar ends here*********/

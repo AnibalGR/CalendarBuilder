@@ -810,22 +810,25 @@
                                 </div>
                             </div>
 
-                            <div class="CalendarContent1" id="calendarPanel">
+                            <div class="CalendarContent1 smallCal" id="calendarPanel">
                                 <div class="bgimg-none" id="calendarBack">
                                     <div class="panel-body bg-right prueba full-width">
                                         <div id="calendarCont">                                    
                                         </div>
-                                        <p id="topLayout" class="prueba" style="visibility: hidden;  width: 100%; height: 130px; border: 2px solid; z-index: 3">Put your image here!</p>
+                                        <p id="topLayout" class="prueba" style="visibility: hidden;  width: 100%; height: 130px; z-index: 3">Put your image here!</p>
                                         <p id="leftLayout" class="prueba" style="visibility: hidden;  width: 0px; height: 0px; float: left; margin-bottom: 0px;">Put your image here!</p>
                                         <p id="rightLayout" class="prueba" style="visibility: hidden;  width: 0px; height: 0px; float: right">Put your image here!</p>
                                         <div id="calendar" class="prueba" style="z-index: 2"></div>
-                                        <p id="bottomLayout" class="prueba" style="visibility: hidden;  width: 100%; height: 130px; border: 2px solid; z-index: 3">Put your image here!</p>
+                                        <p id="bottomLayout" class="prueba" style="visibility: hidden;  width: 100%; height: 130px; z-index: 3">Put your image here!</p>
                                     </div>
                                     <div id="imagePrev" class="prueba box">
                                         <canvas id="c"></canvas>
                                     </div>
                                 </div>
                             </div>
+
+                            
+                            
                         </div>
                     </div>
                     @if(count($videos) > 0)

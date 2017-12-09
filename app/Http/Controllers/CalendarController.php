@@ -17,6 +17,13 @@ class CalendarController extends Controller {
 
         // Look for the videos to remove
         $videos = Video::where('calendar_id', $calendar_id)->get();
+        
+        // Remove event file for Calendar
+        $filePath = public_path() . '/events/' . $calendar->id . '.php';
+        // We delete it if is file
+        if (is_file($filePath)) {
+            unlink($filePath);
+        }
 
         // Check if there is any video
         if (count($videos) > 0) {
@@ -98,11 +105,12 @@ class CalendarController extends Controller {
     }
 
     public function showCalendarBuilder(Request $request) {
-
+        // Get content to create Calendar
         $name = $request->input('name');
         $year = $request->input('year');
         $month = $request->input('month');
-
+        
+        // Set Calendar attributes and store in database
         $calendar = new Calendar();
         $calendar->user_id = Auth::id();
         $calendar->name = $name;
@@ -118,7 +126,16 @@ class CalendarController extends Controller {
         $calendar->colorDay = '#000000';
         $calendar->videoLength = '15';
         $calendar->content = '{"version":"2.0.0-beta7","objects":[]}';
+        
         if ($calendar->save()) {
+            // Create event file for Calendar
+            $filePath = public_path() . '/events/' . $calendar->id . '.php';
+            // We delete it if is file
+            if (is_file($filePath)) {
+                unlink($filePath);
+            }
+            $myFile = fopen($filePath, "w");
+            fclose($myFile);
             return redirect()->route('editCalendar', ['id' => $calendar->id]);
         }
     }

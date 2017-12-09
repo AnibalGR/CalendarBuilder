@@ -72,6 +72,15 @@ Route::group(['middleware' => 'auth'], function () {
     // Route to upload the video files
     Route::post('/uploadV', 'HomeController@uploadVideo')->name('uploadVideo');
     
+    // Route to upload the event files
+    Route::post('/uploadEvents', 'HomeController@uploadEvents')->name('uploadEvents');
+    
+    // Route to save the event files
+    Route::post('/saveEvents', 'HomeController@saveEvents')->name('saveEvents');
+    
+    // Route to clear the event files
+    Route::post('/clearEvents', 'HomeController@clearEvents')->name('clearEvents');
+    
     // Route to edit the calendars
     Route::get('/edit_calendar/{id}', 'CalendarController@editCalendar')->name('editCalendar');
     

@@ -92,8 +92,9 @@ use Carbon\Carbon;
                                     </tr>
                                     @foreach ($videos as $video)
                                     <tr data-id="{{ $video->getBasename() }}">
-                                        <td class="td-size1">{{ $video->getBasename() }}</td>
+                                        <td class="td-size1" style="text-align: center">{{ $video->getBasename() }}</td>
                                         <td class="td-size1 links-3 td-center"><a href='{{ asset("") }}calendars/{{Auth::id()}}/{{$video->getBasename()}}' target="_blank" download><div class="download-button">Download</div></a></td>
+                                        <td class="td-size1 btn-primary td-center"><a style="color: #fff;" href='{{ asset("") }}calendars/{{Auth::id()}}/{{$video->getBasename()}}' target="_blank"><div class="download-button">Preview</div></a></td>
                                         <td class="td-size1 links-2 td-center"><a href="#!" class="btn-delete-video"><div class="delete-button">Delete</div></a></td>
                                     </tr>
                                     @endforeach

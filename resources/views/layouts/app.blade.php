@@ -76,6 +76,11 @@
                                         @endif
                                     </li>
                                     <li>
+                                        <a href="{{ route('profile') }}">
+                                            Profile
+                                        </a>
+                                    </li>
+                                    <li>
                                         <a href="{{ route('logout') }}"
                                            onclick="event.preventDefault();
                                                document.getElementById('logout-form').submit();">
@@ -117,7 +122,7 @@
                 </div>
         </footer>
         <!-- Scripts -->
-        <script src="https://use.fontawesome.com/4a5daede5c.js"></script>
+        <script src="{{ asset('js/4a5daede5c.js') }}"></script>
         <script src="{{ asset('js/jquery-3.2.1.min.js') }}"></script>
         
         <script src="{{ asset('js/jquery.ui.touch-punch.min.js') }}"></script>

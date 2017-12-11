@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Symfony\Component\HttpFoundation\Response;
+use Illuminate\Support\Facades\Input;
 use App\Calendar;
 use App\Subscription;
 use Validator;
@@ -22,6 +23,60 @@ class HomeController extends Controller {
      * @param Request $request
      * @return Response
      */
+    // Function to clear events
+    public function clearEvents(Request $request) {
+        // Create event file for Calendar
+        $filePath = public_path() . '/events/' . $request->id . '.php';
+        // We delete it if is file
+        if (is_file($filePath)) {
+            unlink($filePath);
+        }
+        $myFile = fopen($filePath, "w");
+        fclose($myFile);
+        return response("Events removed successfully", 200);
+    }
+
+    // Function to load the events in the calendar
+    public function uploadEvents(Request $request) {
+        $file = $request->file;
+        if ($file) {
+            $validator = Validator::make($request->all(), [
+                        'file' => 'required|mimes:application/xml,text/xml,xml',
+            ]);
+            if ($validator->passes()) {
+                $xml = simplexml_load_string(file_get_contents($file));
+                $json = json_encode($xml);
+                $decodedJson = json_decode($json, true);
+                try{
+                    if(!$decodedJson['event']){
+                    return response("This is not a valid XML event file.", 500);
+                }
+                }catch(Exception $e){
+                    return response("This is not a valid XML event file.", 500);
+                }
+                
+                
+                // Create event file for Calendar
+                $filePath = public_path() . '/events/' . $request->id . '.php';
+                // We delete it if is file
+                if (is_file($filePath)) {
+                    unlink($filePath);
+                }
+                $myFile = fopen($filePath, "w");
+                fwrite($myFile, $json);
+                fclose($myFile);
+
+                return $json;
+            } else {
+                // It is not a valid XML file
+                return response("This is not a valid XML event file.", 500);
+            }
+        } else {
+            // There is no video
+            return response("There was a problem loading the file, please try again", 500);
+        }
+    }
+
     public function saveImage(Request $request) {
 
         try {
@@ -49,11 +104,18 @@ class HomeController extends Controller {
                 // dir doesn't exist, make it
                 mkdir($path);
             }
-
+            
             $absoluteImagePath = $path . '/img.png';
-
+            
             //Save the image
-            file_put_contents($absoluteImagePath, $unencodedData);
+            //file_put_contents($absoluteImagePath, $unencodedData);
+
+            // Create the image
+            $antigua = umask(0);
+            $fp = fopen($absoluteImagePath, 'w');
+            fwrite($fp, $unencodedData);
+            fclose($fp);
+            umask($antigua);
 
             // Retrieve the calendar
             $calendar = Calendar::find($request->cal_val);
@@ -155,7 +217,12 @@ class HomeController extends Controller {
                     // dir doesn't exist, make it
                     mkdir($calendarPath);
                 }
-
+                
+                // Remove video if it is already created
+                if (file_exists($calendarPath . '/' . $newName . '.mp4')) {
+                    unlink($calendarPath . '/' . $newName . '.mp4');
+                }
+                
                 // Move generated video to calendars path
                 rename($tempPath . $newName . '.mp4', $calendarPath . '/' . $newName . '.mp4');
 

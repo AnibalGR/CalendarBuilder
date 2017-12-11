@@ -96,10 +96,12 @@ $(document).on('click', ".ui-closable-tab", function () {
 
         // Function to load the calendar
         initThemeChooser({
-            init: function (themeSystem) {
-                $('#calendar').fullCalendar({
-                    themeSystem: themeSystem,
-                    height: 'auto',
+        init: function (themeSystem) {
+            $('#calendar').fullCalendar({
+                color: 'yellow',   // a non-ajax option
+                textColor: 'black', // a non-ajax option
+                themeSystem: themeSystem,
+                height: 'auto',
                     header: {
                         left: null,
                         center: 'title',
@@ -110,7 +112,34 @@ $(document).on('click', ".ui-closable-tab", function () {
                     navLinks: true,
                     editable: true,
                     eventLimit: true,
-                    showNonCurrentDates: true
+                    showNonCurrentDates: true,
+                    events: function (start, end, timezone, callback) {
+                    $.ajax({
+                        url: '../../events/' + getCalendarID() + '.php',
+                        type: "GET",
+                        datatype: 'json',
+                        success: function (doc) {
+                            var events = [];
+                            if (doc.length > 0) {
+                                var doc2 = JSON.parse(doc);
+                                if (doc2 != undefined && doc2.event.length > 0) {
+                                    doc2.event.forEach(function (Obj) {
+                                        events.push({
+                                            title: Obj.title,
+                                            start: Obj.start,
+                                            end: Obj.end
+                                        });
+
+                                    });
+                                }
+                            }
+
+                            callback(events);
+                        }, error: function (err) {
+                            alert('Error in fetching data:' + JSON.stringify(err));
+                        }
+                    });
+                },
                 });
 
                 resizeLayout();
@@ -352,29 +381,30 @@ $(document).on('click', ".ui-closable-tab", function () {
             $("#upImage").val(null);
         });
 
-        function saveCalendar(){
-            
-            $('#idCal').val(getCalendarID());
-            $('#themeCCal').val($('#themeCategory').val());
-            $('#themeCal').val($('#theme').val());
-            $('#layoutCal').val(getCurrentLayout());
-            $('#backgroundCal').val($("#calendarBack").attr('class'));
-            $('#contentCal').val(JSON.stringify(canvas));
-            var form = $('#form-save');
-            var url = form.attr('action');
-            var data = form.serialize();
-            $.post(url, data, function (result) {
-                var currentdate = new Date();
-                $("#actionsAlerts").empty();
-                $("#actionsAlerts").append("<p id='savedTime'>Saved at " + currentdate.getHours() + ":" + currentdate.getMinutes() + ":" + currentdate.getSeconds() + "</p>");
-                setTimeout(function(){
-                    $("#savedTime").fadeOut("slow");
-                },5000);
-            }).fail(function (e) {
-                alert(JSON.stringify(e));
-            });
-            
-        }
+
+    function saveCalendar() {
+
+        $('#idCal').val(getCalendarID());
+        $('#themeCCal').val($('#themeCategory').val());
+        $('#themeCal').val($('#theme').val());
+        $('#layoutCal').val(getCurrentLayout());
+        $('#backgroundCal').val($("#calendarBack").attr('class'));
+        $('#contentCal').val(JSON.stringify(canvas));
+        var form = $('#form-save');
+        var url = form.attr('action');
+        var data = form.serialize();
+        $.post(url, data, function (result) {
+            var currentdate = new Date();
+            $("#actionsAlerts").empty();
+            $("#actionsAlerts").append("<p id='savedTime'>Saved at " + currentdate.getHours() + ":" + currentdate.getMinutes() + ":" + currentdate.getSeconds() + "</p>");
+            setTimeout(function () {
+                $("#savedTime").fadeOut("slow");
+            }, 5000);
+        }).fail(function (e) {
+            alert(JSON.stringify(e));
+        });
+
+    }
 
         $('#saveCalendar').click(function () {
 

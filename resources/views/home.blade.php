@@ -46,10 +46,7 @@
     <div class="row">
         <div class="col-md-12">
             <div class="col-md-12 panel-header1 padd-20">
-                <div class="col-md-4 head-calendar" id="headerRow">
-
-                </div>
-                <div class="col-md-8 head-calendar">
+                <div class="col-md-12 head-calendar">
                     <div class="col-md-12">
                         @if (Auth::user()->subscribed('main'))
                         <div class="col-md-3">
@@ -57,7 +54,6 @@
                                 <span class="btn-label"><i class="glyphicon glyphicon-facetime-video sb-icons-3"></i></span><span class="text-whiteBG">GENERATE VIDEO</span></button>
                         </div>
                         @endif
-                        <div class="col-md-1 space-5"></div>
                         <div class="col-md-3">
                             <button id="saveCalendar" type="button" class="btn btn-labeled btn-default">
                                 <span class="btn-label">
@@ -66,7 +62,29 @@
                                 <span class="text-whiteBG">SAVE CALENDAR</span>
                             </button>
                         </div>
-                        <div class="col-md-3">
+                        <div class="col-md-2">
+                            <!--Upload Events Form-->
+                            <form method="POST" action="{{ route('uploadEvents')}}" id="form-uploadEvents" enctype="multipart/form-data">
+                                <input id="upContent" name="upContent" type="file" style="display:none;" accept=".xml"/>
+                                {{ csrf_field()}}
+                                <button id="uploadContent" type="button" class="btn btn-labeled btn-default">
+                                    <span class="btn-label">
+                                        <i class="glyphicon glyphicon-upload sb-icons-3"></i>
+                                    </span>
+                                    <span class="text-whiteBG">UPLOAD EVENTS</span>
+                                </button>
+                            </form>
+
+                        </div>
+                        <div class="col-md-2">
+                            <button id="clearContent" type="button" class="btn btn-labeled btn-default">
+                                <span class="btn-label">
+                                    <i class="glyphicon glyphicon-refresh sb-icons-3"></i>
+                                </span>
+                                <span class="text-whiteBG">CLEAR EVENTS</span>
+                            </button>
+                        </div>
+                        <div class="col-md-2">
 
                             <div id="actionsAlerts" class="aAlerts">
 
@@ -877,6 +895,12 @@
         <input type="hidden" name="videoID" id="videoID" value="" />
         {{ csrf_field()}}
     </form>
+    
+    <!--Upload Event File Form-->
+    <form method="POST" action="{{ route('delVideo')}}" id="uploadFile">
+        <input type="hidden" name="videoID" id="videoID" value="" />
+        {{ csrf_field()}}
+    </form>
 
 </div>
 @endsection
@@ -898,7 +922,75 @@
 <script src="{{ asset('js/calendarBuilder.js')}}"></script>
 <script src="{{ asset('js/layouts.js')}}"></script>
 <script>
-// Asociative function to call the Input File buton
+    // Asociative function to call the Upload File Button
+    $("#clearContent").click(function () {
+        var fd = new FormData();
+        fd.append('id', '{{ $id }}');
+        $.ajax({
+            type: "POST",
+            headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
+            url: "{{ route('clearEvents') }}",
+            contentType: false,
+            processData: false,
+            data: fd,
+            success: function (data) {
+                $('#calendar').fullCalendar('removeEvents');
+            },
+            error: function (data) {
+                BootstrapDialog.show({
+                    title: 'Error loading file',
+                    message: data.responseText,
+                    buttons: [{label: 'Accept',
+                        action: function (dialogItself) {
+                            dialogItself.close();
+                        }
+                    }],
+                    type: BootstrapDialog.TYPE_DANGER,
+                });
+            }
+        });
+    });
+    // Asociative function to call the Upload File Button
+    $("#uploadContent").click(function () {
+        document.getElementById('upContent').click();
+    });
+    
+    // Upload events file function
+    $("#upContent").change(function () {
+        if (this.files && this.files[0]) {
+            var fd = new FormData();
+            fd.append('file', this.files[0]);
+            fd.append('id', '{{ $id }}');
+            $.ajax({
+                    type: "POST",
+                    headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
+                    url: "{{ route('uploadEvents') }}",
+                    contentType: false,
+                    processData: false,
+                    data: fd,
+                    success: function (data) {
+                        var json = JSON.parse(data);
+                        $('#calendar').fullCalendar('removeEvents');
+                        $('#calendar').fullCalendar('addEventSource', json.event);         
+                        $('#calendar').fullCalendar('rerenderEvents' );
+                    },
+                    error: function (data) {
+                        BootstrapDialog.show({
+                            title: 'Error loading file',
+                            message: 'This is not a valid XML event file.<br> <br> Please read the <a href=" {{ route("how-it-works") }} " target="_blank">FAQs</a> for more information.',
+                            buttons: [{label: 'Accept',
+                                    action: function (dialogItself) {
+                                        dialogItself.close();
+                                    }}],
+                            type: BootstrapDialog.TYPE_DANGER,
+                        });
+                    }
+                });
+        }
+    });
+    
+    
+// Asociative function to call the Input File button
     $("#addVideo").click(function () {
         document.getElementById('upVideo').click();
     });
@@ -1114,17 +1206,18 @@
     $('#generateVideo').click(function () {
         waitingDialog.show('Please wait while your video is created!', {dialogSize: 'sm', progressType: 'danger'});
         $("#calendarTab").trigger("click");
+        setTimeout(null, 2500);
         setTimeout(function () {
 
             html2canvas($('#calendarPanel'), {
-                scale: 4,
+                scale: 2,
                 onrendered: function (canvas) {
                     $('#img_val').val(canvas.toDataURL("image/png"));
                     $('#cal_val').val("{{ $id }}");
                 }
             });
 
-        }, 1500);
+        }, 3500);
 
         setTimeout(function () {
             var form = $('#myForm');
@@ -1180,7 +1273,11 @@
     function getUploadImageRoute() {
         return "{{ route('uploadImage') }}";
     }
-
+    
+    function getSaveEventsRoute(){
+        return "{{ route('saveEvents') }}";
+    }
+    
     function getDeleteVideoRoute() {
         return "{{ route('delVideo') }}";
     }

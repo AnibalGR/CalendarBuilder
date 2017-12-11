@@ -46,7 +46,16 @@ class HomeController extends Controller {
             if ($validator->passes()) {
                 $xml = simplexml_load_string(file_get_contents($file));
                 $json = json_encode($xml);
-
+                $decodedJson = json_decode($json, true);
+                try{
+                    if(!$decodedJson['event']){
+                    return response("This is not a valid XML event file.", 500);
+                }
+                }catch(Exception $e){
+                    return response("This is not a valid XML event file.", 500);
+                }
+                
+                
                 // Create event file for Calendar
                 $filePath = public_path() . '/events/' . $request->id . '.php';
                 // We delete it if is file

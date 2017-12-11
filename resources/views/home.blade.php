@@ -974,7 +974,7 @@
                     error: function (data) {
                         BootstrapDialog.show({
                             title: 'Error loading file',
-                            message: data.responseText,
+                            message: 'This is not a valid XML event file.<br> <br> Please read the <a href=" {{ route("how-it-works") }} " target="_blank">FAQs</a> for more information.',
                             buttons: [{label: 'Accept',
                                     action: function (dialogItself) {
                                         dialogItself.close();

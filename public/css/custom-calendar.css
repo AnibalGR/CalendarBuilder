@@ -777,10 +777,28 @@ border-radius: 5px;
 /*********Header Images ends here*********/
 
 /*********Responsive calendar start here*********/
-.smallCal{
+.talla1{
     width: 800px !important;
     min-height: 450px !important;
     max-height: 450px !important;
 }
-
+.talla2{
+    width: 800px !important;
+    min-height: 300px !important;
+    max-height: 300px !important;
+}
+.talla3{
+    width: 750px !important;
+    min-height: 450px !important;
+    max-height: 450px !important;
+}
+/*
+@media screen and (max-width: 991px){
+ .talla1{
+    width: 800px !important;
+    min-height: 450px !important;
+    max-height: 450px !important;
+}   
+}
+*/
 /*********Responsive calendar ends here*********/

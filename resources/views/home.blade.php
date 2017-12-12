@@ -828,7 +828,7 @@
                                 </div>
                             </div>
 
-                            <div class="CalendarContent1 smallCal" id="calendarPanel">
+                            <div class="CalendarContent1 talla1" id="calendarPanel">
                                 <div class="bgimg-none" id="calendarBack">
                                     <div class="panel-body bg-right prueba full-width">
                                         <div id="calendarCont">                                    

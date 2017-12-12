@@ -4,6 +4,7 @@ nbproject/*
 *.xml
 public/images/*
 public/temp/*
+public/events/*
 public/videos/*
 public/calendars/*
 public/blog-content/*

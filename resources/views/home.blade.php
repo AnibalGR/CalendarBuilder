@@ -76,7 +76,7 @@
                                 </button>
                             </form>
                            <p style="color:#ffffff;">For windows users only.</p>
-                           <p><a style="color:#ffffff;" href="../../../public/free-template/events-free-template.xlsx/" download="events-template.xlsx">Use the FREE TEMPLATE HERE</a></p>
+                           <p><a style="color:#ffffff;" href="{{ asset('free-template/events-free-template.xlsx')}}" download>Use the FREE TEMPLATE HERE</a></p>
                         </div>
                         </a>
                         

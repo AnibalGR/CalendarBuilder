@@ -62,6 +62,7 @@
                                 <span class="text-whiteBG">SAVE CALENDAR</span>
                             </button>
                         </div>
+                        <a href="#" data-toggle="tooltip" title="For windows user only">
                         <div class="col-md-2">
                             <!--Upload Events Form-->
                             <form method="POST" action="{{ route('uploadEvents')}}" id="form-uploadEvents" enctype="multipart/form-data">
@@ -76,6 +77,9 @@
                             </form>
 
                         </div>
+                        </a>
+                        
+                        
                         <div class="col-md-2">
                             <button id="clearContent" type="button" class="btn btn-labeled btn-default">
                                 <span class="btn-label">
@@ -833,11 +837,11 @@
                                     <div class="panel-body bg-right prueba full-width">
                                         <div id="calendarCont">                                    
                                         </div>
-                                        <p id="topLayout" class="prueba" style="visibility: hidden;  width: 100%; height: 130px; z-index: 3">Put your image here!</p>
+                                        <p id="topLayout" class="prueba" style="visibility: hidden;  width: 100%; height: 80px; z-index: 3">Put your image here!</p>
                                         <p id="leftLayout" class="prueba" style="visibility: hidden;  width: 0px; height: 0px; float: left; margin-bottom: 0px;">Put your image here!</p>
                                         <p id="rightLayout" class="prueba" style="visibility: hidden;  width: 0px; height: 0px; float: right">Put your image here!</p>
                                         <div id="calendar" class="prueba" style="z-index: 2"></div>
-                                        <p id="bottomLayout" class="prueba" style="visibility: hidden;  width: 100%; height: 130px; z-index: 3">Put your image here!</p>
+                                        <p id="bottomLayout" class="prueba" style="visibility: hidden;  width: 100%; height: 80px; z-index: 3">Put your image here!</p>
                                     </div>
                                     <div id="imagePrev" class="prueba box">
                                         <canvas id="c"></canvas>

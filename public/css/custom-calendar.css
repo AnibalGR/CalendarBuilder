@@ -784,21 +784,229 @@ border-radius: 5px;
 }
 .talla2{
     width: 800px !important;
-    min-height: 300px !important;
-    max-height: 300px !important;
+    min-height: 450px !important;
+    max-height: 450px !important;
 }
 .talla3{
     width: 750px !important;
     min-height: 450px !important;
     max-height: 450px !important;
 }
-/*
-@media screen and (max-width: 991px){
+
+@media screen and (max-width: 1500px){
  .talla1{
-    width: 800px !important;
-    min-height: 450px !important;
-    max-height: 450px !important;
+    width: 710px !important;
+    min-height: 399px !important;
+    max-height: 399px !important;
+}
+.talla2{
+    width: 710px !important;
+    min-height: 399px !important;
+    max-height: 399px !important;
+}
+.talla3{
+    width: 710px !important;
+    min-height: 399px !important;
+    max-height: 399px !important;
 }   
 }
-*/
+
+@media screen and (max-width: 1300px){
+ .talla1{
+    width: 650px !important;
+    min-height: 366px !important;
+    max-height: 366px !important;
+}
+.talla2{
+    width: 650px !important;
+    min-height: 366px !important;
+    max-height: 366px !important;
+}
+.talla3{
+    width: 650px !important;
+    min-height: 366px !important;
+    max-height: 366px !important;
+}   
+}
+
+@media screen and (max-width: 1200px){
+ .talla1{
+    width: 590px !important;
+    min-height: 332px !important;
+    max-height: 332px !important;
+}
+.talla2{
+    width: 590px !important;
+    min-height: 332px !important;
+    max-height: 332px !important;
+}
+.talla3{
+    width: 590px !important;
+    min-height: 332px !important;
+    max-height: 332px !important;
+}   
+}
+
+@media screen and (max-width: 1110px){
+ .talla1{
+    width: 530px !important;
+    min-height: 298px !important;
+    max-height: 298px !important;
+}
+.talla2{
+    width: 530px !important;
+    min-height: 298px !important;
+    max-height: 298px !important;
+}
+.talla3{
+    width: 530px !important;
+    min-height: 298px !important;
+    max-height: 298px !important;
+}   
+}
+
+@media screen and (max-width: 991px){
+ .talla1{
+    width: 650px !important;
+    min-height: 366px !important;
+    max-height: 366px !important;
+}
+.talla2{
+    width: 650px !important;
+    min-height: 366px !important;
+    max-height: 366px !important;
+}
+.talla3{
+    width: 650px !important;
+    min-height: 366px !important;
+    max-height: 366px !important;
+}   
+}
+
+@media screen and (max-width: 760px){
+ .talla1{
+    width: 590px !important;
+    min-height: 332px !important;
+    max-height: 332px !important;
+}
+.talla2{
+    width: 590px !important;
+    min-height: 332px !important;
+    max-height: 332px !important;
+}
+.talla3{
+    width: 590px !important;
+    min-height: 332px !important;
+    max-height: 332px !important;
+}   
+}
+
+@media screen and (max-width: 700px){
+ .talla1{
+    width: 550px !important;
+    min-height: 309px !important;
+    max-height: 309px !important;
+}
+.talla2{
+    width: 550px !important;
+    min-height: 309px !important;
+    max-height: 309px !important;
+}
+.talla3{
+    width: 550px !important;
+    min-height: 309px !important;
+    max-height: 309px !important;
+}   
+}
+
+@media screen and (max-width: 666px){
+ .talla1{
+    width: 500px !important;
+    min-height: 281px !important;
+    max-height: 281px !important;
+}
+.talla2{
+    width: 500px !important;
+    min-height: 281px !important;
+    max-height: 281px !important;
+}
+.talla3{
+    width: 500px !important;
+    min-height: 281px !important;
+    max-height: 281px !important;
+}   
+}
+
+@media screen and (max-width: 590px){
+ .talla1{
+    width: 450px !important;
+    min-height: 253px !important;
+    max-height: 253px !important;
+}
+.talla2{
+    width: 450px !important;
+    min-height: 253px !important;
+    max-height: 253px !important;
+}
+.talla3{
+    width: 450px !important;
+    min-height: 253px !important;
+    max-height: 253px !important;
+}   
+}
+
+@media screen and (max-width: 520px){
+ .talla1{
+    width: 400px !important;
+    min-height: 225px !important;
+    max-height: 225px !important;
+}
+.talla2{
+    width: 400px !important;
+    min-height: 225px !important;
+    max-height: 225px !important;
+}
+.talla3{
+    width: 400px !important;
+    min-height: 225px !important;
+    max-height: 225px !important;
+}   
+}
+
+@media screen and (max-width: 476px){
+ .talla1{
+    width: 350px !important;
+    min-height: 197px !important;
+    max-height: 197px !important;
+}
+.talla2{
+    width: 350px !important;
+    min-height: 197px !important;
+    max-height: 225px !important;
+}
+.talla3{
+    width: 350px !important;
+    min-height: 197px !important;
+    max-height: 197px !important;
+}   
+}
+
+@media screen and (max-width: 408px){
+ .talla1{
+    width: 300px !important;
+    min-height: 169px !important;
+    max-height: 169px !important;
+}
+.talla2{
+    width: 300px !important;
+    min-height: 169px !important;
+    max-height: 169px !important;
+}
+.talla3{
+    width: 300px !important;
+    min-height: 169px !important;
+    max-height: 169px !important;
+}   
+}
+
 /*********Responsive calendar ends here*********/

@@ -19,9 +19,15 @@ function showBottomLayout() {
     cleanLayout();
     // Must see if is already visible
     $("#bottomLayout").css('visibility', 'visible');
+    $("#bottomLayout").css('width', 'auto');
+    $("#bottomLayout").css('height', '20%');    
+    $("#calendar").css('width', 'auto');
+    //$("#calendar").css('height', '80%');
+    $("#calendar").css('max-height', '80% !important');       
+    $("#calendar").css('margin-bottom', '0px');
     $("#bottomLayout").css('text-align', 'center');
     $("#bottomLayout").css('vertical-align', 'middle');
-    $("#bottomLayout").css('line-height', $('#topLayout').height() + "px");
+    $("#bottomLayout").css('line-height', $('#calendar').height() + "px");
     $("#calendarPanel").removeClass();
     $("#calendarPanel").addClass("CalendarContent1 talla2");
     // Show top Layout
@@ -33,7 +39,7 @@ function showLeftLayout() {
     cleanLayout();
     $("#leftLayout").css('visibility', 'visible');
     $("#leftLayout").css('height', $("#calendar").height());
-    $("#leftLayout").css('width', '25%');
+    $("#leftLayout").css('width', '25%'); 
     $("#calendar").css('max-width', '75%');
     $("#calendar").css('float', 'right');
     $("#leftLayout").css('text-align', 'center');

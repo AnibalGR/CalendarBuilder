@@ -118,6 +118,7 @@
 /*******Custom Calendar View********/
 .CalendarContent1{
     width: 100%;
+    /*height: auto;*/
     height: auto;
     z-index: 3;
     position: relative;
@@ -783,9 +784,9 @@ border-radius: 5px;
     max-height: 450px !important;
 }
 .talla2{
-    width: 800px !important;
-    min-height: 450px !important;
-    max-height: 450px !important;
+    width: 710 !important;
+    min-height: 399px !important;
+    max-height: 399px !important;
 }
 .talla3{
     width: 750px !important;

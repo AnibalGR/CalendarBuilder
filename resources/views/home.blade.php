@@ -62,7 +62,7 @@
                                 <span class="text-whiteBG">SAVE CALENDAR</span>
                             </button>
                         </div>
-                        <a href="#" data-toggle="tooltip" title="For windows users only">
+                        <a href="#" data-toggle="tooltip" title="For windows users only.">
                         <div class="col-md-2">
                             <!--Upload Events Form-->
                             <form method="POST" action="{{ route('uploadEvents')}}" id="form-uploadEvents" enctype="multipart/form-data">
@@ -75,7 +75,8 @@
                                     <span class="text-whiteBG">UPLOAD EVENTS</span>
                                 </button>
                             </form>
-
+                           <p style="color:#ffffff;">For windows users only.</p>
+                           <p><a style="color:#ffffff;" href="../../../public/free-template/events-free-template.xlsx/" download="events-template.xlsx">Use the FREE TEMPLATE HERE</a></p>
                         </div>
                         </a>
                         
@@ -210,6 +211,7 @@
                                             </div>
                                         </div>
                                         <div class="row">
+                                            <!--
                                             <div class="col-xs-6">
                                                 <div class="layoutType">
                                                     <img id="showTopLayout" src="{{ asset('img/thumb/layout-2.jpg')}}" class="img-responsive" height="100px" width="150px">
@@ -220,7 +222,10 @@
                                                     <img id="showBottomLayout" src="{{ asset('img/thumb/layout-3.jpg')}}" class="img-responsive" height="100px" width="150px">
                                                 </div>
                                             </div>
+                                            -->
+
                                         </div>
+                                        
                                         <div class="row">
                                             <div class="col-xs-6">
                                                 <div class="layoutType">
@@ -841,7 +846,7 @@
                                         <p id="leftLayout" class="prueba" style="visibility: hidden;  width: 0px; height: 0px; float: left; margin-bottom: 0px;">Put your image here!</p>
                                         <p id="rightLayout" class="prueba" style="visibility: hidden;  width: 0px; height: 0px; float: right">Put your image here!</p>
                                         <div id="calendar" class="prueba" style="z-index: 2"></div>
-                                        <p id="bottomLayout" class="prueba" style="visibility: hidden;  width: 100%; height: 80px; z-index: 3">Put your image here!</p>
+                                        <p id="bottomLayout" class="prueba" style="visibility: hidden;  width: 0px; height: 0px; z-index: 3">Put your image here!</p>
                                     </div>
                                     <div id="imagePrev" class="prueba box">
                                         <canvas id="c"></canvas>

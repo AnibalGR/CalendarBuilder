@@ -62,7 +62,7 @@
                                 <span class="text-whiteBG">SAVE CALENDAR</span>
                             </button>
                         </div>
-                        <a href="#" data-toggle="tooltip" title="For windows user only">
+                        <a href="#" data-toggle="tooltip" title="For windows users only">
                         <div class="col-md-2">
                             <!--Upload Events Form-->
                             <form method="POST" action="{{ route('uploadEvents')}}" id="form-uploadEvents" enctype="multipart/form-data">

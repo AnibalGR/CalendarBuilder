@@ -17,12 +17,12 @@ Fade content bs-carousel with hero headers
 /********************************/
 .fade-carousel {
     position: relative;
-    /*height: 100vh;*/
-    height: 600px;
+    height: 100vh;
+    /*height: 600px;*/
 }
 .fade-carousel .carousel-inner .item {
-    /*height: 100vh;*/
-    height: 600px;
+    height: 100vh;
+    /*height: 600px;*/
 }
 .fade-carousel .carousel-indicators > li {
     margin: 0 2px;
@@ -40,6 +40,8 @@ Fade content bs-carousel with hero headers
 /*          Hero Headers        */
 /********************************/
 .hero {
+    padding:40px 0px 40px 0px;
+    background-color: rgba(37, 170, 225, 0.8);
     position: absolute;
     top: 50%;
     left: 50%;
@@ -47,7 +49,7 @@ Fade content bs-carousel with hero headers
     color: #fff;
     text-align: center;
     text-transform: uppercase;
-    text-shadow: 1px 1px 0 rgba(0,0,0,.75);
+    /*text-shadow: 1px 1px 0 rgba(0,0,0,.75);*/
       -webkit-transform: translate3d(-50%,-50%,0);
          -moz-transform: translate3d(-50%,-50%,0);
           -ms-transform: translate3d(-50%,-50%,0);
@@ -55,17 +57,19 @@ Fade content bs-carousel with hero headers
               transform: translate3d(-50%,-50%,0);
 }
 .hero h1 {
-    font-size: 4.7em;    
+    font-size: 3.7em;    
     font-weight: bold;
     margin: 0;
     padding: 0;
     text-transform:initial;
 }
 .hero h3{
-    font-size: 2em;
-    font-weight: 400;
+    font-size: 14px;
+    font-weight: 200 !important;
     letter-spacing: 1.5px;
     text-transform:initial;
+    font-family: 'Open Sans', sans-serif;
+    line-height: 1.8;
 }
 /*
 .fade-carousel .carousel-inner .item .hero {
@@ -102,15 +106,19 @@ Fade content bs-carousel with hero headers
 /********************************/
 .btn.btn-lg {padding: 10px 40px;}
 .btn.btn-hero,
-.btn.btn-hero:hover,
 .btn.btn-hero:focus {
-    font-size: 2em;
-    color: #0061d0;
-    font-weight: bold;
-    background-color: #ffffff;
-    border-color: #ffffff;
+    font-size: 1.4em;
+    color: #ffffff;
+    font-weight: 400;
+    background-color: transparent;
+    border: 2px solid #ffffff;
     outline: none;
     margin: 20px auto;
+}
+
+.btn.btn-hero:hover{
+    color: #666666;
+    background-color: #ffffff;
 }
 
 /********************************/
@@ -125,7 +133,7 @@ Fade content bs-carousel with hero headers
   background-repeat: no-repeat;
 }
 .fade-carousel .slides .slide-1 {
-  background-image: url('../img/home/bg-home-3.jpg'); 
+  background-image: url('../img/home/bg-home-4.jpg'); 
 }
 .fade-carousel .slides .slide-2 {
   background-image: url('../img/bg-home-2.jpg');
@@ -141,6 +149,8 @@ Fade content bs-carousel with hero headers
     .hero { width: 980px; }    
 }
 @media screen and (max-width: 767px){
-    .hero h1 { font-size: 3em; } 
-    .hero h3{ font-size: 1.5em; }
+    .hero { padding:20px 40px 20px 45px;}
+    .hero h1 { font-size: 2.3em; } 
+    .hero h3{ font-size: 1.2em; }
+    
 }

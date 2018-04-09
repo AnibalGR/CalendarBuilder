@@ -21,6 +21,13 @@ p{
 .linebox-left{
     border-left: 2px solid #26b8ea;
 }
+.linebox-right-1{
+    border-right: 2px solid #8f9498;
+}
+
+.linebox-left-1{
+    border-left: 2px solid #8f9498;
+}
 
 .hIcons-1{
     padding: 10px;
@@ -32,12 +39,13 @@ p{
 .hIcons-1 h3{
     font-weight: 600;
     text-align: center;
-    color:#0061d0;
+    color:#4e565c;
 }
 .hIcons-1 p{
     text-align: center;
     font-size:18px;
     padding:0 40px;
+    color: #4e565c;
 }
 
 .hIcons-2{
@@ -50,7 +58,7 @@ p{
 .hIcons-2 h3{
     font-weight: 600;
     text-align: center;
-    color:#0061d0;
+    color:#4e565c;
 }
 .bg-gray{
     background-color: #cccccc;
@@ -76,6 +84,168 @@ p{
     font-size: 20px;
 }
 
+.g-section{
+    background-color: #ebeef0;
+}
+.bg-white-color{
+    background-color: #ffffff;
+}
+.g-section-1 h2{
+    color:#333333;
+    line-height: 1.4;
+}
+.g-section-2 h2{
+    color:#333333;
+    text-align: center;
+    line-height: 1.4;
+}
+.g-section-1 p{
+    font-family: 'Open Sans', sans-serif;
+    color:#666666;
+    font-size: 17px;
+    line-height: 1.6;
+}
+.g-section-2 p{
+    font-family: 'Open Sans', sans-serif;
+    color:#666666;
+    font-size: 17px;
+    line-height: 1.6;
+}
+.g-section-1 .btn-gs1{
+    padding: 10px 40px;
+    font-size: 1.4em;
+    font-weight: 200;
+    color: #333333;
+    font-weight: 400;
+    background-color: transparent;
+    border: 1px solid #333333;
+    outline: none;
+    margin: 20px auto;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+}
+.align-left{
+    text-align: left !important;
+}
+.align-center{
+    text-align: center !important;
+}
+.g-section-1 .btn-gs1:hover{
+    color: #f7f7f7;
+    background-color: #333333;
+}
+
+.g-section-bg{
+    padding: 150px 0px 150px 0px;
+    /*position: relative;*/
+    left: 0px;
+    top: 0px;
+/*    right: -143px;
+  */  bottom: 0px;
+    z-index: 0;
+    background-image: url('../img/home/sec2-bg.png');
+    background-position: 100% 53%;
+    background-size: 900px;
+    background-repeat: no-repeat;
+    background-attachment: scroll;
+}
+.g-section-3{
+        background-image: url('../img/home/bg-sec-4.jpg');
+        background-repeat: no-repeat;
+        background-size: cover;
+}
+.g-section-3 h1{
+    color:#333333;
+    text-align: center;
+}
+.g-section-3 p{
+    font-family: 'Open Sans', sans-serif;
+    color:#666666;
+    font-size: 17px;
+    line-height: 1.6;
+}
+.g-section-3 img{
+    width: 100%;
+    margin: 0 auto;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+}
+.g-section-3 .white-box{
+    background-color: #ffffff;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+}
+.g-section-3 h3{
+    padding:50px 0px 50px 0px;
+    margin: auto 0;
+}
+.g-section-3 .btn-gls{
+    padding: 10px 40px;
+    font-size: 1.3em;
+    font-weight: 200;
+    color: #f7f7f7;
+    font-weight: 400;
+    background-color: #333333;
+    border: 1px solid #333333;
+    outline: none;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+}
+.g-section-3 .btn-gls:hover{
+    color: #333333;
+    background-color: #f7f7f7;
+}
+
+.g-section-4{
+    background-color: #f7f7f7;
+    text-align: center;
+}
+.g-section-4 h2{
+    color:#333333;
+    line-height: 1.4;
+}
+.g-section-4 h2{
+    color:#333333;
+    text-align: center;
+    line-height: 1.4;
+}
+.g-section-4 h4{
+    color:#333333;
+    text-align: center;
+    font-size: 1.2em;
+    font-weight: 600;
+    line-height: 1.4;
+}
+.g-section-4 p{
+    text-align: center;
+    font-family: 'Open Sans', sans-serif;
+    color:#666666;
+    font-size: 13px;
+    line-height: 1.6;
+}
+.g-section-4 .fa-icons{
+    text-align: center;
+    background-color: #444444;
+    color:#cccccc;
+    font-size: 25px;
+    padding: 20px;
+    -webkit-border-radius: 120px;
+    -moz-border-radius: 120px;
+    border-radius: 120px;
+
+}
+
+@media screen and (max-width: 1189px){ 
+    .g-section-bg{
+        background-image:none;
+        padding: 50px 0px 50px 0px;
+    }
+    
+}    
 @media screen and (max-width: 767px){ 
         .testimonial{
             text-align: center;    
@@ -90,6 +260,13 @@ p{
         }
 
         .linebox-left{
+            border-left: 0px transparent;
+        }
+        .linebox-right-1{
+            border-right: 0px transparent;
+        }
+
+        .linebox-left-1{
             border-left: 0px transparent;
         }
 }

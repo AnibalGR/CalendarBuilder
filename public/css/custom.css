@@ -61,6 +61,7 @@ h1{
     margin-right: 0px !important;
     margin-left: 0px !important;
 }
+
 .bottomSec-1{
     background-color: #26b8ea;
     text-align: center;
@@ -91,6 +92,30 @@ h1{
     text-decoration: none;
     color: #ffffff;    
 }
+.bottomSec-grey{
+    background-color: #eaeaea !important;
+}
+.bottomSec-grey h2{
+    font-size: 3em;
+    color:#333333;
+    font-weight: 800;
+}
+.bottomSec-grey a{
+    background-color: transparent;
+    border:2px solid #333333;
+    color: #333333;
+    font-size: 20px;
+    padding: 10px 20px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+}
+.bottomSec-grey a:hover{
+    text-decoration: none;
+    color: #ffffff;    
+        background-color: #333333;
+}
+
 /*******Nav Bar******/
         .navbar-default{
             border: none;
@@ -112,8 +137,8 @@ h1{
             font-size: 1.3em;
         }
         .menuNavBarButton{
-            color:#0061d0;
-            border: 1px solid #0061d0;
+            color:#333333;
+            border: 1px solid #333333;
             border-radius: 12px;
             margin-left: 8px;
             margin-right: 8px;
@@ -121,21 +146,21 @@ h1{
         }   
         .menuNavBarButton:hover{
             color: #ffffff !important;
-            background-color: #0061d0;
+            background-color: #333333;
         }
         .colorB-W a{
-            color: #0061d0 !important;
+            color: #333333 !important;
         }
         .colorB-W a:hover{
             color: #ffffff !important;
         }
         .menuNavBarButton2{
             color:#ffffff;
-            border: 1px solid #0061d0;
+            border: 1px solid #333333;
             border-radius: 12px;
             margin-left: 8px;
             margin-right: 8px;
-            background-color: #0061d0;
+            background-color: #333333;
         }
         .menuNavBarButton2:hover{
             background-color: #ffffff;
@@ -144,7 +169,7 @@ h1{
             color: #ffffff !important;
         }
         .colorW-B a:hover{
-            color: #0061d0 !important;
+            color: #333333 !important;
         }
 
 /*******Mobile Menu********/
@@ -156,7 +181,8 @@ h1{
                 background-color: #0061d0 !important;
         }
         .navbar-default .navbar-nav li a{
-                color:#0061d0;
+                /*color:#0061d0;*/
+                color:#333333;
         }
         .navbar-default .navbar-nav .open .dropdown-menu li a{
                 color:#000;

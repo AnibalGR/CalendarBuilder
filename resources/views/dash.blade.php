@@ -20,11 +20,11 @@ use Carbon\Carbon;
         <div class="col-md-12">
             <div id="tabs" style="padding: 0px;">
                 <ul>
-                    <li class="customLi"><a href="#tabs-0"><span id="plansTab" class="glyphicon glyphicon-star sb-icons-2" aria-hidden="true" style="text-align: left; width: 20%; margin-right: -3px"></span>Premium Plans</a></li>
-                    <li class="customLi"><a href="#tabs-1"><span id="subscriptionTab" class="glyphicon glyphicon-calendar sb-icons-2" aria-hidden="true" style="text-align: left; width: 20%; margin-right: 5px"></span>Calendars</a></li>
-                    <li class="customLi"><a href="#tabs-2"><span id="calendarTab" class="glyphicon glyphicon-film sb-icons-2" aria-hidden="true" style="text-align: left; width: 20%; margin-right: 5px"></span>Videos</a></li>
+                    <!--<li class="customLi"><a href="#tabs-0"><span id="plansTab" class="glyphicon glyphicon-star sb-icons-2" aria-hidden="true" style="text-align: left; width: 20%; margin-right: -3px"></span>Premium Plans</a></li>-->
+                    <li class="customLi"><a href="#tabs-0"><span id="subscriptionTab" class="glyphicon glyphicon-calendar sb-icons-2" aria-hidden="true" style="text-align: left; width: 20%; margin-right: 5px"></span>Calendars</a></li>
+                    <li class="customLi"><a href="#tabs-1"><span id="calendarTab" class="glyphicon glyphicon-film sb-icons-2" aria-hidden="true" style="text-align: left; width: 20%; margin-right: 5px"></span>Videos</a></li>
                 </ul>
-                <div id='tabs-0' style='padding-left: 0px; padding-right: 0px; padding-bottom: 0px; padding-top: 0px'>
+                <!--<div id='tabs-0' style='padding-left: 0px; padding-right: 0px; padding-bottom: 0px; padding-top: 0px'>
                 <div class="panel-body">
                             <ul class="list-group">
                                 @foreach ($plans as $plan)
@@ -49,8 +49,8 @@ use Carbon\Carbon;
                                 @endforeach
                             </ul>
                         </div>
-            </div>
-            <div id='tabs-1' style='padding-left: 0px; padding-right: 0px; padding-bottom: 0px; padding-top: 0px'>
+            </div>-->
+            <div id='tabs-0' style='padding-left: 0px; padding-right: 0px; padding-bottom: 0px; padding-top: 0px'>
                 <div class="panel-body">
                             <div class="space-10">
                             </div>
@@ -81,7 +81,7 @@ use Carbon\Carbon;
                         </div>
             </div>
             
-            <div id='tabs-2' style='padding-left: 0px; padding-right: 0px; padding-bottom: 0px; padding-top: 0px'>
+            <div id='tabs-1' style='padding-left: 0px; padding-right: 0px; padding-bottom: 0px; padding-top: 0px'>
                 <div class="panel-body" id="videosShow">
                             @if (count($videos) > 0)
                             <div class="table-responsive">

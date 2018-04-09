@@ -48,12 +48,10 @@
             <div class="col-md-12 panel-header1 padd-20">
                 <div class="col-md-12 head-calendar">
                     <div class="col-md-12">
-                        @if (Auth::user()->subscribed('main'))
                         <div class="col-md-3">
                             <button id="generateVideo" type="button" class="btn btn-labeled btn-default">
                                 <span class="btn-label"><i class="glyphicon glyphicon-facetime-video sb-icons-3"></i></span><span class="text-whiteBG">GENERATE VIDEO</span></button>
                         </div>
-                        @endif
                         <div class="col-md-3">
                             <button id="saveCalendar" type="button" class="btn btn-labeled btn-default">
                                 <span class="btn-label">
@@ -754,9 +752,9 @@
                                                 <div class="addBgBox">
                                                     <img id="addBg24" src="{{ asset('img/backgrounds/thumbs/winter_river_thumb.jpg')}}" class="img-responsive" height="75px" width="150px">
                                                 </div>
-                                                <div class="addBgBox">
+                                                <!--<div class="addBgBox">
                                                     <img id="addBg25" src="{{ asset('img/backgrounds/thumbs/winter_trees_thumb.jpg')}}" class="img-responsive" height="75px" width="150px">
-                                                </div>
+                                                </div>-->
                                             </div>
                                         </div>
                                     </div>

@@ -1224,7 +1224,7 @@
                 }
             });
 
-        }, 3500);
+        }, 1500);
 
         setTimeout(function () {
             var form = $('#myForm');
@@ -1237,7 +1237,7 @@
                     message: 'Your video has been created successfully. <br> You can find it in your dashboard under the "My Videos" section.',
                     buttons: [{label: 'Take me to the video',
                             action: function (dialogItself) {
-                                window.location.replace("../dashboard#tabs-2");
+                                window.location.replace("../dashboard#tabs-1");
                             }},
                         {label: 'Dismiss',
                             action: function (dialogItself) {

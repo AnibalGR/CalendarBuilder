@@ -35,7 +35,7 @@
                 </div>
                 <div class="col-sm-4 space-40 hIcons-1 linebox-left">
                 <img src="{{ asset('img/home/home-3.png') }}" class="img-responsive">
-                <h3>Publish & Download</h3>
+                <h3>Publish and Download</h3>
                     <p>Finalize your file and upload it to any screen at your facility.</p>
                 </div>
             </div>
@@ -57,7 +57,7 @@
     <div class="container">
         <div class="row">
             <div class="col-xs-12">
-                <h2 class="color-2">Creating your custom calendar</h2>
+                <h2 class="color-2">Creating Your Custom Calendar</h2>
             </div>
         </div>
         <div class="row">

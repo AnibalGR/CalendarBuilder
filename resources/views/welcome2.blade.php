@@ -18,7 +18,7 @@
                         <div class="hero">
                             <hgroup>
                                 <h1>Captivate Your<br/> Patients and Visitors</h1>        
-                                <h3>With a vibrant digital display activities<br>
+                                <h3>with a vibrant digital display activity<br>
                                     calendar created by you, using our<br>
                                     technology, in just minutes</h3>
                             </hgroup>
@@ -45,9 +45,9 @@
                             <div class="row">
                                 <div class="col-sm-6">
                                         <h2>Digital Signage Software<br>
-                                        Designed Exclusively For Health Care Facilities</h2>
+                                        Designed Exclusively for Health Care Facilities</h2>
                                         <div class="space-40"></div>
-                                        <p>Administrators and Activities Directors can transform<br>
+                                        <p>Administrators and activities directors can transform<br>
                                             their activity calendars into vibrant digital displays.</p>
                                         <div class="space-40"></div>
                                                     @if(Auth::user())
@@ -83,11 +83,9 @@
                                                     
                                 </div>
                                 <div class="col-sm-6">
-                                    <h2 class="align-left">Bring your Activities Calendar to Life</h2>
+                                    <h2 class="align-left">Bring Your Activities Calendar to Life</h2>
                                         <div class="space-40"></div>
-                                        <p>Following a few simple steps you can transform your print calendar into an engaging visual
-display. Upload your existing calendar or design a new one using our calendar design software,
-add our exclusive video content, and your done.</p>
+                                        <p>Following a few simple steps, you can transform your print calendar into an engaging visual display. Upload your existing calendar or design a new one using our calendar design software, add our exclusive video content, and you're done.</p>
                                         <div class="space-40"></div>
                                                     
                                 </div>
@@ -144,7 +142,7 @@ add our exclusive video content, and your done.</p>
             <div class="container space-60">
                 <div class="row">
                     <div class="col-sm-12 align-center">
-                        <h2>Why Choose Digital Display Activity Calendars:</h2>
+                        <h2>Why Choose Digital Display Activity Calendars</h2>
                     </div>
                 </div>
             </div>
@@ -169,19 +167,19 @@ add our exclusive video content, and your done.</p>
                                         <span class="fa fa-tv fa-icons" aria-hidden="true"></span>
                                         <h4>Any Display</h4>
                                         <div class="space-20"></div>
-                                        <p>Works with any aspect ratio – just set your display dimensions.  Ideal for flat screen TVs and patient room displays.</p>
+                                        <p>Works with any aspect ratio—just set your display dimensions. Ideal for flat-screen TVs and patient room displays.</p>
                                 </div>
                                 <div class="col-sm-3">
                                         <span class="fa fa-clock-o fa-icons" aria-hidden="true"></span>
                                         <h4>Save Time</h4>
                                         <div class="space-20"></div>
-                                        <p>Instead of taking hours printing, posting and decorating a traditional calendar every month, in just minutes you can download and display a beautiful digital version of your calendar.</p>
+                                        <p>Instead of taking hours printing, posting, and decorating a traditional calendar every month, in just minutes you can download and display a beautiful digital version of your calendar.</p>
                                 </div>
                                 <div class="col-sm-4">
                                 </div>
                                 <div class="col-sm-4">
                                         <span class="fa fa-star fa-icons" aria-hidden="true"></span>
-                                        <h4>Enhances your facility</h4>
+                                        <h4>Enhance Your Facility</h4>
                                         <div class="space-20"></div>
                                         <p>Rather than using the same printed calendar that’s been displayed by nursing homes for the last 50 years, upgrade your look to a vibrant digital display that lets visitors and patients know your facility is progressive and modern.</p>
                                 </div>
@@ -213,12 +211,12 @@ add our exclusive video content, and your done.</p>
                 <div class="col-sm-4 space-40 hIcons-1">
                 <img src="{{ asset('img/home/home-2-1.png') }}" class="img-responsive">
                 <h3>Customize Your Calendar</h3>
-                    <p>Add your logo, images and text.<br/>Choose from our video library to highlight special events.</p>
+                    <p>Add your logo, images, and text.<br/>Choose from our video library to highlight special events.</p>
                 </div>
                 <div class="col-sm-4 space-40 hIcons-1 linebox-left-1">
                 <img src="{{ asset('img/home/home-3-1.png') }}" class="img-responsive">
-                <h3>Publish & Downloads</h3>
-                    <p>Finalize your file and upload it to any screen at your facility</p>
+                <h3>Publish and Download</h3>
+                    <p>Finalize your file and upload it to any screen at your facility.</p>
                 </div>
             </div>
         </div>
@@ -231,8 +229,7 @@ add our exclusive video content, and your done.</p>
                     </div>                    
                 </div>
                 <div class="col-sm-6 testimonial-2 space-40">
-                <p>"We are so exited to have signed up for this service. Digital Activity Clendars has helped our business
-                save time and money, and our facility looks better than ever. This service has everything I need." <br>John Stewart - Nursing Homes Plus<p>
+                <p>"We are so excited to have signed up for this service. Digital Display Calendars has helped our business save time and money, and our facility looks better than ever. This service has everything I need." <br>John Stewart - Nursing Homes Plus<p>
                 </div>
                 <div class="col-sm-2"></div>
             </div>
@@ -241,7 +238,7 @@ add our exclusive video content, and your done.</p>
         <div class="container space-40">
             <div class="row">
                 <div class="col-lg-12 txtcenter">
-                <h1>Customized for any display.</h1>
+                <h1>Customized for Any Display</h1>
                 </div>
             </div>
             <div class="row space-20">
@@ -253,7 +250,7 @@ add our exclusive video content, and your done.</p>
                 <div class="col-sm-4 hIcons-2 space-40">
                     <img src="{{ asset('img/home/home-5.png') }}" class="img-responsive">
                     <div class="full-width space-40"></div>
-                    <h3>Flatscreen TV's</h3>
+                    <h3>Flatscreen TVs</h3>
                 </div>
                 <div class="col-sm-4 hIcons-2 space-40">
                     <img src="{{ asset('img/home/home-6.png') }}" class="img-responsive">

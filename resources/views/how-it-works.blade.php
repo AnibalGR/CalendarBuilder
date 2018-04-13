@@ -62,10 +62,8 @@
         </div>
         <div class="row">
             <div class="col-md-12">
-                <h4 class="color-1">Lorem Ipsum</h4>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis id ipsum diam. Nulla facilisi. 
-                    Sed suscipit sem a mauris commodo aliquet. In sit amet nulla vel nisi congue pulvinar nec et dui nulla facilisi. 
-                    Sed vestibulum sem vel elit tincidunt ultricies. Nullam rutrum lacus et elit cursus, at dapibus ante ultrices.</p>
+                <h4 class="color-1">A Few More Details</h4>
+                <p>Once you create your Digital Display Calendar account, you can immediately start customizing your calendar. No matter the level of your artistic or technical capabilities, you’ll have an easy and personalized experience with our simple interface.</p>
             </div>
         </div>
         <div class="row">
@@ -75,10 +73,9 @@
                                 <li><p><strong><i class="fa fa-cloud-upload list-green" aria-hidden="true"></i></strong></p></li>
                     </ul>
                 </div>
-                <h4 class="color-2 text-center">Step 1</h4>
-                <p class="text-justify">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis id ipsum diam. Nulla facilisi. 
-                    Sed suscipit sem a mauris commodo aliquet. In sit amet nulla vel nisi congue pulvinar nec et dui nulla facilisi. 
-                    Sed vestibulum sem vel elit tincidunt ultricies. Nullam rutrum lacus et elit cursus, at dapibus ante ultrices.</p>
+                <h4 class="color-2 text-center">Step 1: Color and Layout</h4>
+                <p class="text-justify">Select one of our 20+ preloaded themes, or choose colors for the text and background starting with a blank canvas. If you know the precise values you’re looking for, you can enter them into the boxes for an exact match.</p>
+                <p class="text-justify">Next, select one of three calendar layouts: full width, with an image on the left, or with an image on the right.</p>
             </div>
             <div class="col-md-4">
                 <div class="hIcons-2">
@@ -86,10 +83,9 @@
                                 <li><p><strong><i class="fa fa-cogs list-green" aria-hidden="true"></i></strong></p></li>
                     </ul>
                 </div>
-                <h4 class="color-2 text-center">Step 1</h4>
-                <p class="text-justify">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis id ipsum diam. Nulla facilisi. 
-                    Sed suscipit sem a mauris commodo aliquet. In sit amet nulla vel nisi congue pulvinar nec et dui nulla facilisi. 
-                    Sed vestibulum sem vel elit tincidunt ultricies. Nullam rutrum lacus et elit cursus, at dapibus ante ultrices.</p>
+                <h4 class="color-2 text-center">Step 2: Text and Shapes</h4>
+                <p class="text-justify">At any stage of the customization process, you may upload an Excel file with your events straight onto the calendar! (We have included a template to help you get started.) You can also add events using our easy-to-manipulate text boxes. You can customize the style of the text and add highlights to showcase important events.</p>
+                <p class="text-justify">Add interest with some shapes: square, line, circle, triangle, and two types of stars. These can all be recolored, resized, and rotated to your liking.</p>
             </div>
             <div class="col-md-4">
                 <div class="hIcons-2">
@@ -97,10 +93,9 @@
                                 <li><p><strong><i class="fa fa-tv list-green" aria-hidden="true"></i></strong></p></li>
                     </ul>
                 </div>
-                <h4 class="color-2 text-center">Step 1</h4>
-                <p class="text-justify">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis id ipsum diam. Nulla facilisi. 
-                    Sed suscipit sem a mauris commodo aliquet. In sit amet nulla vel nisi congue pulvinar nec et dui nulla facilisi. 
-                    Sed vestibulum sem vel elit tincidunt ultricies. Nullam rutrum lacus et elit cursus, at dapibus ante ultrices.</p>
+                <h4 class="color-2 text-center">Step 3: Video and Images</h4>
+                <p class="text-justify">Choose from our preloaded background or side-panel images and videos, or upload pictures of your choice.</p>
+                <p class="text-justify">At any stage of the creation process, you may have us generate a video for you, save your calendar, and upload or clear events.</p>
             </div>
         </div>
     </div>

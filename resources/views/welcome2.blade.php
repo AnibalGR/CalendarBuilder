@@ -69,24 +69,24 @@
     <div class="container-fluid g-section bg-white-color">
         <div class="row">
             <div class="container-fluid">
-                <div class="row space-60">
+                <div class="row space-20">
                     <div class="container">
                         <div class="col-lg-12 g-section-2">
                             <div class="row">
-                                <div class="col-sm-6">
-                                        <h2>Landscape TV</h2>
-                                        <div class="space-40"></div>
-                                        <p>
+                                <div class="col-xs-12">
+
+                                        <div class="space-40 text-center"></div>
+                                        <p class="text-center">
                                             <img src="{{ asset('img/home/tv-sec-3.png') }}" class="img-responsive">
                                         </p>
-                                        <div class="space-40"></div>
+                                        <div class="space-20"></div>
                                                     
                                 </div>
-                                <div class="col-sm-6">
-                                    <h2 class="align-left">Bring Your Activities Calendar to Life</h2>
-                                        <div class="space-40"></div>
+                                <div class="col-xs-12">
+                                    <h2 class="text-center">Bring Your Activities Calendar to Life</h2>
+                                        <div class="space-40 text-center"></div>
                                         <p>Following a few simple steps, you can transform your print calendar into an engaging visual display. Upload your existing calendar or design a new one using our calendar design software, add our exclusive video content, and you're done.</p>
-                                        <div class="space-40"></div>
+                                        <div class="space-60"></div>
                                                     
                                 </div>
                            </div>
@@ -109,21 +109,46 @@
                     </div>
                     <div class="row">
                         <div class="col-sm-4 space-20">
-                            <img src="{{ asset('img/home/preview-1.jpg') }}" class="img-responsive">
+                            <div align="center" class="embed-responsive embed-responsive-16by9">
+                                <video autoplay loop class="embed-responsive-item">
+                                    <source src="{{ asset('vid/009.mp4') }}" type="video/mp4">
+                                </video>
+                            </div>
+                            <!--<img src="{{ asset('img/home/preview-1.jpg') }}" class="img-responsive">-->
                         </div>
                         <div class="col-sm-4 space-20">
-                        <img src="{{ asset('img/home/preview-2.jpg') }}" class="img-responsive">
+                            <div align="center" class="embed-responsive embed-responsive-16by9">
+                                <video autoplay loop class="embed-responsive-item">
+                                    <source src="{{ asset('vid/007.mp4') }}" type="video/mp4">
+                                </video>
+                            </div>
+                        <!--<img src="{{ asset('img/home/preview-2.jpg') }}" class="img-responsive">-->
                         </div>
                         <div class="col-sm-4 space-20">
-                        <img src="{{ asset('img/home/preview-3.jpg') }}" class="img-responsive">
+                            <div align="center" class="embed-responsive embed-responsive-16by9">
+                                <video autoplay loop class="embed-responsive-item">
+                                    <source src="{{ asset('vid/008.mp4') }}" type="video/mp4">
+                                </video>
+                            </div>
+                        <!--<img src="{{ asset('img/home/preview-3.jpg') }}" class="img-responsive">-->
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-sm-4 space-20">
-                            <img src="{{ asset('img/home/preview-4.jpg') }}" class="img-responsive">
+                            <div align="center" class="embed-responsive embed-responsive-16by9">
+                                <video autoplay loop class="embed-responsive-item">
+                                    <source src="{{ asset('vid/002.mp4') }}" type="video/mp4">
+                                </video>
+                            </div>
+                            <!--<img src="{{ asset('img/home/preview-4.jpg') }}" class="img-responsive">-->
                         </div>
                         <div class="col-sm-4 space-20">
-                        <img src="{{ asset('img/home/preview-5.jpg') }}" class="img-responsive">
+                            <div align="center" class="embed-responsive embed-responsive-16by9">
+                                <video autoplay loop class="embed-responsive-item">
+                                    <source src="{{ asset('vid/010.mp4') }}" type="video/mp4">
+                                </video>
+                            </div>
+                        <!--<img src="{{ asset('img/home/preview-5.jpg') }}" class="img-responsive">-->
                         </div>
                         <div class="col-sm-4 space-20 align-center">
                             <div class="space-60"></div>

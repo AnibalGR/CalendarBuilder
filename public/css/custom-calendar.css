@@ -779,9 +779,12 @@ border-radius: 5px;
 
 /*********Responsive calendar start here*********/
 .talla1{
-    width: 800px !important;
-    min-height: 450px !important;
-    max-height: 450px !important;
+    width: 1600px !important;
+    min-height: 900px !important;
+    max-height: 900px !important;
+}
+.fc-basic-view .fc-body .fc-row {
+    min-height: 10em;
 }
 .talla2{
     width: 710 !important;

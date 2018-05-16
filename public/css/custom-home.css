@@ -110,6 +110,10 @@ p{
     color:#666666;
     font-size: 17px;
     line-height: 1.6;
+    text-align: center;
+}
+.g-section-2 img{
+    margin: 0 auto;
 }
 .g-section-1 .btn-gs1{
     padding: 10px 40px;
@@ -269,4 +273,15 @@ p{
         .linebox-left-1{
             border-left: 0px transparent;
         }
+}
+.btn-CtmVideos{
+    background-color: transparent !important;
+    border: 0px transparent !important;
+    width: 100%;
+    height: auto;
+    padding: 10px 0px !important;
+}
+.pointerCustom{
+    width: 100%;
+    height: auto;
 }

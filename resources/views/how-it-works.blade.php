@@ -31,7 +31,7 @@
                 <div class="col-sm-4 space-40 hIcons-1">
                 <img src="{{ asset('img/home/home-2.png') }}" class="img-responsive">
                 <h3>Customize Your Calendar</h3>
-                    <p>Add your logo, images, and text.<br/>Choose from our video library to highlight special events.</p>
+                    <p>Add your logo, images and text, choose from our video library to highlight special events.</p>
                 </div>
                 <div class="col-sm-4 space-40 hIcons-1 linebox-left">
                 <img src="{{ asset('img/home/home-3.png') }}" class="img-responsive">

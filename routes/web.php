@@ -112,3 +112,7 @@ Route::get('/home', function(){
 Route::get('/how-it-works', function(){
     return view('how-it-works');
 })->name('how-it-works');
+
+Route::get('/all-videos', function(){
+    return view('all-videos');
+})->name('all-videos');

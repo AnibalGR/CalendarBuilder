@@ -274,3 +274,14 @@ p{
             border-left: 0px transparent;
         }
 }
+.btn-CtmVideos{
+    background-color: transparent !important;
+    border: 0px transparent !important;
+    width: 100%;
+    height: auto;
+    padding: 10px 0px !important;
+}
+.pointerCustom{
+    width: 100%;
+    height: auto;
+}

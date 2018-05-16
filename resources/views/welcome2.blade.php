@@ -20,7 +20,7 @@
                                 <h1>Captivate Your<br/> Patients and Visitors</h1>        
                                 <h3>with a vibrant digital display activity<br>
                                     calendar created by you, using our<br>
-                                    technology, in just minutes</h3>
+                                    technology, in just minutes.</h3>
                             </hgroup>
                             <div class="space-20">
                                 @if(Auth::user())
@@ -45,7 +45,7 @@
                             <div class="row">
                                 <div class="col-sm-6">
                                         <h2>Digital Signage Software<br>
-                                        Designed Exclusively for Health Care Facilities</h2>
+                                        Designed Exclusively for Healthcare Facilities</h2>
                                         <div class="space-40"></div>
                                         <p>Administrators and activities directors can transform<br>
                                             their activity calendars into vibrant digital displays.</p>
@@ -109,54 +109,166 @@
                     </div>
                     <div class="row">
                         <div class="col-sm-4 space-20">
-                            <div align="center" class="embed-responsive embed-responsive-16by9">
-                                <video autoplay loop class="embed-responsive-item">
-                                    <source src="{{ asset('vid/009.mp4') }}" type="video/mp4">
-                                </video>
+                            <button type="button" class="btn btn-lg btn-CtmVideos" data-toggle="modal" data-target="#myModal">
+                                <img src="{{ asset('img/home/preview-1.jpg') }}" class="img-responsive pointerCustom">
+                            </button>   
+
+                            <div id="myModal" class="modal fade" role="dialog">
+                              <div class="modal-dialog">
+
+                                <!-- Modal content-->
+                                <div class="modal-content">
+                                  <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                    <h4 class="modal-title"></h4>
+                                  </div>
+                                  <div class="modal-body">
+                                    <p></p>
+                                    <div align="center" class="embed-responsive embed-responsive-16by9">
+                                                            <video autoplay loop class="embed-responsive-item">
+                                                                <source src="{{ asset('vid/009.mp4') }}" type="video/mp4">
+                                                            </video>
+                                                        </div>
+                                  </div>
+                                  <div class="modal-footer">
+                                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                  </div>
+                                </div>
+
+                              </div>
                             </div>
-                            <!--<img src="{{ asset('img/home/preview-1.jpg') }}" class="img-responsive">-->
                         </div>
+                        
                         <div class="col-sm-4 space-20">
-                            <div align="center" class="embed-responsive embed-responsive-16by9">
-                                <video autoplay loop class="embed-responsive-item">
-                                    <source src="{{ asset('vid/007.mp4') }}" type="video/mp4">
-                                </video>
+                            <button type="button" class="btn btn-lg btn-CtmVideos" data-toggle="modal" data-target="#myModal2">
+                                <img src="{{ asset('img/home/preview-2.jpg') }}" class="img-responsive pointerCustom">
+                            </button>   
+
+                            <div id="myModal2" class="modal fade" role="dialog">
+                              <div class="modal-dialog">
+
+                                <!-- Modal content-->
+                                <div class="modal-content">
+                                  <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                    <h4 class="modal-title"></h4>
+                                  </div>
+                                  <div class="modal-body">
+                                    <p></p>
+                                     <div align="center" class="embed-responsive embed-responsive-16by9">
+                                        <video autoplay loop class="embed-responsive-item">
+                                            <source src="{{ asset('vid/007.mp4') }}" type="video/mp4">
+                                        </video>
+                                    </div>
+                                  </div>
+                                  <div class="modal-footer">
+                                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                  </div>
+                                </div>
+
+                              </div>
                             </div>
-                        <!--<img src="{{ asset('img/home/preview-2.jpg') }}" class="img-responsive">-->
                         </div>
+                        
                         <div class="col-sm-4 space-20">
-                            <div align="center" class="embed-responsive embed-responsive-16by9">
-                                <video autoplay loop class="embed-responsive-item">
-                                    <source src="{{ asset('vid/008.mp4') }}" type="video/mp4">
-                                </video>
+                            <button type="button" class="btn btn-lg btn-CtmVideos" data-toggle="modal" data-target="#myModal3">
+                                <img src="{{ asset('img/home/preview-3.jpg') }}" class="img-responsive pointerCustom">
+                            </button>   
+
+                            <div id="myModal3" class="modal fade" role="dialog">
+                              <div class="modal-dialog">
+
+                                <!-- Modal content-->
+                                <div class="modal-content">
+                                  <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                    <h4 class="modal-title"></h4>
+                                  </div>
+                                  <div class="modal-body">
+                                    <p></p>
+                                    <div align="center" class="embed-responsive embed-responsive-16by9">
+                                        <video autoplay loop class="embed-responsive-item">
+                                            <source src="{{ asset('vid/008.mp4') }}" type="video/mp4">
+                                        </video>
+                                    </div>
+                                  </div>
+                                  <div class="modal-footer">
+                                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                  </div>
+                                </div>
+
+                              </div>
                             </div>
-                        <!--<img src="{{ asset('img/home/preview-3.jpg') }}" class="img-responsive">-->
-                        </div>
+                        </div>        
                     </div>
+                    
                     <div class="row">
+                        
                         <div class="col-sm-4 space-20">
-                            <div align="center" class="embed-responsive embed-responsive-16by9">
-                                <video autoplay loop class="embed-responsive-item">
-                                    <source src="{{ asset('vid/002.mp4') }}" type="video/mp4">
-                                </video>
+                            <button type="button" class="btn btn-lg btn-CtmVideos" data-toggle="modal" data-target="#myModal4">
+                                <img src="{{ asset('img/home/preview-4.jpg') }}" class="img-responsive pointerCustom">
+                            </button>   
+
+                            <div id="myModal4" class="modal fade" role="dialog">
+                              <div class="modal-dialog">
+
+                                <!-- Modal content-->
+                                <div class="modal-content">
+                                  <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                    <h4 class="modal-title"></h4>
+                                  </div>
+                                  <div class="modal-body">
+                                    <p></p>
+                                    <div align="center" class="embed-responsive embed-responsive-16by9">
+                                        <video autoplay loop class="embed-responsive-item">
+                                            <source src="{{ asset('vid/002.mp4') }}" type="video/mp4">
+                                        </video>
+                                    </div>
+                                  </div>
+                                  <div class="modal-footer">
+                                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                  </div>
+                                </div>
+
+                              </div>
                             </div>
-                            <!--<img src="{{ asset('img/home/preview-4.jpg') }}" class="img-responsive">-->
                         </div>
+                        
                         <div class="col-sm-4 space-20">
-                            <div align="center" class="embed-responsive embed-responsive-16by9">
-                                <video autoplay loop class="embed-responsive-item">
-                                    <source src="{{ asset('vid/010.mp4') }}" type="video/mp4">
-                                </video>
+                            <button type="button" class="btn btn-lg btn-CtmVideos" data-toggle="modal" data-target="#myModal5">
+                                <img src="{{ asset('img/home/preview-5.jpg') }}" class="img-responsive pointerCustom">
+                            </button>   
+
+                            <div id="myModal5" class="modal fade" role="dialog">
+                              <div class="modal-dialog">
+
+                                <!-- Modal content-->
+                                <div class="modal-content">
+                                  <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                    <h4 class="modal-title"></h4>
+                                  </div>
+                                  <div class="modal-body">
+                                    <p></p>
+                                    <div align="center" class="embed-responsive embed-responsive-16by9">
+                                        <video autoplay loop class="embed-responsive-item">
+                                            <source src="{{ asset('vid/010.mp4') }}" type="video/mp4">
+                                        </video>
+                                    </div>
+                                  </div>
+                                  <div class="modal-footer">
+                                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                  </div>
+                                </div>
+
+                              </div>
                             </div>
-                        <!--<img src="{{ asset('img/home/preview-5.jpg') }}" class="img-responsive">-->
                         </div>
+                       
                         <div class="col-sm-4 space-20 align-center">
                             <div class="space-60"></div>
-                                                    @if(Auth::user())
-                                                    <a href="{{ route('dash') }}"><button class="btn-gls" role="button">And much more</button></a>
-                                                    @else
-                                                    <a href="{{ route('login') }}"><button class="btn-gls" role="button">And much more</button></a>
-                                                    @endif
+                                                    <a href="{{ route('all-videos') }}"><button class="btn-gls" role="button">And much more</button></a>
                         </div>
                     </div>
                 </div>
@@ -236,7 +348,7 @@
                 <div class="col-sm-4 space-40 hIcons-1">
                 <img src="{{ asset('img/home/home-2-1.png') }}" class="img-responsive">
                 <h3>Customize Your Calendar</h3>
-                    <p>Add your logo, images, and text.<br/>Choose from our video library to highlight special events.</p>
+                    <p>Add your logo, images and text, choose from our video library to highlight special events.</p>
                 </div>
                 <div class="col-sm-4 space-40 hIcons-1 linebox-left-1">
                 <img src="{{ asset('img/home/home-3-1.png') }}" class="img-responsive">
@@ -266,7 +378,7 @@
                 <h1>Customized for Any Display</h1>
                 </div>
             </div>
-            <div class="row space-20">
+            <div class="row space-20">                
                 <div class="col-sm-4 hIcons-2 space-40">
                     <img src="{{ asset('img/home/home-4.png') }}" class="img-responsive">
                     <div class="full-width space-40"></div>

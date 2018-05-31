@@ -1213,7 +1213,7 @@
     $('#generateVideo').click(function () {
         waitingDialog.show('Please wait while your video is created!', {dialogSize: 'sm', progressType: 'danger'});
         $("#calendarTab").trigger("click");
-        setTimeout(null, 2500);
+        //setTimeout(null, 3500);
         setTimeout(function () {
 
             html2canvas($('#calendarPanel'), {
@@ -1224,7 +1224,7 @@
                 }
             });
 
-        }, 1500);
+        }, 100);
 
         setTimeout(function () {
             var form = $('#myForm');
@@ -1246,7 +1246,6 @@
                     type: BootstrapDialog.TYPE_PRIMARY,
                 });
             }).fail(function (e) {
-                alert("hay error");
                 waitingDialog.hide();
                 alert(JSON.stringify(e));
             });

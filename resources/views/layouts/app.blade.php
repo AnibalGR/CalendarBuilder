@@ -112,7 +112,7 @@
                 <div class="full-width space-20"></div>
                     <div class="col-xs-12 col-sm-7 copyright">
                         <div class="full-width space-40"></div>
-                        © 2017 Digital Activity Calendars, Inc. - All Rights Reserved
+                        © <?php echo date("Y"); ?> Digital Activity Calendars, Inc. - All Rights Reserved
                     </div>
                     <div class="col-xs-12 col-sm-4 copyright">
                         <a href="{{ url('/') }}">

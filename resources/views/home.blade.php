@@ -60,7 +60,7 @@
                                 <span class="text-whiteBG">SAVE CALENDAR</span>
                             </button>
                         </div>
-                        <a href="#" data-toggle="tooltip" title="For windows users only.">
+                        <a href="#" data-toggle="tooltip" title="For Windows users only.">
                         <div class="col-md-2">
                             <!--Upload Events Form-->
                             <form method="POST" action="{{ route('uploadEvents')}}" id="form-uploadEvents" enctype="multipart/form-data">
@@ -73,7 +73,7 @@
                                     <span class="text-whiteBG">UPLOAD EVENTS</span>
                                 </button>
                             </form>
-                           <p style="color:#ffffff;">For windows users only.</p>
+                           <p style="color:#ffffff;">For Windows users only.</p>
                            <p><a style="color:#ffffff;" href="{{ asset('free-template/events-free-template.xlsx')}}" download>Use the FREE TEMPLATE HERE</a></p>
                         </div>
                         </a>

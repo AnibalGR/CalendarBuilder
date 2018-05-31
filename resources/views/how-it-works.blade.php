@@ -31,7 +31,7 @@
                 <div class="col-sm-4 space-40 hIcons-1">
                 <img src="{{ asset('img/home/home-2.png') }}" class="img-responsive">
                 <h3>Customize Your Calendar</h3>
-                    <p>Add your logo, images and text, choose from our video library to highlight special events.</p>
+                    <p>Add your logo, images and text, and choose from our video library to highlight special events.</p>
                 </div>
                 <div class="col-sm-4 space-40 hIcons-1 linebox-left">
                 <img src="{{ asset('img/home/home-3.png') }}" class="img-responsive">
@@ -95,7 +95,7 @@
                 </div>
                 <h4 class="color-2 text-center">Step 3: Video and Images</h4>
                 <p class="text-justify">Choose from our preloaded background or side-panel images and videos, or upload pictures of your choice.</p>
-                <p class="text-justify">At any stage of the creation process, you may have us generate a video for you, save your calendar, and upload or clear events.</p>
+                <p class="text-justify">At any stage of the creation process, you may save your calendar, upload or clear events, and have us generate a video for you.</p>
             </div>
         </div>
     </div>

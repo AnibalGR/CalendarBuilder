@@ -26,7 +26,7 @@
                                 @if(Auth::user())
                                 <a href="{{ route('dash') }}"><button class="btn btn-hero btn-lg" role="button">GET STARTED</button></a>
                                 @else
-                                <a href="{{ route('login') }}"><button class="btn btn-hero btn-lg" role="button">GET STARTED</button></a>
+                                <a href="{{ route('register') }}"><button class="btn btn-hero btn-lg" role="button">GET STARTED</button></a>
                                 @endif
                             </div>
                         </div>
@@ -53,7 +53,7 @@
                                                     @if(Auth::user())
                                                     <a href="{{ route('dash') }}"><button class="btn-gs1" role="button">GET STARTED</button></a>
                                                     @else
-                                                    <a href="{{ route('login') }}"><button class="btn-gs1" role="button">GET STARTED</button></a>
+                                                    <a href="{{ route('register') }}"><button class="btn-gs1" role="button">GET STARTED</button></a>
                                                     @endif
                                 </div>
                                 <div class="col-sm-6">
@@ -103,8 +103,9 @@
                      <div class="row">
                         <div class="col-lg-12 txtcenter color-1">
                         <h1>Automated Content</h1>
-                        <p>Choose from a variety of our professionally created digital<br>
-        graphics to enhance your display with engaging images.</p>
+                        <p>Enhance your display with engaging images.<br>
+                            Choose from a variety of our professionally created digital graphics and videos.
+                        </p>
                         </div>
                     </div>
                     <div class="row">
@@ -268,7 +269,7 @@
                        
                         <div class="col-sm-4 space-20 align-center">
                             <div class="space-60"></div>
-                                                    <a href="{{ route('all-videos') }}"><button class="btn-gls" role="button">And much more</button></a>
+                                                    <a href="{{ route('all-videos') }}"><button class="btn-gls" role="button">And many more</button></a>
                         </div>
                     </div>
                 </div>
@@ -348,7 +349,7 @@
                 <div class="col-sm-4 space-40 hIcons-1">
                 <img src="{{ asset('img/home/home-2-1.png') }}" class="img-responsive">
                 <h3>Customize Your Calendar</h3>
-                    <p>Add your logo, images and text, choose from our video library to highlight special events.</p>
+                    <p>Add your logo, images and text, and choose from our video library to highlight special events.</p>
                 </div>
                 <div class="col-sm-4 space-40 hIcons-1 linebox-left-1">
                 <img src="{{ asset('img/home/home-3-1.png') }}" class="img-responsive">

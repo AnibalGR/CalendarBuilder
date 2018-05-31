@@ -13,8 +13,7 @@
                      <div class="row">
                         <div class="col-lg-12 txtcenter color-1">
                         <h1>See All Our Automated Content</h1>
-                        <p>Choose from a variety of our professionally created digital<br>
-        graphics to enhance your display with engaging images.</p>
+                        <p>Enhance your display with engaging images. Here are just a few examples of our professionally created digital graphics and videos.</p>
                         </div>
                     </div>
                     <div class="row">

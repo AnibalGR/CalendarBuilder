@@ -54,7 +54,7 @@
                             <!-- Authentication Links -->
                             <li><a href="{{ route('start') }}">Home</a></li>
                             <li><a href="{{ route('how-it-works') }}">How It Works</a></li>
-                            <!--<li><a href="{{ route('plans') }}">Pricing</a></li>-->
+                            <li><a href="{{ route('plans') }}">Pricing</a></li>
                             <li><a href="{{ route('blog') }}">Blog</a></li>
                             @guest
                             <li class="menuNavBarButton colorB-W"><a href="{{ route('login') }}" >Login</a></li>
@@ -68,13 +68,13 @@
                                 </a>
                                 @yield('customButtons')
                                 <ul class="dropdown-menu" role="menu">
-                                    <!--<li>
+                                    <li>
                                         @if (Auth::user()->subscribed('main'))
                                         <a href="{{ url('/subscriptions') }}">
                                             Manage subscriptions
                                         </a>
                                         @endif
-                                    </li>-->
+                                    </li>
                                     <li>
                                         <a href="{{ route('profile') }}">
                                             Profile

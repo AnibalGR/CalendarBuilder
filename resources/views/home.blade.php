@@ -49,12 +49,12 @@
                 <div class="col-md-12 head-calendar">
                     <div class="col-md-12">
                         
-                        @if (Auth::user()->subscribed('main'))
+                        <!--@if (Auth::user()->subscribed('main'))-->
                         <div class="col-md-3">
                             <button id="generateVideo" type="button" class="btn btn-labeled btn-default">
                                 <span class="btn-label"><i class="glyphicon glyphicon-facetime-video sb-icons-3"></i></span><span class="text-whiteBG">GENERATE VIDEO</span></button>
                         </div>
-                        @endif
+                        <!--@endif-->
                         
                         <div class="col-md-3">
                             <button id="saveCalendar" type="button" class="btn btn-labeled btn-default">

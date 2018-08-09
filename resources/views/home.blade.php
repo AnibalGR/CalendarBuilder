@@ -78,7 +78,6 @@
                         </div>
                         </a>
                         
-                        
                         <div class="col-md-2">
                             <button id="clearContent" type="button" class="btn btn-labeled btn-default">
                                 <span class="btn-label">
